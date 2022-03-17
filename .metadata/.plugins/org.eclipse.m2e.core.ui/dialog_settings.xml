@@ -2,6 +2,7 @@
 <section name="Workbench">
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
+			<item value="C:\java fire\fire"/>
 			<item value="C:\java fire"/>
 			<item value="C:\fire"/>
 		</list>
