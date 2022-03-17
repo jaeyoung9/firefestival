@@ -1,0 +1,4 @@
+INDEX VERSION 1.131+C:\java fire\.metadata\.plugins\org.eclipse.jdt.core
+4044757637.index
+1113260804.index
+549436830.index
