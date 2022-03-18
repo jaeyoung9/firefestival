@@ -63,7 +63,7 @@
 						</div>
 					</div>
 				</div>
-				<!-- <div class="col-lg-4 col-md-6">
+				<!-- <div class="col-lg-4 col-md-6"> 사용안함.
 					<div class="single-news card">
 						<img class="card-top-img" src="images/news/n2.jpg" alt="Card image cap">
 						<div class="card-body">
