@@ -4,10 +4,13 @@ import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.my.fire.Notice.service.NoticeService;
@@ -23,6 +26,7 @@ public class NoticeController {
 	
 	
 	// 공지 페이지
+	@ResponseBody
 	@RequestMapping(value = "/notice")
 	public ModelAndView notice(CommandMap commandMap) throws Exception {
 		ModelAndView mv = new ModelAndView("notice");	
@@ -30,7 +34,7 @@ public class NoticeController {
 	}
 		// 페이징 처리
 		@RequestMapping(value ="/notice/page")
-		public ModelAndView noticepage(CommandMap commandMap) throws Exception{
+		public ModelAndView noticePage(CommandMap commandMap) throws Exception{
 			ModelAndView mv = new ModelAndView("jsonView");
 			List<Map<String, Object>> list = noticeService.notice(commandMap.getMap());
 			mv.addObject("list", list);
@@ -42,6 +46,27 @@ public class NoticeController {
 			return mv;
 		}
 		
-	
+	// 공지사항 작성페이지
+	@ResponseBody
+	@RequestMapping(value = "/notice/Go", method =RequestMethod.GET)
+	public ModelAndView noticeGo(CommandMap commandMap, HttpServletRequest request) throws Exception {
+		ModelAndView mv = new ModelAndView("noticeGo");
+		return mv;
+	}
+		// 공지사항 작성
+		@RequestMapping(value = "/notice/Go" , method = RequestMethod.POST)
+		
+		public ModelAndView noticeGoGo(CommandMap commandMap, HttpServletRequest request) throws Exception {
+
+			ModelAndView mv = new ModelAndView("jsonView");
+			 if (log.isDebugEnabled()) {
+		            log.debug(commandMap);
+		        }
+			noticeService.noticeGo(commandMap.getMap(), request);
+
+			return mv;
+
+		}
+
 	
 }
