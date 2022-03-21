@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.my.fire.login.dao.LoginDAO;
 
+//로그인 ServiceImpl_김형태
 @Service("loginService")
 public class LoginServiceImpl implements LoginService {
 
@@ -18,18 +19,21 @@ public class LoginServiceImpl implements LoginService {
 	@Resource(name="loginDAO")
 	private LoginDAO loginDAO;
 
+	//로그인 체크
 	@Override
 	public Map<String, Object> loginMemberCk(Map<String, Object> map) throws Exception {
 		// TODO Auto-generated method stub
 		return loginDAO.loginMemberCk(map);
 	}
 
+	//아이디 찾기
 	@Override
 	public List<Map<String, Object>> findId(Map<String, Object> map) throws Exception {
 		// TODO Auto-generated method stub
 		return loginDAO.findId(map);
 	}
 
+	//비밀번호 찾기
 	@Override
 	public List<Map<String, Object>> findPw(Map<String, Object> map) throws Exception {
 		// TODO Auto-generated method stub

@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" " http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="join">
-<!--   아이디 중복확인 -->
+<!-- 아이디 중복확인 -->
 <select id="joinIdCk" parameterType="String" resultType="int">
 <![CDATA[
 SELECT
 COUNT(*)
 FROM
-TB_MEMBER WHERE USER_ID=#{USER_ID}
+TB_MEMBER 
+WHERE USER_ID=#{USER_ID} AND DEL_GB = 'N'
 ]]>
 </select>
 
-<!-- 회원가입 -->
+<!-- 회원가입 완료 -->
 <insert id="joinOk" parameterType="hashmap">
 <![CDATA[
 INSERT INTO TB_MEMBER(

@@ -55,9 +55,7 @@ public class NoticeController {
 	}
 		// 공지사항 작성
 		@RequestMapping(value = "/notice/Go" , method = RequestMethod.POST)
-		
 		public ModelAndView noticeGoGo(CommandMap commandMap, HttpServletRequest request) throws Exception {
-
 			ModelAndView mv = new ModelAndView("jsonView");
 			 if (log.isDebugEnabled()) {
 		            log.debug(commandMap);
