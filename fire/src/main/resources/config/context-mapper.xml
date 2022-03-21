@@ -15,5 +15,5 @@
 			 SqlSessionTemplate는 SqlSession을 구현하고, 코드에서 SqlSession을 대체하는 역할 -->
 	<bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
         <constructor-arg index="0" ref="sqlSession"/>
-    </bean>  
+    </bean>
 </beans>

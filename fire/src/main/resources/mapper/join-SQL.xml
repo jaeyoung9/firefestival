@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mapper namespace="join">
+<!--   아이디 중복확인 -->
+<select id="joinIdCk" parameterType="String" resultType="int">
+<![CDATA[
+SELECT
+COUNT(*)
+FROM
+TB_MEMBER WHERE USER_ID=#{USER_ID}
+]]>
+</select>
+
+<!-- 회원가입 -->
+<insert id="joinOk" parameterType="hashmap">
+<![CDATA[
+INSERT INTO TB_MEMBER(
+USER_ID,
+USER_NIC,
+USER_PW,
+
+)
+VALUES(
+TB_MEMBER_SEQ.NEXTVAL,
+#{USER_ID},
+#{USER_NIC},
+#{USER_PW},
+)
+]]>
+</insert>
+
+</mapper>
