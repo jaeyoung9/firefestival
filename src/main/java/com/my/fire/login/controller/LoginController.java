@@ -18,6 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.my.fire.common.CommandMap;
 import com.my.fire.login.service.LoginService;
 
+//로그인 Controller_김형태
 @Controller
 public class LoginController {
 
@@ -60,8 +61,8 @@ public class LoginController {
 	      mav.addObject("message", message);
 	      return mav;
 	}
-	
-	@RequestMapping(value="/logout")//로그아웃
+	//로그아웃
+	@RequestMapping(value="/logout")
 	   public void logout(HttpServletRequest request,HttpServletResponse response,CommandMap commandMap) throws Exception {
 	      HttpSession session = request.getSession(false);
 	      if (session != null)
@@ -80,7 +81,7 @@ public class LoginController {
 	      ModelAndView mv = new ModelAndView("findId");
 	      return mv;
 	   }
-	 
+	 //아이디 찾기 결과
 	 @RequestMapping(value = "/findIdResult", method = RequestMethod.POST) // 입력한 정보에 맞춰서 아이디를 찾아주는 거
 	   public ModelAndView findIdResult(CommandMap commandMap) throws Exception {
 	         ModelAndView mv = new ModelAndView("findIdResult");
@@ -88,13 +89,13 @@ public class LoginController {
 	         mv.addObject("list", list);
 	         return mv;
 	      }
-	 
+	 //비밀번호 찾기 폼
 	 @RequestMapping(value = "/loginForm/findPw")
 		public ModelAndView findPw(CommandMap commandMap) throws Exception {
 			ModelAndView mv = new ModelAndView("findPw");
 		    return mv;
 		}
-	 
+	 //비밀번호 찾기 결과
 	 @RequestMapping(value = "/findPwResult", method = RequestMethod.POST) // 입력한 정보에 맞춰서 비밀번호를 찾아주는 거
 	   public ModelAndView findPwResult(CommandMap commandMap) throws Exception {
 	         ModelAndView mv = new ModelAndView("findPwResult");
