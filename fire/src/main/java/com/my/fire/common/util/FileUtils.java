@@ -15,7 +15,7 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 @Component("fileUtils")
 public class FileUtils {
-    private static final String filePath = "C:\\Users\\User\\Desktop\\ez\\프로젝트\\flower\\src\\main\\webapp\\images\\";
+    private static final String filePath = "C:\\java fire\\fire\\src\\main\\webapp\\images\\";
     
     public static boolean deleteFile(String storedFileName) {
         File file = new File(filePath + storedFileName);
@@ -33,7 +33,7 @@ public class FileUtils {
     public static List<Map<String,Object>> parseInsertFileInfo(Map<String,Object> map, HttpServletRequest request) throws Exception{
         MultipartHttpServletRequest multipartHttpServletRequest = (MultipartHttpServletRequest)request;
         Iterator<String> iterator = multipartHttpServletRequest.getFileNames();
-         String goods_title = request.getParameter("GOODS_TITLE");
+        // String goods_title = request.getParameter("GOODS_TITLE");
         // String goods_price = request.getParameter("GOODS_PRICE");
        //  String goods_content = request.getParameter("GOODS_CONTENT");
          
@@ -74,7 +74,7 @@ public class FileUtils {
                 //저장할 파일 이름
                 listMap.put("STORED_FILE_IMG", storedFileImg);
                 listMap.put("FILE_SIZE", multipartFile.getSize());
-                listMap.put("GOODS_TITLE", goods_title);
+             //   listMap.put("GOODS_TITLE", goods_title);
                 
               //  listMap.put("GOODS_PRICE", goods_price);
               //  listMap.put("GOODS_CONTENT", goods_content);
@@ -89,7 +89,7 @@ public class FileUtils {
     public static List<Map<String,Object>> parseInsertFileInfo2(Map<String,Object> map, HttpServletRequest request) throws Exception{
         MultipartHttpServletRequest multipartHttpServletRequest = (MultipartHttpServletRequest)request;
         Iterator<String> iterator = multipartHttpServletRequest.getFileNames();
-         String goods_title = request.getParameter("GOODS_TITLE");
+         //String goods_title = request.getParameter("GOODS_TITLE");
         // String goods_price = request.getParameter("GOODS_PRICE");
        //  String goods_content = request.getParameter("GOODS_CONTENT");
          
@@ -130,7 +130,7 @@ public class FileUtils {
                 //저장할 파일 이름
                 listMap.put("STORED_FILE_THUMB", storedFileThumb);
                 listMap.put("FILE_SIZE2", multipartFile2.getSize());
-                listMap.put("GOODS_TITLE", goods_title);
+              //  listMap.put("GOODS_TITLE", goods_title);
                 
               //  listMap.put("GOODS_PRICE", goods_price);
               //  listMap.put("GOODS_CONTENT", goods_content);
