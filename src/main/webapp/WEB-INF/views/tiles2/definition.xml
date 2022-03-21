@@ -20,7 +20,11 @@
 			</definition>
 			
 			
-			
+			<definition name="notice" extends="base_layout">
+				<!-- <put-attribute name="title" value="메인" /> -->
+				<put-attribute name="body"
+					value="/WEB-INF/viewtiles2/notice.jsp" />
+			</definition>
 			
 			
 			
