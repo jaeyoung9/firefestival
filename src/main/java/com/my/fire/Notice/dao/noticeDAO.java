@@ -7,19 +7,20 @@ import org.springframework.stereotype.Repository;
 
 import com.my.fire.common.dao.AbstractDAO;
 
+//민재영 - notice
 @Repository("noticeDAO")
-public class noticeDAO extends AbstractDAO {
+public class NoticeDAO extends AbstractDAO {
 
 	// notice 공지 페이지
 	@SuppressWarnings("unchecked")
-	public List<Map<String, Object>> notice(Map<String, Object> map) throws Exception {
-		return (List<Map<String, Object>>) selectList("notice.notice", map);
+	public List<Map<String, Object>> notice(Map<String, Object> map) {
+		return (List<Map<String, Object>>) selectPagingList("notice.notice", map);
 	}
 
 	// notice 공지 상세 페이지
 	@SuppressWarnings("unchecked")
-	public List<Map<String, Object>> noticeList(Map<String, Object> map) throws Exception {
-		return (List<Map<String, Object>>) selectList("notice.noticeList", map);
+	public List<Map<String, Object>> noticeDetail(Map<String, Object> map){
+		return (List<Map<String, Object>>) selectList("notice.noticeDetail", map);
 	}
 
 	// notice 공지 작성 페이지
