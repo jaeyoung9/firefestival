@@ -19,14 +19,29 @@
 					value="/WEB-INF/viewtiles2/main.jsp" />
 			</definition>
 			
-			
+			<!-- 공지사항 -->
 			<definition name="notice" extends="base_layout">
-				<!-- <put-attribute name="title" value="메인" /> -->
+				<!-- <put-attribute name="title" value="공지사항페이지" /> -->
 				<put-attribute name="body"
-					value="/WEB-INF/viewtiles2/notice.jsp" />
+					value="/WEB-INF/viewtiles2/notice/notice.jsp" />
 			</definition>
 			
+			<definition name="noticeDetail" extends="base_layout">
+				<!-- <put-attribute name="title" value="공지사항페이지" /> -->
+				<put-attribute name="body"
+					value="/WEB-INF/viewtiles2/notice/noticeDetail.jsp" />
+			</definition>
 			
+			<definition name="noticeGo" extends="base_layout">
+				<!-- <put-attribute name="title" value="공지사항작성" /> -->
+				<put-attribute name="body"
+					value="/WEB-INF/viewtiles2/notice/noticeGo.jsp" />
+			</definition>
 			
+			<definition name="noticeUp" extends="base_layout">
+				<!-- <put-attribute name="title" value="공지사항수정" /> -->
+				<put-attribute name="body"
+					value="/WEB-INF/viewtiles2/notice/noticeUp.jsp" />
+			</definition>
 			
 </tiles-definitions>
