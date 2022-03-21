@@ -19,31 +19,31 @@ public class noticeServiceImpl implements noticeService{
 	@Override
 	public List<Map<String, Object>> notice(Map<String, Object> map) {
 		// TODO Auto-generated method stub
-		return noticeDAO.notice(map);
+		return noticeDao.notice(map);
 	}
 
 	@Override
 	public List<Map<String, Object>> noticeList(Map<String, Object> map) {
 		// TODO Auto-generated method stub
-		return noticeDAO.noticeList(map);
+		return noticeDao.noticeList(map);
 	}
 
 	@Override
 	public void noticeGo(Map<String, Object> map) throws Exception {
 		// TODO Auto-generated method stub
-		noticeDAO.noticeGo(map);
+		noticeDao.noticeGo(map);
 	}
 
 	@Override
 	public void noticeUp(Map<String, Object> map) throws Exception {
 		// TODO Auto-generated method stub
-		noticeDAO.noticeUp(map);
+		noticeDao.noticeUp(map);
 	}
 
 	@Override
 	public void noticeDe(Map<String, Object> map) throws Exception {
 		// TODO Auto-generated method stub
-		noticeDAO.noticeDe(map);
+		noticeDao.noticeDe(map);
 	}
 
 

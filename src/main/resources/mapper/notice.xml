@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" " http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="notice">
+
+
+	<!-- 페이지 -->
+	<select id="notice" parameterType="hashmap" resultType="hashmap">
+		<include refid="common.pagingPre" />
+<![CDATA[
+
+SELECT
+	ROW_NUMBER() OVER (ORDER BY NOTICE_INDEX DESC) RNUM,
+	NOTICE_INDEX,
+	NOTICE_DATE,
+	NOTICE_TITLE,
+	NOTICE_CONTENT,
+	NOTICE_ORIGINAL,
+	NOTICE_NEW_IMG,
+	NOTICE_FILE_SIZE,
+	NOTICE_TIME,
+	NOTICE_KATE
+		FROM (
+		SELECT ROW_NUMBER() OVER (ORDER BY NOTICE_INDEX DESC) RNUM,
+		NOTICE_INDEX,
+		NOTICE_DATE,
+		NOTICE_TITLE,
+		NOTICE_CONTENT,
+		NOTICE_ORIGINAL,
+		NOTICE_NEW_IMG,
+		NOTICE_FILE_SIZE,
+		NOTICE_TIME,
+		NOTICE_KATE
+			FROM TB_NOTICE
+			WHERE NOTICE_KATE = 'G')
+]]>
+		<include refid="common.pagingPost" />
+	</select>
+
+
+
+
+
+
+</mapper>

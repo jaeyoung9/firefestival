@@ -13,7 +13,7 @@ public class noticeDAO extends AbstractDAO {
 	// notice 공지 페이지
 	@SuppressWarnings("unchecked")
 	public List<Map<String, Object>> notice(Map<String, Object> map) throws Exception {
-		return (List<Map<String, Object>>) selectList("notice.noticeSelect", map);
+		return (List<Map<String, Object>>) selectList("notice.notice", map);
 	}
 
 	// notice 공지 상세 페이지
