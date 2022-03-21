@@ -1,1 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<mapper namespace="myPage">
+<!-- 회원정보 값불러오기 SQL 동작잘됨 -->
+<select id="myPage" parameterType="hashmap" resultType="hashmap">
+<![CDATA[
+SELECT
+USER_ID,
+USER_NIC,
+USER_PW,
+USER_ORIGINAL,
+USER_NEW_IMG,
+USER_FILE_SIZE
+FROM TB_MEMBER
+WHERE USER_ID = #{USER_ID}
+]]>
+</select>
+
+<!-- 회원정보 수정처리(완료시키기) 동작잘됨 -->
+<update id="myUpdate" parameterType="hashmap">
+<![CDATA[
+UPDATE
+TB_MEMBER
+SET
+USER_NIC = #{USER_NIC},
+USER_PW = #{USER_PW},
+USER_ORIGINAL = #{USER_ORIGINAL},
+USER_NEW_IMG = #{USER_NEW_IMG},
+USER_FILE_SIZE = #{USER_FILE_SIZE}
+WHERE
+USER_ID = #{USER_ID}
+]]>
+</update>
+<!-- 회원 탈퇴 withdraw 동작잘됨 -->
+<update id="withdraw" parameterType="hashmap">
+<![CDATA[
+UPDATE TB_MEMBER
+SET DEL_GB = 'Y'
+WHERE
+USER_ID = #{USER_ID}
+]]>
+</update>
+<!-- (사용자) 회원 정보 - 비밀번호 체크 -->
+<select id="checkPw" parameterType="hashmap" resultType="hashmap">
+<![CDATA[
+SELECT
+*
+FROM
+TB_MEMBER
+WHERE
+USER_PW = #{USER_PW} and USER_ID = #{USER_ID}
+]]>
+</select>
+
+</mapper>

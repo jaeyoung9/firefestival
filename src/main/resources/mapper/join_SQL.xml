@@ -1,1 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" " http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="join">
+<!--   아이디 중복확인 -->
+<select id="joinIdCk" parameterType="String" resultType="int">
+<![CDATA[
+SELECT
+COUNT(*)
+FROM
+TB_MEMBER WHERE USER_ID=#{USER_ID}
+]]>
+</select>
+
+<!-- 회원가입 -->
+<insert id="joinOk" parameterType="hashmap">
+<![CDATA[
+INSERT INTO TB_MEMBER(
+USER_ID,
+USER_NIC,
+USER_PW,
+USER_ORIGINAL,
+USER_NEW_IMG,
+USER_FILE_SIZE
+)
+VALUES(
+#{USER_ID},
+#{USER_NIC},
+#{USER_PW},
+#{USER_ORIGINAL},
+#{USER_NEW_IMG},
+#{USER_FILE_SIZE}
+)
+]]>
+</insert>
+
+</mapper>
