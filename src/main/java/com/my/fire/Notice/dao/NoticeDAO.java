@@ -24,16 +24,19 @@ public class NoticeDAO extends AbstractDAO {
 	}
 
 	// notice 공지 작성 페이지d
+	@SuppressWarnings("unchecked")
 	public void noticeGo(Map<String, Object> map) throws Exception {
 		insert("notice.noticeGo", map);
 	}
 
 	// notice 공지 수정 페이지d
+	@SuppressWarnings("unchecked")
 	public void noticeUp(Map<String, Object> map) throws Exception {
 		update("notice.noticeUp", map);
 	}
 
 	// notice 공지 삭제 d
+	@SuppressWarnings("unchecked")
 	public void noticeDe(Map<String, Object> map) throws Exception {
 		update("notice.noticeDe", map);
 	}
