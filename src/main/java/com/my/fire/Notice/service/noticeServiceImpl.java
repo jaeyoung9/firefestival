@@ -74,14 +74,14 @@ public class NoticeServiceImpl implements NoticeService{
 				}
 	}
 
-	//공지 수정
+	//공지 수정dd
 	@Override
 	public void noticeUp(Map<String, Object> map) throws Exception {
 		// TODO Auto-generated method stub
 		noticeDao.noticeUp(map);
 	}
 
-	//공지 삭제
+	//공지 삭제dd
 	@Override
 	public void noticeDe(Map<String, Object> map) throws Exception {
 		// TODO Auto-generated method stub

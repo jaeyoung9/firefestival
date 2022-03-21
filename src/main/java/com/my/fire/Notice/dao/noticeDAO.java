@@ -11,31 +11,32 @@ import com.my.fire.common.dao.AbstractDAO;
 @Repository("noticeDAO")
 public class NoticeDAO extends AbstractDAO {
 
-	// notice 공지 페이지
+	// notice 공지 페이지d
 	@SuppressWarnings("unchecked")
 	public List<Map<String, Object>> notice(Map<String, Object> map) {
 		return (List<Map<String, Object>>) selectPagingList("notice.notice", map);
 	}
 
-	// notice 공지 상세 페이지
+	// notice 공지 상세 페이지d
 	@SuppressWarnings("unchecked")
 	public List<Map<String, Object>> noticeDetail(Map<String, Object> map){
 		return (List<Map<String, Object>>) selectList("notice.noticeDetail", map);
 	}
 
-	// notice 공지 작성 페이지
+	// notice 공지 작성 페이지d
 	public void noticeGo(Map<String, Object> map) throws Exception {
 		insert("notice.noticeGo", map);
 	}
 
-	// notice 공지 수정 페이지
+	// notice 공지 수정 페이지d
 	public void noticeUp(Map<String, Object> map) throws Exception {
 		update("notice.noticeUp", map);
 	}
 
-	// notice 공지 삭제
+	// notice 공지 삭제 d
 	public void noticeDe(Map<String, Object> map) throws Exception {
 		update("notice.noticeDe", map);
 	}
 
+	
 }
