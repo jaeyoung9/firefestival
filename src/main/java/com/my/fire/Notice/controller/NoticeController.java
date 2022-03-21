@@ -48,7 +48,7 @@ public class NoticeController {
 		
 	// 공지사항 작성페이지
 	@ResponseBody
-	@RequestMapping(value = "/notice/Go", method =RequestMethod.GET)
+	@RequestMapping(value = "/notice/Go")
 	public ModelAndView noticeGo(CommandMap commandMap, HttpServletRequest request) throws Exception {
 		ModelAndView mv = new ModelAndView("noticeGo");
 		return mv;
