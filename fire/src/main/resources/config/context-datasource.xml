@@ -13,7 +13,8 @@
 	<property name="password" value="fire" />
     </bean>
     
-    <!-- context-mapper.xml파일에서 여기에 정의한 dataSource를 참조한다. -->
+    <!-- context-mapper.xml파일에서 여기에 정의한 dataSource를 참조한다.
+ -->
     <bean id="dataSource" class="net.sf.log4jdbc.Log4jdbcProxyDataSource">
 		<constructor-arg ref="dataSourceSpied" />
 		<property name="logFormatter">
