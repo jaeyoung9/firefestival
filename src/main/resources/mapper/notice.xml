@@ -2,8 +2,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" " http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="notice">
 
+<!-- 민재영 - notice  -->
 
-	<!-- 페이지 -->
+	<!-- 페이징  -->
 	<select id="notice" parameterType="hashmap" resultType="hashmap">
 		<include refid="common.pagingPre" />
 <![CDATA[
