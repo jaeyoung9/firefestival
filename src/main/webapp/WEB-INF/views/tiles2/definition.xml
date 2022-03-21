@@ -27,7 +27,7 @@
 			</definition>
 			
 			<definition name="noticeDetail" extends="base_layout">
-				<!-- <put-attribute name="title" value="공지사항페이지" /> -->
+				<!-- <put-attribute name="title" value="공지사항 상세페이지" /> -->
 				<put-attribute name="body"
 					value="/WEB-INF/viewtiles2/notice/noticeDetail.jsp" />
 			</definition>
