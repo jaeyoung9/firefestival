@@ -37,7 +37,26 @@ FROM TB_NOTICE
 	</select>
 
 
-
+<!-- 공지사항 작성 -->
+<insert id="noticeGo" parameterType="hashmap">
+<![CDATA[
+INSERT INTO TB_NOTICE(
+NOTICE_TITLE,	
+NOTICE_CONTENT,	
+NOTICE_ORIGINAL,
+NOTICE_NEW_IMG,	
+NOTICE_FILE_SIZE
+)
+VALUES(
+#{NOTICE_TITLE},
+#{NOTICE_CONTENT},
+#{NOTICE_ORIGINAL},
+#{NOTICE_NEW_IMG},
+#{NOTICE_FILE_SIZE}
+)
+where AMIN_TIM = #{AMIN_TIM}
+]]>
+</insert>
 
 
 
