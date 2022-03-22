@@ -9,14 +9,14 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 
-<link rel="stylesheet" href="css/linearicons.css">
-<link rel="stylesheet" href="<c:url value='css/font-awesome.min.css'/>" />
-<link rel="stylesheet" href="<c:url value='css/bootstrap.css'/>" />
-<link rel="stylesheet" href="<c:url value='css/magnific-popup.css'/>" />
-<link rel="stylesheet" href="<c:url value='css/nice-select.css'/>" />
-<link rel="stylesheet" href="<c:url value='css/animate.min.css'/>" />
-<link rel="stylesheet" href="<c:url value='css/owl.carousel.css'/>" />
-<link rel="stylesheet" href="<c:url value='css/main.css'/>" />
+<link rel="stylesheet" href="/css/linearicons.css">
+<link rel="stylesheet" href="<c:url value='/css/font-awesome.min.css'/>" />
+<link rel="stylesheet" href="<c:url value='/css/bootstrap.css'/>" />
+<link rel="stylesheet" href="<c:url value='/css/magnific-popup.css'/>" />
+<link rel="stylesheet" href="<c:url value='/css/nice-select.css'/>" />
+<link rel="stylesheet" href="<c:url value='/css/animate.min.css'/>" />
+<link rel="stylesheet" href="<c:url value='/css/owl.carousel.css'/>" />
+<link rel="stylesheet" href="<c:url value='/css/main.css'/>" />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.11/css/lightgallery.min.css">
 
 <!-- jQuery -->

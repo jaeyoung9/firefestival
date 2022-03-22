@@ -29,7 +29,7 @@ public class IntroController {
 		return mv;
 	}
 
-	@RequestMapping(value = "/introWritePage")
+	@RequestMapping(value = "/intro/WritePage")
 	public ModelAndView introWritePage(CommandMap commandMap, HttpServletRequest request) throws Exception {
 		ModelAndView mv = new ModelAndView("introWritePage");
 		return mv;
