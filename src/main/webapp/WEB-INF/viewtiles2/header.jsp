@@ -46,13 +46,14 @@
 		<div class="container main-menu">
 			<div class="row align-items-center justify-content-between d-flex">
 				<div id="logo">
-					<a href="index.html"><img src="images/logo.jpg" alt="" title="" /></a>
+					<a href="<c:url value='/main'/>"><img src="images/logo.jpg" alt="" title="" /></a>
 				</div>
 				<nav id="nav-menu-container">
 					<ul class="nav-menu">
 						<li class="menu-active"><a href="index.html">home</a></li>
 						<li><a href="portfolio.html">소개글/오시는길</a></li>
 						<li><a href="about.html">자료실</a></li>
+						<li><a href="<c:url value='/notice'/>">공지사항</a></li>
 						<li class="menu-has-children"><a href="">먹거리/푸드트럭</a>
 							<ul>
 								<li><a href="blog-home.html">먹거리</a></li>

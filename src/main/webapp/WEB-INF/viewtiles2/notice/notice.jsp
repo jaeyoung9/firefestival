@@ -15,7 +15,18 @@
 	<div class="wrap">
 		<table>
 			<tbody>
-
+<colgroup>
+			<col width="2%"/>
+			<col width="10%"/>
+			<col width="10%"/>
+        </colgroup>
+        <thead>
+        	<tr class="" style="text-align:center;">
+        		<th scope="col">번호</th>
+        		<th scope="col">제목</th>
+        		<th scope="col">작성일자</th>
+        	</tr>
+        </thead>
 
 
 			</tbody>
@@ -89,23 +100,18 @@
 								data.list,
 								function(key, value) {
 									str += "<div class='tile'>"
-                                       
-                                        + "<a href='#this' name='title'>" 
-                                        + "<input type='hidden' name='title' id='GOODS_INDEX' value=" + value.NOTICE_INDEX + ">"
-                                        + " <img src='../images/UP/"+value.NOTICE_NEW_IMG +"'height='300' width='450'/>"
-                                        + "</a>"
+                                      
                                         + "<div class='text'>"
                                         + "<p class='animate-text'>"
-                                        + "<a href='#this' name='title'>" + value.NOTICE_TITLE + "</a>"
-                                        + "<input type='hidden' name='title' id='NOTICE_INDEX' value=" + value.NOTICE_INDEX + ">"
-                                        + "</p>"
-                                        
-                                        + "<p class='animate-text'>"
-                                        + "<a href='#this' name='title'>" + value.NOTICE_CONTENT+ "</a>"
+                                        + "<a href='#this' name='title'>" + value.NOTICE_INDEX + "</a>"
                                         + "<input type='hidden' name='title' id='NOTICE_INDEX' value=" + value.NOTICE_INDEX + ">"
                                         + "</p>"
                                         + "<p class='animate-text'>"
-                                        + "<a href='#this' name='title'>" + value.NOTICE_TIME + "</a>"
+                                        + "<a href='#this' name='title'>" + value.NOTICE_TITLE+ "</a>"
+                                        + "<input type='hidden' name='title' id='NOTICE_INDEX' value=" + value.NOTICE_INDEX + ">"
+                                        + "</p>"
+                                        + "<p class='animate-text'>"
+                                        + "<a href='#this' name='title'>" + value.NOTICE_DATE + "</a>"
                                         + "<input type='hidden' name='title' id='NOTICE_INDEX' value=" + value.NOTICE_INDEX + ">"
                                         + "</p>"
                                         + "<div class='dots'>"
@@ -117,7 +123,8 @@
                                         + "</span>"
                                        + "</div>"
                                         + "</div>"
-                                        + "</div>";
+                                        + "</div>"
+                                        + "<hr>";
 
 								});
 				body.append(str);
@@ -130,5 +137,9 @@
 			}
 		}
 	</script>
-</body>
+</body><!-- 
+  + "<a href='#this' name='title'>" 
+                                        + "<input type='hidden' name='title' id='GOODS_INDEX' value=" + value.NOTICE_INDEX + ">"
+                                        + " <img src='../../images/UP/"+value.NOTICE_NEW_IMG +"'height='300' width='450'/>"
+                                        + "</a>" -->
 </html>
