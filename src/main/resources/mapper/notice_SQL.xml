@@ -31,7 +31,7 @@
 			NOTICE_TIME,
 			NOTICE_KATE
 		FROM TB_NOTICE
-			WHERE NOTICE_KATE = 'G')
+			WHERE NOTICE_KATE = 'N')
 		]]>
 		<include refid="common.pagingPost" />
 	</select>
