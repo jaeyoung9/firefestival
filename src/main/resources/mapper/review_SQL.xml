@@ -2,15 +2,47 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" " http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="review">
 
+<!-- 페이징  -->
+<select id="reviewPage" parameterType="hashmap" resultType="hashmap">
+<include refid="common.pagingPre" />
+<![CDATA[
+SELECT
+	ROW_NUMBER() OVER (ORDER BY REVIEW_INDEX DESC) RNUM,
+	REVIEW_INDEX,
+	REVIEW_DATE,
+	REVIEW_TITLE,
+	REVIEW_CONTENT,
+	REVIEW_ORIGINAL,
+	REVIEW_NEW_IMG,
+	REVIEW_FILE_SIZE,
+	DEL_GB
+FROM (SELECT ROW_NUMBER() OVER (ORDER BY NOTICE_INDEX DESC) RNUM,
+	REVIEW_INDEX,
+	REVIEW_DATE,
+	REVIEW_TITLE,
+	REVIEW_CONTENT,
+	REVIEW_ORIGINAL,
+	REVIEW_NEW_IMG,
+	REVIEW_FILE_SIZE,
+	DEL_GB
+FROM TB_NOTICE
+	WHERE DEL_GB = 'N')
+]]>
+<include refid="common.pagingPost" />
+</select>
+
 <!-- 리뷰 작성 -->
 <insert id="reviewUserWrite" parameterType="hashmap"> 
 <![CDATA[ 
-insert into tb_review(
-REVIEW_INDEX
-USER_ID
-REVIEW_DATE
-REVIEW_TITLE
-REVIEW_CONTENT
+INSERT INTO TB_REVIEW(
+REVIEW_INDEX,
+USER_ID,
+REVIEW_DATE,
+REVIEW_TITLE,
+REVIEW_CONTENT,
+REVIEW_ORIGINAL,
+REVIEW_NEW_IMG,
+REVIEW_FILE_SIZE,
 DEL_GB
 )
 values(
@@ -19,20 +51,37 @@ REVIEW_INDEX_SEQ.NEXTVAL,
 SYSDATE,
 #{REVIEW_TITLE},
 #{REVIEW_CONTENT},
+#{REVIEW_ORIGINAL},
+#{REVIEW_NEW_IMG},
+#{REVIEW_FILE_SIZE},
 'N'
 )
 ]]>
 </insert>
 
+<!-- 리뷰 작성페이지 이동 -->
+<select id="getOrder" parameterType="hashmap" resultType="hashmap"> 
+<![CDATA[ 
+SELECT *
+from
+TB_ORDER
+WHERE
+ORDER_NUM = #{ORDER_NUM}
+]]>
+</select>
+
 <!-- 리뷰 상세페이지 -->
 <select id="reviewDetail" parameterType="hashmap" resultType="hashmap"> 
 <![CDATA[ 
-select
+SELECT
 R.REVIEW_INDEX,
 R.USER_ID,
 R.REVIEW_DATE,
 R.REVIEW_TITLE,
 R.REVIEW_CONTENT,
+R.REVIEW_ORIGINAL,
+R.REVIEW_NEW_IMG,
+R.REVIEW_FILE_SIZE,
 M.USER_ID
 FROM 
 TB_REVIEW R, TB_MEMBER M
@@ -50,4 +99,22 @@ WHERE
 REVIEW_INDEX = #{REVIEW_INDEX}
 ]]>
 </delete>
+
+<!-- 리뷰 수정처리 -->
+<update id="reviewUpdate" parameterType="hashmap">
+<![CDATA[
+UPDATE
+TB_REVIEW
+SET
+REVIEW_DATE = SYSDATE,
+REVIEW_TITLE = #{REVIEW_TITLE},
+REVIEW_CONTENT = #{REVIEW_CONTENT},
+REVIEW_ORIGINAL = #{REVIEW_ORIGINAL},
+REVIEW_NEW_IMG = #{REVIEW_NEW_IMG},
+REVIEW_FILE_SIZE = #{REVIEW_FILE_SIZE}
+WHERE
+USER_ID = #{USER_ID}
+
+]]>
+</update>
 </mapper>
