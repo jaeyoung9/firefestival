@@ -57,6 +57,13 @@ public class ReviewServiceImpl implements ReviewService {
 			}
 		}
 	}
+	
+	// 리뷰 작성 페이지
+	@Override
+	public List<Map<String, Object>> getReview(Map<String, Object> map) {
+		// TODO Auto-generated method stub
+		return reviewDAO.getReview(map);
+	}
 
 	//리뷰 상세
 	@Override
@@ -72,6 +79,13 @@ public class ReviewServiceImpl implements ReviewService {
 		reviewDAO.reviewDelete(map);
 	}
 
+	//리뷰 정보 가져오기
+	@Override
+	public Map<String, Object> review(Map<String, Object> map) throws Exception {
+		// TODO Auto-generated method stub
+		return reviewDAO.review(map);
+	}
+	
 	//리뷰 수정
 	@Override
 	public void reviewUpdate(Map<String, Object> map) throws Exception {
