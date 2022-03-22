@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" " http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="intro">
+
+
+	<select id="intro" parameterType="hashmap" resultType="hashmap">
+		
+<![CDATA[
+SELECT * FROM TB_MAIN 
+]]>
+
+	</select>
+
+
+<insert id="introWrite" parameterType="hashmap">  
+
+<![CDATA[  
+
+insert into TB_MAIN( 
+
+MAIN_INDEX,
+MAIN_TITLE,
+MAIN_CONTENT,
+MAIN_IMG,
+MAIN_FILE_SIZE,
+MAIN_KATE
+
+) 
+values( 
+
+TB_MAIN_SEQ.NEXTVAL, 
+#{MAIN_TITLE}, 
+#{MAIN_CONTENT}, 
+#{MAIN_IMG},
+#{MAIN_FILE_SIZE},
+#{MAIN_KATE}
+
+) 
+
+]]> 
+
+</insert> 
+
+
+</mapper>
