@@ -60,13 +60,13 @@ SYSDATE,
 </insert>
 
 <!-- 리뷰 작성페이지 이동 -->
-<select id="getOrder" parameterType="hashmap" resultType="hashmap"> 
+<select id="getReview" parameterType="hashmap" resultType="hashmap"> 
 <![CDATA[ 
 SELECT *
 from
-TB_ORDER
+TB_REVIEW
 WHERE
-ORDER_NUM = #{ORDER_NUM}
+REVIEW_INDEX = #{REVIEW_INDEX}
 ]]>
 </select>
 
@@ -100,7 +100,22 @@ REVIEW_INDEX = #{REVIEW_INDEX}
 ]]>
 </delete>
 
-<!-- 리뷰 수정처리 -->
+<!-- 리뷰 정보 가져오기 -->
+<select id="review" parameterType="hashmap" resultType="hashmap">
+<![CDATA[
+SELECT
+REVIEW_DATE,
+REVIEW_TITLE,
+REVIEW_CONTENT,
+REVIEW_ORIGINAL,
+REVIEW_NEW_IMG,
+REVIEW_FILE_SIZE
+FROM TB_REVIEW
+WHERE USER_ID = #{USER_ID}
+]]>
+</select>
+
+<!-- 리뷰 수정 -->
 <update id="reviewUpdate" parameterType="hashmap">
 <![CDATA[
 UPDATE

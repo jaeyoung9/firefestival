@@ -22,6 +22,12 @@ public class ReviewDAO extends AbstractDAO{
 		insert("review.reviewUserWrite", map);
 	}
 	
+	// 리뷰 작성 페이지
+	@SuppressWarnings("unchecked")
+	public List<Map<String, Object>> getReview(Map<String, Object> map){
+		return (List<Map<String, Object>>) selectList("review.getOrder",map);
+	}
+	
 	// 리뷰 상세보기 페이지 이동 	
 	@SuppressWarnings("unchecked")
 	public List<Map<String, Object>> reviewDetail(Map<String, Object> map){
@@ -30,6 +36,12 @@ public class ReviewDAO extends AbstractDAO{
 	// 리뷰 삭제
 	public void reviewDelete(Map<String, Object> map) throws Exception {
 		delete("review.reviewDelete", map);	
+	}
+	
+	//리뷰 정보 가져오기
+	@SuppressWarnings("unchecked")
+	public Map<String, Object> review(Map<String, Object> map) throws Exception{
+		return (Map<String, Object>)selectOne("review.review",map);
 	}
 	
 	//리뷰 수정
