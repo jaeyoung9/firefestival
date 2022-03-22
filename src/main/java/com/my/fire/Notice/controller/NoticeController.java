@@ -5,6 +5,7 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
@@ -66,5 +67,12 @@ public class NoticeController {
 
 		}
 
+		
+	// 공지상세페이지 접속
+	@RequestMapping("/notice/Detail")
+	public ModelAndView main(CommandMap commandMap, HttpServletRequest request) throws Exception {
+		ModelAndView mv = new ModelAndView("noticeDetail");
+		return mv;
+	}	
 	
 }
