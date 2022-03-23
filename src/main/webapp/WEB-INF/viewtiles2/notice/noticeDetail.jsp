@@ -6,13 +6,13 @@
 <html>
 <head>
 <meta charset="UTF-8"> 
-<c:forEach items="${NDetail}" var="ndetail">
-   <title>${ndetail.NOTICE_TITLE}</title>
+<c:forEach items="${ndetail}" var="ndetail">
+   <title>공지사항 - ${ndetail.NOTICE_TITLE}</title>
    </c:forEach>
 
 </head>
 <body>
-   <c:forEach items="${NDetail}" var="ndetail">
+   <c:forEach items="${ndetail}" var="ndetail">
    
    </c:forEach>
 </body>

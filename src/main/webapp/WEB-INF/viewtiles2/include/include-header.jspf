@@ -20,6 +20,7 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.11/css/lightgallery.min.css">
 
 <!-- jQuery -->
+<script type="text/javascript" src="<c:url value='../smart/js/service/HuskyEZCreator.js'/>" charset="utf-8"></script>
 <script src="<c:url value='/js/common.js'/>" charset="utf-8"></script>
 <script src="<c:url value='/js/vendor/jquery.min.js'/>"></script>
 <script src="<c:url value='/js/vendor/bootstrap.min.js'/>"></script>
