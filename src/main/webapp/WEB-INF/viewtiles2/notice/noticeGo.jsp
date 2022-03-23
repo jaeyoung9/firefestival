@@ -17,13 +17,15 @@
 				rows="25" class="" required></textarea><br>
 
 <input type="file" id="NOTICE_NEW_IMG" name="file"><br>
-<input type="button" class="submit" value="등록">
+<button type="button" class="submit" >등록</button>
 	</div>
 </form>
 
 </body>
 
 <script type="text/javascript">
+
+
 	$(document).ready(function() {
 
 		$('.submit').on('click', function() {
