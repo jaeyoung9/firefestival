@@ -32,6 +32,12 @@ public class JoinServiceImpl implements JoinService {
 	public int joinIdCk(String id) throws Exception {
 		return joinDAO.joinIdCk(id);
 	}
+	
+	//nic 중복 체크
+	@Override
+	public int joinNicCk(String nic) throws Exception {
+		return joinDAO.joinNicCk(nic);
+	}
 
 	//회원가입 완료
 	@Override
