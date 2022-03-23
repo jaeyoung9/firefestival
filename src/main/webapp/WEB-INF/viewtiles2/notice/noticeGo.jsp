@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
-<%@ include file="/WEB-INF/viewtiles2/include/include-header.jspf" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,26 +19,16 @@
 		</tr>
 		<tr>
 		<td>내용</td>
-		<td><textarea style="display:none;" name="NOTICE_CONTENT" maxlength="3000" id="NOTICE_CONTENT"></textarea></td>
+		<td><textarea  name="NOTICE_CONTENT" maxlength="3000" id="NOTICE_CONTENT"></textarea></td>
 		</tr>
-<script id="smartEditor" type="text/javascript"> 
-	var oEditors = [];
-	nhn.husky.EZCreator.createInIFrame({
-	    oAppRef: oEditors,
-	    elPlaceHolder: "NOTICE_CONTENT",  //textarea ID 입력
-	    sSkinURI: "<c:url value='/smart/SmartEditor2Skin.html'/>",  //martEditor2Skin.html 경로 입력
-	    fCreator: "createSEditor2",
-	    htParams : { 
-	    	// 툴바 사용 여부 (true:사용/ false:사용하지 않음) 
-	        bUseToolbar : true, 
-		// 입력창 크기 조절바 사용 여부 (true:사용/ false:사용하지 않음) 
-		bUseVerticalResizer : true, 
-		// 모드 탭(Editor | HTML | TEXT) 사용 여부 (true:사용/ false:사용하지 않음) 
-		bUseModeChanger : false
-	 
-	    }
-	});
-</script>
+<!--   <script>
+    // 3. CKEditor5를 생성할 textarea 지정
+    ClassicEditor
+        .create( document.querySelector( '#NOTICE_CONTENT' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+    </script> -->
 	</div>
 	<tr>
 <td></td>

@@ -9,31 +9,31 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 
-<link rel="stylesheet" href="/css/linearicons.css">
-<link rel="stylesheet" href="<c:url value='/css/font-awesome.min.css'/>" />
-<link rel="stylesheet" href="<c:url value='/css/bootstrap.css'/>" />
-<link rel="stylesheet" href="<c:url value='/css/magnific-popup.css'/>" />
-<link rel="stylesheet" href="<c:url value='/css/nice-select.css'/>" />
-<link rel="stylesheet" href="<c:url value='/css/animate.min.css'/>" />
-<link rel="stylesheet" href="<c:url value='/css/owl.carousel.css'/>" />
-<link rel="stylesheet" href="<c:url value='/css/main.css'/>" />
+<link rel="stylesheet" href="<%=request.getContextPath() %>/css/linearicons.css">
+<link rel="stylesheet" href="<%=request.getContextPath() %>/css/font-awesome.min.css" />
+<link rel="stylesheet" href="<%=request.getContextPath() %>/css/bootstrap.css" />
+<link rel="stylesheet" href="<%=request.getContextPath() %>/css/magnific-popup.css" />
+<link rel="stylesheet" href="<%=request.getContextPath() %>/css/nice-select.css" />
+<link rel="stylesheet" href="<%=request.getContextPath() %>/css/animate.min.css" />
+<link rel="stylesheet" href="<%=request.getContextPath() %>/css/owl.carousel.css" />
+<link rel="stylesheet" href="<%=request.getContextPath() %>/css/main.css" />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.11/css/lightgallery.min.css">
 
 <!-- jQuery -->
-<script type="text/javascript" src="<c:url value='../smart/js/service/HuskyEZCreator.js'/>" charset="utf-8"></script>
-<script src="<c:url value='/js/common.js'/>" charset="utf-8"></script>
-<script src="<c:url value='/js/vendor/jquery.min.js'/>"></script>
-<script src="<c:url value='/js/vendor/bootstrap.min.js'/>"></script>
-<script src="<c:url value='/js/easing.min.js'/>"></script>
-<script src="<c:url value='/js/hoverIntent.js'/>"></script>
-<script src="<c:url value='/js/superfish.min.js'/>"></script>
-<script src="<c:url value='/js/jquery.ajaxchimp.min.js'/>"></script>
-<script src="<c:url value='/js/jquery.magnific-popup.min.js'/>"></script>
-<script src="<c:url value='/js/owl.carousel.min.js'/>"></script>
-<script src="<c:url value='/js/isotope.pkgd.min.js'/>"></script>
-<script src="<c:url value='/js/owl.carousel.min.js'/>"></script>
-<script src="<c:url value='/js/jquery.nice-select.min.js'/>"></script>
-<script src="<c:url value='/js/jquery.lightbox.js'/>"></script>
-<script src="<c:url value='/js/mail-script.js'/>"></script>
-<script src="<c:url value='/js/main.js'/>"></script>
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
+<script type="text/javascript" src="<%=request.getContextPath() %>/smart/js/service/HuskyEZCreator.js" charset="utf-8"></script>
+<script src="https://cdn.ckeditor.com/ckeditor5/33.0.0/classic/ckeditor.js"></script>
+<script src="<%=request.getContextPath() %>/js/common.js" charset="utf-8"></script>
+<script src="<%=request.getContextPath() %>/js/vendor/jquery.min.js"></script>
+<script src="<%=request.getContextPath() %>/js/vendor/bootstrap.min.js"></script>
+<script src="<%=request.getContextPath() %>/js/easing.min.js"></script>
+<script src="<%=request.getContextPath() %>/js/hoverIntent.js"></script>
+<script src="<%=request.getContextPath() %>/js/superfish.min.js"></script>
+<script src="<%=request.getContextPath() %>/js/jquery.ajaxchimp.min.js"></script>
+<script src="<%=request.getContextPath() %>/js/jquery.magnific-popup.min.js"></script>
+<script src="<%=request.getContextPath() %>/js/owl.carousel.min.js"></script>
+<script src="<%=request.getContextPath() %>/js/isotope.pkgd.min.js"></script>
+<script src="<%=request.getContextPath() %>/js/owl.carousel.min.js"></script>
+<script src="<%=request.getContextPath() %>/js/jquery.nice-select.min.js"></script>
+<script src="<%=request.getContextPath() %>/js/jquery.lightbox.js"></script>
+<script src="<%=request.getContextPath() %>/js/mail-script.js"></script>
+<script src="<%=request.getContextPath() %>/js/main.js"></script>
