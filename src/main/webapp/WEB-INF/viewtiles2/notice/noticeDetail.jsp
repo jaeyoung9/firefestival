@@ -5,10 +5,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>공지사항 상세보기</title>
+<meta charset="UTF-8"> 
+<c:forEach items="${NDetail}" var="ndetail">
+   <title>${ndetail.NOTICE_TITLE}</title>
+   </c:forEach>
+
 </head>
 <body>
-
+   <c:forEach items="${NDetail}" var="ndetail">
+   
+   </c:forEach>
 </body>
 </html>

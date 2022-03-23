@@ -45,6 +45,13 @@
 		]]>
 	</insert>
 <!-- where AMIN_TIM = #{AMIN_TIM} -->
-
+<!-- 공지사항 보기 Detail -->
+	<select id="noticeDetail" parameterType="hashmap" resultType="hashmap">
+		
+		<![CDATA[
+		select * from TB_notice where NOTICE_INDEX = #{NOTICE_INDEX}
+		]]>
+		
+	</select>
 
 </mapper>

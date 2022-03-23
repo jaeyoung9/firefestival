@@ -70,8 +70,10 @@ public class NoticeController {
 		
 	// 공지상세페이지 접속
 	@RequestMapping("/notice/Detail")
-	public ModelAndView main(CommandMap commandMap, HttpServletRequest request) throws Exception {
+	public ModelAndView noticeDetail(CommandMap commandMap, HttpServletRequest request) throws Exception {
 		ModelAndView mv = new ModelAndView("noticeDetail");
+		List<Map<String, Object>> NDetail = noticeService.noticeDetail(commandMap.getMap());
+		mv.addObject("ndetail", NDetail);
 		return mv;
 	}	
 	
