@@ -126,28 +126,31 @@ function gfn_renderPaging(params) { //함수에서 파라미터는 params라는 
 	var next = (parseInt((currentIndex-1)/10)+1) * 10 + 1 < totalIndexCount ? (parseInt((currentIndex-1)/10)+1) * 10 + 1 : totalIndexCount;
 	
 	if(totalIndexCount > 10) {  //전체 인덱스가 10이 넘을 경우에 preStr변수는 맨압, 앞 태그 작성
-		preStr += "<a href='#this' class='pad_5' onclick='_movePage(1)'>[<<]</a>" +
-					"<a href='#this' class='pad_5' onclick='_movePage("+prev+")'>[<]</a>";
+		preStr += "<a href='#this' class='page-link' onclick='_movePage(1)'>[<<]</a>" +
+					"<a href='#this' class='page-link' onclick='_movePage("+prev+")'>[<]</a>";
 	}
 	else if(totalIndexCount <= 10 && totalIndexCount > 1) { //전체 인덱스가 10보다 작을 경우 preStr변수는 맨앞 태그 작성
-		preStr += "<a href='#this' class='pad_5' onclick='_movePage(1)'>[<<]</a>";
+		preStr += "<a href='#this' class='page-link' onclick='_movePage(1)'>[<<]</a>";
 	}
 	
 	if(totalIndexCount > 10) {  //전체 인덱스가 10이 넘을 경우에 postStr변수는 맨뒤, 뒤 태그 작성
-		postStr += "<a href='#this' class='pad_5' onclick='_movePage("+next+")'>[>]</a>" +
-					"<a href='#this' class='pad_5' onclick='_movePage("+totalIndexCount+")'>[>>]</a>";
+		postStr += "<a href='#this' class='page-link' onclick='_movePage("+next+")'>[>]</a>" +
+					"<a href='#this' class='page-link' onclick='_movePage("+totalIndexCount+")'>[>>]</a>";
 	}
 	else if(totalIndexCount <= 10 && totalIndexCount > 1) {  //전체 인덱스가 10보다 작을 경우 postStr변수는 맨뒤 태그 작성
-		postStr += "<a href='#this' class='pad_5' onclick='_movePage("+totalIndexCount+")'>[>>]</a>" ;
+		postStr += "<a href='#this' class='page-link' onclick='_movePage("+totalIndexCount+")'>[>>]</a>" ;
 	}
 	
 	//str변수는 인덱스가 담긴다.
+	
+	
+	
 	for(var i=first; i<(first+last); i++) {
 		if(i != currentIndex) {
-			str += "<a href='#this' class='pad_5' onclick='_movePage("+i+")'>"+i+"</a>";
+			str += "<a href='#this' class='page-link' onclick='_movePage("+i+")'>"+i+"</a>";
 		}
 		else {
-			str +="<b><a href='#this' class='pad_5' onclick='_movePage("+i+")'>"+i+"</a></b>";
+			str +="<b><a href='#this' class='page-link' onclick='_movePage("+i+")'>"+i+"</a></b>";
 		}
 	}
 	$("#"+divId).append(preStr + str + postStr);

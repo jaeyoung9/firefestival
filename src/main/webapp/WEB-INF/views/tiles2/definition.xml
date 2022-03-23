@@ -19,6 +19,13 @@
 					value="/WEB-INF/viewtiles2/main.jsp" />
 			</definition>
 			
+			<!-- 회원가입 -->
+			<definition name="joinForm" extends="base_layout">
+				<!-- <put-attribute name="title" value="회원가입페이지" /> -->
+				<put-attribute name="body"
+					value="/WEB-INF/viewtiles2/join/joinForm.jsp" />
+			</definition>
+			
 			<!-- 공지사항 -->
 			<definition name="notice" extends="base_layout">
 				<!-- <put-attribute name="title" value="공지사항페이지" /> -->
@@ -55,6 +62,31 @@
 				<!-- <put-attribute name="title" value="인트로작성" /> -->
 				<put-attribute name="body"
 					value="/WEB-INF/viewtiles2/intro/introWritePage.jsp" />
+			</definition>
+			
+			<!-- 리뷰 -->
+			<definition name="reviewPage" extends="base_layout">
+				<!-- <put-attribute name="title" value="리뷰페이지" /> -->
+				<put-attribute name="body"
+					value="/WEB-INF/viewtiles2/review/reviewPage.jsp" />
+			</definition>
+			
+			<definition name="reviewDetail" extends="base_layout">
+				<!-- <put-attribute name="title" value="리뷰 상세페이지" /> -->
+				<put-attribute name="body"
+					value="/WEB-INF/viewtiles2/review/reviewDetail.jsp" />
+			</definition>
+			
+			<definition name="reviewWrite" extends="base_layout">
+				<!-- <put-attribute name="title" value="공지사항작성" /> -->
+				<put-attribute name="body"
+					value="/WEB-INF/viewtiles2/review/reviewWrite.jsp" />
+			</definition>
+			
+			<definition name="reviewUpdate" extends="base_layout">
+				<!-- <put-attribute name="title" value="공지사항수정" /> -->
+				<put-attribute name="body"
+					value="/WEB-INF/viewtiles2/review/reviewUpdate.jsp" />
 			</definition>
 			
 </tiles-definitions>

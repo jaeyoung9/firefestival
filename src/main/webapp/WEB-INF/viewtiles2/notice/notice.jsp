@@ -32,12 +32,34 @@
 			</tbody>
 		</table>
 </div>
-
-		<div class="PAGE_NAVI" id="PAGE_NAVI"></div>
+ 
+		<div class="pagination" id="PAGE_NAVI"></div>
 		<!-- 앞으로 페이징 태그가 그려질 부분 (밑에서 공통할수를 이용해 페이징 태그가 작성됨.) -->
-		<input type="hidden" id="PAGE_INDEX" name="PAGE_INDEX" />
+<!-- <ul class="pagination">
+							<li class="page-item">
+								<a href="#" class="page-link" aria-label="Previous">
+									<span aria-hidden="true">
+										<span class="lnr lnr-chevron-left"></span>
+									</span>
+								</a>
+							</li>
+							<li class="page-item"><a href="#" class="page-link">01</a></li>
+							<li class="page-item active"><a href="#" class="page-link">02</a></li>
+							<li class="page-item"><a href="#" class="page-link">03</a></li>
+							<li class="page-item"><a href="#" class="page-link">04</a></li>
+							<li class="page-item"><a href="#" class="page-link">09</a></li>
+							<li class="page-item">
+								<a href="#" class="page-link" aria-label="Next">
+									<span aria-hidden="true">
+										<span class="lnr lnr-chevron-right"></span>
+									</span>
+								</a>
+							</li>
+						</ul> -->
+		<input type="hidden" class="pagination" id="PAGE_INDEX" name="PAGE_INDEX" />
 		<!-- 현재 페이지 번호가 저장될 부분 -->
 	</div>
+	  
 	
 	
 	<!-- include를 하여 어떤 화면을 만들더라도 <body>태그 안쪽의 내용만 바뀌고, 나머지는 항상 똑같이 작성 -->

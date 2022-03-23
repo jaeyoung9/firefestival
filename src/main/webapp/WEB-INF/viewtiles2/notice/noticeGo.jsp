@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
-<%@ include file="/WEB-INF/viewtiles2/include/include-header.jspf" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,19 +10,46 @@
 <body>
 
 <form id="noticeGo" action="/notice/Go" method="POST" enctype="multipart/form-data">
+<table>
 	<div>
-		제목<br><input type="text" name="NOTICE_TITLE" id="NOTICE_TITLE"><br>
-		<textarea name="NOTICE_CONTENT" maxlength="3000" id="NOTICE_CONTENT" cols="50"
-				rows="25" class="" required></textarea><br>
-
-<input type="file" id="NOTICE_NEW_IMG" name="file"><br>
-<input type="button" class="submit" value="등록">
+		<tr>
+		<td>제목</td>
+		<td>
+		<input type="text" name="NOTICE_TITLE" id="NOTICE_TITLE"></td>
+		</tr>
+		<tr>
+		<td>내용</td>
+		<td><textarea  name="NOTICE_CONTENT" maxlength="3000" id="NOTICE_CONTENT"></textarea></td>
+		</tr>
+<!--   <script>
+    // 3. CKEditor5를 생성할 textarea 지정
+    ClassicEditor
+        .create( document.querySelector( '#NOTICE_CONTENT' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+    </script> -->
 	</div>
+	<tr>
+<td></td>
+<td>
+<input type="file" id="NOTICE_NEW_IMG" name="file">
+</td>
+</tr>
+<tr>
+<td></td>
+<td>
+<button type="button" class="submit" >등록</button>
+</td>
+</tr>
+	</table>
 </form>
 
 </body>
 
 <script type="text/javascript">
+
+
 	$(document).ready(function() {
 
 		$('.submit').on('click', function() {
