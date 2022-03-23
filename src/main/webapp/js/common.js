@@ -1,4 +1,7 @@
-function gfn_isNull(str) {
+/**
+ * 
+ */
+ function gfn_isNull(str) {
 	if(str == null) return true;
 	if(str == "NaN") return true;
 	if(new String(str).valueOf() == "undefined") return true;
@@ -125,7 +128,7 @@ function gfn_renderPaging(params) { //함수에서 파라미터는 params라는 
 	var prev = (parseInt((currentIndex-1)/10)*10) -9 > 0 ? (parseInt((currentIndex-1)/10)*10) -9 : 1;
 	var next = (parseInt((currentIndex-1)/10)+1) * 10 + 1 < totalIndexCount ? (parseInt((currentIndex-1)/10)+1) * 10 + 1 : totalIndexCount;
 	
-	if(totalIndexCount > 10) {  //전체 인덱스가 10이 넘을 경우에 preStr변수는 맨압, 앞 태그 작성
+	if(totalIndexCount > 10) {  //전체 인덱스가 10이 넘을 경우에 preStr변수는 맨압, 앞 태그 작성 
 		preStr += "<a href='#this' class='page-link' onclick='_movePage(1)'>[<<]</a>" +
 					"<a href='#this' class='page-link' onclick='_movePage("+prev+")'>[<]</a>";
 	}
