@@ -31,12 +31,34 @@
 							<li><a href="#"><i class="fa fa-behance"></i></a></li>
 						</ul>
 						<ul>
+							<c:choose>
+							<c:when test="${USER_ID == null }">
 							<li>
 								<a href="#">로그인</a>
 							</li>
 							<li>
+								<a href="<c:url value='/joinForm'/>">회원가입</a>
+							</li>
+							</c:when>
+							
+							<c:when test="${USER_ID != null}">
+							<c:if test="${AMIN_TIM eq 'Y'}">
+							<li>
 								<a href="#">관리자페이지</a>
 							</li>
+							</c:if>
+							<li>
+								<a><c:out value="${USER_ID} 님" /></a>
+							</li>
+							<li>
+								<a href="<c:url value='/logout'/>">로그아웃</a>
+							</li>
+							
+							</c:when>
+							<c:otherwise>
+							
+							</c:otherwise>
+							</c:choose>
 						</ul>
 					</div>
 				</div>
@@ -46,11 +68,11 @@
 		<div class="container main-menu">
 			<div class="row align-items-center justify-content-between d-flex">
 				<div id="logo">
-					<a href="<c:url value='/main'/>"><img src="images/logo.jpg" alt="" title="" /></a>
+					<a href="<c:url value='/main'/>"><img src="<%=request.getContextPath() %>/images/logo.jpg" alt="" title="" /></a>
 				</div>
 				<nav id="nav-menu-container">
 					<ul class="nav-menu">
-						<li class="menu-active"><a href="index.html">home</a></li>
+						<li class="menu-active"><a href="<c:url value='/main'/>">home</a></li>
 						<li><a href="<c:url value='/intro'/>">소개글/오시는길</a></li>
 						<li><a href="about.html">자료실</a></li>
 						<li><a href="<c:url value='/notice'/>">공지사항</a></li>
@@ -66,7 +88,7 @@
 								<li><a href="elements.html">종료</a></li>
 							</ul>
 						</li>
-						<li><a href="contact.html">리뷰</a></li>
+						<li><a href="<c:url value='/reviewPage'/>">리뷰</a></li>
 					</ul>
 				</nav>
 				<!--######## #nav-menu-container -->
