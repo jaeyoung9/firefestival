@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" " http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="review">
-
+<!-- 김형태 -->
 <!-- 페이징  -->
 <select id="reviewPage" parameterType="hashmap" resultType="hashmap">
 <include refid="common.pagingPre" />
@@ -16,7 +16,7 @@ SELECT
 	REVIEW_NEW_IMG,
 	REVIEW_FILE_SIZE,
 	DEL_GB
-FROM (SELECT ROW_NUMBER() OVER (ORDER BY NOTICE_INDEX DESC) RNUM,
+FROM (SELECT ROW_NUMBER() OVER (ORDER BY REVIEW_INDEX DESC) RNUM,
 	REVIEW_INDEX,
 	REVIEW_DATE,
 	REVIEW_TITLE,

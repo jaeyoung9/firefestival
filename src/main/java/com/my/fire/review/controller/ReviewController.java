@@ -61,7 +61,7 @@ public class ReviewController {
 	
 	
 	// 리뷰 작성
-	@RequestMapping(value = "/reviewUserWrite" , method = RequestMethod.POST)
+	@RequestMapping(value = "/reviewWrite" , method = RequestMethod.POST)
 	public ModelAndView noticeGoGo(CommandMap commandMap, HttpServletRequest request) throws Exception {
 		ModelAndView mv = new ModelAndView("jsonView");
 			if (log.isDebugEnabled()) {
@@ -92,7 +92,7 @@ public class ReviewController {
 	}
 	
 	//리뷰 수정
-	@RequestMapping(value="/reviewUpdate", method = RequestMethod.GET)
+	@RequestMapping(value="/reviewUpdate")
 	public ModelAndView reviewUpdate(CommandMap commandMap, HttpServletRequest request) throws Exception {
 		ModelAndView mv = new ModelAndView("reviewUpdate");
 		
@@ -106,9 +106,9 @@ public class ReviewController {
 	}
 	
 	// 리뷰 수정 완료
-	@RequestMapping(value = "/review/reviewUpdateOk", method = RequestMethod.POST)
+	@RequestMapping(value = "/reviewUpdate/update", method = RequestMethod.POST)
 	public ModelAndView myUpdateOk(CommandMap commandMap) throws Exception {
-		ModelAndView mv = new ModelAndView("review");
+		ModelAndView mv = new ModelAndView("jsonView");
 		/* System.out.println(commandMap.get("USER_ID")); */ 
 		reviewService.reviewUpdate(commandMap.getMap());
 		return mv;

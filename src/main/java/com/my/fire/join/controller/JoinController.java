@@ -48,7 +48,7 @@ public class JoinController {
 	
 	//회원가입완료
 	@ResponseBody
-	@RequestMapping(value = "/joinOk", method =RequestMethod.GET)
+	@RequestMapping(value = "/joinOk")
 	public ModelAndView noticeGo(CommandMap commandMap, HttpServletRequest request) throws Exception {
 		ModelAndView mv = new ModelAndView("loginForm");
 		return mv;
@@ -69,6 +69,14 @@ public class JoinController {
 	@ResponseBody
 	public int joinIdCk(String id) throws Exception {
 		int result = joinService.joinIdCk(id);
+		return result;
+	}
+	
+	//NIC 중복 체크
+	@RequestMapping(value = "/joinNicCk", method = RequestMethod.POST)
+	@ResponseBody
+	public int joinNicCk(String nic) throws Exception {
+		int result = joinService.joinNicCk(nic);
 		return result;
 	}
 }

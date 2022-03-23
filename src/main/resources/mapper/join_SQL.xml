@@ -12,6 +12,17 @@ WHERE USER_ID=#{USER_ID} AND DEL_GB = 'N'
 ]]>
 </select>
 
+<!-- 닉네임 중복확인 -->
+<select id="joinNicCk" parameterType="String" resultType="int">
+<![CDATA[
+SELECT
+COUNT(*)
+FROM
+TB_MEMBER 
+WHERE USER_NIC=#{USER_NIC} AND DEL_GB = 'N'
+]]>
+</select>
+
 <!-- 회원가입 완료 -->
 <insert id="joinOk" parameterType="hashmap">
 <![CDATA[
