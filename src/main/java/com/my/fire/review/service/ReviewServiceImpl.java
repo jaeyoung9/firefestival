@@ -28,16 +28,16 @@ public class ReviewServiceImpl implements ReviewService {
 
 	//리뷰 페이지
 	@Override
-	public List<Map<String, Object>> notice(Map<String, Object> map){
+	public List<Map<String, Object>> reviewPageList(Map<String, Object> map){
 		// TODO Auto-generated method stub
-		return reviewDAO.reviewPage(map);
+		return reviewDAO.reviewPageList(map);
 	}
 	
 	//리뷰 작성
 	@Override
 	public void reviewUserWrite(Map<String, Object> map, HttpServletRequest request) throws Exception {
 		// TODO Auto-generated method stub
-		List<Map<String, Object>> list = fileUtils.userProfile(map, request);
+		List<Map<String, Object>> list = fileUtils.revieUpdate(map, request);
 		for(int i = 0; i < list.size(); i++) {
 			Map<String, Object> vo = list.get(i);
 		reviewDAO.reviewUserWrite(vo);
@@ -59,11 +59,11 @@ public class ReviewServiceImpl implements ReviewService {
 	}
 	
 	// 리뷰 작성 페이지
-	@Override
-	public List<Map<String, Object>> getReview(Map<String, Object> map) {
+//	@Override
+//	public List<Map<String, Object>> getReview(Map<String, Object> map) {
 		// TODO Auto-generated method stub
-		return reviewDAO.getReview(map);
-	}
+//		return reviewDAO.getReview(map);
+//	}
 
 	//리뷰 상세
 	@Override
@@ -81,9 +81,9 @@ public class ReviewServiceImpl implements ReviewService {
 
 	//리뷰 정보 가져오기
 	@Override
-	public Map<String, Object> review(Map<String, Object> map) throws Exception {
+	public Map<String, Object> reviewImpo(Map<String, Object> map) throws Exception {
 		// TODO Auto-generated method stub
-		return reviewDAO.review(map);
+		return reviewDAO.reviewImpo(map);
 	}
 	
 	//리뷰 수정
