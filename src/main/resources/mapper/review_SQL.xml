@@ -25,15 +25,15 @@ FROM (SELECT ROW_NUMBER() OVER (ORDER BY REVIEW_INDEX DESC) RNUM,
 	REVIEW_NEW_IMG,
 	REVIEW_FILE_SIZE,
 	DEL_GB
-FROM TB_NOTICE
-	WHERE DEL_GB = 'N')
+FROM TB_REVIEW
+	WHERE REVIEW_INDEX = #{REVIEW_INDEX})
 ]]>
 <include refid="common.pagingPost" />
 </select>
 
 <!-- 리뷰 작성 -->
-<insert id="reviewUserWrite" parameterType="hashmap"> 
-<![CDATA[ 
+<insert id="reviewUserWrite" parameterType="hashmap">
+<![CDATA[
 INSERT INTO TB_REVIEW(
 REVIEW_INDEX,
 USER_ID,
@@ -45,22 +45,22 @@ REVIEW_NEW_IMG,
 REVIEW_FILE_SIZE,
 DEL_GB
 )
-values(
-REVIEW_INDEX_SEQ.NEXTVAL,
+VALUES(
+TB_REVIEW_SEQ.NEXTVAL,
 #{USER_ID},
 SYSDATE,
 #{REVIEW_TITLE},
 #{REVIEW_CONTENT},
 #{REVIEW_ORIGINAL},
 #{REVIEW_NEW_IMG},
-#{REVIEW_FILE_SIZE},
+#{REVIEW_FILE_SIZE}
 'N'
 )
 ]]>
 </insert>
 
 <!-- 리뷰 작성페이지 이동 -->
-<select id="getReview" parameterType="hashmap" resultType="hashmap"> 
+<!-- <select id="getReview" parameterType="hashmap" resultType="hashmap"> 
 <![CDATA[ 
 SELECT *
 from
@@ -68,11 +68,11 @@ TB_REVIEW
 WHERE
 REVIEW_INDEX = #{REVIEW_INDEX}
 ]]>
-</select>
+</select> -->
 
 <!-- 리뷰 상세페이지 -->
-<select id="reviewDetail" parameterType="hashmap" resultType="hashmap"> 
-<![CDATA[ 
+<select id="reviewDetail" parameterType="hashmap" resultType="hashmap">
+<![CDATA[
 SELECT
 R.REVIEW_INDEX,
 R.USER_ID,
@@ -88,7 +88,7 @@ TB_REVIEW R, TB_MEMBER M
 WHERE
 R.USER_ID = M.USER_ID AND R.REVIEW_INDEX = #{REVIEW_INDEX}
 ]]>
-	</select>
+</select>
 
 <!-- 리뷰 삭제 -->
 <delete id="reviewDelete" parameterType="hashmap">
@@ -101,7 +101,7 @@ REVIEW_INDEX = #{REVIEW_INDEX}
 </delete>
 
 <!-- 리뷰 정보 가져오기 -->
-<select id="review" parameterType="hashmap" resultType="hashmap">
+<select id="reviewImpo" parameterType="hashmap" resultType="hashmap">
 <![CDATA[
 SELECT
 REVIEW_DATE,
@@ -129,7 +129,6 @@ REVIEW_NEW_IMG = #{REVIEW_NEW_IMG},
 REVIEW_FILE_SIZE = #{REVIEW_FILE_SIZE}
 WHERE
 USER_ID = #{USER_ID}
-
 ]]>
 </update>
 </mapper>

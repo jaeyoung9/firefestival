@@ -124,10 +124,10 @@ public class FileUtils {
                  
                 listMap = new HashMap<String,Object>();
                 //업로드할 당시의 파일이름
-                listMap.put("NOTICE_ORIGINAL", USER_ORIGINAL);
+                listMap.put("USER_ORIGINAL", USER_ORIGINAL);
                 //저장할 파일 이름
-                listMap.put("NOTICE_NEW_IMG", USER_NEW_IMG);
-                listMap.put("NOTICE_FILE_SIZE", USER_FILE_SIZE.getSize());
+                listMap.put("USER_NEW_IMG", USER_NEW_IMG);
+                listMap.put("USER_FILE_SIZE", USER_FILE_SIZE.getSize());
                 listMap.put("USER_NIC", USER_NIC);
                 listMap.put("USER_PW", USER_PW);
                 listMap.put("USER_ID", USER_ID);
@@ -144,14 +144,15 @@ public class FileUtils {
     public static List<Map<String,Object>> revieUpdate(Map<String,Object> map, HttpServletRequest request) throws Exception{
         MultipartHttpServletRequest multipartHttpServletRequest = (MultipartHttpServletRequest)request;
         Iterator<String> iterator = multipartHttpServletRequest.getFileNames();
-        String USER_ID = request.getParameter("USER_ID");
+        String user_id = request.getParameter("USER_ID");
         String review_title = request.getParameter("REVIEW_TITLE");
         String review_content = request.getParameter("REVIEW_CONTENT");
-              
-        MultipartFile USER_FILE_SIZE = null;
-        String USER_ORIGINAL = null;
+        String del_gb = request.getParameter("DEL_GB");
+        
+        MultipartFile REVIEW_FILE_SIZE = null;
+        String REVIEW_ORIGINAL = null;
         String originalFileExtension = null;
-        String USER_NEW_IMG = null;
+        String REVIEW_NEW_IMG = null;
          
         List<Map<String,Object>> list = new ArrayList<Map<String,Object>>();
         Map<String, Object> listMap = null;
@@ -163,29 +164,29 @@ public class FileUtils {
         }
          
         while(iterator.hasNext()){
-        	USER_FILE_SIZE = multipartHttpServletRequest.getFile(iterator.next());
-            if(USER_FILE_SIZE.isEmpty() == false){
+        	REVIEW_FILE_SIZE = multipartHttpServletRequest.getFile(iterator.next());
+            if(REVIEW_FILE_SIZE.isEmpty() == false){
                 //업로드한 파일의 확장자를 포함한 파일명이다.
-            	USER_ORIGINAL = USER_FILE_SIZE.getOriginalFilename();
+            	REVIEW_ORIGINAL = REVIEW_FILE_SIZE.getOriginalFilename();
                 //업로드한 파일의 마지막 .을 포함한 확장자를 substring 한 것.
-                originalFileExtension = USER_ORIGINAL.substring(USER_ORIGINAL.lastIndexOf("."));
+                originalFileExtension = REVIEW_ORIGINAL.substring(REVIEW_ORIGINAL.lastIndexOf("."));
                 //32자리의 숫자를 포함한 랜덤 문자열 + 확장자를 붙여준 파일명이다.
-                USER_NEW_IMG = CommonUtils.getRandomString() + originalFileExtension;
+                REVIEW_NEW_IMG = CommonUtils.getRandomString() + originalFileExtension;
                  
-                file = new File(filePath + USER_NEW_IMG);
-                USER_FILE_SIZE.transferTo(file);
+                file = new File(filePath + REVIEW_NEW_IMG);
+                REVIEW_FILE_SIZE.transferTo(file);
                  
                 listMap = new HashMap<String,Object>();
                 //업로드할 당시의 파일이름
-                listMap.put("NOTICE_ORIGINAL", USER_ORIGINAL);
+                listMap.put("REVIEW_ORIGINAL", REVIEW_ORIGINAL);
                 //저장할 파일 이름
-                listMap.put("NOTICE_NEW_IMG", USER_NEW_IMG);
-                listMap.put("NOTICE_FILE_SIZE", USER_FILE_SIZE.getSize());
-                listMap.put("USER_ID", USER_ID);
+                listMap.put("REVIEW_NEW_IMG", REVIEW_NEW_IMG);
+                listMap.put("REVIEW_FILE_SIZE", REVIEW_FILE_SIZE.getSize());
+                listMap.put("USER_ID", user_id);
                 listMap.put("REVIEW_TITLE", review_title);
                 listMap.put("REVIEW_CONTENT", review_content);
-
-                
+                listMap.put("DEL_GB", del_gb);
+         
                 list.add(listMap);
             }
         }

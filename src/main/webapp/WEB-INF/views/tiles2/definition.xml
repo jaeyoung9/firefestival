@@ -77,14 +77,14 @@
 					value="/WEB-INF/viewtiles2/review/reviewDetail.jsp" />
 			</definition>
 			
-			<definition name="reviewWrite" extends="base_layout">
-				<!-- <put-attribute name="title" value="공지사항작성" /> -->
+			<definition name="reviewWritePage" extends="base_layout">
+				<!-- <put-attribute name="title" value="리뷰작성" /> -->
 				<put-attribute name="body"
-					value="/WEB-INF/viewtiles2/review/reviewWrite.jsp" />
+					value="/WEB-INF/viewtiles2/review/reviewWritePage.jsp" />
 			</definition>
 			
 			<definition name="reviewUpdate" extends="base_layout">
-				<!-- <put-attribute name="title" value="공지사항수정" /> -->
+				<!-- <put-attribute name="title" value="리뷰수정" /> -->
 				<put-attribute name="body"
 					value="/WEB-INF/viewtiles2/review/reviewUpdate.jsp" />
 			</definition>
