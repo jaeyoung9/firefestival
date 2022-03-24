@@ -23,6 +23,27 @@ public class MyPageServiceImpl implements MyPageService{
 		return mypageDAO.myPage(map);
 	}
 
-	
+	public void myUpdate(Map<String, Object> map) throws Exception{
+		mypageDAO.myUpdate(map);
+	}
 
+	public void withdraw(Map<String, Object> map) throws Exception{
+		mypageDAO.wirhdraw(map);
+	}
+	
+	@Override
+	public Map<String, Object> checkPw(Map<String, Object> map) throws Exception{
+		return mypageDAO.checkPw(map);
+	}
+	
+	@Override 
+	public List<Map<String, Object>> myreview(Map<String, Object> map) throws Exception{
+		return mypageDAO.myreview(map);
+	}
+	
+	@Override 
+	public List<Map<String, Object>> myevent(Map<String, Object> map) throws Exception{
+		return mypageDAO.myevent(map);
+	}
+	
 }
