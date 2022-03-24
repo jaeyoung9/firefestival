@@ -36,7 +36,7 @@ public class ReviewController {
 	@RequestMapping(value ="/reviewPage/page")
 	public ModelAndView reviewPageList(CommandMap commandMap) throws Exception{
 		ModelAndView mv = new ModelAndView("jsonView");
-		List<Map<String, Object>> list = reviewService.reviewPageList(commandMap.getMap());
+		List<Map<String, Object>> list = reviewService.reviewPage(commandMap.getMap());
 		mv.addObject("list", list);
 		if(list.size() > 0) {
 			mv.addObject("TOTAL", list.get(0).get("TOTAL_COUNT"));

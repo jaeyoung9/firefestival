@@ -48,11 +48,13 @@ public class LoginController {
 	      String message="";
 	      String url="";
 	      Map<String,Object> result = loginService.loginMemberCk(commandMap.getMap());
+//	      System.out.println(result);
 	      if(result == null || result.get("DEL_GB").equals("Y")) { // 아이디가 있는지 or 삭제된 아이디인지 확인
 	         message="해당 아이디가 존재하지 않습니다.";
 	      } else { 
 	    	  if(result.get("USER_PW").equals(commandMap.get("USER_PW"))) { // 비밀번호가 같다면
 	    		  session.setAttribute("USER_ID", commandMap.get("USER_ID"));
+	    		  session.setAttribute("USER_NIC", result.get("USER_NIC"));
 	    		  session.setAttribute("AMIN_TIM", result.get("AMIN_TIM"));
 	    	  } else {//비밀번호가 일치하지 않을 때
 	    		  message="비밀번호가 맞지 않습니다.";
@@ -76,7 +78,7 @@ public class LoginController {
 		  out.flush();
 	   }
 	//아이디 찾기 폼
-	 @RequestMapping(value = "/loginForm/findId") // 아이디&비밀번호 찾기 폼을 보여주는 메소드
+	 @RequestMapping(value = "/findId") // 아이디&비밀번호 찾기 폼을 보여주는 메소드
 	   public ModelAndView findId(CommandMap commandMap) throws Exception {
 	      ModelAndView mv = new ModelAndView("findId");
 	      return mv;
@@ -90,7 +92,7 @@ public class LoginController {
 	         return mv;
 	      }
 	 //비밀번호 찾기 폼
-	 @RequestMapping(value = "/loginForm/findPw")
+	 @RequestMapping(value = "/findPw")
 		public ModelAndView findPw(CommandMap commandMap) throws Exception {
 			ModelAndView mv = new ModelAndView("findPw");
 		    return mv;

@@ -12,8 +12,8 @@ public class ReviewDAO extends AbstractDAO{
 
 	// 리뷰 페이지
 	@SuppressWarnings("unchecked")
-	public List<Map<String, Object>> reviewPageList(Map<String, Object> map) {
-		return (List<Map<String, Object>>) selectPagingList("review.reviewPageList", map);
+	public List<Map<String, Object>> reviewPage(Map<String, Object> map) {
+		return (List<Map<String, Object>>) selectPagingList("review.reviewPage", map);
 	}
 	
 	// 리뷰 작성

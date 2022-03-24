@@ -17,6 +17,7 @@
 
 </head>
 <body>
+<input type="hidden" id="USER_ID" value="${USER_ID}">
 <!--######## start banner Area ########-->
 	<section class="home-banner-area relative" id="home">
 		<div class="container">

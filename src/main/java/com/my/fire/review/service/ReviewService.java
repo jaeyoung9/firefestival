@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 public interface ReviewService {
 
 	//리뷰 페이지
-	List<Map<String, Object>> reviewPageList(Map<String, Object> map) ;
+	List<Map<String, Object>> reviewPage(Map<String, Object> map) ;
 	
 	// 리뷰 작성
 	public void reviewUserWrite(Map<String, Object> map, HttpServletRequest request) throws Exception;

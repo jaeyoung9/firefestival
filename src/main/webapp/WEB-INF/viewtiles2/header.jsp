@@ -32,7 +32,7 @@
 						</ul>
 						<ul>
 							<c:choose>
-							<c:when test="${USER_ID == null }">
+							<c:when test="${USER_ID == null}">
 							<li>
 							<a href="<c:url value='/loginForm'/>">로그인</a>
 							</li>
@@ -48,7 +48,7 @@
 							</li>
 							</c:if>
 							<li>
-								<a><c:out value="${USER_ID} 님" /></a>
+								<a><c:out value="${USER_NIC} 님" /></a>
 							</li>
 							<li>
 								<a href="<c:url value='/logout'/>">로그아웃</a>
