@@ -1,7 +1,8 @@
 package com.my.fire.mypage.controller;
 
-import java.util.Map;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -30,23 +31,34 @@ public class MyPageController {
 	public ModelAndView mypage(CommandMap commandMap, HttpServletResponse response, HttpServletRequest request)
 			throws Exception {
 		ModelAndView mv = new ModelAndView("mypage");
-		HttpSession session = request.getSession();
-		String USER_ID = (String) session.getValue("USER_ID");
-		session.setAttribute("USER_ID", USER_ID);
-
+		commandMap.put("USER_ID", "qwe");
+		List<Map<String, Object>> list = mypageService.myreview(commandMap.getMap());
+//		List<Map<String, Object>> list1 = mypageService.myevent(commandMap.getMap());
+		
+		mv.addObject("list", list);
+//		mv.addObject("list1", list1);
+//		HttpSession session = request.getSession();
+//		String USER_ID = (String) session.getValue("USER_ID");
+//		session.setAttribute("USER_ID", USER_ID);
+		System.out.println(list);
 		return mv;
 	}
 	
 	// 마이페이지 자기 리뷰
-	@RequestMapping(value = "/mypage/myreview")
-	public ModelAndView myreview(CommandMap commandMap,HttpServletRequest request) throws Exception{
-		ModelAndView mv = new ModelAndView("mypage");
-		
-		List<Map<String, Object>> list = mypageService.myreview(commandMap.getMap());
-		List<Map<String, Object>> list1 = mypageService.myevent(commandMap.getMap());
-		
-		return mv;
-	}
+//	@RequestMapping(value = "/mypage/myreview")
+//	public ModelAndView myreview(CommandMap commandMap,HttpServletRequest request) throws Exception{
+//		ModelAndView mv = new ModelAndView("mypage");
+//		commandMap.put("USER_ID", "qwe");
+//		System.out.println(commandMap.getMap());
+//		List<Map<String, Object>> list = mypageService.myreview(commandMap.getMap());
+//		List<Map<String, Object>> list1 = mypageService.myevent(commandMap.getMap());
+//		
+//		mv.addObject("list", list);
+//		mv.addObject("list1", list1);
+//		System.out.println(list);
+//		System.out.println(list1);
+//		return mv;
+//	}
 
 	// 마이페이지 수정폼
 	@RequestMapping(value = "/mypage/myUpdate", method = RequestMethod.GET)

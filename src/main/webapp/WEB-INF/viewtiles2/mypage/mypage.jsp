@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>마이페이지</title>
 </head>
 <body>
 <div class="mypagemain">
@@ -14,7 +14,7 @@
 		
 	</div>
 	
-	<input type="hidden" id="USER_ID" value="${USER_ID }">
+	<%-- <input type="hidden" id="USER_ID" value="${USER_ID }">
 	<div class="mypagereview">
 	<c:forEach items="${myreview }" var="myreview">
 	<div class="mypagereviewlist">
@@ -31,7 +31,75 @@
 	</c:forEach>
 	</div>
 
-</div>
+</div> --%>
+
+<h2>리뷰 게시판</h2>
+	<table class="myreview">
+		<colgroup>
+			<col width="10%" />
+			<col width="*%" />
+			<col width="15%" />
+			<col width="20%" />
+			<col width="20%" />
+			<col width="20%" />
+		</colgroup>
+		<thead>
+			<tr>
+				<th scope="col">리뷰</th>
+			</tr>
+		</thead>
+		<tbody>
+			<c:choose>
+				<c:when test="${fn:length(list) > 0}">
+					<c:forEach items="${list }" var="row">
+						<tr>
+							<td>${row.REVIEW_TITLE }</td>
+						</tr>
+					</c:forEach>
+				</c:when>
+				<c:otherwise>
+					<tr>
+						<td colspan="4">조회된 결과가 없습니다.</td>
+					</tr>
+				</c:otherwise>
+			</c:choose>
+
+		</tbody>
+	</table>
+<%-- <h2>이벤트 게시판</h2>
+	<table class="myevent">
+		<colgroup>
+			<col width="10%" />
+			<col width="*%" />
+			<col width="15%" />
+			<col width="20%" />
+			<col width="20%" />
+			<col width="20%" />
+		</colgroup>
+		<thead>
+			<tr>
+				<th scope="col">이벤트</th>
+			</tr>
+		</thead>
+		<tbody>
+			<c:choose>
+				<c:when test="${fn:length(list1) > 0}">
+					<c:forEach items="${list1 }" var="row">
+						<tr>
+							<td>${row.EVENT_TITLE }</td>
+						</tr>
+					</c:forEach>
+				</c:when>
+				<c:otherwise>
+					<tr>
+						<td colspan="4">조회된 결과가 없습니다.</td>
+					</tr>
+				</c:otherwise>
+			</c:choose>
+
+		</tbody>
+	</table> --%>
 
 </body>
+<%@ include file="/WEB-INF/viewtiles2/include/include-body.jspf"%>
 </html>

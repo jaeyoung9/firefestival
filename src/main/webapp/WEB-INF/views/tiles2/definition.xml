@@ -115,4 +115,16 @@
 					value="/WEB-INF/viewtiles2/review/reviewUpdate.jsp" />
 			</definition>
 			
+			<definition name="mypage" extends="base_layout">
+				<!-- <put-attribute name="title" value="마이페이지" /> -->
+				<put-attribute name="body"
+					value="/WEB-INF/viewtiles2/mypage/mypage.jsp" />
+			</definition>
+			
+			<definition name="myupdate" extends="base_layout">
+				<!-- <put-attribute name="title" value="마이페이지" /> -->
+				<put-attribute name="body"
+					value="/WEB-INF/viewtiles2/mypage/myUpdate.jsp" />
+			</definition>
+			
 </tiles-definitions>
