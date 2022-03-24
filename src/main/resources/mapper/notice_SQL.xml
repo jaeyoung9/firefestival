@@ -45,7 +45,7 @@
 		]]>
 	</insert>
 <!-- where AMIN_TIM = #{AMIN_TIM} -->
-<!-- 공지사항 보기 Detail -->
+<!-- 공지사항 보기 Detail  -->
 	<select id="noticeDetail" parameterType="hashmap" resultType="hashmap">
 		
 		<![CDATA[
@@ -53,5 +53,29 @@
 		]]>
 		
 	</select>
+	
+	
+	<!-- 공지사항 수정 -->
+	<insert id="noticeUp" parameterType="hashmap">
+		<![CDATA[
+		UPDATE TB_NOTICE SET 
+		NOTICE_TITLE = #{NOTICE_TITLE}, 
+		NOTICE_CONTENT = #{NOTICE_CONTENT}, 
+		NOTICE_ORIGINAL = #{NOTICE_ORIGINAL}, 
+		NOTICE_NEW_IMG = #{NOTICE_NEW_IMG}, 
+		NOTICE_FILE_SIZE = #{NOTICE_FILE_SIZE}
+		WHERE
+		NOTICE_INDEX = #{NOTICE_INDEX}
+		]]>
+	</insert>
 
+<!-- 공지사항 삭제 -->
+	<insert id="noticeDe" parameterType="hashmap">
+		<![CDATA[
+		UPDATE TB_NOTICE SET 
+		NOTICE_KATE = 'Y'
+		WHERE NOTICE_INDEX = #{NOTICE_INDEX}
+		]]>
+	</insert>
+	<!-- AND AMIN_TIM = #{AMIN_TIM}  -->
 </mapper>

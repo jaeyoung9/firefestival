@@ -1,11 +1,12 @@
 package com.my.fire.Notice.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
@@ -38,16 +39,31 @@ public class NoticeController {
 		public ModelAndView noticePage(CommandMap commandMap) throws Exception{
 			ModelAndView mv = new ModelAndView("jsonView");
 			List<Map<String, Object>> list = noticeService.notice(commandMap.getMap());
+			SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+
+			// SimpleDate. 날짜값 변환.
+			for(int i = 0; i< list.size(); i++) {// size만큼 값을 빼내고 반복.
+				Object no = list.get(i).get("NOTICE_DATE");// 데이터 값 꺼내다 옵젝에 저장.
+				String date = simpleDateFormat.format(no);// 변환
+				//System.out.println(date);
+				list.get(i).put("NOTICE_DATE",date);// 값 수정
+			
+			}
+			
+			
+			
 			mv.addObject("list", list);
 			if(list.size() > 0) {
 				mv.addObject("TOTAL", list.get(0).get("TOTAL_COUNT"));
 			} else {
 				mv.addObject("TOTAL", 0);
 			}
+	
 			return mv;
+			
 		}
 		
-	// 공지사항 작성페이지
+	// 공지사항 작성페이지 접속
 	@ResponseBody
 	@RequestMapping(value = "/notice/Go")
 	public ModelAndView noticeGo(CommandMap commandMap, HttpServletRequest request) throws Exception {
@@ -76,5 +92,30 @@ public class NoticeController {
 		mv.addObject("ndetail", NDetail);
 		return mv;
 	}	
+	
+	
+	// 공지사항 수정페이지 접속
+	@ResponseBody
+	@RequestMapping(value = "/notice/Up" )
+	public ModelAndView noticeUp(CommandMap commandMap, HttpServletRequest request) throws Exception {
+		ModelAndView mv = new ModelAndView("noticeUp");
+		List<Map<String, Object>> NDetail = noticeService.noticeDetail(commandMap.getMap());
+		return mv;
+	}
+	
+	
+	
+		// 공지사항 수정
+		@RequestMapping(value = "/notice/Up" , method = RequestMethod.POST)
+		public ModelAndView noticeUpUp(CommandMap commandMap, HttpServletRequest request) throws Exception {
+			ModelAndView mv = new ModelAndView("jsonView");
+			 if (log.isDebugEnabled()) {
+		            log.debug(commandMap);
+		        }
+			noticeService.noticeUp(commandMap.getMap(), request);
+
+			return mv;
+
+		}
 	
 }

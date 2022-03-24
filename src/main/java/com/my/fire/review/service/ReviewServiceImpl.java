@@ -28,9 +28,9 @@ public class ReviewServiceImpl implements ReviewService {
 
 	//리뷰 페이지
 	@Override
-	public List<Map<String, Object>> reviewPageList(Map<String, Object> map){
+	public List<Map<String, Object>> reviewPage(Map<String, Object> map){
 		// TODO Auto-generated method stub
-		return reviewDAO.reviewPageList(map);
+		return reviewDAO.reviewPage(map);
 	}
 	
 	//리뷰 작성
