@@ -138,7 +138,7 @@ public class FileUtils {
     }
     
     
-    //회원가입 프로필 사진 업로드_김형태
+  //회원가입 프로필 사진 업로드_김형태
     public static List<Map<String,Object>> userProfile(Map<String,Object> map, HttpServletRequest request) throws Exception{
         MultipartHttpServletRequest multipartHttpServletRequest = (MultipartHttpServletRequest)request;
         Iterator<String> iterator = multipartHttpServletRequest.getFileNames();
@@ -243,6 +243,7 @@ public class FileUtils {
         }
         return list;
     }
+
     
     
 // 인트로_김성법

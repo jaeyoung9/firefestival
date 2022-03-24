@@ -9,44 +9,45 @@
 
 <title>회원가입</title>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script src = "js/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-<div>
+<div class="text-sm-center">
 <div>
 <a href="/fire/joinForm"><h1>회원가입</h1></a>
 </div>
 <form id="joinForm" method="POST" action="<c:url value='/joinOk'/>">
 <div>
 	<h4><label>아이디</label></h4>
-		<span class="box">
-			<input type="text" id="user_id" name="USER_ID" onkeyup="fn_joinIdCk()" maxlength="20" placeholder="아이디를 입력하세요">&nbsp;&nbsp;<span id="idckok" class="paw"></span>
-		</span>
+		
+			<input type="text" id="user_id" name="USER_ID" onkeyup="fn_joinIdCk()" maxlength="20" placeholder="아이디를 입력하세요"><br><span id="idckok" class="paw"></span><br>
+		
 </div>
 <div>
 	<h4><label>닉네임</label></h4>
-		<span class="box">
-			<input type="text" id="user_nic" name="USER_NIC" onkeyup="fn_joinNicCk()" maxlength="30" placeholder="이름을 입력하세요">&nbsp;&nbsp;<span id="nicckok" class="paw"></span>
-		</span>
-</div>	
+		
+			<input type="text" id="user_nic" name="USER_NIC" onkeyup="fn_joinNicCk()" maxlength="30" placeholder="이름을 입력하세요"><br><span id="nicckok" class="paw"></span><br>
+		
+</div>
 <div>
 	<h4><label>비밀번호</label></h4>
-		<span class="box">
-			<input type="password" id="user_pw" name="USER_PW" maxlength="30" onkeyup="fn_passCk()" placeholder="비밀번호를 입력하세요">
-		</span>
+		
+			<input type="password" id="user_pw" class="pw" name="USER_PW" maxlength="30" placeholder="비밀번호를 입력하세요"><br><font id = "checkPw1" size = "2"></font><br>
+		
 </div>
 <div>
 	<h4><lable>비밀번호 확인</lable></h4>
-		<span class="box">
-			<input type="password" id="user_pw2" name="USER_PW2" maxlength="30" onkeyup="fn_passCk()" placeholder="비밀번호를 확인하세요">&nbsp;&nbsp;<span id="same" class="paw"></span>
-		</span>
+		
+			<input type="password" id="user_pw2" class="pw" name="USER_PW2" maxlength="30" placeholder="비밀번호를 확인하세요"><br><font id = "checkPw" size = "2"></font><br>
+		
 </div>
 <div>
-		<input type="file" id="USER_NEW_IMG" name="file"><br>
+		<input type="file" id="user_new_img" name="file">
 		<button type="button" class="submit" >등록</button>
 	</div>
 
 
-<div>
+<div class="">
 	<button type="button" onclick="joinform_check();">가입하기</button>&nbsp;&nbsp;
 	<button type="reset">취 소</button>
 </div>
@@ -55,25 +56,31 @@
 </body>
 
 <script type="text/javascript">
-function fn_passCk() {
-	var user_pw = document.getElementById('user_pw').value;
-	var user_pw2 = document.getElementById('user_pw2').value;
-	if (user_pw.length < 6 || user_pw.length > 16) {
-		document.getElementById('same').innerHTML='비밀번호는 6글자 이상, 16글자 이하만 사용 가능합니다.';
-		document.getElementById('same').style.color='black';
-	}
-	else if(document.getElementById('user_pw').value!='' && document.getElementById('user_pw2').value!='') {
-		 if(document.getElementById('user_pw').value==document.getElementById('user_pw2').value) {
-			document.getElementById('same').innerHTML='비밀번호가 일치합니다.';
-			document.getElementById('same').style.color='blue';
-		}
-		else {
-			document.getElementById('same').innerHTML='비밀번호가 일치하지 않습니다.';
-			document.getElementById('same').style.color='red';
-		}
-	}
-}
 
+//비밀번호 일치확인
+	$('.pw').keyup(function(){
+    	let pass1 = $("#user_pw").val();
+        let pass2 = $("#user_pw2").val();
+        if (pass1.length < 6 || pass1.length > 16) {
+    		if(pass1){
+    			$("#checkPw1").html('비밀번호 6이상 16이하로 입력');
+    			$("#checkPw1").attr('color', 'black');
+    		}
+    	}
+        
+        if (pass1 != "" || pass2 != ""){
+        	if (pass1 == pass2){
+            	$("#checkPw").html('일치');
+            	$("#checkPw").attr('color','green');
+            } else {
+            	$("#checkPw").html('불일치');
+                $("#checkPw").attr('color','red');
+            }
+        }
+    })
+    
+
+//아이디 체크
 function fn_joinIdCk() {
 	var user_id = $("#user_id").val()
     $.ajax({
@@ -97,7 +104,7 @@ function fn_joinIdCk() {
     });
 };
 
-
+//닉네임 체크
 function fn_joinNicCk() {
 	var user_nic = $("#user_nic").val()
     $.ajax({
@@ -166,6 +173,7 @@ function joinform_check() {
   alert("가입을 축하드립니다.")
 }
 
+//업로드
 $(document).ready(function() {
 
 	$('.submit').on('click', function() {
