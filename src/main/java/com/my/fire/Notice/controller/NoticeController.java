@@ -99,15 +99,18 @@ public class NoticeController {
 	@RequestMapping(value = "/notice/Up" )
 	public ModelAndView noticeUp(CommandMap commandMap, HttpServletRequest request) throws Exception {
 		ModelAndView mv = new ModelAndView("noticeUp");
+		Object a = request.getParameter("NOTICE_INDEX");
+		commandMap.put("NOTICE_INDEX", a);
 		List<Map<String, Object>> NDetail = noticeService.noticeDetail(commandMap.getMap());
+		System.out.println("ㅁㅁㅁㅁㅁㅁㅁㅁ              "+NDetail);
+		mv.addObject("NDetail",NDetail);
 		return mv;
 	}
+
 	
-	
-	
-		// 공지사항 수정
-		@RequestMapping(value = "/notice/Up" , method = RequestMethod.POST)
-		public ModelAndView noticeUpUp(CommandMap commandMap, HttpServletRequest request) throws Exception {
+		// 공지사항 수정사항 적용
+		@RequestMapping(value = "/notice/UpUp" , method = RequestMethod.POST)
+		public ModelAndView noticeUpmodify(CommandMap commandMap, HttpServletRequest request) throws Exception {
 			ModelAndView mv = new ModelAndView("jsonView");
 			 if (log.isDebugEnabled()) {
 		            log.debug(commandMap);
@@ -119,3 +122,12 @@ public class NoticeController {
 		}
 	
 }
+
+
+
+//// 공지사항 수정 정보 출력  페이징처럼 수정페이지도 동일하게 값을 받아와야함.
+//@RequestMapping(value ="/notice/modify")
+//public ModelAndView noticeUpUp(CommandMap commandMap, HttpServletRequest request) throws Exception{
+//	ModelAndView mv = new ModelAndView("jsonView");
+//return mv;
+//}

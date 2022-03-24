@@ -53,9 +53,9 @@ public class NoticeServiceImpl implements NoticeService{
 	public void noticeGo(Map<String, Object> map, HttpServletRequest request) throws Exception {
 		List<Map<String, Object>> list = fileUtils.noticeUpload(map, request);
 		for(int i = 0; i < list.size(); i++) {
-			Map<String, Object> vo = list.get(i);
+			Map<String, Object> noticeGo = list.get(i);
 
-			noticeDao.noticeGo(vo);
+			noticeDao.noticeGo(noticeGo);
 		}
 		
 		// log
@@ -80,9 +80,9 @@ public class NoticeServiceImpl implements NoticeService{
 		// TODO Auto-generated method stub
 		List<Map<String, Object>> list = fileUtils.noticeUpdate(map, request);
 		for(int i = 0; i < list.size(); i++) {
-			Map<String, Object> vo = list.get(i);
+			Map<String, Object> noticeUp = list.get(i);
 
-			noticeDao.noticeUp(map);
+			noticeDao.noticeUp(noticeUp);
 		}
 		
 		// log
