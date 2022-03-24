@@ -48,17 +48,21 @@ public class LoginController {
 	      String message="";
 	      String url="";
 	      Map<String,Object> result = loginService.loginMemberCk(commandMap.getMap());
+
+	     
+	     
 	      if(result == null || result.get("DEL_GB").equals("Y")) { // 아이디가 있는지 or 삭제된 아이디인지 확인
 	         message="해당 아이디가 존재하지 않습니다.";
 	      } else { 
 	    	  if(result.get("USER_PW").equals(commandMap.get("USER_PW"))) { // 비밀번호가 같다면
 	    		  session.setAttribute("USER_ID", commandMap.get("USER_ID"));
-	    		  session.setAttribute("AMIN_TIM", result.get("AMIN_TIM"));
+	    		  //session.setAttribute("AMIN_TIM", result.get("AMIN_TIM"));
 	    	  } else {//비밀번호가 일치하지 않을 때
 	    		  message="비밀번호가 맞지 않습니다.";
 	    	  }
 	      }
 	      mav.addObject("message", message);
+	      
 	      return mav;
 	}
 	//로그아웃
@@ -103,4 +107,5 @@ public class LoginController {
 	         mv.addObject("list", list);
 	         return mv;
 	      }
+	 
 }

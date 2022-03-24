@@ -1,17 +1,17 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
     <%@ include file="/WEB-INF/viewtiles2/include/include-header.jspf"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
-<title>¾ÆÀÌµğ Ã£±â</title>
+<meta charset="UTF-8">
+<title>ì•„ì´ë”” ì°¾ê¸°</title>
 <script type = "text/javascript">
 function fsubmit(){
 	var user_nic = $("#user_nic").val()
 	
 	if(user_nic == null || user_nic == ''){
-		alert("´Ğ³×ÀÓÀ» ÀÔ·ÂÇÏ¼¼¿ä.");
+		alert("ë‹‰ë„¤ì„ì„ ì…ë ¥í•˜ì„¸ìš”.");
 		return 0;
 		
 	}
@@ -35,30 +35,30 @@ margin:auto;
 <body>
 <div>
 	<div>
-		<a href="/findId"><h1>¾ÆÀÌµğÃ£±â</h1></a>
+		<a href="/findId"><h1>ì•„ì´ë””ì°¾ê¸°</h1></a>
 			<div style="text-align:center; margin-top: 15%; margin-bottom: 100px;">
 				<div class="fid3">
 					<p>
-						<a href="/findId">¾ÆÀÌµğ Ã£±â</a>
+						<a href="/findId">ì•„ì´ë”” ì°¾ê¸°</a>
 						<span> | </span>
-						<a href="/findPw">ºñ¹Ğ¹øÈ£ Ã£±â</a>
+						<a href="/findPw">ë¹„ë°€ë²ˆí˜¸ ì°¾ê¸°</a>
 					</p>
 					</div>
 					<div class="fid" style="font-size:40px;">
-						<h1>¾ÆÀÌµğ Ã£±â</h1>
+						<h1>ì•„ì´ë”” ì°¾ê¸°</h1>
 					</div>
 					<div class="fid2">
-					<form id="frm" action="/flower/findIdResult" method="POST">
+					<form id="frm" action="/fire/findIdResult" method="POST">
 						<input type="hidden" id="USER_ID" name="USER_ID">
 						
 					<div>
 						<label>NICKNAME</label>
-						<span class="box"><input type="text" class="int" maxlength="20" name="user_nic" id="user_nic" placeholder="µî·ÏÇÑ ´Ğ³×ÀÓÀ» ¾²½Ã¿À."></span>
+						<span class="box"><input type="text" class="int" maxlength="20" name="user_nic" id="user_nic" placeholder="ë“±ë¡í•œ ë‹‰ë„¤ì„ì„ ì“°ì‹œì˜¤."></span>
 					</div>
 					
 					
 					<p>
-						<button class="w-btn w-btn-pink" type="button" onclick="fsubmit();">Ã£±â</button>
+						<button class="w-btn w-btn-pink" type="button" onclick="fsubmit();">ì°¾ê¸°</button>
 						
 					</p>
 					</form>

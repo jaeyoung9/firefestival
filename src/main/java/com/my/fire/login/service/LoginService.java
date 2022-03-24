@@ -14,4 +14,6 @@ public interface LoginService {
 	
 	//비밀번호 찾기
 	public List<Map<String, Object>> findPw(Map<String, Object> map) throws Exception;
+
+	
 }

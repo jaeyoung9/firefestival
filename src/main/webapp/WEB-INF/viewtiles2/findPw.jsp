@@ -1,11 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
     <%@ include file="/WEB-INF/viewtiles2/include/include-header.jspf"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
-<title>비밀번호 찾기</title>
+<meta charset="UTF-8">
+<title>鍮꾨��踰덊샇 李얘린</title>
 </head>
 <body>
 
