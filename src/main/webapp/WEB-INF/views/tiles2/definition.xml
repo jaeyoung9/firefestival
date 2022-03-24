@@ -19,6 +19,32 @@
 					value="/WEB-INF/viewtiles2/main.jsp" />
 			</definition>
 			
+			<!-- 로그인 -->
+         <definition name="loginForm" extends="base_layout">
+            <!-- <put-attribute name="title" value="로그인페이지" /> -->
+            <put-attribute name="body"
+               value="/WEB-INF/viewtiles2/login/loginForm.jsp" />
+         </definition>
+         <definition name="login" extends="base_layout">
+            <!-- <put-attribute name="title" value="로그인" /> -->
+            <put-attribute name="body"
+               value="/WEB-INF/viewtiles2/login/login.jsp" />
+         </definition>
+         
+         <!-- 아이디 찾기 -->
+         <definition name="findId" extends="base_layout">
+            <!-- <put-attribute name="title" value="아이디 찾기" /> -->
+            <put-attribute name="body"
+               value="/WEB-INF/viewtiles2/login/findId.jsp" />
+         </definition>
+         
+         <!-- 비밀번호 찾기 -->
+         <definition name="findPw" extends="base_layout">
+            <!-- <put-attribute name="title" value="비밀번호 찾기" /> -->
+            <put-attribute name="body"
+               value="/WEB-INF/viewtiles2/login/findPw.jsp" />
+         </definition>
+			
 			<!-- 회원가입 -->
 			<definition name="joinForm" extends="base_layout">
 				<!-- <put-attribute name="title" value="회원가입페이지" /> -->
