@@ -51,5 +51,38 @@ WHERE
 USER_PW = #{USER_PW} and USER_ID = #{USER_ID}
 ]]>
 </select>
-
+<!-- 마이페이지 리뷰 -->
+<select id="myreview" parameterType="hashmap" resultType="hashmap">
+<![CDATA[
+SELECT
+REVIEW_TITLE
+FROM 
+TB_REVIEW
+INNER JOIN
+TB_MEMBER
+ON
+TB_REVIEW.USER_ID = TB_MEMBER.USER_ID
+WHERE
+TB_REVIEW.USER_ID = #{USER_ID}
+AND
+TB_REVIEW.DEL_GB = 'N'
+]]>
+</select>
+<!-- 마이페이지 당점이벤트 -->
+<select id="myevent" parameterType="hashmap" resultType="hashmap">
+<![CDATA[
+SELET
+EVENT_TITLE
+FROM
+TB_EVENT
+INNER HOIN
+TB_MEMBER
+ON
+TB_EVENT.USER_ID = TB_MEMBER.USER_ID
+WHERE
+TB_EVENT.USER_ID = #{USER_ID}
+AND
+TN_REVENT.KATE = 'Y'
+]]>
+</select>
 </mapper>
