@@ -37,7 +37,9 @@ public class FileUtils {
         Iterator<String> iterator = multipartHttpServletRequest.getFileNames();
          String notice_title = request.getParameter("NOTICE_TITLE");
          String notice_content = request.getParameter("NOTICE_CONTENT");
-              
+         
+         
+         
         MultipartFile NOTICE_FILE_SIZE = null;
         String NOTICE_ORIGINAL = null;
         String originalFileExtension = null;
@@ -89,7 +91,8 @@ public class FileUtils {
         Iterator<String> iterator = multipartHttpServletRequest.getFileNames();
          String notice_title = request.getParameter("NOTICE_TITLE");
          String notice_content = request.getParameter("NOTICE_CONTENT");
-              
+         String notice_index = request.getParameter("NOTICE_INDEX");     
+         
         MultipartFile NOTICE_FILE_SIZE = null;
         String NOTICE_ORIGINAL = null;
         String originalFileExtension = null;
@@ -128,7 +131,7 @@ public class FileUtils {
                 listMap.put("NOTICE_FILE_SIZE", NOTICE_FILE_SIZE.getSize());
                 listMap.put("NOTICE_TITLE", notice_title);
                 listMap.put("NOTICE_CONTENT", notice_content);
-                
+                listMap.put("NOTICE_INDEX", notice_index);
        
                 
                 list.add(listMap);

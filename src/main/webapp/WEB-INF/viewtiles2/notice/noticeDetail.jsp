@@ -14,13 +14,15 @@
 
 <div style="text-align: center">
    <c:forEach items="${ndetail}" var="ndetail">
-   <img alt="${ndetail.NOTICE_ORIGINAL}" src="<%=request.getContextPath()%>/images/UP/${ndetail.NOTICE_NEW_IMG}"><br>
+<div>         
+   <img alt="${ndetail.NOTICE_ORIGINAL}" src="<%=request.getContextPath()%>/images/UP/${ndetail.NOTICE_NEW_IMG}"/><br>
     ${ndetail.NOTICE_CONTENT}
     <button id="Up" name="Up" class="btn btn-hover submitUp">수정</button>
     <input type="hidden" id="NOTICE_INDEX" name="NOTICE_INDEX" value="${ndetail.NOTICE_INDEX}">
     
-    <a name="Up" href="#this" class="btn btn-hover">a태그 테스트</a>
+
    <button class="btn btn-hover">삭제</button>
+</div>
    </c:forEach>
    	<%@ include file="/WEB-INF/viewtiles2/include/include-body.jspf"%>
 </div>
@@ -33,6 +35,8 @@
 		
 
 		 function fn_NoticeUp(obj) {
+			var aaa = obj.parent().find("#NOTICE_INDEX").val();
+			alert(aaa);
 			var comSubmit = new ComSubmit(); //폼에 동적으로 값을 추가하는 기능을 편하게 사용하기 위함인데, (ComSubmit객체 생성)
 			comSubmit.setUrl("<c:url value='/notice/Up'/>");
 			// obj.parent().find("#IDX").val()은 jQuery를 이용하여 <a>태그의 부모노드 내에서 IDX라는 값을 가진 태그를 찾아

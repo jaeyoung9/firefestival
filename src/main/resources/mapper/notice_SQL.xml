@@ -59,6 +59,7 @@
 	<insert id="noticeUp" parameterType="hashmap">
 		<![CDATA[
 		UPDATE TB_NOTICE SET 
+		NoTICE_INDEX = #{NOTICE_INDEX},
 		NOTICE_TITLE = #{NOTICE_TITLE}, 
 		NOTICE_CONTENT = #{NOTICE_CONTENT}, 
 		NOTICE_ORIGINAL = #{NOTICE_ORIGINAL}, 

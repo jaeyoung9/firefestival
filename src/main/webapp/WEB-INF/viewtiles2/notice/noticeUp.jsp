@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
-
+<%@ include file="/WEB-INF/viewtiles2/include/include-header.jspf" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,7 +16,7 @@
 		<tr>
 		<td>제목</td>
 		<td>
-		 <c:forEach items="${ndetail}" var="ndetail">
+		 <c:forEach items="${NDetail}" var="ndetail">
 		<input type="text" name="NOTICE_TITLE" id="NOTICE_TITLE" value="${ndetail.NOTICE_TITLE}"></td>
 		</tr>
 		<tr>
@@ -57,7 +57,7 @@
 			formData.append("file", $('input[name=file]')[0].files[0]);
 
 			$.ajax({
-				url : '/fire/notice/Up',
+				url : '/fire/notice/UpUp',
 				type : 'POST',
 				data : formData,
 				processData : false,
@@ -80,6 +80,7 @@
 		});
 	});
 </script>
+
 </body>
 
 </html>
