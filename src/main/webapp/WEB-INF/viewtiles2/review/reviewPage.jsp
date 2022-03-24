@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>공지사항</title>
+<title>리뷰</title>
 </head>
 <body>
 
