@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,7 +8,7 @@
 <title>공지사항 작성</title>
 </head>
 <body>
-
+<div style="justify-content: center">
 <form id="noticeGo" action="/notice/Go" method="POST" enctype="multipart/form-data">
 <table>
 	<div>
@@ -19,32 +19,26 @@
 		</tr>
 		<tr>
 		<td>내용</td>
-		<td><textarea  name="NOTICE_CONTENT" maxlength="3000" id="NOTICE_CONTENT"></textarea></td>
+		<td><textarea name="NOTICE_CONTENT" class="editor" maxlength="3000"  id="NOTICE_CONTENT"></textarea></td>
 		</tr>
-<!--   <script>
-    // 3. CKEditor5를 생성할 textarea 지정
-    ClassicEditor
-        .create( document.querySelector( '#NOTICE_CONTENT' ) )
-        .catch( error => {
-            console.error( error );
-        } );
-    </script> -->
+		<!-- <script>CKEDITOR.replace('NOTICE_CONTENT');</script>-->
+    
 	</div>
 	<tr>
 <td></td>
 <td>
-<input type="file" id="NOTICE_NEW_IMG" name="file">
+<input type="file" class="btn input" id="NOTICE_NEW_IMG" name="file">
 </td>
 </tr>
 <tr>
 <td></td>
 <td>
-<button type="button" class="submit" >등록</button>
+<button type="button" class="btn btn-hover submit" >등록</button>
 </td>
 </tr>
 	</table>
 </form>
-
+</div>
 </body>
 
 <script type="text/javascript">
@@ -55,7 +49,7 @@
 		$('.submit').on('click', function() {
 
 			var form = $('#noticeGo');
-
+		
 			var formData = new FormData(form[0]);
 
 			formData.append("file", $('input[name=file]')[0].files[0]);
@@ -70,8 +64,8 @@
 					console.log('jQeury ajax form submit beforeSend');
 				},
 				success : function(data) {
-					console.log('jQeury ajax form submit success');
-					alert("작성완료.");
+					console.log('jQeury ajax form submit success' );
+					alert("작성완료." + NOTICE_CONTENT);
 				},
 				error : function(data) {
 					console.log('jQeury ajax form submit error' + data);

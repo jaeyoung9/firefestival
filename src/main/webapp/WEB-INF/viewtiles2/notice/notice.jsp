@@ -12,8 +12,11 @@
 
 
 	<div>
+
+
+
 	<div class="wrap">
-		<table>
+		<table class="table table-hover">
 			<tbody>
 <colgroup>
 			<col width="2%"/>
@@ -27,39 +30,15 @@
         		<th scope="col">작성일자</th>
         	</tr>
         </thead>
-
-
 			</tbody>
 		</table>
 </div>
- 
-		<div class="pagination" id="PAGE_NAVI"></div>
+
+		<div class="pagination text-center" id="PAGE_NAVI" style="justify-content: center;"></div>
 		<!-- 앞으로 페이징 태그가 그려질 부분 (밑에서 공통할수를 이용해 페이징 태그가 작성됨.) -->
-<!-- <ul class="pagination">
-							<li class="page-item">
-								<a href="#" class="page-link" aria-label="Previous">
-									<span aria-hidden="true">
-										<span class="lnr lnr-chevron-left"></span>
-									</span>
-								</a>
-							</li>
-							<li class="page-item"><a href="#" class="page-link">01</a></li>
-							<li class="page-item active"><a href="#" class="page-link">02</a></li>
-							<li class="page-item"><a href="#" class="page-link">03</a></li>
-							<li class="page-item"><a href="#" class="page-link">04</a></li>
-							<li class="page-item"><a href="#" class="page-link">09</a></li>
-							<li class="page-item">
-								<a href="#" class="page-link" aria-label="Next">
-									<span aria-hidden="true">
-										<span class="lnr lnr-chevron-right"></span>
-									</span>
-								</a>
-							</li>
-						</ul> -->
-		<input type="hidden" class="pagination" id="PAGE_INDEX" name="PAGE_INDEX" />
+		<input type="hidden" class="" id="PAGE_INDEX" name="PAGE_INDEX" />
 		<!-- 현재 페이지 번호가 저장될 부분 -->
 	</div>
-	  
 	
 	
 	<!-- include를 하여 어떤 화면을 만들더라도 <body>태그 안쪽의 내용만 바뀌고, 나머지는 항상 똑같이 작성 -->
@@ -121,21 +100,24 @@
 						.each(
 								data.list,
 								function(key, value) {
-									str += "<div class='tile'>"
-                                      
-                                        + "<div class='text'>"
-                                        + "<p class='animate-text'>"
+									str +=// "<div>" 
+										// +
+										 "<tr style='text-align:center;'>"
+										+ "<a href='#this' name='title'>"
+                                        + "<td>"
                                         + "<a href='#this' name='title'>" + value.NOTICE_INDEX + "</a>"
                                         + "<input type='hidden' name='title' id='NOTICE_INDEX' value=" + value.NOTICE_INDEX + ">"
-                                        + "</p>"
-                                        + "<p class='animate-text'>"
+                                        + "</td>"
+                                        + "<td>"
                                         + "<a href='#this' name='title'>" + value.NOTICE_TITLE+ "</a>"
                                         + "<input type='hidden' name='title' id='NOTICE_INDEX' value=" + value.NOTICE_INDEX + ">"
-                                        + "</p>"
-                                        + "<p class='animate-text'>"
+                                        + "</td>"
+                                        + "<td>"
                                         + "<a href='#this' name='title'>" + value.NOTICE_DATE + "</a>"
+                                        
                                         + "<input type='hidden' name='title' id='NOTICE_INDEX' value=" + value.NOTICE_INDEX + ">"
-                                        + "</p>"
+                                        + "</td>"
+                                        + "</a>"
                                         + "<div class='dots'>"
                                         + "<span>"
                                         + "</span>"
@@ -143,9 +125,10 @@
                                         + "</span>"
                                         + "<span>"
                                         + "</span>"
-                                       + "</div>"
-                                        + "</div>"
-                                        + "</div>"
+                                       + "</div>" 
+                                       + "<input type='hidden' name='title' id='NOTICE_INDEX' value=" + value.NOTICE_INDEX + ">"
+                                        + "</tr>"
+                                      //  + "</div>"
                                         + "<hr>";
 
 								});
@@ -159,9 +142,6 @@
 			}
 		}
 	</script>
-</body><!-- 
-  + "<a href='#this' name='title'>" 
-                                        + "<input type='hidden' name='title' id='GOODS_INDEX' value=" + value.NOTICE_INDEX + ">"
-                                        + " <img src='../../images/UP/"+value.NOTICE_NEW_IMG +"'height='300' width='450'/>"
-                                        + "</a>" -->
+</body>
+
 </html>

@@ -76,9 +76,29 @@ public class NoticeServiceImpl implements NoticeService{
 
 	//공지 수정dd
 	@Override
-	public void noticeUp(Map<String, Object> map) throws Exception {
+	public void noticeUp(Map<String, Object> map, HttpServletRequest request) throws Exception {
 		// TODO Auto-generated method stub
-		noticeDao.noticeUp(map);
+		List<Map<String, Object>> list = fileUtils.noticeUpdate(map, request);
+		for(int i = 0; i < list.size(); i++) {
+			Map<String, Object> vo = list.get(i);
+
+			noticeDao.noticeUp(map);
+		}
+		
+		// log
+				MultipartHttpServletRequest multipartHttpServletRequest = (MultipartHttpServletRequest) request;
+				Iterator<String> iterator = multipartHttpServletRequest.getFileNames();
+				MultipartFile multipartFile = null;
+				while (iterator.hasNext()) {
+					multipartFile = multipartHttpServletRequest.getFile(iterator.next());
+					if (multipartFile.isEmpty() == false) {
+						log.debug("---------- file start ----------");
+						log.debug("name : " + multipartFile.getName());
+						log.debug("filename : " + multipartFile.getOriginalFilename());
+						log.debug("size : " + multipartFile.getSize());
+						log.debug("---------- file end ----------\n");
+					}
+				}
 	}
 
 	//공지 삭제dd

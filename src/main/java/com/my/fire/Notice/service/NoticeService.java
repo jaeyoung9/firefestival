@@ -14,12 +14,14 @@ public interface NoticeService {
 	// 공지상세페이지
 	List<Map<String, Object>> noticeDetail(Map<String, Object> map);
 	
-	// 공지작성dd
+	// 공지작성
 	void noticeGo(Map<String, Object> map, HttpServletRequest request) throws Exception;
 
-	// 공지수정dd
-	void noticeUp(Map<String, Object> map) throws Exception;
+	// 공지수정
+	void noticeUp(Map<String, Object> map, HttpServletRequest request) throws Exception;
 
 	// 공지삭제
 	void noticeDe(Map<String, Object> map) throws Exception;
+
+	
 }
