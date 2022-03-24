@@ -18,7 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.my.fire.common.CommandMap;
 import com.my.fire.login.service.LoginService;
 
-//로그인 Controller_김형태
+//로그인 Controller_한창식
 @Controller
 public class LoginController {
 

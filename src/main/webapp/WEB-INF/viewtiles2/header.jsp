@@ -34,7 +34,7 @@
 							<c:choose>
 							<c:when test="${USER_ID == null }">
 							<li>
-								<a href="#">로그인</a>
+							<a href="<c:url value='/loginForm'/>">로그인</a>
 							</li>
 							<li>
 								<a href="<c:url value='/joinForm'/>">회원가입</a>
