@@ -35,14 +35,17 @@ public class MyPageDAO extends AbstractDAO {
 		return (Map<String, Object>)selectOne("myPage.checkPw",map);
 	}
 
+	// 내리뷰 보기
 	@SuppressWarnings("unchecked")
-	public List<Map<String, Object>> myreview(Map<String, Object> map) {
-		return (List<Map<String,Object>>)selectOne("myPage.myreview", map);
+	public List<Map<String, Object>> myreview(Map<String, Object> map) throws Exception {
+		System.out.println("DAO");
+		return (List<Map<String,Object>>)selectList("myPage.myreview", map);
 	}
 
+	//내 이벤트 보기
 	@SuppressWarnings("unchecked")
-	public List<Map<String, Object>> myevent(Map<String, Object> map) {
-		return (List<Map<String,Object>>)selectOne("mypage.myevent", map);
+	public List<Map<String, Object>> myevent(Map<String, Object> map) throws Exception {
+		return (List<Map<String,Object>>)selectList("mypage.myevent", map);
 	}
 
 }
