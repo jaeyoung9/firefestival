@@ -20,6 +20,7 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.11/css/lightgallery.min.css">
 
 <!-- jQuery -->
+    <script src = "<%=request.getContextPath() %>/ckeditor/ckeditor.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath() %>/smart/js/service/HuskyEZCreator.js" charset="utf-8"></script>
 <script src="https://cdn.ckeditor.com/ckeditor5/33.0.0/classic/ckeditor.js"></script>
 <script src="<%=request.getContextPath() %>/js/common.js" charset="utf-8"></script>
