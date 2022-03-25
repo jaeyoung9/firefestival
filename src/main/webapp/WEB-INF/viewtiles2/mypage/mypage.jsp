@@ -10,7 +10,7 @@
 <body>
 <div class="mypagemain">
 	<div class="mypagetop"><h1>마이페이지</h1>
-	<a href="../mypage/checkPwForm"><p>회원정보수정</p></a>
+	<a href="<c:url value='/mypage/checkPwForm'/>"><p>회원정보수정</p></a>
 		
 	</div>
 	
