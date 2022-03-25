@@ -59,7 +59,7 @@ public class MyPageController {
 //	}
 
 	// 마이페이지 수정폼
-	@RequestMapping(value = "/mypage/myUpdate", method = RequestMethod.GET)
+	@RequestMapping(value = "/mypage/myUpdate")
 	public ModelAndView myUpdate(CommandMap commandMap, HttpServletRequest request) throws Exception {
 		ModelAndView mv = new ModelAndView("myUpdate");
 
