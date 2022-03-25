@@ -37,7 +37,8 @@
 </div>
 <p>
 	<button class="w-btn" type="button" onclick="checkSubmit();">확인</button>
-	<button class="w-btn" type="button" onclick="location.href=../myPage?USER_ID=${USER_ID}'">취소</button>
+	<%-- <a href="<c:url value='/mypage?USER_ID=${USER_ID }'/>" class="btn">취소</a> --%>
+	<button type="button" class="w-btn" onClick="location.href='/fire/mypage?USER_ID=${USER_ID}'">취소</button>
 </p>
 </form>
 

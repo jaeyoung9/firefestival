@@ -9,7 +9,7 @@
 </head>
 <body>
 	<div class="myup">
-		<form id="myupdate" method="post"
+		<form id="myUpdate" method="post"
 			action="<c:url value='/mypage/myUpdateok'/>">
 			<h4 class="myuph4" style="text-align: center">회원정보 수정</h4>
 			<div>
@@ -24,7 +24,7 @@
 			<div>
 				<div>
 					<label> 비밀번호 </label> <span class="box"> <input type="password"
-						class="int" id="user_pw" name="USER_PW" value="${map.USER_ID }"
+						class="int" id="user_pw" name="USER_PW" value="${map.USER_PW }"
 						readonly>
 					</span>
 				</div>
