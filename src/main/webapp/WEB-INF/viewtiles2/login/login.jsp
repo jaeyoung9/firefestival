@@ -13,9 +13,10 @@ $(document).ready(function()){
 		alert(message);
 		location.href = "<c:url value='/loginForm'/>";
 	}else{
-		alert("·로그인 되었습니다.");
 		location.href = "<c:url value='/main'/>";
+		alert("로그인 되었습니다.");
 	}
+	
 }
 
 </script>
