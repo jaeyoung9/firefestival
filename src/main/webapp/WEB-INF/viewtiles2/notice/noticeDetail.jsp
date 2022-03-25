@@ -25,8 +25,8 @@
 
 					<c:when test="${USER_ID != null}">
 						<c:if test="${AMIN_TIM eq 'Y'}">
-							<button id="Up" name="Up" class="btn btn-hover submitUp">수정</button>
-							<button id="De" name="De" class="btn btn-hover">삭제</button>
+							<button id="Up" name="Up" class="primary-btn header-btn text-capitalize mt-10">수정</button>
+							<button id="De" name="De" class="primary-btn header-btn text-capitalize mt-10">삭제</button>
 						</c:if>
 
 					</c:when>
