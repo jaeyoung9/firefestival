@@ -49,7 +49,7 @@ USER_PW
 FROM
 TB_MEMBER
 WHERE
-USER_NIC = #{USER_NIC} AND USER_ID = #{USER_ID}
+USER_ID = #{USER_ID}
 ]]>
 </select>
 </mapper>
