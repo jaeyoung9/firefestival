@@ -16,7 +16,7 @@
 <div>
 <a href="/fire/joinForm"><h1>회원가입</h1></a>
 </div>
-<form id="joinForm" method="POST" action="<c:url value='/joinOk'/>">
+<form id="joinForm" method="POST" action="<c:url value='/joinOk'/>"  enctype="multipart/form-data">
 <div>
 	<h4><label>아이디</label></h4>
 		

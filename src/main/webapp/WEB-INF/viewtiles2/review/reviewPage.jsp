@@ -13,7 +13,7 @@
 
 	<div>
 	<div class="wrap">
-		<table>
+		<table class="table table-hover">
 			<tbody>
 <colgroup>
 			<col width="2%"/>
@@ -34,7 +34,7 @@
 		</table>
 </div>
 
-		<div class="PAGE_NAVI" id="PAGE_NAVI"></div>
+		<div class="pagination text-center" id="PAGE_NAVI" style="justify-content: center;"></div>
 		<!-- 앞으로 페이징 태그가 그려질 부분 (밑에서 공통할수를 이용해 페이징 태그가 작성됨.) -->
 		<input type="hidden" id="PAGE_INDEX" name="PAGE_INDEX" />
 		<!-- 현재 페이지 번호가 저장될 부분 -->
@@ -89,7 +89,7 @@
 					divId : "PAGE_NAVI", //( divId는 key, "PAGE_NAVI"는 value형식이다.")
 					pageIndex : "PAGE_INDEX", //( pageIndex는 key, "PAGE_INDEX"는 value형식이다.")
 					totalCount : total, //( totalCount는 key, "total"는 value형식이다.")
-					eventName : "fn_review" //( eventName는 key, "fn_selectBoardList"는 value형식이다.")
+					eventName : "fn_reviewPage" //( eventName는 key, "fn_selectBoardList"는 value형식이다.")
 				};
 				gfn_renderPaging(params); //gfn_rederPageing함수를 호출하면 object의 값을 이용하여 페이징 태그를 만든다.
 
