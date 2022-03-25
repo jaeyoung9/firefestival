@@ -11,36 +11,39 @@
 <body>
 <div style="justify-content: center">
 <form id="noticeUp" action="/notice/Up" method="POST" enctype="multipart/form-data">
+ <c:forEach items="${NDetail}" var="ndetail">
+ <input type="hidden" name="NOTICE_INDEX" id="NOTICE_INDEX" value="${ndetail.NOTICE_INDEX}">
 <table>
 	<div>
 		<tr>
 		<td>제목</td>
 		<td>
-		 <c:forEach items="${NDetail}" var="ndetail">
 		<input type="text" name="NOTICE_TITLE" id="NOTICE_TITLE" value="${ndetail.NOTICE_TITLE}"></td>
 		</tr>
 		<tr>
 		<td>내용</td>
 		
 		<td><textarea name="NOTICE_CONTENT" class="editor" maxlength="3000"  id="NOTICE_CONTENT">${ndetail.NOTICE_CONTENT}</textarea></td>
-		</c:forEach>
+
 		</tr>
 		<!-- <script>CKEDITOR.replace('NOTICE_CONTENT');</script>-->
     
-	</div>
+	
 	<tr>
 <td></td>
 <td>
-<input type="file" class="btn input" id="NOTICE_NEW_IMG" name="file">
+${ndetail.NOTICE_NOTICE_ORIGINAL}
+<input type="file" class="btn input" id="NOTICE_NEW_IMG" name="file" >
 </td>
 </tr>
 <tr>
-<td></td>
 <td>
 <button type="button" class="btn btn-hover submit" >등록</button>
 </td>
 </tr>
+</div>
 	</table>
+			</c:forEach>
 </form>
 </div>
 <script type="text/javascript">
@@ -67,7 +70,7 @@
 				},
 				success : function(data) {
 					console.log('jQeury ajax form submit success' );
-					alert("작성완료.");
+					alert("수정완료.");
 				},
 				error : function(data) {
 					console.log('jQeury ajax form submit error' );
