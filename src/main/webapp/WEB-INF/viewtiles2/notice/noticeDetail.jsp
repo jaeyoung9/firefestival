@@ -57,7 +57,6 @@
 			 
 			comSubmit.addParam("NOTICE_INDEX", obj.parent().find("#NOTICE_INDEX")
 					.val());
-					alert("삭제완료.");
 			comSubmit.submit(); 
 		} 
 
