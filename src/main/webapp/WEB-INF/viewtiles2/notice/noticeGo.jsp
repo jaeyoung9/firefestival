@@ -104,40 +104,38 @@ fieldset[disabled] .form-control {
 <div style="justify-content: center">
 <form id="noticeGo" action="/notice/Go" method="POST" enctype="multipart/form-data">
 <table>
-	<div>
+<table>
 		<tr>
-		<td>제목</td>
-		<td>
-		<input type="text" name="NOTICE_TITLE" id="NOTICE_TITLE"></td>
+			<td>
+				<div class="form-group">
+             	   <label class="form-label mt-4">제목</label>
+           		     <input type="text"  class="form-control" name="NOTICE_TITLE" id="NOTICE_TITLE" value="${ndetail.NOTICE_TITLE}">
+          	    </div>
+            </td>
+        </tr>
+		<tr>
+			<td>
+				<div class="form-group">
+                	<label class="form-label mt-4">내용</label>
+                	<textarea name="NOTICE_CONTENT"  class="form-control editor" id="NOTICE_CONTENT" class="editor" maxlength="3000">${ndetail.NOTICE_CONTENT}</textarea>
+                	<!-- <script>CKEDITOR.replace('NOTICE_CONTENT');</script>-->
+            	</div>
+            </td>
 		</tr>
 		<tr>
-		<td>내용</td>
-		<td><textarea name="NOTICE_CONTENT" class="editor" maxlength="3000"  id="NOTICE_CONTENT"></textarea></td>
+			<td>
+				<div class="form-group">
+                	<label class="form-label mt-4">파일</label>
+                	<input type="file" accept="image/jpg,image/png,image/jpeg,image/gif" class="form-control" id="NOTICE_NEW_IMG" name="file">
+            	</div>
+			</td>
 		</tr>
-		<!-- <script>CKEDITOR.replace('NOTICE_CONTENT');</script>-->
-    
-	</div>
-	<tr>
-<td></td>
-<td>
-<input type="file" accept="image/jpg,image/png,image/jpeg,image/gif" name="file"  id="NOTICE_NEW_IMG" >
-<!-- <div class="form-group form_file">
-  <input class="form-control form_point_color01" type="text" title="첨부된 파일명" readonly style="width:250px">
-  <span class="file_load">
-		<input type="file" accept="image/jpg,image/png,image/jpeg,image/gif" name="file"  id="NOTICE_NEW_IMG" >
-		<label class="btn-default" for="NOTICE_NEW_IMG">찾아보기</label>
-	</span>
-</div>
- -->
-
-</td>
-</tr>
 <tr>
-<td></td>
 <td>
-<button type="button" class="btn btn-hover submit" >등록</button>
+<button type="button" class="primary-btn header-btn text-capitalize mt-10" >등록</button>
 </td>
 </tr>
+
 	</table>
 </form>
 </div>
