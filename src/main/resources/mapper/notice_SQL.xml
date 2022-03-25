@@ -44,7 +44,7 @@
 		VALUES(TB_NOTICE_SEQ.NEXTVAL, #{NOTICE_TITLE}, #{NOTICE_CONTENT}, #{NOTICE_ORIGINAL}, #{NOTICE_NEW_IMG}, #{NOTICE_FILE_SIZE})		
 		]]>
 	</insert>
-<!-- where AMIN_TIM = #{AMIN_TIM} -->
+
 <!-- 공지사항 보기 Detail  -->
 	<select id="noticeDetail" parameterType="hashmap" resultType="hashmap">
 		
@@ -59,7 +59,6 @@
 	<insert id="noticeUp" parameterType="hashmap">
 		<![CDATA[
 		UPDATE TB_NOTICE SET 
-		NoTICE_INDEX = #{NOTICE_INDEX},
 		NOTICE_TITLE = #{NOTICE_TITLE}, 
 		NOTICE_CONTENT = #{NOTICE_CONTENT}, 
 		NOTICE_ORIGINAL = #{NOTICE_ORIGINAL}, 
@@ -78,5 +77,5 @@
 		WHERE NOTICE_INDEX = #{NOTICE_INDEX}
 		]]>
 	</insert>
-	<!-- AND AMIN_TIM = #{AMIN_TIM}  -->
+
 </mapper>
