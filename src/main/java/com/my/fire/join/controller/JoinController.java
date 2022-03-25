@@ -1,13 +1,13 @@
 package com.my.fire.join.controller;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
 
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.my.fire.common.CommandMap;
@@ -23,7 +23,8 @@ public class JoinController {
 	private JoinService joinService;
 	
 	//회원가입
-	@RequestMapping(value = "/joinForm", method = RequestMethod.GET)
+	@ResponseBody //json 방식이란 object방식으로 값이 넘어가게하는거
+	@RequestMapping(value = "/joinForm")
 	public ModelAndView joinForm(CommandMap commandMap) throws Exception {
 		ModelAndView mv = new ModelAndView("joinForm");
 		return mv;
@@ -47,15 +48,16 @@ public class JoinController {
     }
 	
 	//회원가입완료
-	@ResponseBody
 	@RequestMapping(value = "/joinOk")
-	public ModelAndView noticeGo(CommandMap commandMap, HttpServletRequest request) throws Exception {
+	@ResponseBody
+	public ModelAndView joinOk(CommandMap commandMap, MultipartHttpServletRequest multirequest) throws Exception {
 		ModelAndView mv = new ModelAndView("loginForm");
 		return mv;
 	}
+	
 	@RequestMapping(value = "/joinOk", method = RequestMethod.POST)
-	public ModelAndView joinOk(CommandMap commandMap, HttpServletRequest request) throws Exception {
-		ModelAndView mv = new ModelAndView("jsonView");
+	public ModelAndView joinOkOk(CommandMap commandMap, MultipartHttpServletRequest request) throws Exception {
+		ModelAndView mv = new ModelAndView("loginForm");
 		if (log.isDebugEnabled()) {
             log.debug(commandMap);
         }

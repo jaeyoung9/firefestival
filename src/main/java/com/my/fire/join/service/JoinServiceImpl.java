@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
 
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Service;
@@ -41,7 +40,7 @@ public class JoinServiceImpl implements JoinService {
 
 	//회원가입 완료
 	@Override
-	public void joinOk(Map<String, Object> map, HttpServletRequest request) throws Exception {
+	public void joinOk(Map<String, Object> map, MultipartHttpServletRequest request) throws Exception {
 		List<Map<String, Object>> list = fileUtils.userProfile(map, request);
 		for(int i = 0; i < list.size(); i++) {
 			Map<String, Object> vo = list.get(i);

@@ -2,7 +2,7 @@ package com.my.fire.join.service;
 
 import java.util.Map;
 
-import javax.servlet.http.HttpServletRequest;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 //회원가입 Service_김형태
 public interface JoinService {
@@ -14,5 +14,5 @@ public interface JoinService {
 	int joinNicCk(String nic) throws Exception;
 
 	//회원가입 완료
-	void joinOk(Map<String, Object> map, HttpServletRequest request) throws Exception;
+	void joinOk(Map<String, Object> map, MultipartHttpServletRequest request) throws Exception;
 }
