@@ -14,7 +14,8 @@
             alert(message);
             location.href = "/fire/mypage/checkPwForm";
         } else {
-            location.href = "/fire/mypage/myUpdate?USER_ID=${USER_ID}";
+            /* location.href = "/fire/mypage/myUpdate?USER_ID=${USER_ID}"; */
+        	location.href = "/fire/mypage?USER_ID=${USER_ID}";
         }
     })
     </script>
