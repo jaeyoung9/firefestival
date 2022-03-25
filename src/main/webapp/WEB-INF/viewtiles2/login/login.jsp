@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
     <%@ include file="/WEB-INF/viewtiles2/include/include-header.jspf" %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+
 <script charset = "utf-8"></script>
 <script type = "text/javascript">
 $(document).ready(function()){

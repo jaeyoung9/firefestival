@@ -31,6 +31,12 @@ public class LoginDAO extends AbstractDAO {
 		// TODO Auto-generated method stub
 		return (List<Map<String, Object>>) selectList("login.findPw", map);
 	}
+//	@SuppressWarnings("unchecked")
+//	public Map<String, Object> selectLoginUser(Map<String, Object> map) throws Exception {
+//		return (Map<String, Object>) selectOne("login.selectLoginUser", map);
+//	}
+
+	
 
 	
 }

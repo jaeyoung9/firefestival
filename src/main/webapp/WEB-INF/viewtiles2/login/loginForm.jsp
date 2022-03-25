@@ -1,10 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
+
+<%@ include file="/WEB-INF/viewtiles2/include/include-header.jspf" %>
 <!DOCTYPE html>
 <html>
 <head>
-<script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
-<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+
 <script type="text/javascript">
 
 function fsubmit() {
@@ -36,27 +37,27 @@ function fsubmit() {
     <div class="row">
       <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
         <div class="card card-signin my-5">
-          <div class="card-body">
+          <div class="card-body"><!--  -->
             <h5 class="card-title text-center">회원로그인</h5>
-            <form class="form-signin" id="frm" name="frm">
+            <form class="form-signin" id="frm" name="frm" action="<c:url value = '/login'/>" method="POST">
               <div class="form-label-group">
-                <input type="id" class="form-control focused-id" name="ID" id="ID" placeholder="아이디를 입력하세요.">
-              </div><br/>
+                <input type="text" class="form-control focused-id" name="USER_ID" id="user_id" placeholder="아이디를 입력하세요.">
+              </div>
 
               <div class="form-label-group">
-                <input type="password" class="form-control focused-password" name="PASSWORD" id="PASSWORD" placeholder="비밀번호를 입력하세요.">
+                <input type="password" class="form-control focused-password" name="USER_PW" id="user_pw" placeholder="비밀번호를 입력하세요.">
               </div>
               
               <hr/>
 
-              <button class="btn btn-lg btn-primary btn-block text-uppercase" id="Login">LOGIN</button><br/><br/>
+              <button class="btn btn-lg btn-primary btn-block text-uppercase" onclick="fsubmit();">LOGIN</button>
               </form>
               <div>
-				<a href="<c:url value='/findId'/>">아이디 찾기</a>
+				<a href="<c:url value='/findId/'/>">아이디 찾기</a>
 				<span>|</span>
-				<a href="<c:url value='/findPw'/>">비밀번호 찾기</a>
+				<a href="<c:url value='/findPw/'/>">비밀번호 찾기</a>
 				<span>|</span>
-				<a href="<c:url value='/joinForm'/>">회원가입</a>
+				<a href="<c:url value='/joinForm/'/>">회원가입</a>
 				</div>
           </div>
         </div>
