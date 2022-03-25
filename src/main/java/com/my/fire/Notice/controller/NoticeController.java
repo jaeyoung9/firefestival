@@ -1,20 +1,19 @@
 package com.my.fire.Notice.controller;
 
-import java.io.OutputStream;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.my.fire.Notice.service.NoticeService;
@@ -77,9 +76,17 @@ public class NoticeController {
 	// 공지사항 작성페이지 이동.
 	@ResponseBody
 	@RequestMapping(value = "/notice/Go")
-	public ModelAndView noticeGo(CommandMap commandMap, HttpServletRequest request) throws Exception {
-		ModelAndView mv = new ModelAndView("noticeGo");
-		return mv;
+	public ModelAndView noticeGo(CommandMap commandMap, HttpServletResponse response,HttpServletRequest request) throws Exception {
+		HttpSession session = request.getSession();
+		String AMIN_TIM = (String)session.getValue("AMIN_TIM");
+		//System.out.println(AMIN_TIM);
+		if(session.getAttribute("AMIN_TIM") == null || AMIN_TIM.equals("") || AMIN_TIM.equals("N")){
+			 response.sendRedirect("/fire/notice"); 
+		} else if(AMIN_TIM.equals("Y")) {
+			ModelAndView mv = new ModelAndView("noticeGo");
+			return mv;
+		}
+		return null;
 	}
 		// 공지사항 작성.
 		@RequestMapping(value = "/notice/Go" , method = RequestMethod.POST)
@@ -99,16 +106,23 @@ public class NoticeController {
 	//공지사항 수정페이지 이동
 	@ResponseBody
 	@RequestMapping(value = "/notice/Up" )
-	public ModelAndView noticeUp(CommandMap commandMap, HttpServletRequest request) throws Exception {
-		ModelAndView mv = new ModelAndView("noticeUp");
-		Object a = request.getParameter("NOTICE_INDEX");
-		commandMap.put("NOTICE_INDEX", a);
-		List<Map<String, Object>> NDetail = noticeService.noticeDetail(commandMap.getMap());
-		//System.out.println("ㅁㅁㅁㅁㅁㅁㅁㅁ              "+NDetail);
-		mv.addObject("NDetail",NDetail);
-		return mv;
+	public ModelAndView noticeUp(CommandMap commandMap, HttpServletResponse response, HttpServletRequest request) throws Exception {
+		HttpSession session = request.getSession();
+		String AMIN_TIM = (String)session.getValue("AMIN_TIM");
+		if(session.getAttribute("AMIN_TIM") == null || AMIN_TIM.equals("") || AMIN_TIM.equals("N")){
+			 response.sendRedirect("/fire/notice"); 
+		} else if(AMIN_TIM.equals("Y")) {
+			ModelAndView mv = new ModelAndView("noticeUp");
+			Object a = request.getParameter("NOTICE_INDEX");
+			commandMap.put("NOTICE_INDEX", a);
+			List<Map<String, Object>> NDetail = noticeService.noticeDetail(commandMap.getMap());
+			//System.out.println("ㅁㅁㅁㅁㅁㅁㅁㅁ              "+NDetail);
+			mv.addObject("NDetail",NDetail);
+			return mv;
+		}
+		return null;
 	}
-
+	
 	
 		// 공지사항 수정
 		@RequestMapping(value = "/notice/UpUp" , method = RequestMethod.POST)
@@ -126,10 +140,19 @@ public class NoticeController {
 		// 공지사항 삭제
 		@ResponseBody
 		@RequestMapping(value = "/notice/De" )
-		public ModelAndView noticeDe(CommandMap commandMap, HttpServletRequest request) throws Exception {
-			ModelAndView mv = new ModelAndView("notice");
-			noticeService.noticeDe(commandMap.getMap());
-			return mv;
+		public ModelAndView noticeDe(CommandMap commandMap,  HttpServletResponse response, HttpServletRequest request) throws Exception {
+			
+			HttpSession session = request.getSession();
+			String AMIN_TIM = (String)session.getValue("AMIN_TIM");
+			if(session.getAttribute("AMIN_TIM") == null || AMIN_TIM.equals("") || AMIN_TIM.equals("N")){
+				 response.sendRedirect("/fire/notice"); 
+			} else if(AMIN_TIM.equals("Y")) {
+				ModelAndView mv = new ModelAndView("notice");
+				noticeService.noticeDe(commandMap.getMap());
+				return mv;
+			}
+			return null;
+			
 		}
 	
 }
