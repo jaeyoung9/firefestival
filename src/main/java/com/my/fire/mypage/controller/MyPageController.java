@@ -31,7 +31,6 @@ public class MyPageController {
 	public ModelAndView mypage(CommandMap commandMap, HttpServletResponse response, HttpServletRequest request)
 			throws Exception {
 		ModelAndView mv = new ModelAndView("mypage");
-//		commandMap.put("USER_ID", "qwe");
 		List<Map<String, Object>> list = mypageService.myreview(commandMap.getMap());
 //		List<Map<String, Object>> list1 = mypageService.myevent(commandMap.getMap());
 		
@@ -40,7 +39,6 @@ public class MyPageController {
 		HttpSession session = request.getSession();
 		String USER_ID = (String) session.getValue("USER_ID");
 		session.setAttribute("USER_ID", USER_ID);
-//		System.out.println(list);
 		return mv;
 	}
 	
