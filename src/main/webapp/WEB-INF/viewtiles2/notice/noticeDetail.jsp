@@ -16,10 +16,26 @@
    <c:forEach items="${ndetail}" var="ndetail">
 <div>         
    <img alt="${ndetail.NOTICE_ORIGINAL}" src="<%=request.getContextPath()%>/images/UP/${ndetail.NOTICE_NEW_IMG}"/><br>
-    ${ndetail.NOTICE_CONTENT}
-    <button id="Up" name="Up" class="btn btn-hover submitUp">수정</button>
-    <button id="De" name="De" class="btn btn-hover">삭제</button>
-    <input type="hidden" id="NOTICE_INDEX" name="NOTICE_INDEX" value="${ndetail.NOTICE_INDEX}">
+				${ndetail.NOTICE_CONTENT}<br>
+
+				<c:choose>
+					<c:when test="${USER_ID == null }">
+
+					</c:when>
+
+					<c:when test="${USER_ID != null}">
+						<c:if test="${AMIN_TIM eq 'Y'}">
+							<button id="Up" name="Up" class="btn btn-hover submitUp">수정</button>
+							<button id="De" name="De" class="btn btn-hover">삭제</button>
+						</c:if>
+
+					</c:when>
+					<c:otherwise>
+
+					</c:otherwise>
+				</c:choose>
+
+				<input type="hidden" id="NOTICE_INDEX" name="NOTICE_INDEX" value="${ndetail.NOTICE_INDEX}">
 </div>
    </c:forEach>
    	<%@ include file="/WEB-INF/viewtiles2/include/include-body.jspf"%>
