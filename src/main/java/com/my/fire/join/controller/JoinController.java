@@ -59,8 +59,9 @@ public class JoinController {
 		return mv;
 	}
 	
+//	두개를 넣을 필요가 없었다. 디비에 아이디가 두개 저장됨. 
 //	@RequestMapping(value = "/joinOk", method = RequestMethod.POST)
-//	public ModelAndView joinOkOk(CommandMap commandMap, MultipartHttpServletRequest request) throws Exception {
+//	public ModelAndView joinOkOk(CommandMap commandMap, MultipartHttpServletRequest multirequest) throws Exception {
 //		ModelAndView mv = new ModelAndView("loginForm");
 //		if (log.isDebugEnabled()) {
 //            log.debug(commandMap);
