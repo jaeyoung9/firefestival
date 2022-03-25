@@ -29,25 +29,40 @@ public class LoginController {
 	private LoginService loginService;
 
 	//로그인폼
-	   @RequestMapping(value = "/loginForm")
-	    public String loginForm(HttpServletRequest request) throws Exception {
+	@RequestMapping(value = "/loginForm")
+    public String loginForm(HttpServletRequest request) throws Exception {
 
-	        HttpSession session = request.getSession();
-	        String getId = (String) session.getValue("USER_ID");
-	        if (getId == null) {
-	            return "loginForm";
-	        }
-	        return "main";
-	    }
+        HttpSession session = request.getSession();
+        String getId = (String) session.getValue("USER_ID");
+        if (getId == null) {
+            return "loginForm";
+        }
+        return "main";
+    }
 
+//	   @RequestMapping(value = "/login",method = RequestMethod.GET)
+//	   public ModelAndView login(CommandMap commandMap, HttpServletRequest request, HttpSession session)throws Exception{
+//		   ModelAndView mav = new ModelAndView("login");
+//		   
+//		   if(request.getParameter("checklogin")==null) {
+//			   mav.addObject("checklogin",true);
+//		   }else {
+//			   mav.addObject("del_gb",request.getParameter("del_gb"));
+//		   }
+//		   mav.addObject("url");
+//		   return mav;
+//	   }
 	// 로그인 처리
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	   public ModelAndView login(CommandMap commandMap, HttpServletRequest request) throws Exception {
 	      ModelAndView mav = new ModelAndView("login");
+	    //  Map<String,Object>result = loginService.selectLoginUser(commandMap.getMap());
 	      HttpSession session = request.getSession();
+	   // session.setAttribute("USER_ID", id); 
+	      // HttpSession session, @RequestParam String id,
 	      String message="";
 	      String url="";
-	      Map<String,Object> result = loginService.loginMemberCk(commandMap.getMap());
+	     Map<String,Object> result = loginService.loginMemberCk(commandMap.getMap());
 
 	     
 	     
@@ -56,13 +71,14 @@ public class LoginController {
 	      } else { 
 	    	  if(result.get("USER_PW").equals(commandMap.get("USER_PW"))) { // 비밀번호가 같다면
 	    		  session.setAttribute("USER_ID", commandMap.get("USER_ID"));
+	    		  session.setAttribute("USER_NIC", result.get("USER_NIC"));
 	    		  //session.setAttribute("AMIN_TIM", result.get("AMIN_TIM"));
 	    	  } else {//비밀번호가 일치하지 않을 때
 	    		  message="비밀번호가 맞지 않습니다.";
 	    	  }
 	      }
 	      mav.addObject("message", message);
-	      
+	      session.setAttribute("session",mav);
 	      return mav;
 	}
 	//로그아웃
@@ -80,7 +96,7 @@ public class LoginController {
 		  out.flush();
 	   }
 	//아이디 찾기 폼
-	 @RequestMapping(value = "/loginForm/findId") // 아이디&비밀번호 찾기 폼을 보여주는 메소드
+	 @RequestMapping(value = "/findId") // 아이디&비밀번호 찾기 폼을 보여주는 메소드
 	   public ModelAndView findId(CommandMap commandMap) throws Exception {
 	      ModelAndView mv = new ModelAndView("findId");
 	      return mv;
@@ -94,7 +110,7 @@ public class LoginController {
 	         return mv;
 	      }
 	 //비밀번호 찾기 폼
-	 @RequestMapping(value = "/loginForm/findPw")
+	 @RequestMapping(value = "/findPw")
 		public ModelAndView findPw(CommandMap commandMap) throws Exception {
 			ModelAndView mv = new ModelAndView("findPw");
 		    return mv;

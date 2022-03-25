@@ -35,7 +35,7 @@ margin:auto;
 <body>
 <div>
 	<div>
-		<a href="/findId"><h1>아이디찾기</h1></a>
+		<a href="/fire/findId"><h1>아이디찾기</h1></a>
 			<div style="text-align:center; margin-top: 15%; margin-bottom: 100px;">
 				<div class="fid3">
 					<p>
@@ -49,11 +49,11 @@ margin:auto;
 					</div>
 					<div class="fid2">
 					<form id="frm" action="/fire/findIdResult" method="POST">
-						<input type="hidden" id="USER_ID" name="USER_ID">
+						<input type="hidden" id="USER_NIC" name="USER_NIC">
 						
 					<div>
 						<label>NICKNAME</label>
-						<span class="box"><input type="text" class="int" maxlength="20" name="user_nic" id="user_nic" placeholder="등록한 닉네임을 쓰시오."></span>
+						<span class="box"><input type="text" class="int" maxlength="20" name="user_nic" id="user_nic" placeholder="등록한 닉네임을 입력하세요."></span>
 					</div>
 					
 					
