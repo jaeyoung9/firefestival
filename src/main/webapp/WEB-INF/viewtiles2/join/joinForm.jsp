@@ -43,7 +43,6 @@
 </div>
 <div>
 		<input type="file" id="user_new_img" name="file">
-		<button type="button" class="submit" >등록</button>
 	</div>
 
 

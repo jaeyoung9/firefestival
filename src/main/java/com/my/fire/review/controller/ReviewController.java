@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.my.fire.common.CommandMap;
@@ -62,12 +63,12 @@ public class ReviewController {
 	// 리뷰 작성
 	@RequestMapping(value = "/reviewUserWrite", method = RequestMethod.POST)
 	@ResponseBody
-	public ModelAndView reviewUserWriteGo(CommandMap commandMap, HttpServletRequest request) throws Exception {
+	public ModelAndView reviewUserWriteGo(CommandMap commandMap, MultipartHttpServletRequest multirequest) throws Exception {
 		ModelAndView mv = new ModelAndView("jsonView");
 			if (log.isDebugEnabled()) {
 				log.debug(commandMap);
 			}
-		reviewService.reviewUserWrite(commandMap.getMap(), request);
+		reviewService.reviewUserWrite(commandMap.getMap(), multirequest);
 		return mv;
 	}
 	

@@ -198,10 +198,10 @@ public class FileUtils {
     public static List<Map<String,Object>> revieUpdate(Map<String,Object> map, HttpServletRequest request) throws Exception{
         MultipartHttpServletRequest multipartHttpServletRequest = (MultipartHttpServletRequest)request;
         Iterator<String> iterator = multipartHttpServletRequest.getFileNames();
-        String user_id = request.getParameter("USER_ID");
-        String review_title = request.getParameter("REVIEW_TITLE");
-        String review_content = request.getParameter("REVIEW_CONTENT");
-        String del_gb = request.getParameter("DEL_GB");
+        String USER_ID = request.getParameter("USER_ID");
+        String REVIEW_TITLE = request.getParameter("REVIEW_TITLE");
+        String REVIEW_CONTENT = request.getParameter("REVIEW_CONTENT");
+        String DEL_GB = request.getParameter("DEL_GB");
         
         MultipartFile REVIEW_FILE_SIZE = null;
         String REVIEW_ORIGINAL = null;
@@ -236,10 +236,10 @@ public class FileUtils {
                 //저장할 파일 이름
                 listMap.put("REVIEW_NEW_IMG", REVIEW_NEW_IMG);
                 listMap.put("REVIEW_FILE_SIZE", REVIEW_FILE_SIZE.getSize());
-                listMap.put("USER_ID", user_id);
-                listMap.put("REVIEW_TITLE", review_title);
-                listMap.put("REVIEW_CONTENT", review_content);
-                listMap.put("DEL_GB", del_gb);
+                listMap.put("USER_ID", USER_ID);
+                listMap.put("REVIEW_TITLE", REVIEW_TITLE);
+                listMap.put("REVIEW_CONTENT", REVIEW_CONTENT);
+                listMap.put("DEL_GB", DEL_GB);
          
                 list.add(listMap);
             }
