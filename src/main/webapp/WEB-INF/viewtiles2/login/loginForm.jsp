@@ -16,7 +16,7 @@ function fsubmit() {
 		alert("아이디를 입력하세요.");
 		return 0;
 	} else if (user_pw == null || user_pw == '') {
-		alert("비밀번호를 입력하세요");
+		alert("비밀번호를 입력하세요.");
 		return 0;
 	}
 

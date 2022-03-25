@@ -72,7 +72,8 @@ public class LoginController {
 	    	  if(result.get("USER_PW").equals(commandMap.get("USER_PW"))) { // 비밀번호가 같다면
 	    		  session.setAttribute("USER_ID", commandMap.get("USER_ID"));
 	    		  session.setAttribute("USER_NIC", result.get("USER_NIC"));
-	    		  //session.setAttribute("AMIN_TIM", result.get("AMIN_TIM"));
+	    		  session.setAttribute("AMIN_TIM", result.get("AMIN_TIM"));
+	    		  
 	    	  } else {//비밀번호가 일치하지 않을 때
 	    		  message="비밀번호가 맞지 않습니다.";
 	    	  }
