@@ -12,9 +12,9 @@
         var message = "${message}";
         if (message != null && message != '') {
             alert(message);
-            location.href = "../myPage/checkPwForm";
+            location.href = "/fire/mypage/checkPwForm";
         } else {
-            location.href = "../myPage/myUpdate?USER_ID=${USER_ID}";
+            location.href = "/fire/mypage/myUpdate?USER_ID=${USER_ID}";
         }
     })
     </script>

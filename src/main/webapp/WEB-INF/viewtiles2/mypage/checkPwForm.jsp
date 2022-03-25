@@ -9,7 +9,7 @@
 <script>
 	function checkSubmit(){
 		var pw = $("#USER_PW").val();
-		alert(pw);
+
 		 if (pw == null || pw == '') {
 	            alert("비밀번호를 입력하세요.");
 	            return 0;
