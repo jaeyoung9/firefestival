@@ -52,19 +52,23 @@ public class JoinController {
 	@ResponseBody
 	public ModelAndView joinOk(CommandMap commandMap, MultipartHttpServletRequest multirequest) throws Exception {
 		ModelAndView mv = new ModelAndView("loginForm");
-		return mv;
-	}
-	
-	@RequestMapping(value = "/joinOk", method = RequestMethod.POST)
-	public ModelAndView joinOkOk(CommandMap commandMap, MultipartHttpServletRequest request) throws Exception {
-		ModelAndView mv = new ModelAndView("loginForm");
 		if (log.isDebugEnabled()) {
             log.debug(commandMap);
         }
-		joinService.joinOk(commandMap.getMap(), request);
-		
+		joinService.joinOk(commandMap.getMap(), multirequest);
 		return mv;
 	}
+	
+//	@RequestMapping(value = "/joinOk", method = RequestMethod.POST)
+//	public ModelAndView joinOkOk(CommandMap commandMap, MultipartHttpServletRequest request) throws Exception {
+//		ModelAndView mv = new ModelAndView("loginForm");
+//		if (log.isDebugEnabled()) {
+//            log.debug(commandMap);
+//      }
+//		joinService.joinOk(commandMap.getMap(), request);
+//		
+//		return mv;
+//	}
 
 	//id 중복 체크
 	@RequestMapping(value = "/joinIdCk", method = RequestMethod.POST)
