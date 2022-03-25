@@ -80,8 +80,8 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 </p>
 				<div class="footer-social d-flex align-items-center">
-					<!-- <a href="#"><i class="fa fa-facebook"></i></a>
-					<a href="#"><i class="fa fa-twitter"></i></a>
+					 <a href="#"><i class="fa fa-facebook"></i></a>
+					<!--<a href="#"><i class="fa fa-twitter"></i></a>
 					<a href="#"><i class="fa fa-dribbble"></i></a>-->
 					<a href="https://colorlib.com/"><i class="fa fa-bootstrap"></i></a> 
 						<a href="https://github.com/jaeyoung9/firefestival"><i class="fa fa-github"></i></a>
