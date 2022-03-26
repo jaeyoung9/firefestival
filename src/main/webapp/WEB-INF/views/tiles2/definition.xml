@@ -136,10 +136,10 @@
 					value="/WEB-INF/viewtiles2/mypage/mypage.jsp" />
 			</definition>
 			
-			<definition name="myupdate" extends="base_layout">
+			<definition name="myUpdate" extends="base_layout">
 				<!-- <put-attribute name="title" value="마이페이지" /> -->
 				<put-attribute name="body"
-					value="/WEB-INF/viewtiles2/mypage/myUpdate.jsp" />
+					value="/WEB-INF/viewtiles2/mypage/myUpdate1.jsp" />
 			</definition>
 			
 			<definition name="checkPw" extends="base_layout">

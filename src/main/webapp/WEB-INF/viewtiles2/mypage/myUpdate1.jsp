@@ -119,5 +119,3 @@ function update_check() {
 		     return false;
 		 }
 	}
-</script>
-</html>
