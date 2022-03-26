@@ -59,9 +59,9 @@ public class MyPageController {
 //	}
 
 	// 마이페이지 수정폼
-	@RequestMapping(value = "/mypage/myUpdate")
+	@RequestMapping(value = "/mypage/myUpdate1")
 	public ModelAndView myUpdate(CommandMap commandMap, HttpServletRequest request) throws Exception {
-		ModelAndView mv = new ModelAndView("mypage/myUpdate");
+		ModelAndView mv = new ModelAndView("mypage/myUpdate1");
 
 		HttpSession session = request.getSession();
 		String id = (String) session.getAttribute("USER_ID");

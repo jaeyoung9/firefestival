@@ -15,7 +15,7 @@
             location.href = "/fire/mypage/checkPwForm";
         } else {
             /* location.href = "/fire/mypage/myUpdate?USER_ID=${USER_ID}"; */
-        	location.href = "/fire/mypage/myUpdate?USER_ID=${USER_ID}";
+        	location.href = "/fire/mypage/myUpdate1?USER_ID=${USER_ID}";
         }
     })
     </script>
