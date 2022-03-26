@@ -23,6 +23,17 @@
 			
 			<div>
 				<div>
+					<label> 닉네임 </label> <span class="box"> <input type="text"
+						class="int" id="user_nick" name="USER_NIC" value="${map.USER_ID }"
+						readonly>
+					</span>
+				</div>
+			</div>
+			
+			
+			
+			<div>
+				<div>
 					<label> 비밀번호 </label> <span class="box"> <input type="password"
 						class="int" id="user_pw" name="USER_PW" value="${map.USER_PW }"
 						readonly>
@@ -38,6 +49,13 @@
 							</span>
 						</div>
 						<span id="same" class="paw"></span>
+					</div>
+					<div>
+					<p>
+						<button class="w-btn" type="button" onclick="update_check();">정보수정</button>
+						<button class="w-btn" type="button" onclick="location.href='/fire/mypage?USER_ID=${USER_ID}'">돌아가기</button>
+						<button class="w-btn" type="button" onclick="withdraw();">회원탈퇴</button>
+						</p>
 					</div>
 			
 			
