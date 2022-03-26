@@ -5,7 +5,7 @@
 <html>
 <head>
 
-<script charset = "utf-8"></script>
+<script charset = "utf-8">
 <script type = "text/javascript">
 $(document).ready(function()){
 	var message = "${message}";
