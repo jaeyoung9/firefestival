@@ -21,45 +21,46 @@
 					</span>
 				</div>
 			</div>
-			
+
 			<div>
 				<div>
-					<label> 닉네임 </label> <span class="box"> <input type="text"
-						class="int" id="user_nick" name="USER_" value="${map.USER_ID }"
-						readonly>
+					<label for="user_nic" class="form-label">별명</label> <input
+									type="text" class="int" name="USER_NIC"
+									id="USER_NIC" placeholder="닉네임" required
+									value="${map.USER_NIC }">
+				</div>
+			</div>
+
+
+
+			<div>
+				<div>
+					<label> 비밀번호 </label> <span class="box"> <input
+						type="password" class="int" id="user_pw" name="USER_PW"
+						value="${map.USER_PW }" readonly>
 					</span>
 				</div>
 			</div>
-			
-			
-			
+
 			<div>
 				<div>
-					<label> 비밀번호 </label> <span class="box"> <input type="password"
-						class="int" id="user_pw" name="USER_PW" value="${map.USER_PW }"
-						readonly>
+					<label> 비밀번호 확인 </label> <span class="box"> <input
+						type="password" class="int" id="user_pw2" name="USER_PW2"
+						onkeyup="fn_passCk()" placeholder="비밀번호를 확인해주세요">&nbsp;&nbsp;
 					</span>
 				</div>
+				<span id="same" class="paw"></span>
 			</div>
-			
 			<div>
-						<div>
-							<label> 비밀번호 확인 </label>
-							<span class="box">
-							<input type="password" class="int" id="user_pw2" name="USER_PW2" onkeyup="fn_passCk()" placeholder="비밀번호를 확인해주세요">&nbsp;&nbsp;
-							</span>
-						</div>
-						<span id="same" class="paw"></span>
-					</div>
-					<div>
-					<p>
-						<button class="w-btn" type="button" onclick="update_check();">정보수정</button>
-						<button class="w-btn" type="button" onclick="location.href='/fire/mypage?USER_ID=${USER_ID}'">돌아가기</button>
-						<button class="w-btn" type="button" onclick="withdraw();">회원탈퇴</button>
-						</p>
-					</div>
-			
-			
+				<p>
+					<button class="w-btn" type="button" onclick="update_check();">정보수정</button>
+					<button class="w-btn" type="button"
+						onclick="location.href='/fire/mypage?USER_ID=${USER_ID}'">돌아가기</button>
+					<button class="w-btn" type="button" onclick="withdraw();">회원탈퇴</button>
+				</p>
+			</div>
+
+
 		</form>
 	</div>
 
@@ -119,5 +120,3 @@ function update_check() {
 		     return false;
 		 }
 	}
-</script>
-</html>
