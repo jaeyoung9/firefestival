@@ -61,7 +61,7 @@ public class MyPageController {
 	// 마이페이지 수정폼
 	@RequestMapping(value = "/mypage/myUpdate")
 	public ModelAndView myUpdate(CommandMap commandMap, HttpServletRequest request) throws Exception {
-		ModelAndView mv = new ModelAndView("mypage/myUpdate");
+		ModelAndView mv = new ModelAndView("myUpdate");
 
 		HttpSession session = request.getSession();
 		String id = (String) session.getAttribute("USER_ID");
@@ -84,7 +84,7 @@ public class MyPageController {
 
 	// 회원탈퇴
 	@RequestMapping(value = "/mypage/withdraw")
-	public ModelAndView withdraw(CommandMap commandMap, HttpServletRequest request) throws Exception {
+	public ModelAndView withdraw(CommandMap commandMap,  HttpServletRequest request) throws Exception {
 		ModelAndView mv = new ModelAndView("redirect:/logout");
 
 		HttpSession session = request.getSession();
