@@ -140,6 +140,108 @@ public class FileUtils {
         return list;
     }
     
+    // 이벤트 파일 업로드_정주영
+    public static List<Map<String,Object>> eventUpload(Map<String,Object> map, HttpServletRequest request) throws Exception{
+        MultipartHttpServletRequest multipartHttpServletRequest = (MultipartHttpServletRequest)request;
+        Iterator<String> iterator = multipartHttpServletRequest.getFileNames();
+         String event_title = request.getParameter("EVENT_TITLE");
+         String event_content = request.getParameter("EVENT_CONTENT");
+         
+        MultipartFile EVENT_SIZE = null;
+        String EVENT_IMG = null;
+        String originalFileExtension = null;
+        String EVENT_THUMB = null;
+         
+        List<Map<String,Object>> list = new ArrayList<Map<String,Object>>();
+        Map<String, Object> listMap = null;
+         
+        File file = new File(filePath);
+        //경로가 존재하지 않을 경우 디렉토리를 만든다.
+        if(file.exists() == false){
+            file.mkdirs();
+        }
+         
+        while(iterator.hasNext()){
+        	EVENT_SIZE = multipartHttpServletRequest.getFile(iterator.next());
+            if(EVENT_SIZE.isEmpty() == false){
+                //업로드한 파일의 확장자를 포함한 파일명이다.
+            	EVENT_IMG = EVENT_SIZE.getOriginalFilename();
+                //업로드한 파일의 마지막 .을 포함한 확장자를 substring 한 것.
+                originalFileExtension = EVENT_IMG.substring(EVENT_IMG.lastIndexOf("."));
+                //32자리의 숫자를 포함한 랜덤 문자열 + 확장자를 붙여준 파일명이다.
+                EVENT_THUMB = CommonUtils.getRandomString() + originalFileExtension;
+                 
+                file = new File(filePath + EVENT_THUMB);
+                EVENT_SIZE.transferTo(file);
+                 
+                listMap = new HashMap<String,Object>();
+                // listMap.put("BOARD_IDX", boardIdx);
+                //업로드할 당시의 파일이름
+                listMap.put("EVENT_IMG", EVENT_IMG);
+                //저장할 파일 이름
+                listMap.put("EVENT_THUMB", EVENT_THUMB);
+                listMap.put("EVENT_SIZE", EVENT_SIZE.getSize());
+                listMap.put("EVENT_TITLE", event_title);
+                listMap.put("EVENT_CONTENT", event_content);
+
+                list.add(listMap);
+            }
+        }
+        return list;
+    }
+    
+    // 이벤트 수정 파일 업로드_정주영
+    public static List<Map<String,Object>> eventUpdate(Map<String,Object> map, HttpServletRequest request) throws Exception{
+        MultipartHttpServletRequest multipartHttpServletRequest = (MultipartHttpServletRequest)request;
+        Iterator<String> iterator = multipartHttpServletRequest.getFileNames();
+         String event_title = request.getParameter("EVENT_TITLE");
+         String event_content = request.getParameter("EVENT_CONTENT");
+         String event_index = request.getParameter("EVENT_INDEX");     
+         
+        MultipartFile EVENT_SIZE = null;
+        String EVENT_IMG = null;
+        String originalFileExtension = null;
+        String EVENT_THUMB = null;
+         
+        List<Map<String,Object>> list = new ArrayList<Map<String,Object>>();
+        Map<String, Object> listMap = null;
+        
+        File file = new File(filePath);
+        //경로가 존재하지 않을 경우 디렉토리를 만든다.
+        if(file.exists() == false){
+            file.mkdirs();
+        }
+         
+        while(iterator.hasNext()){
+        	EVENT_SIZE = multipartHttpServletRequest.getFile(iterator.next());
+            if(EVENT_SIZE.isEmpty() == false){
+                //업로드한 파일의 확장자를 포함한 파일명이다.
+            	EVENT_IMG = EVENT_SIZE.getOriginalFilename();
+                //업로드한 파일의 마지막 .을 포함한 확장자를 substring 한 것.
+                originalFileExtension = EVENT_IMG.substring(EVENT_IMG.lastIndexOf("."));
+                //32자리의 숫자를 포함한 랜덤 문자열 + 확장자를 붙여준 파일명이다.
+                EVENT_THUMB = CommonUtils.getRandomString() + originalFileExtension;
+                 
+                file = new File(filePath + EVENT_THUMB);
+                EVENT_SIZE.transferTo(file);
+                 
+                listMap = new HashMap<String,Object>();
+
+                //업로드할 당시의 파일이름
+                listMap.put("EVENT_IMG", EVENT_IMG);
+                //저장할 파일 이름
+                listMap.put("EVENT_THUMB", EVENT_THUMB);
+                listMap.put("EVENT_SIZE", EVENT_SIZE.getSize());
+                listMap.put("EVENT_TITLE", event_title);
+                listMap.put("EVENT_CONTENT", event_content);
+                listMap.put("EVENT_INDEX", event_index);
+       
+                list.add(listMap);
+            }
+        }
+        return list;
+    }
+    
     
   //회원가입 프로필 사진 업로드_김형태
     public static List<Map<String,Object>> userProfile(Map<String,Object> map, HttpServletRequest request) throws Exception{

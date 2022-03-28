@@ -19,9 +19,9 @@ public class SessionInterceptor extends HandlerInterceptorAdapter {
 			response.sendRedirect(request.getContextPath()+"/loginForm");
 			System.out.println("로그인 세션 없음 로그인 폼으로");
 		}				
-		else if( getId == "FLOWER") {			
+		else if( getId == "fire") {			
 			response.sendRedirect(request.getContextPath()+"/llllllll");
-			System.out.println("관리자로그인됨");
+			System.out.println("관리자로 로그인하였습니다.");
 		} 				
 		return true;
 	}
