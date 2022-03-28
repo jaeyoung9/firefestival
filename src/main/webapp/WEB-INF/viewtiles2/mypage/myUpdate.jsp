@@ -65,6 +65,10 @@
 				</div>
 			</div>
 			
+			
+			
+			
+			
 			<div>
 				<p>
 					<button class="w-btn" type="button" onclick="update_check();">정보수정</button>
