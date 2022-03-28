@@ -48,6 +48,9 @@
 							</li>
 							</c:if>
 							<li>
+								
+							</li>
+							<li>
 								<a><c:out value="${USER_ID} 님" /></a>
 							</li>
 							<li>
