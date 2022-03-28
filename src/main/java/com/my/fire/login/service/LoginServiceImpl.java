@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.my.fire.login.dao.LoginDAO;
 
-//로그인 ServiceImpl_김형태
+//로그인 ServiceImpl_한창식
 @Service("loginService")
 public class LoginServiceImpl implements LoginService {
 

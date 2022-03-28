@@ -56,18 +56,14 @@ public class LoginController {
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	   public ModelAndView login(CommandMap commandMap, HttpServletRequest request,HttpServletResponse response) throws Exception {
 	      ModelAndView mav = new ModelAndView("main");
-	    //  Map<String,Object>result = loginService.selectLoginUser(commandMap.getMap());
 	      HttpSession session = request.getSession();
-	   // session.setAttribute("USER_ID", id); 
-	      // HttpSession session, @RequestParam String id,
+	     
 	      String message="";
 	      String url="";
 	     Map<String,Object> result = loginService.loginMemberCk(commandMap.getMap());
-
-	     
-	     
 	      if(result == null || result.get("DEL_GB").equals("Y")) { // 아이디가 있는지 or 삭제된 아이디인지 확인
 	         message="해당 아이디가 존재하지 않습니다.";
+	    
 	      } else { 
 	    	  if(result.get("USER_PW").equals(commandMap.get("USER_PW"))) { // 비밀번호가 같다면
 	    		  session.setAttribute("USER_ID", commandMap.get("USER_ID"));
@@ -80,7 +76,8 @@ public class LoginController {
 	    	  }
 	      }
 	      mav.addObject("message", message);
-	      session.setAttribute("session",mav);
+	      
+	    session.setAttribute("session",mav);
 	      
 	     
 	      response.setCharacterEncoding("UTF-8");
