@@ -80,6 +80,7 @@ public class MyPageController {
 		mypageService.myUpdate(commandMap.getMap());
 		return mv;
 	}
+	
 
 	// 회원탈퇴
 	@RequestMapping(value = "/mypage/withdraw")
