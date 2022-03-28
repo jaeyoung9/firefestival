@@ -303,7 +303,6 @@ public class FileUtils {
         String USER_ID = request.getParameter("USER_ID");
         String REVIEW_TITLE = request.getParameter("REVIEW_TITLE");
         String REVIEW_CONTENT = request.getParameter("REVIEW_CONTENT");
-        String DEL_GB = request.getParameter("DEL_GB");
         
         MultipartFile REVIEW_FILE_SIZE = null;
         String REVIEW_ORIGINAL = null;
@@ -341,7 +340,6 @@ public class FileUtils {
                 listMap.put("USER_ID", USER_ID);
                 listMap.put("REVIEW_TITLE", REVIEW_TITLE);
                 listMap.put("REVIEW_CONTENT", REVIEW_CONTENT);
-                listMap.put("DEL_GB", DEL_GB);
          
                 list.add(listMap);
             }

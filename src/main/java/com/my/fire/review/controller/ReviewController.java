@@ -1,5 +1,6 @@
 package com.my.fire.review.controller;
 
+import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Map;
 
@@ -38,6 +39,16 @@ public class ReviewController {
 	public ModelAndView reviewPageList(CommandMap commandMap) throws Exception{
 		ModelAndView mv = new ModelAndView("jsonView");
 		List<Map<String, Object>> list = reviewService.reviewPage(commandMap.getMap());
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-mm-dd");
+		
+		for(int i = 0; i< list.size(); i++) {
+			Object no = list.get(i).get("NOTICE_DATE");
+			String date = simpleDateFormat.format(no);
+			//System.out.println(date);
+			list.get(i).put("NOTICE_DATE",date);
+		
+		}
+		
 		mv.addObject("list", list);
 		if(list.size() > 0) {
 			mv.addObject("TOTAL", list.get(0).get("TOTAL_COUNT"));
@@ -52,10 +63,11 @@ public class ReviewController {
 	public ModelAndView reviewUserWrite(CommandMap commandMap, HttpServletRequest request) throws Exception {
 		ModelAndView mv = new ModelAndView("reviewWritePage");
 //		List<Map<String, Object>> reviewWrite = reviewService.getReview(commandMap.getMap());
-//		HttpSession session = request.getSession();// 세션 값 불러오고
-//		String USER_ID = (String) session.getValue("USER_ID");// 값을 String 저장하고
-//		mv.addObject("reviewWrite", reviewWrite);
-//		session.setAttribute("USER_ID", USER_ID);// 세션정보를 user_id 에 담아 jsp로 리턴
+		HttpSession session = request.getSession();// 세션 값 불러오고
+		String USER_ID = (String) session.getValue("USER_ID");// 값을 String 저장하고
+		CommandMap reviewWritePage = null;
+		mv.addObject("reviewWritePage", reviewPage(reviewWritePage));
+		session.setAttribute("USER_ID", USER_ID);// 세션정보를 user_id 에 담아 jsp로 리턴
 		return mv;
 	}
 	
