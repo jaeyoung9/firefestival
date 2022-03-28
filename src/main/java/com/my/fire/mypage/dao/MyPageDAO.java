@@ -12,6 +12,7 @@ public class MyPageDAO extends AbstractDAO {
 
 	
 	
+	
 	//회원정보 보기
 	@SuppressWarnings("unchecked")
 	public Map<String, Object> myPage(Map<String, Object> map) throws Exception{
