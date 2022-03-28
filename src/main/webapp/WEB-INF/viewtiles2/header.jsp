@@ -51,7 +51,9 @@
 							<li>
 
 								<%-- <a><c:out value="${USER_ID} 님" /></a> --%>
-							<i class="fa fa-user"></i>	<a href="<c:url value='/mypage?USER_ID=${USER_ID }'/>">${USER_ID }님</a>
+							<img src="<%=request.getContextPath() %>/images/UP/${USER_NEW_IMG}" alt="" title="" />
+							<i class="fa fa-user"></i>
+							<a href="<c:url value='/mypage?USER_ID=${USER_ID }'/>">${USER_ID }님</a>
 							</li>
 							<li>
 								<a href="<c:url value='/logout'/>">로그아웃</a>
