@@ -33,39 +33,54 @@ margin:auto;
 </style>
 </head>
 <body>
-<div>
-	<div>
-		<a href="/fire/findId"><h1>아이디찾기</h1></a>
+<div class="container">
+    <div class="row">
+      <div class="col-sm-5 col-md-5 col-lg-5 mx-auto">
+        <div class="card card-signin my-5">
+          <div class="card-body">
+		
 			<div style="text-align:center; margin-top: 15%; margin-bottom: 100px;">
 				<div class="fid3">
+				
+				
+				
 					<p>
-						<a href="/findId">아이디 찾기</a>
+						<a href='/fire/findId'>아이디 찾기</a>
 						<span> | </span>
-						<a href="/findPw">비밀번호 찾기</a>
+						<a href='/fire/findPw'>비밀번호 찾기</a>
 					</p>
 					</div>
 					<div class="fid" style="font-size:40px;">
-						<h1>아이디 찾기</h1>
+						
+					</div>
+					<h5 class="card-title text-center">아이디찾기</h5>
 					</div>
 					<div class="fid2">
+					<div class="form-label-group">
 					<form id="frm" action="/fire/findIdResult" method="POST">
 						<input type="hidden" id="USER_NIC" name="USER_NIC">
-						
+					
 					<div>
-						<label>NICKNAME</label>
-						<span class="box"><input type="text" class="int" maxlength="20" name="user_nic" id="user_nic" placeholder="등록한 닉네임을 입력하세요."></span>
+						
+						<span class="box"><input type="text" class="int" maxlength="40" name="user_nic" id="user_nic" placeholder="닉네임을 입력하세요."></span>
 					</div>
 					
 					
 					<p>
+					<div align="right">
 						<button class="w-btn w-btn-pink" type="button" onclick="fsubmit();">찾기</button>
-						
+						</div>
 					</p>
 					</form>
 					</div>
 				</div>
+		</div>
 		
-	</div>
+	
+</div>
+</div>
+
+</div>
 </div>
 </body>
 </html>

@@ -54,8 +54,8 @@ public class LoginController {
 //	   }
 	// 로그인 처리
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	   public ModelAndView login(CommandMap commandMap, HttpServletRequest request) throws Exception {
-	      ModelAndView mav = new ModelAndView("login");
+	   public ModelAndView login(CommandMap commandMap, HttpServletRequest request,HttpServletResponse response) throws Exception {
+	      ModelAndView mav = new ModelAndView("main");
 	    //  Map<String,Object>result = loginService.selectLoginUser(commandMap.getMap());
 	      HttpSession session = request.getSession();
 	   // session.setAttribute("USER_ID", id); 
@@ -80,11 +80,21 @@ public class LoginController {
 	      }
 	      mav.addObject("message", message);
 	      session.setAttribute("session",mav);
-	      return mav;
+	      
+	     
+	      response.setCharacterEncoding("UTF-8");
+		  response.setContentType("text/html; charset=utf-8");
+	      
+	      PrintWriter out = response.getWriter();
+		  out.println("<script>alert('로그인되었습니다.'); location.href='"+request.getContextPath()+"/main';</script>");
+		 
+		  out.flush();
+		  return mav;
 	}
 	//로그아웃
-	@RequestMapping(value="/logout")
+	@RequestMapping(value="/logout", method = RequestMethod.GET)
 	   public void logout(HttpServletRequest request,HttpServletResponse response,CommandMap commandMap) throws Exception {
+//		ModelAndView mav = new ModelAndView("main");
 	      HttpSession session = request.getSession(false);
 	      if (session != null)
 	         session.invalidate();
@@ -92,10 +102,11 @@ public class LoginController {
 	      response.setCharacterEncoding("UTF-8");
 		  response.setContentType("text/html; charset=utf-8");
 		  PrintWriter out = response.getWriter();
-		  out.println("<script>alert('로그아웃됐습니다.'); location.href='"+request.getContextPath()+"/main';</script>");
+		  out.println("<script>alert('로그아웃완료!'); location.href='"+request.getContextPath()+"/main';</script>");
 		 
 		  out.flush();
 	   }
+	
 	//아이디 찾기 폼
 	 @RequestMapping(value = "/findId") // 아이디&비밀번호 찾기 폼을 보여주는 메소드
 	   public ModelAndView findId(CommandMap commandMap) throws Exception {

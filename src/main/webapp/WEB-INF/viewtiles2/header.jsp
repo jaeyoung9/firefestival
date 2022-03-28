@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/viewtiles2/include/include-header.jspf"%>
 
-<!-- JS -->
+
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
@@ -25,10 +25,11 @@
 					</div>
 					<div class="col-lg-6 col-sm-6 col-8 header-top-right no-padding">
 						<ul>
-							<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+							 <li><a href="#"><i class="fa fa-facebook"></i></a></li>
 							<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-							<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-							<li><a href="#"><i class="fa fa-behance"></i></a></li>
+							<li><a href="#"><i class="fa fa-dribbble"></i></a></li> 
+							<li><a href="https://colorlib.com/"><i class="fa fa-bootstrap"></i></a></li>
+							<li><a href="https://github.com/jaeyoung9/firefestival"><i class="fa fa-github"></i></a></li>
 						</ul>
 						<ul>
 							<c:choose>
@@ -48,10 +49,9 @@
 							</li>
 							</c:if>
 							<li>
-								
-							</li>
-							<li>
-								<a><c:out value="${USER_ID} 님" /></a>
+
+								<%-- <a><c:out value="${USER_ID} 님" /></a> --%>
+							<i class="fa fa-user"></i>	<a href="<c:url value='/mypage?USER_ID=${USER_ID }'/>">${USER_ID }님</a>
 							</li>
 							<li>
 								<a href="<c:url value='/logout'/>">로그아웃</a>

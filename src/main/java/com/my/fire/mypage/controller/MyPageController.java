@@ -26,21 +26,19 @@ public class MyPageController {
 	@Resource(name = "mypageService")
 	private MyPageService mypageService;
 
-	// 마이페이지 보기
+	// 마이페이지 보기 및 내가 작성한 리뷰 및 이벤트 참가여부
 	@RequestMapping(value = "/mypage")
 	public ModelAndView mypage(CommandMap commandMap, HttpServletResponse response, HttpServletRequest request)
 			throws Exception {
 		ModelAndView mv = new ModelAndView("mypage");
-		commandMap.put("USER_ID", "qwe");
 		List<Map<String, Object>> list = mypageService.myreview(commandMap.getMap());
 //		List<Map<String, Object>> list1 = mypageService.myevent(commandMap.getMap());
 		
 		mv.addObject("list", list);
 //		mv.addObject("list1", list1);
-//		HttpSession session = request.getSession();
-//		String USER_ID = (String) session.getValue("USER_ID");
-//		session.setAttribute("USER_ID", USER_ID);
-		System.out.println(list);
+		HttpSession session = request.getSession();
+		String USER_ID = (String) session.getValue("USER_ID");
+		session.setAttribute("USER_ID", USER_ID);
 		return mv;
 	}
 	
@@ -61,9 +59,9 @@ public class MyPageController {
 //	}
 
 	// 마이페이지 수정폼
-	@RequestMapping(value = "/mypage/myUpdate", method = RequestMethod.GET)
+	@RequestMapping(value = "/mypage/myUpdate1")
 	public ModelAndView myUpdate(CommandMap commandMap, HttpServletRequest request) throws Exception {
-		ModelAndView mv = new ModelAndView("myUpdate");
+		ModelAndView mv = new ModelAndView("mypage/myUpdate1");
 
 		HttpSession session = request.getSession();
 		String id = (String) session.getAttribute("USER_ID");
