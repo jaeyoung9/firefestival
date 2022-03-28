@@ -15,6 +15,9 @@
 <li class="li">
 <a class="a" href="/fire/event/Write">이벤트 작성</a>
 </li>
+<li>
+<a class ="a" href="/fire/member">회원 관리</a>
+</li>
 </ul>
 </table>
 </body>
