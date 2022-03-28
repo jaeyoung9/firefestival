@@ -51,8 +51,8 @@
 							<li>
 
 								<%-- <a><c:out value="${USER_ID} 님" /></a> --%>
-							<img src="<%=request.getContextPath() %>/images/UP/${USER_NEW_IMG}" alt="" title="" />
-							<i class="fa fa-user"></i>
+							<img src="<%=request.getContextPath() %>/images/UP/${USER_NEW_IMG}" width="40" height="40" alt="" title="" />
+							
 							<a href="<c:url value='/mypage?USER_ID=${USER_ID }'/>">${USER_ID }님</a>
 							</li>
 							<li>
@@ -93,7 +93,7 @@
 								<li><a href="<c:url value='/event'/>">종료</a></li>
 							</ul>
 						</li>
-						<li><a href="<c:url value='/reviewPage'/>">리뷰</a></li>
+						<li><a href="<c:url value='/reviewPage?USER_ID=${USER_ID}'/>">리뷰</a></li>
 					</ul>
 				</nav>
 				<!--######## #nav-menu-container -->

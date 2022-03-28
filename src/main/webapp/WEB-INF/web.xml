@@ -5,7 +5,7 @@
 
     <!-- 프로젝트가 시작되면 index.jsp를 호출하도록 설정 -->
     <welcome-file-list>
-            <welcome-file>main.jsp</welcome-file>
+            <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
     
     <!-- encoding 설정 (UTF-8) -->
