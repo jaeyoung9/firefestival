@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" " http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="event">
+
+<!-- 정주영 - event  -->
+
+	<!-- 페이징  -->
+	<select id="event" parameterType="hashmap" resultType="hashmap">
+		<include refid="common.pagingPre" />
+		<![CDATA[
+		SELECT
+			ROW_NUMBER() OVER (ORDER BY EVENT_INDEX DESC) RNUM,
+			EVENT_INDEX,
+			EVENT_TITLE,
+			EVENT_CONTENT,
+			EVENT_THUMB,
+			EVENT_IMG,
+			EVENT_SIZE,
+			EVENT_KATE
+		FROM (SELECT ROW_NUMBER() OVER (ORDER BY EVENT_INDEX DESC) RNUM,
+			EVENT_INDEX,
+			EVENT_TITLE,
+			EVENT_CONTENT,
+			EVENT_THUMB,
+			EVENT_IMG,
+			EVENT_SIZE,
+			EVENT_KATE
+		FROM TB_EVENT
+			WHERE EVENT_KATE = 'N')
+		]]>
+		<include refid="common.pagingPost" />
+	</select>
+	
+	<!-- 이벤트 상세페이지 -->
+	<select id="eventDetail" parameterType="hashmap" resultType="hashmap">
+		<![CDATA[
+		SELECT *
+		FROM TB_EVENT
+		WHERE EVENT_INDEX = #{EVENT_INDEX}
+		]]>
+	</select>
+
+	<!-- 이벤트 작성 -->
+	<insert id="eventWrite" parameterType="hashmap">
+		<![CDATA[
+		INSERT INTO TB_EVENT(
+			EVENT_INDEX,
+			EVENT_TITLE,
+			EVENT_CONTENT,
+			EVENT_IMG,
+			EVENT_THUMB,
+			EVENT_SIZE
+		)
+		VALUES(
+			TB_EVENT_SEQ.NEXTVAL,
+			#{EVENT_TITLE},
+			#{EVENT_CONTENT},
+			#{EVENT_IMG},
+			#{EVENT_THUMB},
+			#{EVENT_SIZE}
+		)		
+		]]>
+	</insert>
+	
+	<!-- 이벤트 수정 -->
+	<update id="eventUpdate" parameterType="hashmap">
+		<![CDATA[
+		UPDATE TB_EVENT
+		SET
+			EVENT_TITLE = #{EVENT_TITLE},
+			EVENT_CONTENT = #{EVENT_CONTENT},
+			EVENT_IMG = #{EVENT_IMG},
+			EVENT_THUMB = #{EVENT_THUMB},
+			EVENT_SIZE = #{EVENT_SIZE},
+			EVENT_KATE = #{EVENT_KATE}	
+		WHERE
+			EVENT_INDEX = #{EVENT_INDEX}
+		]]>
+	</update>
+	
+		<!-- 이벤트 삭제 -->
+	<delete id="eventDelete" parameterType="hashmap">
+		<![CDATA[
+		DELETE
+		FROM TB_EVENT
+		WHERE
+		EVENT_INDEX = #{EVENT_INDEX}
+		]]>
+	</delete>
+<!-- where AMIN_TIM = #{AMIN_TIM} -->
+
+
+</mapper>

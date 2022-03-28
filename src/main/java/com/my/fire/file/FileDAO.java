@@ -21,4 +21,8 @@ public class FileDAO extends AbstractDAO {
     public void insertnotice(Map<String, Object> map) {
         insert("notice.noticeWrite", map);
     }
+    
+    public void insertevent(Map<String, Object> map) {
+        insert("event.eventWrite", map);
+    }
 }

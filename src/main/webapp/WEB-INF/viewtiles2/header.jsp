@@ -87,8 +87,8 @@
 						</li>
 						<li class="menu-has-children"><a href="">이벤트</a>
 							<ul>
-								<li><a href="portfolio-details.html">진행</a></li>
-								<li><a href="elements.html">종료</a></li>
+								<li><a href="<c:url value='/event'/>">진행</a></li>
+								<li><a href="<c:url value='/event'/>">종료</a></li>
 							</ul>
 						</li>
 						<li><a href="<c:url value='/reviewPage'/>">리뷰</a></li>
