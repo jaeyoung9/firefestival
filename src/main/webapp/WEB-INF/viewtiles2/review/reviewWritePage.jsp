@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/viewtiles2/include/include-header.jspf"%>
 <!DOCTYPE html>
 <html>
@@ -22,7 +21,7 @@
 				success : function(data) {
 					console.log('jQeury ajax form submit success');
 					alert("업로드완료");
-					/* location.href = "<c:url value='/myPage?USER_ID=${USER_ID}'/>"; */
+					/* location.href = "<c:url value='/reviewPage?USER_ID=${USER_ID}'/>"; */
 				},
 				error : function(data) {
 					console.log('jQeury ajax form submit error' + data);
@@ -42,27 +41,33 @@
 
 <form id="Upload" action="/reviewWritePage" method="POST" enctype="multipart/form-data">
 <table>
-	<div>
-		<tr>
-		<td>제목</td>
-		<td>
-		<input type="text" name="REVIEW_TITLE" maxlength="3000" id="REVIEW_TITLE"></td>
-		</tr>
-		<tr>
-		<td>내용</td>
-		<td><textarea  name="REVIEW_CONTENT" maxlength="3000" id="REVIEW_CONTENT"></textarea></td>
-		</tr>
-	</div>
 	<tr>
-<td></td>
-<td>
-<input type="file" id="REVIEW_NEW_IMG" name="file">
-</td>
-</tr>
+			<td>
+				<div class="form-group">
+             	   <label class="form-label mt-4">제목</label>
+           		     <input type="text"  class="form-control" name="REIVEW_TITLE" id="REIVEW_TITLE">
+          	    </div>
+            </td>
+        </tr>
+		<tr>
+			<td>
+				<div class="form-group">
+                	<label class="form-label mt-4">내용</label>
+                	<textarea name="REIVEW_CONTENT"  class="form-control editor" id="REIVEW_CONTENT" class="editor" maxlength="3000"></textarea>
+            	</div>
+            </td>
+		</tr>
+		<tr>
+			<td>
+				<div class="form-group">
+                	<label class="form-label mt-4">파일</label>
+                	<input type="file" accept="image/jpg,image/png,image/jpeg,image/gif" class="form-control" id="REVIEW_NEW_IMG" name="file">
+            	</div>
+			</td>
+		</tr>
 <tr>
-<td></td>
 <td>
-<button type="button" class="submit" >등록</button>
+<button type="button" class="primary-btn header-btn text-capitalize mt-10" >등록</button>
 </td>
 </tr>
 	</table>
