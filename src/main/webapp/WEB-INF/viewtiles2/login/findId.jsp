@@ -60,9 +60,9 @@
 								<div>
 									<div align="center">
 										<span class="box"><input type="text" class="int"
-											maxlength="40" name="user_nic" id="user_nic"
+											maxlength="50"name="user_nic" id="user_nic"
 											placeholder="닉네임을 입력하세요.">
-											<button class="w-btn w-btn-pink" type="button"
+											<button class="primary-btn header-btn text-capitalize mt-10" type="button"
 												onclick="fsubmit();">
 												<svg xmlns="http://www.w3.org/2000/svg" width="16"
 													height="16" fill="currentColor" class="bi bi-search"

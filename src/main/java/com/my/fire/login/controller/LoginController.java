@@ -71,6 +71,7 @@ public class LoginController {
 	      } else { 
 	    	  if(result.get("USER_PW").equals(commandMap.get("USER_PW"))) { // 비밀번호가 같다면
 	    		  session.setAttribute("USER_ID", commandMap.get("USER_ID"));
+	    		  session.setAttribute("USER_NEW_IMG", result.get("USER_NEW_IMG"));
 	    		  session.setAttribute("USER_NIC", result.get("USER_NIC"));
 	    		  session.setAttribute("AMIN_TIM", result.get("AMIN_TIM"));
 	    		  
