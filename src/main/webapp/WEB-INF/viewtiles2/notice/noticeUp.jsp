@@ -41,7 +41,7 @@
 		</tr>
 <tr>
 <td>
-<button type="button" class="primary-btn header-btn text-capitalize mt-10" >등록</button>
+<button type="button" class="primary-btn header-btn text-capitalize mt-10 submit" >등록</button>
 </td>
 </tr>
 
