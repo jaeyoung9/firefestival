@@ -8,47 +8,57 @@
 <title>리뷰 작성</title>
 </head>
 <body>
-<div style="justify-content: center">
-<form id="reviewWrite" action="review" method="POST" enctype="multipart/form-data">
+<div class="bg-light">
+<div class="container py-3" style="margin: 0 auto; width: 503px;">
+	<div class="row align-items-center justify-content-between">
+		
+			<a class="navbar-brand h1 text-align:center" href="/fire/reviewWritePage">
+				<span class="text-dark h1">리뷰</span><span class="text-primary h1">작성</span>
+			</a>
+		</div>
+
+<form id="reviewWrite" action="/reviewWrite/Page" method="POST" enctype="multipart/form-data">
 
 <input type="hidden" name="USER_ID" id="USER_ID" value="${USER_ID}">
-<table>
 
+			<table style="margin: auto;">
 				<tr>
 					<td>
 						<div class="form-group">
-							<label class="form-label mt-4">제목</label> 
-							<input type="text" class="form-control" name="REVIEW_TITLE" id="REVIEW_TITLE">
+							<label class="form-label mt-4">제목</label> <input type="text"
+								class="form-control" name="REVIEW_TITLE" id="REVIEW_TITLE">
 						</div>
 					</td>
 				</tr>
-				
+
 				<tr>
 					<td>
 						<div class="form-group">
 							<label class="form-label mt-4">내용</label>
-							<textarea name="REVIEW_CONTENT" class="form-control editor" id="REVIEW_CONTENT" class="editor" maxlength="3000"></textarea>
+							<textarea name="REVIEW_CONTENT" class="form-control" id="REVIEW_CONTENT" maxlength="3000"></textarea>
 						</div>
-					</td>
-				</tr>
-	
-				<tr>
-					<td>
-						<div class="form-group">
-							<label class="form-label mt-4">파일</label> 
-							<input type="file" accept="image/jpg,image/png,image/jpeg,image/gif" class="form-control" id="REVIEW_NEW_IMG" name="file">
-						</div>
-					</td>
-				</tr>
-				
-				<tr>
-					<td>
-						<button type="submit" class="primary-btn header-btn text-capitalize mt-10 submit" href="<c:url value='/review'/>">등록</button>
 					</td>
 				</tr>
 
-</table>
-</form>
+				<tr>
+					<td>
+						<div class="form-group">
+							<label class="form-label mt-4">파일</label> <input type="file"
+								accept="image/jpg,image/png,image/jpeg,image/gif"
+								class="form-control" id="REVIEW_NEW_IMG" name="file">
+						</div>
+					</td>
+				</tr>
+
+				<tr>
+					<td>
+						<button type="button" class="primary-btn header-btn text-capitalize mt-10 submit" href="<c:url value='/review'/>">등록</button>
+					</td>
+				</tr>
+
+			</table>
+		</form>
+		</div>
 </div>
 </body>
 <script type="text/javascript">

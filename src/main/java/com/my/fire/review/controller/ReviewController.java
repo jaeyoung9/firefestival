@@ -102,7 +102,11 @@ public class ReviewController {
 	// 리뷰 삭제
 	@RequestMapping(value="/reviewDelete" )
 	public ModelAndView reviewDelete(CommandMap commandMap, HttpServletRequest request) throws Exception{
-		ModelAndView mv = new ModelAndView("reviewDetail");		
+		ModelAndView mv = new ModelAndView("review");		
+		HttpSession session = request.getSession();// 세션 값 불러오고
+		String USER_ID = (String) session.getValue("USER_ID");// 값을 String 저장하고		
+		session.setAttribute("USER_ID", USER_ID);// 세션정보를 user_id 에 담아 jsp로 리턴		
+		
 		reviewService.reviewDelete(commandMap.getMap());
 		return mv;
 	}
@@ -116,17 +120,17 @@ public class ReviewController {
 		String USER_ID = (String) session.getValue("USER_ID");// 값을 String 저장하고		
 		session.setAttribute("USER_ID", USER_ID);// 세션정보를 user_id 에 담아 jsp로 리턴
 		
-		Map<String, Object> map = reviewService.reviewImpo(commandMap.getMap());
-		mv.addObject("map", map);
+		Map<String, Object> reviewUp = reviewService.reviewImpo(commandMap.getMap());
+		mv.addObject("reviewUp", reviewUp);
 		return mv;
 	}
 	
 	// 리뷰 수정 완료
 	@RequestMapping(value = "/reviewUpdate/up", method = RequestMethod.POST)
-	public ModelAndView reviewUpdateOk(CommandMap commandMap, MultipartHttpServletRequest multirequest) throws Exception {
+	public ModelAndView reviewUpdateOk(CommandMap commandMap, HttpServletRequest request) throws Exception {
 		ModelAndView mv = new ModelAndView("jsonView");
-		/* System.out.println(commandMap.get("USER_ID")); */ 
-		reviewService.reviewUpdate(commandMap.getMap(), multirequest);
+//		System.out.println(commandMap.get("USER_ID"));
+		reviewService.reviewUpdate(commandMap.getMap(), request);
 		return mv;
 	}
 }
