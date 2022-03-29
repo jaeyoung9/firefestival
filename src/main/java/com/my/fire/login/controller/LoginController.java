@@ -21,7 +21,14 @@ import com.my.fire.login.service.LoginService;
 //로그인 Controller_한창식
 @Controller
 public class LoginController {
-
+//private NaverLoginVO naverLoginVo;
+//private String apiResult = null;
+//private String authKey = null;
+//
+//@Autowired
+//private void sentnaverLoginVo(NaverLoginVO naverVO) {
+//	this.naverLoginVo = naverLoginVO;
+//}
 
 	Logger log = Logger.getLogger(this.getClass());
 
@@ -57,10 +64,11 @@ public class LoginController {
 	   public ModelAndView login(CommandMap commandMap, HttpServletRequest request,HttpServletResponse response) throws Exception {
 	      ModelAndView mav = new ModelAndView("main");
 	      HttpSession session = request.getSession();
-	     
 	      String message="";
 	      String url="";
 	     Map<String,Object> result = loginService.loginMemberCk(commandMap.getMap());
+	     
+	     
 	      if(result == null || result.get("DEL_GB").equals("Y")) { // 아이디가 있는지 or 삭제된 아이디인지 확인
 	         message="해당 아이디가 존재하지 않습니다.";
 	    

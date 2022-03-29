@@ -63,7 +63,7 @@ history.replaceState({}, null, location.pathname);
               <hr/>
 
               <button class="btn btn-lg btn-primary btn-block text-uppercase" onclick="fsubmit();">LOGIN</button>
-              </form>
+              
               <div>
               <div align="center">
 				<a href="<c:url value='/findId/'/>">아이디 찾기</a>
