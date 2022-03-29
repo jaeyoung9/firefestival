@@ -12,8 +12,6 @@ import com.my.fire.common.CommandMap;
 @Controller
 public class aminController {
 
-	
-
 	// 관리자페이지 접속,
 	@RequestMapping("/amin")
 	public ModelAndView main(CommandMap commandMap, HttpServletRequest request) throws Exception {
@@ -24,11 +22,13 @@ public class aminController {
 			ModelAndView mva = new ModelAndView("main");
 			return mva;
 			
-		} else{
+		} else if(AMIN_TIM.equals("Y")){
 			
 			session.setAttribute("AMIN_TIM", AMIN_TIM);
 			ModelAndView mv = new ModelAndView("amin");
 			return mv;
+		}else {
+			return null;
 		}
 		
 	}

@@ -45,7 +45,7 @@
 							<c:when test="${USER_ID != null}">
 							<c:if test="${AMIN_TIM eq 'Y'}">
 							<li>
-								<a href="#">관리자페이지</a>
+								<a href="<c:url value='/amin'/>">관리자페이지</a>
 							</li>
 							</c:if>
 							<li>
