@@ -3,6 +3,8 @@ package com.my.fire.mypage.dao;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.stereotype.Repository;
 
 import com.my.fire.common.dao.AbstractDAO;
@@ -20,7 +22,7 @@ public class MyPageDAO extends AbstractDAO {
 	}
 
 	//회원정보 수정
-	public void myUpdate(Map<String, Object> map) throws Exception {
+	public void myUpdate(Map<String, Object> map ) throws Exception {
 		update("myPage.myUpdate", map);
 		
 	}

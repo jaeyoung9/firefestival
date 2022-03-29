@@ -7,6 +7,7 @@ import javax.annotation.Resource;
 
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.my.fire.mypage.dao.MyPageDAO;
 
@@ -23,8 +24,12 @@ public class MyPageServiceImpl implements MyPageService{
 		return mypageDAO.myPage(map);
 	}
 
-	public void myUpdate(Map<String, Object> map) throws Exception{
-		mypageDAO.myUpdate(map);
+	@Override
+	public void myUpdate(Map<String, Object> map,MultipartHttpServletRequest reqeust) throws Exception{
+		List<Map<String, Object>> list = fileUtils.myUpdate(map, request);
+		for(int i = 0; i < list.size(); i++) {
+			Map<String, Object> vo = list.get(i);
+		mypageDAO.myUpdate(vo);
 	}
 
 	public void withdraw(Map<String, Object> map) throws Exception{
