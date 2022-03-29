@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>공지사항 수정</title>
+<title>리뷰 수정</title>
 </head>
 <body>
 	<div class="bg-light">
@@ -16,11 +16,11 @@
 				<span class="text-dark h1">리뷰</span><span class="text-primary h1">수정</span>
 			</a>
 		</div>
-		<form id="reviewUpdate" action="/reviewUpdate/up" method="POST"
-			enctype="multipart/form-data">
+		<form id="reviewUpdate" action="/reviewUpdate/up" method="POST" enctype="multipart/form-data">
 			
 				<input type="hidden" id="USER_ID" name="USER_ID" value="${USER_ID}">
 				<input type="hidden" name="REVIEW_INDEX" id="REVIEW_INDEX" value="${reviewUp.REVIEW_INDEX}">
+				
 				<table style="margin: auto;">
 					<tr>
 						<td>
@@ -82,7 +82,6 @@
 				success : function(data) {
 					console.log('jQeury ajax form submit success' );
 					alert("수정완료.");
-					location.href = "<c:url value='/reviewDetail'/>";
 				},
 				error : function(data) {
 					console.log('jQeury ajax form submit error' );
