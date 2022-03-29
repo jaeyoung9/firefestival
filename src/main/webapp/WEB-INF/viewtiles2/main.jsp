@@ -75,7 +75,7 @@
 						<div>
 							<div class="card-body">
 								<h4 class="card-title">
-									<a href="/fire/intro"> 위치보기 </a>
+									<a href="/fire/intro2"> 위치보기 </a>
 
 
 								</h4>
