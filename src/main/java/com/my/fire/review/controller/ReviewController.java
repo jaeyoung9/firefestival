@@ -29,23 +29,23 @@ public class ReviewController {
 	
 	// 리뷰 페이지
 	@ResponseBody
-	@RequestMapping(value = "/reviewPage")
+	@RequestMapping(value = "/review")
 	public ModelAndView reviewPage(CommandMap commandMap) throws Exception {
-		ModelAndView mv = new ModelAndView("reviewPage");	
+		ModelAndView mv = new ModelAndView("review");	
 		return mv;
 	}
 	// 페이징 처리
-	@RequestMapping(value ="/reviewPage/page")
+	@RequestMapping(value ="/review/page")
 	public ModelAndView reviewPageList(CommandMap commandMap) throws Exception{
 		ModelAndView mv = new ModelAndView("jsonView");
-		List<Map<String, Object>> list = reviewService.reviewPage(commandMap.getMap());
-		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-mm-dd");
+		List<Map<String, Object>> list = reviewService.review(commandMap.getMap());
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		
 		for(int i = 0; i< list.size(); i++) {
-			Object no = list.get(i).get("NOTICE_DATE");
-			String date = simpleDateFormat.format(no);
+			Object ob = list.get(i).get("REVIEW_DATE");
+			String date = simpleDateFormat.format(ob);
 			//System.out.println(date);
-			list.get(i).put("NOTICE_DATE",date);
+			list.get(i).put("REVIEW_DATE",date);
 		
 		}
 		
@@ -60,21 +60,18 @@ public class ReviewController {
 	
 	// 리뷰 작성 페이지
 	@RequestMapping(value = "/reviewWritePage")
+	@ResponseBody
 	public ModelAndView reviewUserWrite(CommandMap commandMap, HttpServletRequest request) throws Exception {
 		ModelAndView mv = new ModelAndView("reviewWritePage");
-//		List<Map<String, Object>> reviewWrite = reviewService.getReview(commandMap.getMap());
 		HttpSession session = request.getSession();// 세션 값 불러오고
-		String USER_ID = (String) session.getValue("USER_ID");// 값을 String 저장하고
-		CommandMap reviewWritePage = null;
-		mv.addObject("reviewWritePage", reviewPage(reviewWritePage));
+		String USER_ID = (String) session.getValue("USER_ID");// 값을 String 저장하고		
 		session.setAttribute("USER_ID", USER_ID);// 세션정보를 user_id 에 담아 jsp로 리턴
 		return mv;
 	}
 	
 	
 	// 리뷰 작성
-	@RequestMapping(value = "/reviewUserWrite", method = RequestMethod.POST)
-	@ResponseBody
+	@RequestMapping(value = "/reviewWrite/Page", method = RequestMethod.POST)
 	public ModelAndView reviewUserWriteGo(CommandMap commandMap, MultipartHttpServletRequest multirequest) throws Exception {
 		ModelAndView mv = new ModelAndView("jsonView");
 			if (log.isDebugEnabled()) {
@@ -100,7 +97,6 @@ public class ReviewController {
 	public ModelAndView reviewDelete(CommandMap commandMap, HttpServletRequest request) throws Exception{
 		ModelAndView mv = new ModelAndView("reviewDetail");		
 		reviewService.reviewDelete(commandMap.getMap());
-			
 		return mv;
 	}
 	
@@ -109,9 +105,9 @@ public class ReviewController {
 	public ModelAndView reviewUpdate(CommandMap commandMap, HttpServletRequest request) throws Exception {
 		ModelAndView mv = new ModelAndView("reviewUpdate");
 		
-		HttpSession session = request.getSession();
-		String id = (String) session.getAttribute("USER_ID");
-		commandMap.put("USER_ID", id);
+		HttpSession session = request.getSession();// 세션 값 불러오고
+		String USER_ID = (String) session.getValue("USER_ID");// 값을 String 저장하고		
+		session.setAttribute("USER_ID", USER_ID);// 세션정보를 user_id 에 담아 jsp로 리턴
 		
 		Map<String, Object> map = reviewService.reviewImpo(commandMap.getMap());
 		mv.addObject("map", map);
@@ -119,11 +115,11 @@ public class ReviewController {
 	}
 	
 	// 리뷰 수정 완료
-	@RequestMapping(value = "/reviewUpdate/update", method = RequestMethod.POST)
-	public ModelAndView myUpdateOk(CommandMap commandMap) throws Exception {
+	@RequestMapping(value = "/reviewUpdate/up", method = RequestMethod.POST)
+	public ModelAndView reviewUpdateOk(CommandMap commandMap, MultipartHttpServletRequest multirequest) throws Exception {
 		ModelAndView mv = new ModelAndView("jsonView");
 		/* System.out.println(commandMap.get("USER_ID")); */ 
-		reviewService.reviewUpdate(commandMap.getMap());
+		reviewService.reviewUpdate(commandMap.getMap(), multirequest);
 		return mv;
 	}
 }

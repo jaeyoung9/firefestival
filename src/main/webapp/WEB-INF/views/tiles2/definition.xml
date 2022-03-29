@@ -18,6 +18,12 @@
 				<put-attribute name="body"
 					value="/WEB-INF/viewtiles2/main.jsp" />
 			</definition>
+			<!--  관리자 -->
+			<definition name="amin" extends="base_layout">
+				<!-- <put-attribute name="title" value="메인" /> -->
+				<put-attribute name="body"
+					value="/WEB-INF/viewtiles2/amin/amin.jsp" />
+			</definition>
 			
 			<!-- 로그인 -->
          <definition name="loginForm" extends="base_layout">
@@ -130,10 +136,10 @@
 			</definition>
 			
 			<!-- 리뷰 -->
-			<definition name="reviewPage" extends="base_layout">
+			<definition name="review" extends="base_layout">
 				<!-- <put-attribute name="title" value="리뷰페이지" /> -->
 				<put-attribute name="body"
-					value="/WEB-INF/viewtiles2/review/reviewPage.jsp" />
+					value="/WEB-INF/viewtiles2/review/review.jsp" />
 			</definition>
 			
 			<definition name="reviewDetail" extends="base_layout">

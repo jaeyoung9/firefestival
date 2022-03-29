@@ -31,7 +31,7 @@ public class EventController {
 	@ResponseBody
 	@RequestMapping(value = "/event")
 	public ModelAndView event(CommandMap commandMap) throws Exception {
-		ModelAndView mv = new ModelAndView("event/event");	
+		ModelAndView mv = new ModelAndView("event");	
 		return mv;
 	}
 		// 페이징 처리
@@ -58,7 +58,7 @@ public class EventController {
 			if(session.getAttribute("AMIN_TIM") == null || AMIN_TIM.equals("") || AMIN_TIM.equals("N")){
 				 response.sendRedirect("/fire/main");
 			} else if(AMIN_TIM.equals("Y")) {
-				ModelAndView mv = new ModelAndView("event/eventWrite");
+				ModelAndView mv = new ModelAndView("eventWrite");
 				return mv;
 			}
 			return null;
@@ -79,7 +79,7 @@ public class EventController {
 		// 이벤트 상세페이지
 		@RequestMapping("/event/Detail")
 		public ModelAndView eventDetail(CommandMap commandMap, HttpServletRequest request) throws Exception {
-			ModelAndView mv = new ModelAndView("event/eventDetail");
+			ModelAndView mv = new ModelAndView("eventDetail");
 			List<Map<String, Object>> EDetail = eventService.eventDetail(commandMap.getMap());
 			mv.addObject("edetail", EDetail);
 			return mv;
@@ -94,7 +94,7 @@ public class EventController {
 			if(session.getAttribute("AMIN_TIM") == null || AMIN_TIM.equals("") || AMIN_TIM.equals("N")){
 				 response.sendRedirect("/fire/event"); 
 			} else if(AMIN_TIM.equals("Y")) {
-				ModelAndView mv = new ModelAndView("event/eventUpdate");
+				ModelAndView mv = new ModelAndView("eventUpdate");
 				Object e = request.getParameter("EVENT_INDEX");
 				commandMap.put("EVENT_INDEX", e);
 				List<Map<String, Object>> EDetail = eventService.eventDetail(commandMap.getMap());
@@ -127,7 +127,7 @@ public class EventController {
 			if(session.getAttribute("AMIN_TIM") == null || AMIN_TIM.equals("") || AMIN_TIM.equals("N")){
 				 response.sendRedirect("/fire/event"); 
 			} else if(AMIN_TIM.equals("Y")) {
-				ModelAndView mv = new ModelAndView("event/event");
+				ModelAndView mv = new ModelAndView("event");
 				eventService.eventDelete(commandMap.getMap());
 				return mv;
 			}

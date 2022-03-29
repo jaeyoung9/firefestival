@@ -297,7 +297,7 @@ public class FileUtils {
 
 
   //리뷰 사진 업로드_김형태
-    public static List<Map<String,Object>> revieUpdate(Map<String,Object> map, HttpServletRequest request) throws Exception{
+    public static List<Map<String,Object>> reviewUpload(Map<String,Object> map, HttpServletRequest request) throws Exception{
         MultipartHttpServletRequest multipartHttpServletRequest = (MultipartHttpServletRequest)request;
         Iterator<String> iterator = multipartHttpServletRequest.getFileNames();
         String USER_ID = request.getParameter("USER_ID");
@@ -341,6 +341,63 @@ public class FileUtils {
                 listMap.put("REVIEW_TITLE", REVIEW_TITLE);
                 listMap.put("REVIEW_CONTENT", REVIEW_CONTENT);
          
+                list.add(listMap);
+            }
+        }
+        return list;
+    }
+    
+    //리뷰 사진 업로드 수정_김형태
+    public static List<Map<String,Object>> reviewUpdate(Map<String,Object> map, HttpServletRequest request) throws Exception{
+        MultipartHttpServletRequest multipartHttpServletRequest = (MultipartHttpServletRequest)request;
+        Iterator<String> iterator = multipartHttpServletRequest.getFileNames();
+         String REVIEW_TITLE = request.getParameter("REVIEW_TITLE");
+         String REVIEW_CONTENT = request.getParameter("REVIEW_CONTENT");
+         String REVIEW_INDEX = request.getParameter("REVIEW_INDEX");
+         String USER_ID = request.getParameter("USER_ID");
+         
+        MultipartFile REVIEW_FILE_SIZE = null;
+        String REVIEW_ORIGINAL = null;
+        String originalFileExtension = null;
+        String REVIEW_NEW_IMG = null;
+         
+        List<Map<String,Object>> list = new ArrayList<Map<String,Object>>();
+        Map<String, Object> listMap = null;
+         
+
+         
+        File file = new File(filePath);
+        //경로가 존재하지 않을 경우 디렉토리를 만든다.
+        if(file.exists() == false){
+            file.mkdirs();
+        }
+         
+        while(iterator.hasNext()){
+        	REVIEW_FILE_SIZE = multipartHttpServletRequest.getFile(iterator.next());
+            if(REVIEW_FILE_SIZE.isEmpty() == false){
+                //업로드한 파일의 확장자를 포함한 파일명이다.
+            	REVIEW_ORIGINAL = REVIEW_FILE_SIZE.getOriginalFilename();
+                //업로드한 파일의 마지막 .을 포함한 확장자를 substring 한 것.
+                originalFileExtension = REVIEW_ORIGINAL.substring(REVIEW_ORIGINAL.lastIndexOf("."));
+                //32자리의 숫자를 포함한 랜덤 문자열 + 확장자를 붙여준 파일명이다.
+                REVIEW_NEW_IMG = CommonUtils.getRandomString() + originalFileExtension;
+                 
+                file = new File(filePath + REVIEW_NEW_IMG);
+                REVIEW_FILE_SIZE.transferTo(file);
+                 
+                listMap = new HashMap<String,Object>();
+
+                //업로드할 당시의 파일이름
+                listMap.put("NOTICE_ORIGINAL", REVIEW_ORIGINAL);
+                //저장할 파일 이름
+                listMap.put("REVIEW_NEW_IMG", REVIEW_NEW_IMG);
+                listMap.put("REVIEW_FILE_SIZE", REVIEW_FILE_SIZE.getSize());
+                listMap.put("REVIEW_TITLE", REVIEW_TITLE);
+                listMap.put("REVIEW_CONTENT", REVIEW_CONTENT);
+                listMap.put("REVIEW_INDEX", REVIEW_INDEX);
+                listMap.put("USER_ID", USER_ID);
+       
+                
                 list.add(listMap);
             }
         }
