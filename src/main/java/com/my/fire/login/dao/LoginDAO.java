@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import com.my.fire.common.dao.AbstractDAO;
 
-//로그인 DAO_김형태
+//로그인 DAO_한창식
 @Repository("loginDAO")
 public class LoginDAO extends AbstractDAO {
 

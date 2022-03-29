@@ -21,7 +21,14 @@ import com.my.fire.login.service.LoginService;
 //로그인 Controller_한창식
 @Controller
 public class LoginController {
-
+//private NaverLoginVO naverLoginVo;
+//private String apiResult = null;
+//private String authKey = null;
+//
+//@Autowired
+//private void sentnaverLoginVo(NaverLoginVO naverVO) {
+//	this.naverLoginVo = naverLoginVO;
+//}
 
 	Logger log = Logger.getLogger(this.getClass());
 
@@ -56,18 +63,22 @@ public class LoginController {
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	   public ModelAndView login(CommandMap commandMap, HttpServletRequest request,HttpServletResponse response) throws Exception {
 	      ModelAndView mav = new ModelAndView("main");
-	    //  Map<String,Object>result = loginService.selectLoginUser(commandMap.getMap());
 	      HttpSession session = request.getSession();
-	   // session.setAttribute("USER_ID", id); 
-	      // HttpSession session, @RequestParam String id,
 	      String message="";
 	      String url="";
 	     Map<String,Object> result = loginService.loginMemberCk(commandMap.getMap());
-
 	     
 	     
-	      if(result == null || result.get("DEL_GB").equals("Y")) { // 아이디가 있는지 or 삭제된 아이디인지 확인
-	         message="해당 아이디가 존재하지 않습니다.";
+	      if(result == null || result.get("DEL_GB").equals("Y")) {
+	    	  // 아이디가 있는지 or 삭제된 아이디인지 확인
+	    	  
+	    	  response.setCharacterEncoding("UTF-8");
+			  response.setContentType("text/html; charset=utf-8");
+	    	  PrintWriter out = response.getWriter();
+	    	  out.println("<script>alert('로그인실패 Try Again'); location.href='"+request.getContextPath()+"/main';</script>"); 
+	    	  out.flush();
+	    	
+	    
 	      } else { 
 	    	  if(result.get("USER_PW").equals(commandMap.get("USER_PW"))) { // 비밀번호가 같다면
 	    		  session.setAttribute("USER_ID", commandMap.get("USER_ID"));
@@ -76,18 +87,24 @@ public class LoginController {
 	    		  session.setAttribute("AMIN_TIM", result.get("AMIN_TIM"));
 	    		  
 	    	  } else {//비밀번호가 일치하지 않을 때
-	    		  message="비밀번호가 맞지 않습니다.";
+	    		  response.setCharacterEncoding("UTF-8");
+				  response.setContentType("text/html; charset=utf-8");
+		    	  PrintWriter out = response.getWriter();
+		    	  out.println("<script>alert('비밀번호가 일치하지않습니다. Cheking your Password'); location.href='"+request.getContextPath()+"/loginForm';</script>"); 
+		    	  out.flush();
+		    	
 	    	  }
 	      }
 	      mav.addObject("message", message);
-	      session.setAttribute("session",mav);
+	      
+	    session.setAttribute("session",mav);
 	      
 	     
 	      response.setCharacterEncoding("UTF-8");
 		  response.setContentType("text/html; charset=utf-8");
 	      
 	      PrintWriter out = response.getWriter();
-		  out.println("<script>alert('로그인되었습니다.'); location.href='"+request.getContextPath()+"/main';</script>");
+		  out.println("<script>alert('로그인 성공!'); location.href='"+request.getContextPath()+"/main';</script>");
 		 
 		  out.flush();
 		  return mav;
@@ -103,7 +120,7 @@ public class LoginController {
 	      response.setCharacterEncoding("UTF-8");
 		  response.setContentType("text/html; charset=utf-8");
 		  PrintWriter out = response.getWriter();
-		  out.println("<script>alert('로그아웃완료!'); location.href='"+request.getContextPath()+"/main';</script>");
+		  out.println("<script>alert('로그아웃 완료! Logout'); location.href='"+request.getContextPath()+"/main';</script>");
 		 
 		  out.flush();
 	   }

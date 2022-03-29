@@ -3,7 +3,7 @@ package com.my.fire.login.service;
 import java.util.List;
 import java.util.Map;
 
-//로그인 Service_김형태
+//로그인 Service_한창식
 public interface LoginService {
 
 	//로그인 체크
