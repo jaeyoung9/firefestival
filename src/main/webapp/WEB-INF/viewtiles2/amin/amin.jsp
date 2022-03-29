@@ -17,6 +17,11 @@
 		<tr>
 			<td><a class="col-1" href="/fire/member">회원 관리</a></td>
 		</tr>
+		
+		
+		<tr>
+			<td><a class="col-1" href="/fire/intro/WritePage">소개글 작성</a></td>
+		</tr>
 	</table>
 </body>
 </html>

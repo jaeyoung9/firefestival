@@ -17,6 +17,7 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.my.fire.common.CommandMap;
+import com.my.fire.mypage.service.MyPageService;
 import com.my.fire.review.service.ReviewService;
 
 @Controller
@@ -26,6 +27,9 @@ public class ReviewController {
 	
 	@Resource(name="reviewService")
 	ReviewService reviewService;
+	
+	@Resource(name = "mypageService")
+	private MyPageService mypageService;
 	
 	// 리뷰 페이지
 	@ResponseBody
@@ -63,21 +67,24 @@ public class ReviewController {
 	@ResponseBody
 	public ModelAndView reviewUserWrite(CommandMap commandMap, HttpServletRequest request) throws Exception {
 		ModelAndView mv = new ModelAndView("reviewWritePage");
+//		Map<String, Object> map = mypageService.myPage(commandMap.getMap());
 		HttpSession session = request.getSession();// 세션 값 불러오고
 		String USER_ID = (String) session.getValue("USER_ID");// 값을 String 저장하고		
 		session.setAttribute("USER_ID", USER_ID);// 세션정보를 user_id 에 담아 jsp로 리턴
+//		mv.addObject("map",map);
+//		System.out.println(map);
 		return mv;
 	}
 	
 	
 	// 리뷰 작성
 	@RequestMapping(value = "/reviewWrite/Page", method = RequestMethod.POST)
-	public ModelAndView reviewUserWriteGo(CommandMap commandMap, MultipartHttpServletRequest multirequest) throws Exception {
+	public ModelAndView reviewUserWriteGo(CommandMap commandMap, HttpServletRequest request) throws Exception {
 		ModelAndView mv = new ModelAndView("jsonView");
 			if (log.isDebugEnabled()) {
 				log.debug(commandMap);
 			}
-		reviewService.reviewUserWrite(commandMap.getMap(), multirequest);
+		reviewService.reviewUserWrite(commandMap.getMap(), request);
 		return mv;
 	}
 	

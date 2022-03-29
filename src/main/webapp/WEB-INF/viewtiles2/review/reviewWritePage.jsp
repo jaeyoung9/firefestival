@@ -10,7 +10,8 @@
 <body>
 <div style="justify-content: center">
 <form id="reviewWrite" action="review" method="POST" enctype="multipart/form-data">
-<input type="hidden" name="USER_ID" id="USER=ID" value="${USER_ID}">
+
+<input type="hidden" name="USER_ID" id="USER_ID" value="${USER_ID}">
 <table>
 
 				<tr>
@@ -35,14 +36,14 @@
 					<td>
 						<div class="form-group">
 							<label class="form-label mt-4">파일</label> 
-							<input type="file" accept="image/jpg,image/png,image/jpeg,image/gif" class="form-control" id="NREVIEW_NEW_IMG" name="file">
+							<input type="file" accept="image/jpg,image/png,image/jpeg,image/gif" class="form-control" id="REVIEW_NEW_IMG" name="file">
 						</div>
 					</td>
 				</tr>
 				
 				<tr>
 					<td>
-						<button type="submit" class="primary-btn header-btn text-capitalize mt-10" href="<c:url value='/review'/>">등록</button>
+						<button type="submit" class="primary-btn header-btn text-capitalize mt-10 submit" href="<c:url value='/review'/>">등록</button>
 					</td>
 				</tr>
 
