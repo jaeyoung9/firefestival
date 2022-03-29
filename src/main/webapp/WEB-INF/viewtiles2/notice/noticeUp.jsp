@@ -9,7 +9,7 @@
 <title>공지사항 수정</title>
 </head>
 <body>
-<div style="justify-content: center">
+<div class="container py-3" style="justify-content: center">
 <form id="noticeUp" action="/notice/Up" method="POST" enctype="multipart/form-data">
  <c:forEach items="${NDetail}" var="ndetail">
  <input type="hidden" name="NOTICE_INDEX" id="NOTICE_INDEX" value="${ndetail.NOTICE_INDEX}">
