@@ -94,6 +94,7 @@ REVIEW_INDEX = #{REVIEW_INDEX}
 <select id="reviewImpo" parameterType="hashmap" resultType="hashmap">
 <![CDATA[
 SELECT
+REVIEW_INDEX,
 REVIEW_TITLE,
 REVIEW_CONTENT,
 REVIEW_ORIGINAL,
