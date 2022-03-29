@@ -32,10 +32,12 @@ function fsubmit() {
 	
 	
 }
+
+
 </script>
 </head>
 <script>
-	
+history.replaceState({}, null, location.pathname);
 </script>
 
 <body>
@@ -49,10 +51,12 @@ function fsubmit() {
             </div>
             <form class="form-signin" id="frm" name="frm" action="<c:url value = '/login'/>" method="POST">
               <div class="form-label-group">
+              <label class="form-label mt-4">아이디</label>
                 <input type="text" class="form-control focused-id" name="USER_ID" id="user_id" placeholder="아이디를 입력하세요.">
               </div>
 
               <div class="form-label-group">
+              <label class="form-label mt-4">비밀번호</label>
                 <input type="password" class="form-control focused-password" name="USER_PW" id="user_pw" placeholder="비밀번호를 입력하세요.">
               </div>
               
@@ -61,11 +65,13 @@ function fsubmit() {
               <button class="btn btn-lg btn-primary btn-block text-uppercase" onclick="fsubmit();">LOGIN</button>
               </form>
               <div>
+              <div align="center">
 				<a href="<c:url value='/findId/'/>">아이디 찾기</a>
 				<span>|</span>
 				<a href="<c:url value='/findPw/'/>">비밀번호 찾기</a>
 				<span>|</span>
 				<a href="<c:url value='/joinForm/'/>">회원가입</a>
+				</div>
 				</div>
           </div>
         </div>

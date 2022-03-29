@@ -12,7 +12,7 @@
 			<table class="table table-hover">
 				<tbody>
 				<colgroup>
-					<col width="10%" />
+					<col width="2%" />
 					<col width="10%" />
 					<col width="10%" />
 					<col width="10%" />
@@ -23,7 +23,9 @@
 						<th scope="col">제목</th>
 						<th scope="col">작성자</th>
 						<th scope="col">작성일자</th>
-						<a href="<c:url value='/reviewWritePage'/>">&emsp;작성</a>
+						<div >
+						<a href="<c:url value='/reviewWritePage'/>" class="primary-btn header-btn text-capitalize mt-5">리뷰작성</a>
+						</div>
 					</tr>
 				</thead>
 				</tbody>
