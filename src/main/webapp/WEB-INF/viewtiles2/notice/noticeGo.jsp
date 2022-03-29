@@ -168,7 +168,7 @@ fieldset[disabled] .form-control {
 					alert("작성완료." + NOTICE_CONTENT);
 				},
 				error : function(data) {
-					console.log('jQeury ajax form submit error' + data);
+					console.log('jQeury ajax form submit error');
 				},
 				complete : function() {
 					console.log('jQeury ajax form submit complete');
