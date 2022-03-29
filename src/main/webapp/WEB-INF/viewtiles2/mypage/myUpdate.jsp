@@ -22,6 +22,7 @@
 				</div>
 			</div>
 
+
 			<div>
 				<div>
 					<label for="user_nic" class="form-label">별명</label> <input
