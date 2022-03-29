@@ -388,7 +388,7 @@ public class FileUtils {
                 listMap = new HashMap<String,Object>();
 
                 //업로드할 당시의 파일이름
-                listMap.put("NOTICE_ORIGINAL", REVIEW_ORIGINAL);
+                listMap.put("REVIEW_ORIGINAL", REVIEW_ORIGINAL);
                 //저장할 파일 이름
                 listMap.put("REVIEW_NEW_IMG", REVIEW_NEW_IMG);
                 listMap.put("REVIEW_FILE_SIZE", REVIEW_FILE_SIZE.getSize());

@@ -23,9 +23,7 @@
 						<th scope="col">제목</th>
 						<th scope="col">작성자</th>
 						<th scope="col">작성일자</th>
-						<div >
 						<a href="<c:url value='/reviewWritePage'/>" class="primary-btn header-btn text-capitalize mt-5">리뷰작성</a>
-						</div>
 					</tr>
 				</thead>
 				</tbody>
@@ -106,11 +104,11 @@
 					                    + "</td>"
 					                    + "<td>"
 					                    + "<a href='#this' name='title'>" + value.REVIEW_TITLE + "</a>"
-					                    + "<input type='hidden' name='title' id='REVIEW_INDEX' value=" + value.REVUEW_INDEX + ">"
+					                    + "<input type='hidden' name='title' id='REVIEW_INDEX' value=" + value.REVIEW_INDEX + ">"
 					                    + "</td>"
 					                    + "<td>"
 					                    + "<a href='#this' name='title'>" + value.USER_ID + "</a>"
-					                    + "<input type='hidden' name='title' id='REVIEW_INDEX' value=" + value.REVUEW_INDEX + ">"
+					                    + "<input type='hidden' name='title' id='REVIEW_INDEX' value=" + value.REVIEW_INDEX + ">"
 					                    + "</td>"
 					                    + "<td>"
 					                    + "<a href='#this' name='title'>" + value.REVIEW_DATE + "</a>"
