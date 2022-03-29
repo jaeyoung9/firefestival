@@ -20,7 +20,7 @@
 <!-- meta character set -->
 <meta charset="UTF-8">
 <!-- Site Title -->
-<title>Portfolio Details</title>
+<title>오시는길</title>
 
 <link
 	href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700"
@@ -36,6 +36,9 @@
 <link rel="stylesheet" href="css/animate.min.css">
 <link rel="stylesheet" href="css/owl.carousel.css">
 <link rel="stylesheet" href="css/main.css">
+
+<script type="text/javascript"
+	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b4fbc66e697d63a13daa41d2abceea27"></script>
 </head>
 
 <body>
@@ -70,7 +73,19 @@
 				<div class="row">
 					<div class="col-md-6">
 						<div class="left_img">
-							<img class="img-fluid" src="<%=request.getContextPath()%>/images/UP/${intro2.MAIN_IMG}" alt="">
+							<div id="map" class="img-fluid" style="width: 500px; height: 400px;"></div>
+						<script>
+							var container = document.getElementById('map');
+							var options = {
+								center : new kakao.maps.LatLng(37.526173331250654,
+										126.93525620814331),
+								level : 3
+							};
+
+							var map = new kakao.maps.Map(container, options);
+							
+							
+						</script>
 							
 							<!--  <img 
 							 
