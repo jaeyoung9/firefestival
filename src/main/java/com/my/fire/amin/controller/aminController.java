@@ -23,12 +23,12 @@ public class aminController {
 			return mva;
 			
 		} else if(AMIN_TIM.equals("Y")){
-			
 			session.setAttribute("AMIN_TIM", AMIN_TIM);
 			ModelAndView mv = new ModelAndView("amin");
 			return mv;
 		}else {
-			return null;
+			ModelAndView mva = new ModelAndView("main");
+			return mva;
 		}
 		
 	}
