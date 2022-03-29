@@ -33,6 +33,11 @@ public class IntroServiceImpl implements IntroService {
 		// TODO Auto-generated method stub
 		return introDAO.intro(map);
 	}
+	@Override
+	public List<Map<String, Object>> intro2(Map<String, Object> map) {
+		// TODO Auto-generated method stub
+		return introDAO.intro2(map);
+	}
 
 	@Override
 	public void introUpload(Map<String, Object> map, HttpServletRequest request) throws Exception {
@@ -47,7 +52,19 @@ public class IntroServiceImpl implements IntroService {
 		MultipartFile multipartFile = null;
 		
 	}
+	@Override
+	public void introUp1(Map<String, Object> map, HttpServletRequest request) throws Exception {
+		List<Map<String, Object>> list = fileUtils.introUpload(map, request);
+		for (int i = 0; i < list.size(); i++) {
+			Map<String, Object> vo = list.get(i);
+			introDAO.introUp1(vo);
+		}
 
+		MultipartHttpServletRequest multipartHttpServletRequest = (MultipartHttpServletRequest) request;
+		Iterator<String> iterator = multipartHttpServletRequest.getFileNames();
+		MultipartFile multipartFile = null;
+		
+	}
 }
 
 /*

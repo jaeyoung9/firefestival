@@ -29,6 +29,16 @@ public class IntroController {
 		return mv;
 	}
 
+	@RequestMapping("/intro2")
+	public ModelAndView intro2(CommandMap commandMap, HttpServletRequest request) throws Exception {
+		List<Map<String, Object>> intro2 = introService.intro2(commandMap.getMap());
+		ModelAndView mv = new ModelAndView("intro2");
+		mv.addObject("intro2", intro2);
+		return mv;
+	}
+
+	
+	
 	@RequestMapping(value = "/intro/WritePage")
 	public ModelAndView introWritePage(CommandMap commandMap, HttpServletRequest request) throws Exception {
 		ModelAndView mv = new ModelAndView("introWritePage");
@@ -44,6 +54,25 @@ public class IntroController {
 
 		introService.introUpload(commandMap.getMap(), request);
 
+		return mv;
+
+	}
+	
+	@RequestMapping(value = "/introUp1", method = RequestMethod.POST)
+
+	public ModelAndView introUp1(CommandMap commandMap, HttpServletRequest request) throws Exception {
+
+		ModelAndView mv = new ModelAndView("jsonView");
+
+		introService.introUp1(commandMap.getMap(), request);
+
+		return mv;
+
+	}
+	
+	@RequestMapping(value = "/intro/UploadPage")
+	public ModelAndView introUploadPage(CommandMap commandMap, HttpServletRequest request) throws Exception {
+		ModelAndView mv = new ModelAndView("introUploadPage");
 		return mv;
 
 	}

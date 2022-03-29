@@ -20,6 +20,9 @@
 		<tr>
 			<td><a class="col-1" href="/fire/intro/WritePage">소개글 작성</a></td>
 		</tr>
+		<tr>
+			<td><a class="col-1" href="/fire/intro/UploadPage">소개글 수정</a></td>
+		</tr>
 	</table>
 </body>
 </html>
