@@ -27,7 +27,7 @@
 					<h1>
 						서울<br> 불꽃축제<br> <Br>
 					</h1>
-					<a href="#" class="primary-btn header-btn text-capitalize mt-10">보러가기!</a>
+					<!-- <a href="#" class="primary-btn header-btn text-capitalize mt-10">보러가기!</a> -->
 				</div>
 			</div>
 		</div>
@@ -40,11 +40,12 @@
 			<div class="row justify-content-center">
 				<div class="col-lg-12">
 					<div class="main-title text-center">
-						<h1>소개글/오시는길</h1>
+						<h1>축제 소개</h1>
 						<p>
 						불꽃놀이를 통해 21세기 한국의 비전을 새롭게 제시하고, 범국민적 영원의 메시지를 담아 민족의 화합의지를 다지는 기쁨과 희망의 장으로 삼고자 기획된 행사로, 2000년 10월에 처음 개최되었다. 10월 초에 개최되며, (주)한화가 주관한다.<br>
 						<br>서울특별시 영등포구 여의도 한강시민공원 일대에서 개최되는 국제적인 불꽃축제.
 						</p>
+						<a href="<c:url value='/intro'/>" class="primary-btn header-btn text-capitalize mt-10">자세히 보기</a>
 					</div>
 				</div>
 			</div>

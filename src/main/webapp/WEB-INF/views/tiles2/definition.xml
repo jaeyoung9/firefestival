@@ -129,12 +129,22 @@
 					value="/WEB-INF/viewtiles2/intro/intro.jsp" />
 			</definition>
 			
+			<definition name="intro2" extends="base_layout">
+				<!-- <put-attribute name="title" value="인트로페이지" /> -->
+				<put-attribute name="body"
+					value="/WEB-INF/viewtiles2/intro/intro2.jsp" />
+			</definition>
+			
 			<definition name="introWritePage" extends="base_layout">
 				<!-- <put-attribute name="title" value="인트로작성" /> -->
 				<put-attribute name="body"
 					value="/WEB-INF/viewtiles2/intro/introWritePage.jsp" />
 			</definition>
-			
+			<definition name="introUploadPage" extends="base_layout">
+				<!-- <put-attribute name="title" value="인트로작성" /> -->
+				<put-attribute name="body"
+					value="/WEB-INF/viewtiles2/intro/introUploadPage.jsp" />
+			</definition>
 			<!-- 리뷰 -->
 			<definition name="review" extends="base_layout">
 				<!-- <put-attribute name="title" value="리뷰페이지" /> -->

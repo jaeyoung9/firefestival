@@ -33,7 +33,7 @@
 			formData.append("file", $('input[name=file]')[0].files[0]);
 
 			$.ajax({
-				url : '/fire/introWrite',
+				url : '/fire/introUp1',
 				type : 'POST',
 				data : formData,
 				processData : false,
@@ -43,8 +43,8 @@
 				},
 				success : function(data) {
 					console.log('jQeury ajax form submit success');
-					alert("등록완료");
-					location.href = "/fire/intro/WritePage"
+					alert("업로드완료");
+					location.href = "/fire/intro/UploadPage"
 				},
 				error : function(data) {
 					console.log('jQeury ajax form submit error');
@@ -57,7 +57,7 @@
 		});
 	});
 </script>
-<title>소개글 등록</title>
+<title>소개글 수정</title>
 
 <link
 	href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700"
@@ -82,7 +82,7 @@
 		<div class="container">
 			<div class="row d-flex align-items-center justify-content-center">
 				<div class="about-content col-lg-6">
-					<h1 class="text-black text-uppercase">소개글 등록하기</h1>
+					<h1 class="text-black text-uppercase">소개글 수정하기</h1>
 
 				</div>
 			</div>
@@ -113,7 +113,7 @@
 							<ul class="list">
 								<li><span>파일</span><input type="file" id="MAIN_IMG"
 									name="file"></li>
-									<li><span>카테고리 번호</span>
+									<li><span>수정할 카테고리 번호</span>
 								<input type="text" id="MAIN_KATE" name="MAIN_KATE" required maxlength="1"><br>1소개 2오시는길
 									
 					<!-- 				 <select id="MAIN_KATE">
@@ -123,9 +123,9 @@
 					</select> -->
 									
 									</li>
-								<li><span>등록</span>
+								<li><span>수정</span>
 									<button type="button" class="btn btn-primary btn-grnl-submit">소개글
-										등록</button></li>
+										수정</button></li>
 
 							</ul>
 						</form>

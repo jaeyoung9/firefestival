@@ -1,6 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<%@ include file="/WEB-INF/viewtiles2/include/include-header.jspf" %>
 
 <!DOCTYPE html>
 <html lang="UTF-8" class="no-js">
@@ -20,44 +20,7 @@
 <!-- meta character set -->
 <meta charset="UTF-8">
 <!-- Site Title -->
-
-<script type="text/javascript">
-	$(document).ready(function() {
-
-		$('.btn-grnl-submit').on('click', function() {
-
-			var form = $('#upload');
-
-			var formData = new FormData(form[0]);
-
-			formData.append("file", $('input[name=file]')[0].files[0]);
-
-			$.ajax({
-				url : '/fire/introWrite',
-				type : 'POST',
-				data : formData,
-				processData : false,
-				contentType : false,
-				beforeSend : function() {
-					console.log('jQeury ajax form submit beforeSend');
-				},
-				success : function(data) {
-					console.log('jQeury ajax form submit success');
-					alert("등록완료");
-					location.href = "/fire/intro/WritePage"
-				},
-				error : function(data) {
-					console.log('jQeury ajax form submit error');
-				},
-				complete : function() {
-					console.log('jQeury ajax form submit complete');
-				}
-			});//end ajax
-
-		});
-	});
-</script>
-<title>소개글 등록</title>
+<title>Portfolio Details</title>
 
 <link
 	href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700"
@@ -77,13 +40,23 @@
 
 <body>
 
+	<c:forEach items="${intro2}" var="intro2">
+		<input type="hidden" id="MAIN_TITLE" value="${intro2.MAIN_TITLE}">
+		<input type="hidden" id="MAIN_IMG" value="${intro2.MAIN_IMG}">
+		<input type="hidden" id="MAIN_KATE" value="${intro2.MAIN_KATE}">
+		<input type="hidden" id="MAIN_CONTENT" value="${intro2.MAIN_CONTENT}">
+
+	
 	<!--######## start banner Area ########-->
 	<section class="banner-area relative" id="home">
 		<div class="container">
 			<div class="row d-flex align-items-center justify-content-center">
-				<div class="about-content col-lg-6">
-					<h1 class="text-black text-uppercase">소개글 등록하기</h1>
-
+				<div class="about-content col-lg-12">
+					<h1 class="text-black text-uppercase">오시는길</h1>
+					<p class="text-black link-nav">
+						
+					
+					</p>
 				</div>
 			</div>
 		</div>
@@ -94,47 +67,46 @@
 	<section class="portfolio_details_area section-gap">
 		<div class="container">
 			<div class="portfolio_details_inner">
-
-				<div class="offset-md-1 col-md-8">
-					<div class="portfolio_right_text mt-30">
-						<form id="upload" action="/fire/introWrite" method="POST"
-							enctype="multipart/form-data">
-
-							<h4>제목</h4>
-							<input type="text" maxlength="300" id="MAIN_TITLE"
-								name="MAIN_TITLE" class="" required>
-							<p>
-							<h4>내용</h4>
-								<textarea name="MAIN_CONTENT" id="MAIN_CONTENT" cols="50"
-									maxlength="3000" rows="25" class="" required></textarea>
-
-							</p>
-
-							<ul class="list">
-								<li><span>파일</span><input type="file" id="MAIN_IMG"
-									name="file"></li>
-									<li><span>카테고리 번호</span>
-								<input type="text" id="MAIN_KATE" name="MAIN_KATE" required maxlength="1"><br>1소개 2오시는길
-									
-					<!-- 				 <select id="MAIN_KATE">
-						<option value="">구독</option>
-						<option value="">일반</option>
-
-					</select> -->
-									
-									</li>
-								<li><span>등록</span>
-									<button type="button" class="btn btn-primary btn-grnl-submit">소개글
-										등록</button></li>
-
+				<div class="row">
+					<div class="col-md-6">
+						<div class="left_img">
+							<img class="img-fluid" src="<%=request.getContextPath()%>/images/UP/${intro2.MAIN_IMG}" alt="">
+							
+							<!--  <img 
+							 
+							 width="600px" height="400px"> -->
+						 
+						</div>
+					</div>
+					<div class="offset-md-1 col-md-5">
+						<div class="portfolio_right_text mt-30">
+							<h4>${intro2.MAIN_TITLE}</h4>
+							<p>${intro2.MAIN_CONTENT}</p>
+							<!-- <ul class="list">
+								<li><span>Rating</span>: <i class="fa fa-star"></i><i
+									class="fa fa-star"></i><i class="fa fa-star"></i><i
+									class="fa fa-star"></i><i class="fa fa-star"></i></li>
+								<li><span>Client</span>: colorlib</li>
+								<li><span>Website</span>: colorlib.com</li>
+								<li><span>Completed</span>: 17 Aug 2018</li>
 							</ul>
-						</form>
+							<ul class="list social_details">
+								<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+								<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+								<li><a href="#"><i class="fa fa-behance"></i></a></li>
+								<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+								<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+							</ul> -->
+						</div>
 					</div>
 				</div>
+				
 			</div>
-
 		</div>
+
+
 	</section>
+
 	<!--######## End Portfolio Details Area ########-->
 
 
@@ -157,6 +129,6 @@
 	<script src="js/jquery.nice-select.min.js"></script>
 	<script src="js/mail-script.js"></script>
 	<script src="js/main.js"></script>
+</c:forEach>
 </body>
-
 </html>

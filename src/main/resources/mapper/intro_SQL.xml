@@ -6,11 +6,19 @@
 	<select id="intro" parameterType="hashmap" resultType="hashmap">
 		
 <![CDATA[
-SELECT * FROM TB_MAIN 
+select * from TB_MAIN where MAIN_KATE = '1'
 ]]>
 
 	</select>
 
+
+	<select id="intro2" parameterType="hashmap" resultType="hashmap">
+		
+<![CDATA[
+select * from TB_MAIN where MAIN_KATE = '2'
+]]>
+
+	</select>
 
 <insert id="introWrite" parameterType="hashmap">  
 
@@ -40,6 +48,19 @@ TB_MAIN_SEQ.NEXTVAL,
 ]]> 
 
 </insert> 
-
+<update id="introUp1" parameterType="hashmap">
+<![CDATA[
+UPDATE
+TB_MAIN
+SET
+MAIN_INDEX = TB_MAIN_SEQ.NEXTVAL,
+MAIN_TITLE = #{MAIN_TITLE}, 
+MAIN_CONTENT = #{MAIN_CONTENT}, 
+MAIN_IMG = #{MAIN_IMG},
+MAIN_FILE_SIZE = #{MAIN_FILE_SIZE}
+WHERE
+MAIN_KATE = #{MAIN_KATE} 
+]]>
+</update>
 
 </mapper>
