@@ -12,8 +12,7 @@
 			<table class="table table-hover">
 				<tbody>
 				<colgroup>
-					<col width="10%" />
-					<col width="10%" />
+					<col width="2%" />
 					<col width="10%" />
 					<col width="10%" />
 				</colgroup>
@@ -21,7 +20,6 @@
 					<tr class="" style="text-align: center;">
 						<th scope="col">번호</th>
 						<th scope="col">제목</th>
-						<th scope="col">작성자</th>
 						<th scope="col">작성일자</th>
 						<a href="<c:url value='/reviewWritePage'/>">&emsp;작성</a>
 					</tr>
@@ -104,10 +102,6 @@
 					                    + "</td>"
 					                    + "<td>"
 					                    + "<a href='#this' name='title'>" + value.REVIEW_TITLE + "</a>"
-					                    + "<input type='hidden' name='title' id='REVIEW_INDEX' value=" + value.REVUEW_INDEX + ">"
-					                    + "</td>"
-					                    + "<td>"
-					                    + "<a href='#this' name='title'>" + value.USER_ID + "</a>"
 					                    + "<input type='hidden' name='title' id='REVIEW_INDEX' value=" + value.REVUEW_INDEX + ">"
 					                    + "</td>"
 					                    + "<td>"
