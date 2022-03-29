@@ -21,15 +21,15 @@
 	<!--######## start banner Area ########-->
 	<section class="home-banner-area relative" id="home">
 		<div class="container">
-			<div class="row fullscreen d-flex align-items-center"
-				style="background-image: url(images/fl.jpg);">
+			<div class="home-banner-area row fullscreen d-flex align-items-center"
+				>
 
 				<div class="banner-content col-lg-9 col-md-12">
 
 					<h1>
 						서울<br> 불꽃축제<br> <Br>
 					</h1>
-					<!-- <a href="#" class="primary-btn header-btn text-capitalize mt-10">보러가기!</a> -->
+					<a href="#" class="primary-btn header-btn text-capitalize mt-10">보러가기!</a> 
 				</div>
 			</div>
 		</div>
