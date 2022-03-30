@@ -64,7 +64,7 @@
 
 							<div align="center">
 								<div>
-									<a href="<c:url value='/findId/'/>">아이디 찾기</a> <span>|</span> <a
+									<a href="<c:url value='/findId/'/>">재시도</a> <span>|</span> <a
 										href="<c:url value='/findPw/'/>">비밀번호 찾기</a> <span>|</span> <a
 										href="<c:url value='/loginForm/'/>">로그인</a>
 								</div>
