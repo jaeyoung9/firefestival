@@ -25,7 +25,7 @@
 					<tr>
 						<td>
 							<div class="form-group">
-								<label class="form-label mt-4">제목</label> 
+								<label class="form-label mt-4">제 목</label> 
 								<input type="text" class="form-control" name="REVIEW_TITLE" id="REVIEW_TITLE" value="${reviewUp.REVIEW_TITLE}">
 							</div>
 						</td>
@@ -33,7 +33,7 @@
 					<tr>
 						<td>
 							<div class="form-group">
-								<label class="form-label mt-4">내용</label>
+								<label class="form-label mt-4">내 용</label>
 								<textarea name="REVIEW_CONTENT" class="form-control" id="REVIEW_CONTENT" maxlength="3000">${reviewUp.REVIEW_CONTENT}</textarea>
 							</div>
 						</td>
@@ -42,13 +42,14 @@
 					<tr>
 						<td>
 							<div class="form-group">
-								<label class="form-label mt-4">파일</label> <input type="file" class="form-control" id="REVIEW_NEW_IMG" name="file">
+								<label class="form-label mt-4">파 일</label> <input type="file" class="form-control" id="REVIEW_NEW_IMG" name="file">
 							</div>
 						</td>
 					</tr>
 					<tr>
 						<td>
 							<button type="button" class="primary-btn header-btn text-capitalize mt-10 submit">등록</button>
+							<button type="reset" class="primary-btn header-btn text-capitalize mt-10">취소</button>
 						</td>
 					</tr>
 

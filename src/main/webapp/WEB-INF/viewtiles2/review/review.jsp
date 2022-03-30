@@ -18,21 +18,33 @@
 					<col width="10%" />
 				</colgroup>
 				<thead>
+				<tr>
+					<th></th>
+					<th></th>
+					<th></th>
+					
+					<th><a href="<c:url value='/reviewWritePage'/>" class="primary-btn header-btn text-capitalize mt-5" style="float:right;">리뷰작성</a></th>
+					</tr>
 					<tr class="" style="text-align: center;">
-						<th scope="col">번호</th>
-						<th scope="col">제목</th>
+						<th scope="col">번 호</th>
+						<th scope="col">제 목</th>
 						<th scope="col">작성자</th>
 						<th scope="col">작성일자</th>
-						<a href="<c:url value='/reviewWritePage'/>" class="primary-btn header-btn text-capitalize mt-5">리뷰작성</a>
 					</tr>
 				</thead>
+				
 				</tbody>
+				
 			</table>
+				
 		</div>
 
 		<div class="pagination text-center" id="PAGE_NAVI" style="justify-content: center;"></div>
 		<!-- 앞으로 페이징 태그가 그려질 부분 (밑에서 공통할수를 이용해 페이징 태그가 작성됨.) -->
+		
+		
 		<input type="hidden" id="PAGE_INDEX" name="PAGE_INDEX" />
+		
 		<!-- 현재 페이지 번호가 저장될 부분 -->
 	</div>
 
@@ -126,8 +138,7 @@
 					                    + "<input type='hidden' name='title' id='REVIEW_INDEX' value=" + value.REVIEW_INDEX + ">"
 					                    + "</tr>"
 					                    + "<hr>";
-
-													});
+					                    });
 									body.append(str);
 				//새롭게 추가된 각각의 목록의 제목에 상세보기로 이동할 수 있도록 click이벤트를 바인딩 함.
 				$("a[name='title']").on("click", function(e) { //제목
