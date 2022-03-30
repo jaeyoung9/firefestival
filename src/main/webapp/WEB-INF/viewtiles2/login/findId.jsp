@@ -59,13 +59,12 @@
 								</div>
 								<div>
 									<div align="center">
-										<span class="box">
-										<label class="form-label mt-4">
-										<input type="text" class="int"
-											maxlength="50"name="user_nic" id="user_nic"
-											placeholder="닉네임을 입력하세요."></label>
-											<button class="primary-btn header-btn text-capitalize mt-10" type="button"
-												onclick="fsubmit();">
+										<span class="box"> <label class="form-label mt-4">
+												<input type="text" class="int" maxlength="50"
+												name="user_nic" id="user_nic" placeholder="닉네임을 입력하세요.">
+										</label>
+											<button class="primary-btn header-btn text-capitalize mt-10"
+												type="button" onclick="fsubmit();">
 												<svg xmlns="http://www.w3.org/2000/svg" width="16"
 													height="16" fill="currentColor" class="bi bi-search"
 													viewBox="0 0 16 16">
