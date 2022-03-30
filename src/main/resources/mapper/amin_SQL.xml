@@ -17,6 +17,18 @@
 		]]>
 		<include refid="common.pagingPost" />
 	</select>
+	
+	<!-- keyword -->
+	<select id="search" parameterType="hashmap" resultType="hashmap">
+		<![CDATA[
+		SELECT
+			ROW_NUMBER() OVER (ORDER BY USER_NUM DESC) RNUM,
+			USER_NUM, USER_ID, USER_NIC, USER_PW, USER_BLIND, USER_EVENT, AMIN_TIM, DEL_GB
+		FROM (SELECT ROW_NUMBER() OVER (ORDER BY USER_NUM DESC) RNUM,
+			USER_NUM, USER_ID, USER_NIC, USER_PW, USER_ORIGINAL, USER_NEW_IMG, USER_FILE_SIZE, USER_BLIND, USER_EVENT, AMIN_TIM, DEL_GB
+		FROM TB_MEMBER) where USER_ID LIKE '%${keyword}%'
+		]]>
+	</select>
 
 
 	<!-- 
@@ -27,15 +39,8 @@
 		]]>
 	</insert>
 	-->
-	<!-- 
-	<select id="noticeDetail" parameterType="hashmap" resultType="hashmap">
-		
-		<![CDATA[
-		select * from TB_notice where NOTICE_INDEX = #{NOTICE_INDEX}
-		]]>
-		
-	</select>
-	-->
+	
+	
 	
 	<!--
 	<insert id="noticeUp" parameterType="hashmap">
