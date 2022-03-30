@@ -86,7 +86,7 @@
 
 
 
-								<li><a href="about.html">자료실</a></li>
+								<li><a href="<c:url value='/data'/>">자료실</a></li>
 								<li><a href="<c:url value='/notice'/>">공지사항</a></li>
 								<li class="menu-has-children"><a href="">먹거리/푸드트럭</a>
 									<ul>
@@ -109,7 +109,7 @@
 										<li><a href="<c:url value='/intro2'/>">오시는길</a></li>
 									</ul></li>
 
-								<li><a href="about.html">자료실</a></li>
+								<li><a href="<c:url value='/data'/>">자료실</a></li>
 								<li><a href="<c:url value='/notice'/>">공지사항</a></li>
 								<li class="menu-has-children"><a href="">먹거리/푸드트럭</a>
 									<ul>
