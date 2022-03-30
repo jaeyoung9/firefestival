@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" " http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="amin">
+
+<!-- 민재영 - amin  -->
+
+	<!-- 페이징  -->
+	<select id="member" parameterType="hashmap" resultType="hashmap">
+		<include refid="common.pagingPre" />
+		<![CDATA[
+		SELECT
+			ROW_NUMBER() OVER (ORDER BY USER_NUM DESC) RNUM,
+			USER_NUM, USER_ID, USER_NIC, USER_PW, USER_BLIND, USER_EVENT, AMIN_TIM, DEL_GB
+		FROM (SELECT ROW_NUMBER() OVER (ORDER BY USER_NUM DESC) RNUM,
+			USER_NUM, USER_ID, USER_NIC, USER_PW, USER_ORIGINAL, USER_NEW_IMG, USER_FILE_SIZE, USER_BLIND, USER_EVENT, AMIN_TIM, DEL_GB
+		FROM TB_MEMBER)
+		]]>
+		<include refid="common.pagingPost" />
+	</select>
+
+
+	<!-- 
+	<insert id="noticeGo" parameterType="hashmap">
+		<![CDATA[
+		INSERT INTO TB_NOTICE(NOTICE_INDEX, NOTICE_TITLE, NOTICE_CONTENT, NOTICE_ORIGINAL, NOTICE_NEW_IMG, NOTICE_FILE_SIZE)
+		VALUES(TB_NOTICE_SEQ.NEXTVAL, #{NOTICE_TITLE}, #{NOTICE_CONTENT}, #{NOTICE_ORIGINAL}, #{NOTICE_NEW_IMG}, #{NOTICE_FILE_SIZE})		
+		]]>
+	</insert>
+	-->
+	<!-- 
+	<select id="noticeDetail" parameterType="hashmap" resultType="hashmap">
+		
+		<![CDATA[
+		select * from TB_notice where NOTICE_INDEX = #{NOTICE_INDEX}
+		]]>
+		
+	</select>
+	-->
+	
+	<!--
+	<insert id="noticeUp" parameterType="hashmap">
+		<![CDATA[
+		UPDATE TB_NOTICE SET 
+		NOTICE_TITLE = #{NOTICE_TITLE}, 
+		NOTICE_CONTENT = #{NOTICE_CONTENT}, 
+		NOTICE_ORIGINAL = #{NOTICE_ORIGINAL}, 
+		NOTICE_NEW_IMG = #{NOTICE_NEW_IMG}, 
+		NOTICE_FILE_SIZE = #{NOTICE_FILE_SIZE}
+		WHERE
+		NOTICE_INDEX = #{NOTICE_INDEX}
+		]]>
+	</insert>
+	 -->
+	<!--
+	<insert id="noticeDe" parameterType="hashmap">
+		<![CDATA[
+		UPDATE TB_NOTICE SET 
+		NOTICE_KATE = 'Y'
+		WHERE NOTICE_INDEX = #{NOTICE_INDEX}
+		]]>
+	</insert>
+	-->
+</mapper>
