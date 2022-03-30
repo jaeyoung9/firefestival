@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" " http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="data">
+
+<!-- 페이징 -->
+	<select id="data" parameterType="hashmap" resultType="hashmap">
+		<include refid="common.pagingPre" />
+		<![CDATA[
+		SELECT
+			ROW_NUMBER() OVER (ORDER BY DATA_INDEX DESC) RNUM,
+			DATA_INDEX,
+			DATA_THUMB,
+			DATA_TITLE,
+			DATA_CONTENT,
+			DATA_IMG,
+			DATA_SIZE,
+			DATA_KATE
+		FROM (SELECT ROW_NUMBER() OVER (ORDER BY DATA_INDEX DESC) RNUM,
+			DATA_INDEX,
+			DATA_THUMB,
+			DATA_TITLE,
+			DATA_CONTENT,
+			DATA_IMG,
+			DATA_SIZE,
+			DATA_KATE
+		FROM TB_DATA
+			WHERE DATA_KATE = 'N')
+		]]>
+		<include refid="common.pagingPost" />
+	</select>
+	
+<!-- 자료실 상세페이지 -->
+	<select id="dataDetail" parameterType="hashmap" resultType="hashmap">
+		<![CDATA[
+		SELECT *
+		FROM TB_DATA
+		WHERE DATA_INDEX = #{DATA_INDEX}
+		]]>
+	</select>
+	
+<!-- 자료실 작성 -->
+	<insert id="dataWrite" parameterType="hashmap">
+		<![CDATA[
+		INSERT INTO TB_DATA(
+		    DATA_INDEX,
+		    DATA_IMG,
+			DATA_THUMB,
+			DATA_TITLE,
+			DATA_CONTENT,
+			DATA_SIZE
+		)
+		VALUES(
+			TB_DATA_SEQ.NEXTVAL,
+			#{DATA_IMG},
+			#{DATA_THUMB},
+			#{DATA_TITLE},
+			#{DATA_CONTENT},
+			#{DATA_SIZE}
+		)		
+		]]>
+	</insert>
+	
+<!-- 자료실 수정 -->
+	<update id="dataUpdate" parameterType="hashmap">
+		<![CDATA[
+		UPDATE TB_DATA
+		SET
+			DATA_IMG = #{DATA_IMG},
+			DATA_TITLE = #{DATA_TITLE},
+			DATA_CONTENT = #{DATA_CONTENT},
+			DATA_THUMB = #{DATA_THUMB},
+			DATA_SIZE = #{DATA_SIZE},
+			DATA_KATE = #{DATA_KATE}	
+		WHERE
+			DATA_INDEX = #{DATA_INDEX}
+		]]>
+	</update>
+	
+<!-- 자료실 삭제 -->
+	<delete id="dataDelete" parameterType="hashmap">
+		<![CDATA[
+		DELETE
+		FROM TB_DATA
+		WHERE
+		DATA_INDEX = #{DATA_INDEX}
+		]]>
+	</delete>
+
+</mapper>

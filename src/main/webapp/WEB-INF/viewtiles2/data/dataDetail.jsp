@@ -4,17 +4,17 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<c:forEach items="${edetail}" var="edetail">
-	<title>이벤트 - ${edetail.EVENT_TITLE}</title>
+<c:forEach items="${ddetail}" var="ddetail">
+	<title>자료실 ${ddetail.DATA_TITLE}</title>
 </c:forEach>
 </head>
 <body>
 	<div style="text-align: center">
-		<c:forEach items="${edetail}" var="edetail">
+		<c:forEach items="${ddetail}" var="ddetail">
 			<div>
-				<img alt="${edetail.EVENT_IMG}"
-					src="<%=request.getContextPath()%>/images/UP/${edetail.EVENT_THUMB}" /><br>
-				${edetail.EVENT_CONTENT}<br>
+				<img alt="${ddetail.DATA_IMG}"
+					src="<%=request.getContextPath()%>/images/UP/${ddetail.DATA_THUMB}" /><br>
+				${ddetail.DATA_CONTENT}<br>
 
 				<c:choose>
 					<c:when test="${USER_ID == null }">
@@ -34,7 +34,7 @@
 					</c:otherwise>
 				</c:choose>
 
-				<input type="hidden" id="EVENT_INDEX" name="EVENT_INDEX" value="${edetail.EVENT_INDEX}">
+				<input type="hidden" id="DATA_INDEX" name="DATA_INDEX" value="${ddetail.DATA_INDEX}">
 			</div>
 		</c:forEach>
 		<%@ include file="/WEB-INF/viewtiles2/include/include-body.jspf"%>
@@ -43,29 +43,29 @@
 <script type="text/javascript">
 	$("button[name='Update']").on("click", function(e) {
 		e.preventDefault();
-		fn_EventUpdate($(this));
+		fn_DataUpdate($(this));
 	});
 
-	function fn_EventUpdate(obj) {
-		var aaa = obj.parent().find("#EVENT_INDEX").val();
+	function fn_DataUpdate(obj) {
+		var aaa = obj.parent().find("#DATA_INDEX").val();
 		//alert(aaa);
 		var comSubmit = new ComSubmit();
-		comSubmit.setUrl("<c:url value='/event/Update'/>");
-		comSubmit.addParam("EVENT_INDEX", obj.parent().find("#EVENT_INDEX").val());
+		comSubmit.setUrl("<c:url value='/data/Update'/>");
+		comSubmit.addParam("DATA_INDEX", obj.parent().find("#DATA_INDEX").val());
 		comSubmit.submit();
 	}
 
 	$("button[name='Delete']").on("click", function(e) {
 		e.preventDefault();
-		fn_EventDelete($(this));
+		fn_DataDelete($(this));
 	});
 
-	function fn_EventDelete(obj) {
-		var aaa = obj.parent().find("#EVENT_INDEX").val();
+	function fn_DataDelete(obj) {
+		var aaa = obj.parent().find("#DATA_INDEX").val();
 		//alert(aaa);
 		var comSubmit = new ComSubmit();
-		comSubmit.setUrl("<c:url value='/event/Delete'/>");
-		comSubmit.addParam("EVENT_INDEX", obj.parent().find("#EVENT_INDEX").val());
+		comSubmit.setUrl("<c:url value='/data/Delete'/>");
+		comSubmit.addParam("DATA_INDEX", obj.parent().find("#DATA_INDEX").val());
 		alert("삭제 완료");
 		comSubmit.submit();
 	}
