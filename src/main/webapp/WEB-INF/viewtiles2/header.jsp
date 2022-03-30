@@ -70,59 +70,57 @@
 				<nav id="nav-menu-container">
 					<ul class="nav-menu">
 						<c:choose>
+						
 							<c:when test="${USER_ID == null }">
 								<li class="menu-active"><a href="<c:url value='/main'/>">home</a></li>
-
 								<li class="menu-has-children"><a href="">소개글/오시는길</a>
 									<ul>
 										<li><a href="<c:url value='/intro'/>">소개글</a></li>
 										<li><a href="<c:url value='/intro2'/>">오시는길</a></li>
-									</ul></li>
-
-
-
-
+									</ul>
+								</li>
 								<li><a href="about.html">자료실</a></li>
 								<li><a href="<c:url value='/notice'/>">공지사항</a></li>
 								<li class="menu-has-children"><a href="">먹거리/푸드트럭</a>
 									<ul>
 										<li><a href="blog-home.html">먹거리</a></li>
 										<li><a href="blog-single.html">푸드트럭</a></li>
-									</ul></li>
-								<li class="menu-has-children"><a href="">이벤트</a>
+									</ul>
+								</li>
+								<li class="menu-has-children"><a>이벤트</a>
 									<ul>
 										<li><a href="<c:url value='/event'/>">진행</a></li>
-										<li><a href="<c:url value='/event'/>">종료</a></li>
-									</ul></li>
-
+										<li><a href="<c:url value='/event/End'/>">종료</a></li>
+									</ul>
+								</li>
 							</c:when>
+							
 							<c:otherwise>
-
 								<li class="menu-active"><a href="<c:url value='/main'/>">home</a></li>
 								<li class="menu-has-children"><a href="">소개글/오시는길</a>
 									<ul>
 										<li><a href="<c:url value='/intro'/>">소개글</a></li>
 										<li><a href="<c:url value='/intro2'/>">오시는길</a></li>
-									</ul></li>
-
+									</ul>
+								</li>
 								<li><a href="about.html">자료실</a></li>
 								<li><a href="<c:url value='/notice'/>">공지사항</a></li>
 								<li class="menu-has-children"><a href="">먹거리/푸드트럭</a>
 									<ul>
 										<li><a href="blog-home.html">먹거리</a></li>
 										<li><a href="blog-single.html">푸드트럭</a></li>
-									</ul></li>
-								<li class="menu-has-children"><a href="">이벤트</a>
+									</ul>
+								</li>
+								<li class="menu-has-children"><a>이벤트</a>
 									<ul>
 										<li><a href="<c:url value='/event'/>">진행</a></li>
-										<li><a href="<c:url value='/event'/>">종료</a></li>
-									</ul></li>
+										<li><a href="<c:url value='/event/End'/>">종료</a></li>
+									</ul>
+								</li>
 								<li><a href="<c:url value='/review'/>">리뷰</a></li>
-
 							</c:otherwise>
+							
 						</c:choose>
-
-
 					</ul>
 				</nav>
 				<!--######## #nav-menu-container -->

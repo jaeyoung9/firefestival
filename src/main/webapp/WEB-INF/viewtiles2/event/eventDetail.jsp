@@ -16,6 +16,9 @@
 		<c:forEach items="${edetail}" var="edetail">
 			<div>
 				<div>
+					<h2>${edetail.EVENT_TITLE}</h2><br>
+				</div>
+				<div>
 					<img alt="${edetail.EVENT_IMG}"
 						src="<%=request.getContextPath()%>/images/UP/${edetail.EVENT_THUMB}" /><br>
 				</div>
@@ -39,6 +42,8 @@
 						<c:if test="${USER_ID != null}">
 						<button type="button" class="primary-btn header-btn text-capitalize mt-10" id="apply"
 						onclick="eventApply()">신청하기</button>
+						<button type="button" onclick="location.href='/fire/event' "
+								class="primary-btn header-btn text-capitalize mt-10">목록보기</button>
 						</c:if>
 					</c:otherwise>
 				</c:choose>

@@ -8,8 +8,11 @@ import javax.servlet.http.HttpServletRequest;
 //정주영 - event
 public interface EventService {
 
-		// 이벤트 페이지
+		// 진행중 이벤트 페이지
 		List<Map<String, Object>> event(Map<String, Object> map);
+		
+		// 종료된 이벤트 페이지
+		List<Map<String, Object>> eventEnd(Map<String, Object> map);
 
 		// 이벤트 상세페이지
 		List<Map<String, Object>> eventDetail(Map<String, Object> map);
