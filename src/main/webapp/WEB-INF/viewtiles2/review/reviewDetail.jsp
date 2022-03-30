@@ -10,15 +10,27 @@
 </head>
 <body>
 
-<div style="text-align: center">
+<div class="bg-light">
+<div class="container py-3" style="margin: 0 auto; width: 503px;">
+	<div class="row align-items-center justify-content-between">
+		
+			<a class="navbar-brand h1 text-align:center" href="/fire/reviewDetail">
+				<span class="text-dark h1">리뷰</span><span class="text-primary h1">상세</span>
+			</a>
+		</div>
+				
    <c:forEach items="${reviewDetail}" var="reviewDetail">
 <div>         
-   <img alt="${reviewDetail.REVIEW_ORIGINAL}" src="<%=request.getContextPath()%>/images/UP/${reviewDetail.REVIEW_NEW_IMG}"/><br>
+   <img alt="${reviewDetail.REVIEW_ORIGINAL}" src="<%=request.getContextPath()%>/images/UP/${reviewDetail.REVIEW_NEW_IMG}" width="473" height="373"/><br>
+				
+				<label class="form-label mt-4">내가 쓴 내용</label>
+				<div class="card">
 				${reviewDetail.REVIEW_CONTENT}<br>
-
+				</div>
 				
 			<button id="reviewUpdate" name="reviewUpdate" class="primary-btn header-btn text-capitalize mt-10">리뷰수정</button>
 			<button id="reviewDelete" name="reviewDelete" class="primary-btn header-btn text-capitalize mt-10">리뷰삭제</button>
+			<button type="button"class="primary-btn header-btn text-capitalize mt-10" style="float:right;" onclick="location.href='/fire/review'">목 록</button>
 						
 			<input type="hidden" id="USER_ID" name="USER_ID" value="${USER_ID}">
 			<input type="hidden" id="REVIEW_INDEX" name="REVIEW_INDEX" value="${reviewDetail.REVIEW_INDEX}">
@@ -26,6 +38,7 @@
 </div>
    </c:forEach>
    	<%@ include file="/WEB-INF/viewtiles2/include/include-body.jspf"%>
+</div>
 </div>
 </body>
 <script type="text/javascript">
