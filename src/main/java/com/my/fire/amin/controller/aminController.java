@@ -1,5 +1,10 @@
 package com.my.fire.amin.controller;
 
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
+import java.io.ObjectInputStream;
+import java.lang.ProcessBuilder.Redirect;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -19,13 +24,13 @@ import com.my.fire.common.CommandMap;
 @Controller
 public class aminController {
 	
-	
+	static final long serialVersionUID = 1L;
 	Logger log = Logger.getLogger(this.getClass());
 
 	@Resource(name ="aminService")
 	aminService aminService;
 
-	// 관리자페이지 접속
+	// 관리자페이지 접속.
 	@RequestMapping("/amin")
 	public ModelAndView main(CommandMap commandMap, HttpServletRequest request) throws Exception {
 		HttpSession session = request.getSession();
@@ -46,15 +51,14 @@ public class aminController {
 		
 	}
 	
-	// 회원 관리
-	
+	// 회원 관리.
 	@ResponseBody
 	@RequestMapping(value = "/member")
 	public ModelAndView member(CommandMap commandMap) throws Exception {
 		ModelAndView mv = new ModelAndView("member");	
 		return mv;
 	}
-	
+	// 회원 페이징처리.
 	@RequestMapping("/member/page")
 	public ModelAndView memberpage(CommandMap commandMap, HttpServletRequest request) throws Exception {
 		HttpSession session = request.getSession();
@@ -69,7 +73,7 @@ public class aminController {
 			ModelAndView mv = new ModelAndView("jsonView");
 			session.setAttribute("AMIN_TIM", AMIN_TIM);
 			List<Map<String, Object>> list = aminService.member(commandMap.getMap());
-			System.out.println(list);
+			//System.out.println(list);
 			
 			mv.addObject("list", list);
 			if(list.size() > 0) {
@@ -86,6 +90,26 @@ public class aminController {
 		}
 		
 	}
+	
+	@RequestMapping(value="/member/keyword")
+	@ResponseBody
+	public ModelAndView keyWord(CommandMap commandMap, HttpServletRequest request) throws Exception {
+		ModelAndView mv = new ModelAndView("jsonView");
+		List<Map<String, Object>> list = aminService.search(commandMap.getMap());
+		
+		mv.addObject("list", list);
+		if(list.size() > 0) {
+			mv.addObject("TOTAL", list.get(0).get("TOTAL_COUNT"));
+		} else {
+			mv.addObject("TOTAL", 0);
+		}
+		
+		System.out.println(mv);
+	
+	return mv;
+	}
+
+	
 	
 	
 }
