@@ -16,7 +16,7 @@
 			<td>
 				<div class="form-group">
              	   <label class="form-label mt-4">제목</label>
-           		     <input type="text"  class="form-control" name="NOTICE_TITLE" id="NOTICE_TITLE" value="${ndetail.NOTICE_TITLE}">
+           		     <input type="text"  class="form-control" name="NOTICE_TITLE" id="NOTICE_TITLE" value="">
           	    </div>
             </td>
         </tr>
@@ -24,7 +24,7 @@
 			<td>
 				<div class="form-group">
                 	<label class="form-label mt-4">내용</label>
-                	<textarea name="NOTICE_CONTENT"  class="form-control editor" id="NOTICE_CONTENT" class="editor" maxlength="3000">${ndetail.NOTICE_CONTENT}</textarea>
+                	<textarea name="NOTICE_CONTENT"  class="form-control editor" id="NOTICE_CONTENT" class="editor" maxlength="3000"></textarea>
                 	<!-- <script>CKEDITOR.replace('NOTICE_CONTENT');</script>-->
             	</div>
             </td>

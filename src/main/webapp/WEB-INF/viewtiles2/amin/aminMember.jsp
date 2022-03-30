@@ -8,9 +8,7 @@
 <title>관리자 - 회원관리</title>
 </head>
 <body>
-
-
-
+	
 
 	<div class="wrap">
 		<table class="table table-hover">
@@ -32,9 +30,11 @@
         <th><span></span></th>
         <th><span></span></th>
         <th><span></span></th>
-        	<th><input type="text" class="form-control is-valid" id="Key" name="Key" maxlength="16" placeholder="회원ID"></th>
-        	<th><button class="nw-btn primary-btn header-btn text-capitalize mt-10">회원조회　　<span class="lnr lnr-arrow-right"></span></button></th>
-
+        <form id="form_Search">
+        	<th><input type="text" class="form-control is-valid" id="keyword" name="keyword" value="" maxlength="16" placeholder="회원ID"></th>
+       		<th><button class="nw-btn primary-btn header-btn text-capitalize mt-10 search">회원조회　　<span class="lnr lnr-arrow-right"></span></button></th>
+        </form>
+       
         	</tr>
         	<tr class="" style="text-align:center;">
         		<th scope="col">번호</th>
@@ -57,6 +57,7 @@
 		<!-- 현재 페이지 번호가 저장될 부분 -->
 	</div>
 	
+
 	
 	<!-- include를 하여 어떤 화면을 만들더라도 <body>태그 안쪽의 내용만 바뀌고, 나머지는 항상 똑같이 작성 -->
 	<%@ include file="/WEB-INF/viewtiles2/include/include-body.jspf"%>
@@ -158,6 +159,24 @@
 
 			}
 		}
+	</script>
+	<script type="text/javascript">
+	$(document).ready(function(){
+		
+		$('.search').on('click', function() {
+			$.ajax({
+				url : '/fire/member/keyword',
+				type : 'POST',
+				data : $("#form_Search").serializeArray(),
+				success : function(obg){
+					console.log(obj);
+				}, error : function(e){
+					console.log(e);
+				}
+				
+			});
+		});
+	});
 	</script>
 </body>
 

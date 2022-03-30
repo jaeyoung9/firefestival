@@ -21,4 +21,9 @@ public class aminServiceImpl  implements aminService{
 		return aminDAO.member(map);
 	}
 
+	@Override
+	public List<Map<String, Object>> search(Map<String, Object> map) {
+		return aminDAO.search(map);
+	}
+
 }
