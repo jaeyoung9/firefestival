@@ -44,7 +44,11 @@
 						<div align="left">
 							<h3 class="card-title text-center">
 								<strong>비밀번호찾기</strong>
-							</h3>
+								</h3>
+								<div align="center">
+								<h10>비밀번호를 찾고자 하는 아이디를 입력해 주세요.</h10>
+								</div>
+							
 
 
 						</div>
@@ -80,7 +84,7 @@
 								<div align="center">
 									<p>
 										<a href='/fire/findId'>아이디찾기</a> <span>|</span> <a
-											href='/fire/findPw'>비밀번호 찾기</a>
+											href='/fire/joinForm'>회원가입</a>
 									</p>
 
 								</div>

@@ -42,8 +42,11 @@
 						<div align="left">
 							<h3 class="card-title text-center">
 								<strong>아이디찾기</strong>
-							</h3>
-
+							</h3>	
+							<div align="center">
+							<h10>가입시 등록된 닉네임을 입력해주세요.</h10>
+							
+							</div>
 						</div>
 						<div class="fid" style="font-size: 40px;"></div>
 
@@ -81,8 +84,8 @@
 
 
 									<p>
-										<a href='/fire/findId'>아이디찾기</a> <span> | </span><a
-											href='/fire/findPw'>비밀번호 찾기</a>
+										<a href='/fire/findPw'>비밀번호찾기</a> <span> | </span><a
+											href='/fire/loginForm'>회원가입</a>
 									</p>
 								</div>
 
