@@ -18,11 +18,17 @@
 				<put-attribute name="body"
 					value="/WEB-INF/viewtiles2/main.jsp" />
 			</definition>
-			<!--  관리자 -->
+			<!--  관리자  -->
 			<definition name="amin" extends="base_layout">
-				<!-- <put-attribute name="title" value="메인" /> -->
+				<!-- <put-attribute name="title" value="관리자메인" /> -->
 				<put-attribute name="body"
 					value="/WEB-INF/viewtiles2/amin/amin.jsp" />
+			</definition>
+			
+			<definition name="member" extends="base_layout">
+				<!-- <put-attribute name="title" value="관리자 멤버관리" /> -->
+				<put-attribute name="body"
+					value="/WEB-INF/viewtiles2/amin/aminMember.jsp" />
 			</definition>
 			
 			<!-- 로그인 -->
