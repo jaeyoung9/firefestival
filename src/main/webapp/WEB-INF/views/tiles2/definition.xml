@@ -105,9 +105,15 @@
 			
 			<!-- 이벤트 -->
 			<definition name="event" extends="base_layout">
-				<!-- <put-attribute name="title" value="이벤트 페이지" /> -->
+				<!-- <put-attribute name="title" value="진행중 이벤트 페이지" /> -->
 				<put-attribute name="body"
 					value="/WEB-INF/viewtiles2/event/event.jsp" />
+			</definition>
+			
+			<definition name="eventEnd" extends="base_layout">
+				<!-- <put-attribute name="title" value="종료된 이벤트 페이지" /> -->
+				<put-attribute name="body"
+					value="/WEB-INF/viewtiles2/event/eventEnd.jsp" />
 			</definition>
 			
 			<definition name="eventDetail" extends="base_layout">

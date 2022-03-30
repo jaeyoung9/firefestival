@@ -22,20 +22,29 @@ import com.my.fire.common.CommandMap;
 @Controller
 public class EventController {
 
-	Logger log = Logger.getLogger(this.getClass());
+		Logger log = Logger.getLogger(this.getClass());
 	
-	@Resource(name ="eventService")
-	EventService eventService;
+		@Resource(name ="eventService")
+		EventService eventService;
 	
-	// 이벤트 페이지
-	@ResponseBody
-	@RequestMapping(value = "/event")
-	public ModelAndView event(CommandMap commandMap) throws Exception {
-		ModelAndView mv = new ModelAndView("event");	
-		return mv;
-	}
-		// 페이징 처리
-		@RequestMapping(value ="/event/page")
+		// 진행중 이벤트 페이지
+		@ResponseBody
+		@RequestMapping(value = "/event")
+		public ModelAndView event(CommandMap commandMap) throws Exception {
+			ModelAndView mv = new ModelAndView("event");	
+			return mv;
+		}
+	
+		// 종료된 이벤트 페이지
+		@ResponseBody
+		@RequestMapping(value = "/event/End")
+		public ModelAndView eventEnd(CommandMap commandMap) throws Exception {
+			ModelAndView mv = new ModelAndView("eventEnd");	
+			return mv;
+		}
+	
+		// 진행중 이벤트 페이징 처리
+		@RequestMapping(value ="/event/Page")
 		public ModelAndView eventPage(CommandMap commandMap) throws Exception{
 			ModelAndView mv = new ModelAndView("jsonView");
 			List<Map<String, Object>> list = eventService.event(commandMap.getMap());
@@ -48,6 +57,20 @@ public class EventController {
 			return mv;
 		}
 		
+		// 진행중 이벤트 페이징 처리
+		@RequestMapping(value ="/event/End/Page")
+		public ModelAndView eventPage1(CommandMap commandMap) throws Exception{
+			ModelAndView mv = new ModelAndView("jsonView");
+			List<Map<String, Object>> list = eventService.eventEnd(commandMap.getMap());
+			mv.addObject("list", list);
+			if(list.size() > 0) {
+				mv.addObject("TOTAL", list.get(0).get("TOTAL_COUNT"));
+			} else {
+				mv.addObject("TOTAL", 0);
+			}
+			return mv;
+		}
+
 		// 이벤트 작성페이지
 		@ResponseBody
 		@RequestMapping(value = "/event/Write")

@@ -24,6 +24,7 @@ footer{
 							<li><a href="/fire/notice">공지사항</a></li>
 							<li><a href="/fire/intro">소개글</a></li>
 							<li><a href="/fire/data/List">자료실</a></li>
+							<li><a href="/fire/event">이벤트</a></li>
 							<li><a href="/fire/reviewPage">리 뷰</a></li>
 						</ul>
 					</div>
@@ -31,7 +32,7 @@ footer{
 				<div class="col-lg-6 col-md-6">
 					<div class="single-footer-widget newsletter">
 						<h6>새로운 소식 받기</h6>
-						<p>업데이트되는 이벤트 소식들을 받아보세요,</p>
+						<p>업데이트되는 불꽃축제 소식들을 받아보세요~</p>
 						<div id="mc_embed_signup">
 							<form target="_blank" novalidate="true" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
 							 method="get" class="form-inline">

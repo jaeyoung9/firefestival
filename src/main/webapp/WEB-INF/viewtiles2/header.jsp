@@ -33,12 +33,8 @@
 						<ul>
 							<c:choose>
 								<c:when test="${USER_ID == null }">
-									<li><a href="<c:url value='/loginForm'/>"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lock-fill" viewBox="0 0 16 16">
-  <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/>
-</svg>로그인</a></li>
-									<li><a href="<c:url value='/joinForm'/>"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
-  <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
-</svg>회원가입</a></li>
+									<li><a href="<c:url value='/loginForm'/>">로그인</a></li>
+									<li><a href="<c:url value='/joinForm'/>">회원가입</a></li>
 								</c:when>
 
 								<c:when test="${USER_ID != null}">
@@ -74,59 +70,57 @@
 				<nav id="nav-menu-container">
 					<ul class="nav-menu">
 						<c:choose>
+						
 							<c:when test="${USER_ID == null }">
 								<li class="menu-active"><a href="<c:url value='/main'/>">home</a></li>
-
 								<li class="menu-has-children"><a href="">소개글/오시는길</a>
 									<ul>
 										<li><a href="<c:url value='/intro'/>">소개글</a></li>
 										<li><a href="<c:url value='/intro2'/>">오시는길</a></li>
-									</ul></li>
-
-
-
-
-								<li><a href="<c:url value='/data'/>">자료실</a></li>
+									</ul>
+								</li>
+								<li><a href="about.html">자료실</a></li>
 								<li><a href="<c:url value='/notice'/>">공지사항</a></li>
 								<li class="menu-has-children"><a href="">먹거리/푸드트럭</a>
 									<ul>
 										<li><a href="blog-home.html">먹거리</a></li>
 										<li><a href="blog-single.html">푸드트럭</a></li>
-									</ul></li>
-								<li class="menu-has-children"><a href="">이벤트</a>
+									</ul>
+								</li>
+								<li class="menu-has-children"><a>이벤트</a>
 									<ul>
 										<li><a href="<c:url value='/event'/>">진행</a></li>
-										<li><a href="<c:url value='/event'/>">종료</a></li>
-									</ul></li>
-
+										<li><a href="<c:url value='/event/End'/>">종료</a></li>
+									</ul>
+								</li>
 							</c:when>
+							
 							<c:otherwise>
-
 								<li class="menu-active"><a href="<c:url value='/main'/>">home</a></li>
 								<li class="menu-has-children"><a href="">소개글/오시는길</a>
 									<ul>
 										<li><a href="<c:url value='/intro'/>">소개글</a></li>
 										<li><a href="<c:url value='/intro2'/>">오시는길</a></li>
-									</ul></li>
-
-								<li><a href="<c:url value='/data'/>">자료실</a></li>
+									</ul>
+								</li>
+								<li><a href="about.html">자료실</a></li>
 								<li><a href="<c:url value='/notice'/>">공지사항</a></li>
 								<li class="menu-has-children"><a href="">먹거리/푸드트럭</a>
 									<ul>
 										<li><a href="blog-home.html">먹거리</a></li>
 										<li><a href="blog-single.html">푸드트럭</a></li>
-									</ul></li>
-								<li class="menu-has-children"><a href="">이벤트</a>
+									</ul>
+								</li>
+								<li class="menu-has-children"><a>이벤트</a>
 									<ul>
 										<li><a href="<c:url value='/event'/>">진행</a></li>
-										<li><a href="<c:url value='/event'/>">종료</a></li>
-									</ul></li>
+										<li><a href="<c:url value='/event/End'/>">종료</a></li>
+									</ul>
+								</li>
 								<li><a href="<c:url value='/review'/>">리뷰</a></li>
-
 							</c:otherwise>
+							
 						</c:choose>
-
-
 					</ul>
 				</nav>
 				<!--######## #nav-menu-container -->
