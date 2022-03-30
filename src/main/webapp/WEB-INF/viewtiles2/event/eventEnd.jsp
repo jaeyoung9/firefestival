@@ -5,12 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>진행중 이벤트</title>
-<style>
-td {
-        text-align: center;
-        }
-</style>
+<title>종료 이벤트</title>
 </head>
 <body>
 	<div>
@@ -23,8 +18,8 @@ td {
 				</colgroup>
 				<thead>
 					<tr class="" style="text-align: center;">
-						<th scope="col">이벤트 번호</th>
-						<th scope="col">이벤트 목록</th>
+						<th scope="col">번호</th>
+						<th scope="col">제목</th>
 					</tr>
 				</thead>
 				</tbody>
@@ -69,10 +64,10 @@ td {
 			var total = data.TOTAL;
 			var body = $("table>tbody");
 			body.empty();
-
+			
 			if (total == 0) {
 				var str = "<tr>" + "<td colspan='4'>조회된 결과가 없습니다.</td>"
-				+ "</tr>";
+						+ "</tr>";
 				body.append(str);
 			} else {
 				var params = {
@@ -98,7 +93,7 @@ td {
 											+ "</td>"
 											+ "<td>"
 											+ "<a href='#this' name='title'>"
-											+ "<img src='<%=request.getContextPath()%>/images/UP/${EVENT_THUMB}' />"
+											+ value.EVENT_TITLE
 											+ "</a>"
 											+ "<input type='hidden' name='title' id='EVENT_INDEX' value=" + value.EVENT_INDEX + ">"
 											+ "</td>"

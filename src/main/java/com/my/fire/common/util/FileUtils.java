@@ -194,6 +194,7 @@ public class FileUtils {
     public static List<Map<String,Object>> eventUpdate(Map<String,Object> map, HttpServletRequest request) throws Exception{
         MultipartHttpServletRequest multipartHttpServletRequest = (MultipartHttpServletRequest)request;
         Iterator<String> iterator = multipartHttpServletRequest.getFileNames();
+         String event_kate = request.getParameter("EVENT_KATE");
          String event_title = request.getParameter("EVENT_TITLE");
          String event_content = request.getParameter("EVENT_CONTENT");
          String event_index = request.getParameter("EVENT_INDEX");     
@@ -232,6 +233,7 @@ public class FileUtils {
                 //저장할 파일 이름
                 listMap.put("EVENT_THUMB", EVENT_THUMB);
                 listMap.put("EVENT_SIZE", EVENT_SIZE.getSize());
+                listMap.put("EVENT_KATE", event_kate);
                 listMap.put("EVENT_TITLE", event_title);
                 listMap.put("EVENT_CONTENT", event_content);
                 listMap.put("EVENT_INDEX", event_index);
