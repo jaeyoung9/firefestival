@@ -22,9 +22,11 @@
 			<col width="7%"/>
 			<col width="7%"/>
 			<col width="7%"/>
+			<col width="7%"/>
         </colgroup>
         <thead>
         <tr><th><span></span></th>
+        <th><span></span></th>
         <th><span></span></th>
         <th><span></span></th>
         <th><span></span></th>
@@ -41,7 +43,8 @@
         		<th scope="col">PW</th>
         		<th scope="col">닉네임</th>
         		<th scope="col">블라인드</th>
-        		<th scope="col">이벤트</th>
+        		<th scope="col">이벤트 신청</th>
+        		<th scope="col">이벤트 당첨</th>
         		<th scope="col">관리자여부</th>
         		<th scope="col">회원탈퇴</th>
         	</tr>
@@ -111,7 +114,11 @@
                         + "<input type='hidden' name='title' id='USER_NUM' value=" + value.USER_NUM + ">"
                         + "</td>"
                         + "<td>"
-                        + "<a href='#this' name='title'>" + value.USER_EVENT + "</a>"
+                        + "<a href='#this' name='title'>" + value.USER_EVENTAPPLY + "</a>"
+                        + "<input type='hidden' name='title' id='USER_NUM' value=" + value.USER_NUM + ">"
+                        + "</td>"
+                        + "<td>"
+                        + "<a href='#this' name='title'>" + value.USER_EVENTWIN + "</a>"
                         + "<input type='hidden' name='title' id='USER_NUM' value=" + value.USER_NUM + ">"
                         + "</td>"
                         + "<td>"
@@ -189,38 +196,42 @@
 									str +=
 										 "<tr style='text-align:center;'>"
 										+ "<a href='#this' name='title'>"
-                                        + "<td>"
-                                        + "<a href='#this' name='title'>" + value.USER_NUM + "</a>"
-                                        + "<input type='hidden' name='title' id='USER_NUM' value=" + value.USER_NUM + ">"
-                                        + "</td>"
-                                        + "<td>"
-                                        + "<a href='#this' name='title'>" + value.USER_ID + "</a>"
-                                        + "<input type='hidden' name='title' id='USER_NUM' value=" + value.USER_NUM + ">"
-                                        + "</td>"
-                                        + "<td>"
-                                        + "<a href='#this' name='title'>" + value.USER_PW + "</a>"
-                                        + "<input type='hidden' name='title' id='USER_NUM' value=" + value.USER_NUM + ">"
-                                        + "</td>"
-                                        + "<td>"
-                                        + "<a href='#this' name='title'>" + value.USER_NIC + "</a>"
-                                        + "<input type='hidden' name='title' id='USER_NUM' value=" + value.USER_NUM + ">"
-                                        + "</td>"
-                                        + "<td>"
-                                        + "<a href='#this' name='title'>" + value.USER_BLIND + "</a>"
-                                        + "<input type='hidden' name='title' id='USER_NUM' value=" + value.USER_NUM + ">"
-                                        + "</td>"
-                                        + "<td>"
-                                        + "<a href='#this' name='title'>" + value.USER_EVENT + "</a>"
-                                        + "<input type='hidden' name='title' id='USER_NUM' value=" + value.USER_NUM + ">"
-                                        + "</td>"
-                                        + "<td>"
-                                        + "<a href='#this' name='title'>" + value.AMIN_TIM + "</a>"
-                                        + "<input type='hidden' name='title' id='USER_NUM' value=" + value.USER_NUM + ">"
-                                        + "</td>"
-                                        + "<td>"
-                                        + "<a href='#this' name='title'>" + value.DEL_GB + "</a>"
-                                        + "<input type='hidden' name='title' id='USER_NUM' value=" + value.USER_NUM + ">"
-                                        + "</td>"
+										+ "<td>"
+					                    + "<a href='#this' name='title'>" + value.USER_NUM + "</a>"
+					                    + "<input type='hidden' name='title' id='USER_NUM' value=" + value.USER_NUM + ">"
+					                    + "</td>"
+					                    + "<td>"
+					                    + "<a href='#this' name='title'>" + value.USER_ID + "</a>"
+					                    + "<input type='hidden' name='title' id='USER_NUM' value=" + value.USER_NUM + ">"
+					                    + "</td>"
+					                    + "<td>"
+					                    + "<a href='#this' name='title'>" + value.USER_PW + "</a>"
+					                    + "<input type='hidden' name='title' id='USER_NUM' value=" + value.USER_NUM + ">"
+					                    + "</td>"
+					                    + "<td>"
+					                    + "<a href='#this' name='title'>" + value.USER_NIC + "</a>"
+					                    + "<input type='hidden' name='title' id='USER_NUM' value=" + value.USER_NUM + ">"
+					                    + "</td>"
+					                    + "<td>"
+					                    + "<a href='#this' name='title'>" + value.USER_BLIND + "</a>"
+					                    + "<input type='hidden' name='title' id='USER_NUM' value=" + value.USER_NUM + ">"
+					                    + "</td>"
+					                    + "<td>"
+					                    + "<a href='#this' name='title'>" + value.USER_EVENTAPPLY + "</a>"
+					                    + "<input type='hidden' name='title' id='USER_NUM' value=" + value.USER_NUM + ">"
+					                    + "</td>"
+					                    + "<td>"
+					                    + "<a href='#this' name='title'>" + value.USER_EVENTWIN + "</a>"
+					                    + "<input type='hidden' name='title' id='USER_NUM' value=" + value.USER_NUM + ">"
+					                    + "</td>"
+					                    + "<td>"
+					                    + "<a href='#this' name='title'>" + value.AMIN_TIM + "</a>"
+					                    + "<input type='hidden' name='title' id='USER_NUM' value=" + value.USER_NUM + ">"
+					                    + "</td>"
+					                    + "<td>"
+					                    + "<a href='#this' name='title'>" + value.DEL_GB + "</a>"
+					                    + "<input type='hidden' name='title' id='USER_NUM' value=" + value.USER_NUM + ">"
+					                    + "</td>"
                                         + "</a>"
                                         + "<div class='dots'>"
                                         + "<span>"
