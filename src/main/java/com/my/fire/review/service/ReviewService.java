@@ -27,4 +27,7 @@ public interface ReviewService {
 	
 	// 리뷰 수정
 	void reviewUpdate(Map<String, Object> map, HttpServletRequest request) throws Exception;
+	
+	// 리뷰 검색
+	List<Map<String, Object>> search(Map<String, Object> map) ;
 }

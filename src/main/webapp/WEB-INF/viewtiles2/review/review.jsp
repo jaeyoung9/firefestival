@@ -12,24 +12,22 @@
 			<table class="table table-hover">
 				<tbody>
 				<colgroup>
-					<col width="1%" />
+					<col width="4%" />
 					<col width="10%" />
 					<col width="10%" />
 					<col width="10%" />
 				</colgroup>
 				<thead>
-				<tr>
-					<th class="form-group" action="" method="post">
-						<select class="form-control" style="width: 100px; height: 40px; display: inline;" name="">
-							<option value="b_title">제목</option>
-							<option value="m_id">작성자</option>
-						</select>
-					</th>
-					<th>
-						<input class="form-control" style="width:50%; display:inline-flex;" type="text" name="keyword">&nbsp;&nbsp;
-						<button class="primary-btn header-btn text-capitalize mt-10 submit"  type="button">검색</button>
-					</th>
-					<th></th>
+				<tr>		
+					<form id="form_Search" class="form-group">
+        	<th><input type="text" class="form-control" id="keyword" name="keyword" value="" maxlength="16" placeholder="작성자"></th>
+        </form>
+       <th><button class="nw-btn primary-btn header-btn text-capitalize mt-10 search">리뷰조회</button></th>
+        	<th></th>
+				
+					
+					
+					
 					
 					<th><a href="<c:url value='/reviewWritePage'/>" class="primary-btn header-btn text-capitalize mt-5" style="float:right;">리뷰작성</a></th>
 					</tr>
@@ -59,6 +57,104 @@
 
 	<!-- include를 하여 어떤 화면을 만들더라도 <body>태그 안쪽의 내용만 바뀌고, 나머지는 항상 똑같이 작성 -->
 	<%@ include file="/WEB-INF/viewtiles2/include/include-body.jspf"%>
+		<script type="text/javascript">
+			
+		$('.search').on('click', function() {
+			$.ajax({
+				url : '/fire/review/keyword',
+				Type : "POST",
+				dataType : "JSON",
+				data : $("#form_Search").serializeArray(),
+				success : function(data){
+					keyword(data);
+				}, error : function(e){
+					console.log(e);
+				}
+				
+			});
+		});
+		
+		$(document).ready(function() {
+			
+			$("a[name='title']").on("click", function(e) { //제목
+				e.preventDefault();
+				fn_reviewDetail($(this)); //제목클릭하면 fn_openBoardDetail함수가 실행, 인자값으로 $(this)가 넘겨짐.
+			}); //이를 jQuery객체를 뜻한다. (게시글 제목인 <a>태그를 의미)
+		});
+		
+		 function fn_reviewDetail(obj) {
+				var comSubmit = new ComSubmit(); //폼에 동적으로 값을 추가하는 기능을 편하게 사용하기 위함인데, (ComSubmit객체 생성)
+				comSubmit.setUrl("<c:url value='/reviewDetail'/>");
+				// obj.parent().find("#IDX").val()은 jQuery를 이용하여 <a>태그의 부모노드 내에서 IDX라는 값을 가진 태그를 찾아
+				  // 그 태그의 값을 가져오도록 한 것이다. 
+				comSubmit.addParam("REVIEW_INDEX", obj.parent().find("#REVIEW_INDEX")
+						.val()); //이것을 addParam함수가 그 역할을 해주고,
+				comSubmit.addParam("USER_ID", obj.parent().find("#USER_ID")
+						.val()); //이것을 addParam함수가 그 역할을 해주고,
+				comSubmit.submit(); //서버로 전송될 키,값을 인자값으로 받는다.
+			} 
+		
+		
+
+	function keyword(data){
+		var body = $("table>tbody");
+		body.empty();
+		
+		$.each(data, function(key, value){
+			if(key == "list"){
+				var str = "";
+				$.each(value, function(key, value){
+				//	console.log(value.USER_ID);
+				//  alert(value.USER_ID);
+					str += "<tr style='text-align:center;'>"
+						+ "<a href='#this' name='title'>"
+	                    + "<td>"
+	                    + "<a href='#this' name='title'>" + value.REVIEW_INDEX + "</a>"
+	                    + "<input type='hidden' name='title' id='USER_ID' value=" + value.USER_ID + ">"
+	                    + "<input type='hidden' name='title' id='REVIEW_INDEX' value=" + value.REVIEW_INDEX + ">"
+	                    + "</td>"
+	                    + "<td>"
+	                    + "<a href='#this' name='title'>" + value.REVIEW_TITLE + "</a>"
+	                    + "<input type='hidden' name='title' id='REVIEW_INDEX' value=" + value.REVIEW_INDEX + ">"
+	                    + "<input type='hidden' name='title' id='USER_ID' value=" + value.USER_ID + ">"    
+	                    + "</td>"
+	                    + "<td>"
+	                    + "<a href='#this' name='title'>" + value.USER_ID + "</a>"
+	                    + "<input type='hidden' name='title' id='USER_ID' value=" + value.USER_ID + ">"
+		                + "<input type='hidden' name='title' id='REVIEW_INDEX' value=" + value.REVIEW_INDEX + ">"
+	                    + "</td>"
+	                    + "<td>"
+	                    + "<a href='#this' name='title'>" + value.REVIEW_DATE + "</a>"
+	                    + "<input type='hidden' name='title' id='USER_ID' value=" + value.USER_ID + ">"
+		                + "<input type='hidden' name='title' id='REVIEW_INDEX' value=" + value.REVIEW_INDEX + ">"
+	                    + "</td>"
+	                    + "</a>"
+	                    + "<div class='dots'>"
+	                    + "<span>"
+	                    + "</span>"
+	                    + "<span>"
+	                    + "</span>"
+	                    + "<span>"
+	                    + "</span>"
+	                    + "</div>" 
+	                    + "<input type='hidden' name='title' id='REVIEW_INDEX' value=" + value.REVIEW_INDEX + ">"
+	                    + "<input type='hidden' name='title' id='USER_ID' value=" + value.USER_ID + ">"
+		                + "</tr>"
+	                    + "<hr>";
+				});
+				body.append(str);
+				//새롭게 추가된 각각의 목록의 제목에 상세보기로 이동할 수 있도록 click이벤트를 바인딩 함.
+				$("a[name='title']").on("click", function(e) { //제목
+					e.preventDefault();
+					fn_reviewDetail($(this));
+				});
+			}
+		});
+		
+		}
+	</script>
+	
+	
 	<script type="text/javascript">
 		$(document).ready(function() {
 			fn_review(1); //최초에 화면이 호출되면 1페이지의 내용을 조회하는 것을 의미.

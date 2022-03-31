@@ -120,4 +120,32 @@ WHERE
 USER_ID = #{USER_ID} AND REVIEW_INDEX = #{REVIEW_INDEX}
 ]]>
 </update>
+
+<!-- 리뷰 검색 -->
+	<select id="search" parameterType="hashmap" resultType="hashmap">
+		<![CDATA[
+		SELECT
+			ROW_NUMBER() OVER (ORDER BY REVIEW_INDEX DESC) RNUM,
+			REVIEW_INDEX,
+			USER_ID,
+			REVIEW_DATE,
+			REVIEW_TITLE,
+			REVIEW_CONTENT,
+			REVIEW_ORIGINAL,
+			REVIEW_NEW_IMG,
+			REVIEW_FILE_SIZE,
+			DEL_GB
+		FROM (SELECT ROW_NUMBER() OVER (ORDER BY REVIEW_INDEX DESC) RNUM, 
+			REVIEW_INDEX,
+			USER_ID,
+			REVIEW_DATE,
+			REVIEW_TITLE,
+			REVIEW_CONTENT,
+			REVIEW_ORIGINAL,
+			REVIEW_NEW_IMG,
+			REVIEW_FILE_SIZE,
+			DEL_GB
+		FROM TB_REVIEW) WHERE USER_ID LIKE '%${keyword}%' and DEL_GB ='N'
+		]]>
+	</select>
 </mapper>

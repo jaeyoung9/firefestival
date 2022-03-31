@@ -42,7 +42,7 @@
         		<th scope="col">닉네임</th>
         		<th scope="col">블라인드</th>
         		<th scope="col">이벤트 신청</th>
-        		<th scope="col">관리자여부</th>
+        		<th scope="col">관리자여부</th>	
         		<th scope="col">회원탈퇴</th>
         	</tr>
         </thead>
