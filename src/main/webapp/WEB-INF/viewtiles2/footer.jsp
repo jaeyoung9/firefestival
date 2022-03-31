@@ -23,7 +23,7 @@ footer{
 						<ul class="footer-nav">
 							<li><a href="/fire/notice">공지사항</a></li>
 							<li><a href="/fire/intro">소개글</a></li>
-							<li><a href="/fire/data/List">자료실</a></li>
+							<li><a href="/fire/data">자료실</a></li>
 							<li><a href="/fire/event">이벤트</a></li>
 							<li><a href="/fire/reviewPage">리 뷰</a></li>
 						</ul>
