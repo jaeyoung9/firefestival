@@ -76,6 +76,8 @@
 			  // 그 태그의 값을 가져오도록 한 것이다. 
 			comSubmit.addParam("REVIEW_INDEX", obj.parent().find("#REVIEW_INDEX")
 					.val()); //이것을 addParam함수가 그 역할을 해주고,
+			comSubmit.addParam("USER_ID", obj.parent().find("#USER_ID")
+					.val()); //이것을 addParam함수가 그 역할을 해주고,
 			comSubmit.submit(); //서버로 전송될 키,값을 인자값으로 받는다.
 		} 
 
@@ -120,19 +122,23 @@
 										+ "<a href='#this' name='title'>"
 					                    + "<td>"
 					                    + "<a href='#this' name='title'>" + value.REVIEW_INDEX + "</a>"
+					                    + "<input type='hidden' name='title' id='USER_ID' value=" + value.USER_ID + ">"
 					                    + "<input type='hidden' name='title' id='REVIEW_INDEX' value=" + value.REVIEW_INDEX + ">"
 					                    + "</td>"
 					                    + "<td>"
 					                    + "<a href='#this' name='title'>" + value.REVIEW_TITLE + "</a>"
 					                    + "<input type='hidden' name='title' id='REVIEW_INDEX' value=" + value.REVIEW_INDEX + ">"
+					                    + "<input type='hidden' name='title' id='USER_ID' value=" + value.USER_ID + ">"    
 					                    + "</td>"
 					                    + "<td>"
 					                    + "<a href='#this' name='title'>" + value.USER_ID + "</a>"
-					                    + "<input type='hidden' name='title' id='REVIEW_INDEX' value=" + value.REVIEW_INDEX + ">"
+					                    + "<input type='hidden' name='title' id='USER_ID' value=" + value.USER_ID + ">"
+						                + "<input type='hidden' name='title' id='REVIEW_INDEX' value=" + value.REVIEW_INDEX + ">"
 					                    + "</td>"
 					                    + "<td>"
 					                    + "<a href='#this' name='title'>" + value.REVIEW_DATE + "</a>"
-					                    + "<input type='hidden' name='title' id='REVIEW_INDEX' value=" + value.REVIEW_INDEX + ">"
+					                    + "<input type='hidden' name='title' id='USER_ID' value=" + value.USER_ID + ">"
+						                + "<input type='hidden' name='title' id='REVIEW_INDEX' value=" + value.REVIEW_INDEX + ">"
 					                    + "</td>"
 					                    + "</a>"
 					                    + "<div class='dots'>"
@@ -144,7 +150,8 @@
 					                    + "</span>"
 					                    + "</div>" 
 					                    + "<input type='hidden' name='title' id='REVIEW_INDEX' value=" + value.REVIEW_INDEX + ">"
-					                    + "</tr>"
+					                    + "<input type='hidden' name='title' id='USER_ID' value=" + value.USER_ID + ">"
+						                + "</tr>"
 					                    + "<hr>";
 					                    });
 									body.append(str);
