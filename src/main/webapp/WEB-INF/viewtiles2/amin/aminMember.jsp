@@ -31,7 +31,7 @@
         <th><span></span></th>
         <th><span></span></th>
         <th><span></span></th>
-        <th><span></span></th>
+        <th><span></span></th> 
         <form id="form_Search">
         	<th><input type="text" class="form-control is-valid" id="keyword" name="keyword" value="" maxlength="16" placeholder="회원ID"></th>
         </form>
