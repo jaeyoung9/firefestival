@@ -73,6 +73,7 @@
 								<a href="<c:url value='/findId/'/>">아이디 찾기</a> <span>|</span> <a
 									href="<c:url value='/findPw/'/>">비밀번호 찾기</a> <span>|</span> <a
 									href="<c:url value='/joinForm/'/>">회원가입</a>
+									
 							</div>
 						</div>
 					</div>
