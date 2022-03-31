@@ -57,7 +57,7 @@ footer{
 				</div>
 				<div class="col-lg-3  col-md-12">
 					<div class="single-footer-widget mail-chimp">
-						<h6 class="mb-20">개발자</h6>
+						<h6 class="mb-20">여긴 무슨자리</h6>
 						<ul class="instafeed d-flex flex-wrap">
 							<li><img src="<%=request.getContextPath() %>/images/i1.jpg" alt=""></li>
 							<li><img src="<%=request.getContextPath() %>/images/i2.jpg" alt=""></li>
@@ -78,11 +78,8 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 </p>
 				<div class="footer-social d-flex align-items-center">
-					 <a href="#"><i class="fa fa-facebook"></i></a>
-					<!--<a href="#"><i class="fa fa-twitter"></i></a>
-					<a href="#"><i class="fa fa-dribbble"></i></a>-->
 					<a href="https://colorlib.com/"><i class="fa fa-bootstrap"></i></a> 
-						<a href="https://github.com/jaeyoung9/firefestival"><i class="fa fa-github"></i></a>
+					<a href="https://github.com/jaeyoung9/firefestival"><i class="fa fa-github"></i></a>
 				</div>
 			</div>
 		</div>

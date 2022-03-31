@@ -35,7 +35,6 @@ public class aminController {
 	public ModelAndView main(CommandMap commandMap, HttpServletRequest request) throws Exception {
 		HttpSession session = request.getSession();
 		String AMIN_TIM = (String)session.getValue("AMIN_TIM");
-		//System.out.println(AMIN_TIM);
 		if(AMIN_TIM == null || AMIN_TIM.equals("") || AMIN_TIM.equals("N")) {
 			ModelAndView mva = new ModelAndView("main");
 			return mva;
@@ -54,9 +53,21 @@ public class aminController {
 	// 회원 관리.
 	@ResponseBody
 	@RequestMapping(value = "/member")
-	public ModelAndView member(CommandMap commandMap) throws Exception {
-		ModelAndView mv = new ModelAndView("member");	
-		return mv;
+	public ModelAndView member(CommandMap commandMap, HttpServletRequest request) throws Exception {
+		HttpSession session = request.getSession();
+		String AMIN_TIM = (String)session.getValue("AMIN_TIM");
+		if(AMIN_TIM == null || AMIN_TIM.equals("") || AMIN_TIM.equals("N")) {
+			ModelAndView mva = new ModelAndView("main");
+			return mva;
+		} else if(AMIN_TIM.equals("Y")){
+			session.setAttribute("AMIN_TIM", AMIN_TIM);
+			ModelAndView mv = new ModelAndView("member");	
+			return mv;
+		}else {
+			ModelAndView mva = new ModelAndView("main");
+			return mva;
+		}
+		
 	}
 	// 회원 페이징처리.
 	@RequestMapping("/member/page")
@@ -91,30 +102,46 @@ public class aminController {
 		
 	}
 	
+	//회원 검색
 	@RequestMapping(value="/member/keyword")
 	@ResponseBody
 	public ModelAndView keyWord(CommandMap commandMap, HttpServletRequest request) throws Exception {
-		ModelAndView mv = new ModelAndView("jsonView");
-		List<Map<String, Object>> list = aminService.search(commandMap.getMap());
-		mv.addObject("list", list);
-		/*
-		 *  if(list.size() > 0) { mv.addObject("TOTAL",
-		 * list.get(0).get("TOTAL_COUNT")); } else { mv.addObject("TOTAL", 0); }
-		 */
 		
-		System.out.println(mv);
-	
-	return mv;
+		HttpSession session = request.getSession();
+		String AMIN_TIM = (String)session.getValue("AMIN_TIM");
+		if(AMIN_TIM == null || AMIN_TIM.equals("") || AMIN_TIM.equals("N")) {
+			ModelAndView mva = new ModelAndView("main");
+			return mva;
+		} else if(AMIN_TIM.equals("Y")){
+			session.setAttribute("AMIN_TIM", AMIN_TIM);
+			ModelAndView mv = new ModelAndView("jsonView");
+			List<Map<String, Object>> list = aminService.search(commandMap.getMap());
+			mv.addObject("list", list);
+			return mv;
+		}else {
+			ModelAndView mva = new ModelAndView("main");
+			return mva;
+		}
 	}
 
+	//회원 수정
 	@RequestMapping("/member/up")
 	@ResponseBody
-	public ModelAndView memberup(CommandMap commandMap) throws Exception {
-		ModelAndView mv = new ModelAndView("jsonView");
-		
-		aminService.memberup(commandMap.getMap());
-		
-		return mv;
+	public ModelAndView memberup(CommandMap commandMap, HttpServletRequest request) throws Exception {
+		HttpSession session = request.getSession();
+		String AMIN_TIM = (String)session.getValue("AMIN_TIM");
+		if(AMIN_TIM == null || AMIN_TIM.equals("") || AMIN_TIM.equals("N")) {
+			ModelAndView mva = new ModelAndView("main");
+			return mva;
+		} else if(AMIN_TIM.equals("Y")){
+			session.setAttribute("AMIN_TIM", AMIN_TIM);
+			ModelAndView mv = new ModelAndView("jsonView");
+			aminService.memberup(commandMap.getMap());
+			return mv;
+		}else {
+			ModelAndView mva = new ModelAndView("main");
+			return mva;
+		}
 	}
 	
 	
