@@ -93,7 +93,9 @@ public class ReviewController {
 	@RequestMapping(value = "/reviewDetail")
 	public ModelAndView reviewDetail(CommandMap commandMap, HttpServletRequest request) throws Exception {
 		ModelAndView mv = new ModelAndView("reviewDetail");
-			
+		HttpSession session = request.getSession();// 세션 값 불러오고
+		String USER_ID = (String) session.getValue("USER_ID");// 값을 String 저장하고		
+		session.setAttribute("USER_ID", USER_ID);// 세션정보를 user_id 에 담아 jsp로 리턴		
 		List<Map<String, Object>> reviewDetail = reviewService.reviewDetail(commandMap.getMap());
 		mv.addObject("reviewDetail", reviewDetail);
 			

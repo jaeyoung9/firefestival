@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <c:forEach items="${reviewDetail }" var="reviewDetail">
-<title>리뷰상세 - ${reviewDatail.REVIEW_TITLE}</title>
+<title>리뷰상세 - ${reviewDetail.REVIEW_TITLE}</title>
 </c:forEach>
 </head>
 <body>
@@ -27,10 +27,21 @@
 				<div class="card">
 				${reviewDetail.REVIEW_CONTENT}<br>
 				</div>
-				
-			<button id="reviewUpdate" name="reviewUpdate" class="primary-btn header-btn text-capitalize mt-10">리뷰수정</button>
-			<button id="reviewDelete" name="reviewDelete" class="primary-btn header-btn text-capitalize mt-10">리뷰삭제</button>
-			<button type="button"class="primary-btn header-btn text-capitalize mt-10" style="float:right;" onclick="location.href='/fire/review'">목 록</button>
+	
+		<c:choose>
+			<c:when test="${USER_ID eq reviewDetail.USER_ID}">
+				<button id="reviewUpdate" name="reviewUpdate" class="primary-btn header-btn text-capitalize mt-10">리뷰수정</button>
+				<button id="reviewDelete" name="reviewDelete" class="primary-btn header-btn text-capitalize mt-10">리뷰삭제</button>
+				<button type="button"class="primary-btn header-btn text-capitalize mt-10" style="float:right;" onclick="location.href='/fire/review'">목 록</button>
+			</c:when>
+			<c:otherwise>
+				<button type="button"class="primary-btn header-btn text-capitalize mt-10" style="float:right;" onclick="location.href='/fire/review'">목 록</button>
+				<br>
+				<br>
+			</c:otherwise>
+		</c:choose>
+	
+			
 						
 			<input type="hidden" id="USER_ID" name="USER_ID" value="${USER_ID}">
 			<input type="hidden" id="REVIEW_INDEX" name="REVIEW_INDEX" value="${reviewDetail.REVIEW_INDEX}">
