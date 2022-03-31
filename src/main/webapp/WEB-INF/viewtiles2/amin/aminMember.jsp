@@ -62,6 +62,90 @@
 	<!-- include를 하여 어떤 화면을 만들더라도 <body>태그 안쪽의 내용만 바뀌고, 나머지는 항상 똑같이 작성 -->
 	<%@ include file="/WEB-INF/viewtiles2/include/include-body.jspf"%>
 	<script type="text/javascript">
+
+	$(document).ready(function(){
+				
+		$('.search').on('click', function() {
+			$.ajax({
+				url : '/fire/member/keyword',
+				Type : "POST",
+				dataType : "JSON",
+				data : $("#form_Search").serializeArray(),
+				success : function(data){
+					keyword(data);
+				}, error : function(e){
+					console.log(e);
+				}
+				
+			});
+		});
+	});
+	
+	function keyword(data){
+		var body = $("table>tbody");
+		body.empty();
+		
+		$.each(data, function(key, value){
+			if(key == "list"){
+				var str = "";
+				$.each(value, function(key, value){
+				//	console.log(value.USER_ID);
+				 alert(value.USER_ID);
+					str +=
+						 "<tr style='text-align:center;'>"
+						+ "<a href='#this' name='title'>"
+                        + "<td>"
+                        + "<a href='#this' name='title'>" + value.USER_NUM + "</a>"
+                        + "<input type='hidden' name='title' id='USER_NUM' value=" + value.USER_NUM + ">"
+                        + "</td>"
+                        + "<td>"
+                        + "<a href='#this' name='title'>" + value.USER_ID + "</a>"
+                        + "<input type='hidden' name='title' id='USER_NUM' value=" + value.USER_NUM + ">"
+                        + "</td>"
+                        + "<td>"
+                        + "<a href='#this' name='title'>" + value.USER_PW + "</a>"
+                        + "<input type='hidden' name='title' id='USER_NUM' value=" + value.USER_NUM + ">"
+                        + "</td>"
+                        + "<td>"
+                        + "<a href='#this' name='title'>" + value.USER_NIC + "</a>"
+                        + "<input type='hidden' name='title' id='USER_NUM' value=" + value.USER_NUM + ">"
+                        + "</td>"
+                        + "<td>"
+                        + "<a href='#this' name='title'>" + value.USER_BLIND + "</a>"
+                        + "<input type='hidden' name='title' id='USER_NUM' value=" + value.USER_NUM + ">"
+                        + "</td>"
+                        + "<td>"
+                        + "<a href='#this' name='title'>" + value.USER_EVENT + "</a>"
+                        + "<input type='hidden' name='title' id='USER_NUM' value=" + value.USER_NUM + ">"
+                        + "</td>"
+                        + "<td>"
+                        + "<a href='#this' name='title'>" + value.AMIN_TIM + "</a>"
+                        + "<input type='hidden' name='title' id='USER_NUM' value=" + value.USER_NUM + ">"
+                        + "</td>"
+                        + "<td>"
+                        + "<a href='#this' name='title'>" + value.DEL_GB + "</a>"
+                        + "<input type='hidden' name='title' id='USER_NUM' value=" + value.USER_NUM + ">"
+                        + "</td>"
+                        + "</a>"
+                        + "<div class='dots'>"
+                        + "<span>"
+                        + "</span>"
+                        + "<span>"
+                        + "</span>"
+                        + "<span>"
+                        + "</span>"
+                       + "</div>" 
+                       + "<input type='hidden' name='title' id='USER_NUM' value=" + value.USER_NUM + ">"
+                        + "</tr>"
+                        + "<hr>";
+				});
+				body.append(str);
+			}
+		});
+		
+		}
+	</script>
+	<script type="text/javascript">
 	 	$(document).ready(function() {
 			fn_member(1); 
 
@@ -161,90 +245,7 @@
 			}
 		}
 	</script>
-	<script type="text/javascript">
-
-	$(document).ready(function(){
-				
-		$('.search').on('click', function() {
-			$.ajax({
-				url : '/fire/member/keyword',
-				Type : "POST",
-				dataType : "JSON",
-				data : $("#form_Search").serializeArray(),
-				success : function(data){
-					keyword(data);
-				}, error : function(e){
-					console.log(e);
-				}
-				
-			});
-		});
-	});
 	
-	function keyword(data){
-		var body = $("table>tbody");
-		body.empty();
-		
-		$.each(data, function(key, value){
-			if(key == "list"){
-				var str = "";
-				$.each(value, function(key, value){
-				//	console.log(value.USER_ID);
-				 alert(value.USER_ID);
-					str +=
-						 "<tr style='text-align:center;'>"
-						+ "<a href='#this' name='title'>"
-                        + "<td>"
-                        + "<a href='#this' name='title'>" + value.USER_NUM + "</a>"
-                        + "<input type='hidden' name='title' id='USER_NUM' value=" + value.USER_NUM + ">"
-                        + "</td>"
-                        + "<td>"
-                        + "<a href='#this' name='title'>" + value.USER_ID + "</a>"
-                        + "<input type='hidden' name='title' id='USER_NUM' value=" + value.USER_NUM + ">"
-                        + "</td>"
-                        + "<td>"
-                        + "<a href='#this' name='title'>" + value.USER_PW + "</a>"
-                        + "<input type='hidden' name='title' id='USER_NUM' value=" + value.USER_NUM + ">"
-                        + "</td>"
-                        + "<td>"
-                        + "<a href='#this' name='title'>" + value.USER_NIC + "</a>"
-                        + "<input type='hidden' name='title' id='USER_NUM' value=" + value.USER_NUM + ">"
-                        + "</td>"
-                        + "<td>"
-                        + "<a href='#this' name='title'>" + value.USER_BLIND + "</a>"
-                        + "<input type='hidden' name='title' id='USER_NUM' value=" + value.USER_NUM + ">"
-                        + "</td>"
-                        + "<td>"
-                        + "<a href='#this' name='title'>" + value.USER_EVENT + "</a>"
-                        + "<input type='hidden' name='title' id='USER_NUM' value=" + value.USER_NUM + ">"
-                        + "</td>"
-                        + "<td>"
-                        + "<a href='#this' name='title'>" + value.AMIN_TIM + "</a>"
-                        + "<input type='hidden' name='title' id='USER_NUM' value=" + value.USER_NUM + ">"
-                        + "</td>"
-                        + "<td>"
-                        + "<a href='#this' name='title'>" + value.DEL_GB + "</a>"
-                        + "<input type='hidden' name='title' id='USER_NUM' value=" + value.USER_NUM + ">"
-                        + "</td>"
-                        + "</a>"
-                        + "<div class='dots'>"
-                        + "<span>"
-                        + "</span>"
-                        + "<span>"
-                        + "</span>"
-                        + "<span>"
-                        + "</span>"
-                       + "</div>" 
-                       + "<input type='hidden' name='title' id='USER_NUM' value=" + value.USER_NUM + ">"
-                        + "</tr>"
-                        + "<hr>";
-				});
-				body.append(str);
-			}
-		});
-		
-		}
-	</script>
 </body>
 
 </html>
