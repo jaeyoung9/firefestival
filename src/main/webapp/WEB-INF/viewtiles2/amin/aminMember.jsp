@@ -32,9 +32,8 @@
         <th><span></span></th>
         <form id="form_Search">
         	<th><input type="text" class="form-control is-valid" id="keyword" name="keyword" value="" maxlength="16" placeholder="회원ID"></th>
-       		<th><button class="nw-btn primary-btn header-btn text-capitalize mt-10 search">회원조회　　<span class="lnr lnr-arrow-right"></span></button></th>
         </form>
-       
+       <th><button class="nw-btn primary-btn header-btn text-capitalize mt-10 search">회원조회　　<span class="lnr lnr-arrow-right"></span></button></th>
         	</tr>
         	<tr class="" style="text-align:center;">
         		<th scope="col">번호</th>
@@ -62,9 +61,7 @@
 	<!-- include를 하여 어떤 화면을 만들더라도 <body>태그 안쪽의 내용만 바뀌고, 나머지는 항상 똑같이 작성 -->
 	<%@ include file="/WEB-INF/viewtiles2/include/include-body.jspf"%>
 	<script type="text/javascript">
-
-	$(document).ready(function(){
-				
+			
 		$('.search').on('click', function() {
 			$.ajax({
 				url : '/fire/member/keyword',
@@ -79,8 +76,7 @@
 				
 			});
 		});
-	});
-	
+
 	function keyword(data){
 		var body = $("table>tbody");
 		body.empty();
@@ -90,7 +86,7 @@
 				var str = "";
 				$.each(value, function(key, value){
 				//	console.log(value.USER_ID);
-				 alert(value.USER_ID);
+				//  alert(value.USER_ID);
 					str +=
 						 "<tr style='text-align:center;'>"
 						+ "<a href='#this' name='title'>"
@@ -150,7 +146,7 @@
 			fn_member(1); 
 
 		});
- 
+
 		 
 		function fn_member(pageNo) {
 			var comAjax = new ComAjax(); 
