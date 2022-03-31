@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -13,6 +14,7 @@ import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.my.fire.common.CommandMap;
@@ -39,6 +41,7 @@ public class MyPageController {
 		HttpSession session = request.getSession();
 		String USER_ID = (String) session.getValue("USER_ID");
 		session.setAttribute("USER_ID", USER_ID);
+		System.out.println(commandMap.get("USER_NEW_IMG"));
 		return mv;
 	}
 	
@@ -75,9 +78,9 @@ public class MyPageController {
 
 	// 마이페이지 수정완료
 	@RequestMapping(value = "/mypage/myUpdateok", method = RequestMethod.POST)
-	public ModelAndView myUpdateOk(CommandMap commandMap) throws Exception {
+	public ModelAndView myUpdateOk(CommandMap commandMap,MultipartHttpServletRequest multirequest) throws Exception {
 		ModelAndView mv = new ModelAndView("mypage");
-		mypageService.myUpdate(commandMap.getMap());
+		mypageService.myUpdate(commandMap.getMap(), multirequest);
 		return mv;
 	}
 	
