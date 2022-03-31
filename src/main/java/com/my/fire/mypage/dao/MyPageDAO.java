@@ -41,7 +41,6 @@ public class MyPageDAO extends AbstractDAO {
 	// 내리뷰 보기
 	@SuppressWarnings("unchecked")
 	public List<Map<String, Object>> myreview(Map<String, Object> map) throws Exception {
-		System.out.println("DAO");
 		return (List<Map<String,Object>>)selectList("myPage.myreview", map);
 	}
 
