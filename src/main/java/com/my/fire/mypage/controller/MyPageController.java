@@ -41,7 +41,6 @@ public class MyPageController {
 		HttpSession session = request.getSession();
 		String USER_ID = (String) session.getValue("USER_ID");
 		session.setAttribute("USER_ID", USER_ID);
-		System.out.println(commandMap.get("USER_NEW_IMG"));
 		return mv;
 	}
 	
