@@ -12,15 +12,23 @@
 			<table class="table table-hover">
 				<tbody>
 				<colgroup>
-					<col width="2%" />
+					<col width="1%" />
 					<col width="10%" />
 					<col width="10%" />
 					<col width="10%" />
 				</colgroup>
 				<thead>
 				<tr>
-					<th></th>
-					<th></th>
+					<th class="form-group" action="" method="post">
+						<select class="form-control" style="width: 100px; height: 40px; display: inline;" name="">
+							<option value="b_title">제목</option>
+							<option value="m_id">작성자</option>
+						</select>
+					</th>
+					<th>
+						<input class="form-control" style="width:50%; display:inline-flex;" type="text" name="keyword">&nbsp;&nbsp;
+						<button class="primary-btn header-btn text-capitalize mt-10 submit"  type="button">검색</button>
+					</th>
 					<th></th>
 					
 					<th><a href="<c:url value='/reviewWritePage'/>" class="primary-btn header-btn text-capitalize mt-5" style="float:right;">리뷰작성</a></th>

@@ -12,8 +12,8 @@ import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.my.fire.common.CommandMap;
@@ -60,6 +60,7 @@ public class ReviewController {
 			mv.addObject("TOTAL", 0);
 		}
 		return mv;
+		
 	}
 	
 	// 리뷰 작성 페이지
