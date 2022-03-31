@@ -107,7 +107,15 @@ public class aminController {
 	return mv;
 	}
 
-	
+	@RequestMapping("/member/up")
+	@ResponseBody
+	public ModelAndView memberup(CommandMap commandMap) throws Exception {
+		ModelAndView mv = new ModelAndView("jsonView");
+		
+		aminService.memberup(commandMap.getMap());
+		
+		return mv;
+	}
 	
 	
 }

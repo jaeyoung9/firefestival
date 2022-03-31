@@ -22,7 +22,6 @@
 			<col width="7%"/>
 			<col width="7%"/>
 			<col width="7%"/>
-			<col width="7%"/>
         </colgroup>
         <thead>
         <tr><th><span></span></th>
@@ -31,7 +30,6 @@
         <th><span></span></th>
         <th><span></span></th>
         <th><span></span></th>
-        <th><span></span></th> 
         <form id="form_Search">
         	<th><input type="text" class="form-control is-valid" id="keyword" name="keyword" value="" maxlength="16" placeholder="회원ID"></th>
         </form>
@@ -44,7 +42,6 @@
         		<th scope="col">닉네임</th>
         		<th scope="col">블라인드</th>
         		<th scope="col">이벤트 신청</th>
-        		<th scope="col">이벤트 당첨</th>
         		<th scope="col">관리자여부</th>
         		<th scope="col">회원탈퇴</th>
         	</tr>
@@ -115,10 +112,6 @@
                         + "</td>"
                         + "<td>"
                         + "<a href='#this' name='title'>" + value.USER_EVENTAPPLY + "</a>"
-                        + "<input type='hidden' name='title' id='USER_NUM' value=" + value.USER_NUM + ">"
-                        + "</td>"
-                        + "<td>"
-                        + "<a href='#this' name='title'>" + value.USER_EVENTWIN + "</a>"
                         + "<input type='hidden' name='title' id='USER_NUM' value=" + value.USER_NUM + ">"
                         + "</td>"
                         + "<td>"
@@ -218,10 +211,6 @@
 					                    + "</td>"
 					                    + "<td>"
 					                    + "<a href='#this' name='title'>" + value.USER_EVENTAPPLY + "</a>"
-					                    + "<input type='hidden' name='title' id='USER_NUM' value=" + value.USER_NUM + ">"
-					                    + "</td>"
-					                    + "<td>"
-					                    + "<a href='#this' name='title'>" + value.USER_EVENTWIN + "</a>"
 					                    + "<input type='hidden' name='title' id='USER_NUM' value=" + value.USER_NUM + ">"
 					                    + "</td>"
 					                    + "<td>"
