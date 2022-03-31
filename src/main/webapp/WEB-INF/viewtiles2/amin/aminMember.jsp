@@ -62,11 +62,11 @@
 	<!-- include를 하여 어떤 화면을 만들더라도 <body>태그 안쪽의 내용만 바뀌고, 나머지는 항상 똑같이 작성 -->
 	<%@ include file="/WEB-INF/viewtiles2/include/include-body.jspf"%>
 	<script type="text/javascript">
-		$(document).ready(function() {
+	 	$(document).ready(function() {
 			fn_member(1); 
 
 		});
-
+ 
 		 
 		function fn_member(pageNo) {
 			var comAjax = new ComAjax(); 
