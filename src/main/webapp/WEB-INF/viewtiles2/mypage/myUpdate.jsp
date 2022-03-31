@@ -56,9 +56,8 @@
 				<div>
 					<label for="address2" class="form-label">프로필사진</label>
 								 <br><input
-									type="hidden" name="PROFILE" value="${map.USER_NEW_IMG }">
-									<c:if test="${map.USER_NEW_IMG == 'TEMP' }"><img width="250" height="250" src="../img/profile/temp/profile.jpg"><br></c:if>
-									<c:if test="${map.USER_NEW_IMG != 'TEMP' }"><img width="250" height="250" src="${map.USER_NEW_IMG }"><br></c:if>
+									type="hidden" name="USER_NEW_IMG" value="${map.USER_NEW_IMG }">
+									<img width="250" height="250" src="<%=request.getContextPath() %>/images/UP/${USER_NEW_IMG}"><br>
 								<label class="btn" for ="input-file">
 								업로드
 								</label>
