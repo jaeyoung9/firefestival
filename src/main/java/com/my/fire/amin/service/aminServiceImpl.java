@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Service;
 
@@ -26,4 +27,12 @@ public class aminServiceImpl  implements aminService{
 		return aminDAO.search(map);
 	}
 
+	@Override
+	public void memberup(Map<String, Object> map) throws Exception {
+		// TODO Auto-generated method stub
+		aminDAO.memberup(map);
+		
+	}
+
+	
 }
