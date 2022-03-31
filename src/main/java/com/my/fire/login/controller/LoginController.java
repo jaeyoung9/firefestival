@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
+//import org.json.simple.JSONObject;
+//import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -109,6 +111,28 @@ public class LoginController {
 		  out.flush();
 		  return mav;
 	}
+	//@네이버로그인
+	
+//	@RequestMapping(value="/login/naverLogin",method = {RequestMethod.POST,RequestMethod.GET})
+//	public ModelAndView naverLogin(CommandMap commandMap,HttpServletRequest request,@RequestParam String code,@ReqeuestParam String state,HttpSession session)throws Exception{
+//		ModelAndView mav = new ModelAndView("/main");
+//		OAuth2AccessToken oauthToken;
+//		oauthToken = naverLoginVO.getAccessToken(session,code,state);
+//		apiResult = naverLoginVO.getUserProfile(oauthToken);
+//		
+//		JSONParser parser = new JSONParser();
+//		JSONObject jsonObjAll = (JSONObject)parser.parse(apiResult);
+//		String result = jsonObjAll.get("response").toString();
+//		
+//		JSONObject jsonObj = (JSONObject) parser.parse(result);
+//		
+//		String user_nic = jsonObj.get("nicname").toString();
+//		String user_id = jsonObj.get("id").toString();
+//		
+//		Map<String,Object>map = new HashMap<String,Object>();
+//		map.put("ID",user_id);
+//		map.put("NIC",)
+//	}
 	//로그아웃
 	@RequestMapping(value="/logout", method = RequestMethod.GET)
 	   public void logout(HttpServletRequest request,HttpServletResponse response,CommandMap commandMap) throws Exception {
@@ -153,5 +177,6 @@ public class LoginController {
 	         mv.addObject("list", list);
 	         return mv;
 	      }
+	 
 	 
 }

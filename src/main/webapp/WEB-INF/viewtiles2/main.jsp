@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ include file="/WEB-INF/viewtiles2/include/include-header.jspf" %>
+	pageEncoding="UTF-8"%>
+<%@ include file="/WEB-INF/viewtiles2/include/include-header.jspf"%>
 
 <!DOCTYPE html>
 <html>
@@ -8,26 +8,28 @@
 <meta charset="UTF-8">
 <title>메인</title>
 <script>
-
+	
 </script>
 
 <style>
-
 </style>
-
+<!-- 카카오 -->
+<script type="text/javascript"
+	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b4fbc66e697d63a13daa41d2abceea27"></script>
 </head>
 <body>
-<!--######## start banner Area ########-->
+	<!--######## start banner Area ########-->
 	<section class="home-banner-area relative" id="home">
 		<div class="container">
-			<div class="row fullscreen d-flex align-items-center" style="background-image: url(images/fl.jpg);">
-			
+			<div class="home-banner-area row fullscreen d-flex align-items-center"
+				>
+
 				<div class="banner-content col-lg-9 col-md-12">
-		
+
 					<h1>
 						서울<br> 불꽃축제<br> <Br>
 					</h1>
-					<a href="#" class="primary-btn header-btn text-capitalize mt-10">보러가기!</a>
+					<a href="#" class="primary-btn header-btn text-capitalize mt-10">보러가기!</a> 
 				</div>
 			</div>
 		</div>
@@ -40,30 +42,49 @@
 			<div class="row justify-content-center">
 				<div class="col-lg-12">
 					<div class="main-title text-center">
-						<h1>소개글/오시는길</h1>
+						<h1>축제 소개</h1>
 						<p>
-						불꽃놀이를 통해 21세기 한국의 비전을 새롭게 제시하고, 범국민적 영원의 메시지를 담아 민족의 화합의지를 다지는 기쁨과 희망의 장으로 삼고자 기획된 행사로, 2000년 10월에 처음 개최되었다. 10월 초에 개최되며, (주)한화가 주관한다.<br>
-						<br>서울특별시 영등포구 여의도 한강시민공원 일대에서 개최되는 국제적인 불꽃축제.
+							불꽃놀이를 통해 21세기 한국의 비전을 새롭게 제시하고, 범국민적 영원의 메시지를 담아 민족의 화합의지를 다지는
+							기쁨과 희망의 장으로 삼고자 기획된 행사로, 2000년 10월에 처음 개최되었다. 10월 초에 개최되며, (주)한화가
+							주관한다.<br> <br>서울특별시 영등포구 여의도 한강시민공원 일대에서 개최되는 국제적인
+							불꽃축제.
 						</p>
+						<a href="<c:url value='/intro'/>" class="primary-btn header-btn text-capitalize mt-10">자세히 보기</a>
 					</div>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-lg-4 col-md-6">
 					<div class="single-news card">
-						<img class="card-top-img" src="images/news/map2.png" alt="Card image cap">
-						<div class="card-body">
-							<h4 class="card-title">
-								<a href="#">
-									위치보기
-								</a>
-							</h4>
-							<p class="card-text">
-							매년 10월초에 서울특별시 영등포구 여의도 한강시민공원 일대에서 개최되는 국제적인 불꽃축제.</p>
+						<!-- <img class="card-top-img" src="images/news/map2.png" 
+							alt="Card image cap"> -->
+						<div id="map" class="card-top-img" style="width: 350px; height: 270px;"></div>
+						<script>
+							var container = document.getElementById('map');
+							var options = {
+								center : new kakao.maps.LatLng(37.526173331250654,
+										126.93525620814331),
+								level : 3
+							};
+
+							var map = new kakao.maps.Map(container, options);
+							
+							
+						</script>
+
+						<div>
+							<div class="card-body">
+								<h4 class="card-title">
+									<a href="/fire/intro2"> 위치보기 </a>
+
+
+								</h4>
+								<p class="card-text">매년 10월초에 서울특별시 영등포구 여의도 한강시민공원 일대에서
+									개최되는 국제적인 불꽃축제.</p>
+							</div>
 						</div>
 					</div>
-				</div>
-				<!-- <div class="col-lg-4 col-md-6"> 사용안함.
+					<!-- <div class="col-lg-4 col-md-6"> 사용안함.
 					<div class="single-news card">
 						<img class="card-top-img" src="images/news/n2.jpg" alt="Card image cap">
 						<div class="card-body">
@@ -77,7 +98,7 @@
 						</div>
 					</div>
 				</div> -->
-				<!-- <div class="col-lg-4 col-md-6">
+					<!-- <div class="col-lg-4 col-md-6">
 					<div class="single-news card">
 						<img class="card-top-img" src="images/news/n3.jpg" alt="Card image cap">
 						<div class="card-body">
@@ -91,8 +112,8 @@
 						</div>
 					</div>
 				</div> -->
+				</div>
 			</div>
-		</div>
 	</section>
 	<!--######## End Latest News Area ########-->
 
@@ -225,10 +246,9 @@
 							<img class="img-fluid" src="images/elements/user1.png" alt="">
 						</div>
 						<div class="desc">
-							<p>
-								Accessories Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker, projector,
-								hardware.
-							</p>
+							<p>Accessories Here you can find the best computer accessory
+								for your laptop, monitor, printer, scanner, speaker, projector,
+								hardware.</p>
 							<h4 mt-30>Mark Alviro Wiens</h4>
 							<p class="mb-0">CEO at Google</p>
 						</div>
@@ -238,10 +258,9 @@
 							<img class="img-fluid" src="images/elements/user2.png" alt="">
 						</div>
 						<div class="desc">
-							<p>
-								Accessories Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker, projector,
-								hardware.
-							</p>
+							<p>Accessories Here you can find the best computer accessory
+								for your laptop, monitor, printer, scanner, speaker, projector,
+								hardware.</p>
 							<h4 mt-30>Lina Harrington</h4>
 							<p class="mb-0">CEO at Google</p>
 						</div>
@@ -251,10 +270,9 @@
 							<img class="img-fluid" src="images/elements/user1.png" alt="">
 						</div>
 						<div class="desc">
-							<p>
-								Accessories Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker, projector,
-								hardware.
-							</p>
+							<p>Accessories Here you can find the best computer accessory
+								for your laptop, monitor, printer, scanner, speaker, projector,
+								hardware.</p>
 							<h4 mt-30>Mark Alviro Wiens</h4>
 							<p class="mb-0">CEO at Google</p>
 						</div>
@@ -264,10 +282,9 @@
 							<img class="img-fluid" src="images/elements/user2.png" alt="">
 						</div>
 						<div class="desc">
-							<p>
-								Accessories Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker, projector,
-								hardware.
-							</p>
+							<p>Accessories Here you can find the best computer accessory
+								for your laptop, monitor, printer, scanner, speaker, projector,
+								hardware.</p>
 							<h4 mt-30>Lina Harrington</h4>
 							<p class="mb-0">CEO at Google</p>
 						</div>
@@ -278,7 +295,7 @@
 	</section>
 	<!--######## End testimonial Area ########-->
 
-<!-- 	######## Start Latest Blog Area ########
+	<!-- 	######## Start Latest Blog Area ########
 	<section class="latest-blog-area section-gap">
 		<div class="container">
 			<div class="row justify-content-center">

@@ -22,20 +22,29 @@ import com.my.fire.common.CommandMap;
 @Controller
 public class EventController {
 
-	Logger log = Logger.getLogger(this.getClass());
+		Logger log = Logger.getLogger(this.getClass());
 	
-	@Resource(name ="eventService")
-	EventService eventService;
+		@Resource(name ="eventService")
+		EventService eventService;
 	
-	// 이벤트 페이지
-	@ResponseBody
-	@RequestMapping(value = "/event")
-	public ModelAndView event(CommandMap commandMap) throws Exception {
-		ModelAndView mv = new ModelAndView("event");	
-		return mv;
-	}
-		// 페이징 처리
-		@RequestMapping(value ="/event/page")
+		// 진행중 이벤트 페이지
+		@ResponseBody
+		@RequestMapping(value = "/event")
+		public ModelAndView event(CommandMap commandMap) throws Exception {
+			ModelAndView mv = new ModelAndView("event");	
+			return mv;
+		}
+	
+		// 종료된 이벤트 페이지
+		@ResponseBody
+		@RequestMapping(value = "/event/End")
+		public ModelAndView eventEnd(CommandMap commandMap) throws Exception {
+			ModelAndView mv = new ModelAndView("eventEnd");	
+			return mv;
+		}
+	
+		// 진행중 이벤트 페이징 처리
+		@RequestMapping(value ="/event/Page")
 		public ModelAndView eventPage(CommandMap commandMap) throws Exception{
 			ModelAndView mv = new ModelAndView("jsonView");
 			List<Map<String, Object>> list = eventService.event(commandMap.getMap());
@@ -48,6 +57,20 @@ public class EventController {
 			return mv;
 		}
 		
+		// 진행중 이벤트 페이징 처리
+		@RequestMapping(value ="/event/End/Page")
+		public ModelAndView eventPage1(CommandMap commandMap) throws Exception{
+			ModelAndView mv = new ModelAndView("jsonView");
+			List<Map<String, Object>> list = eventService.eventEnd(commandMap.getMap());
+			mv.addObject("list", list);
+			if(list.size() > 0) {
+				mv.addObject("TOTAL", list.get(0).get("TOTAL_COUNT"));
+			} else {
+				mv.addObject("TOTAL", 0);
+			}
+			return mv;
+		}
+
 		// 이벤트 작성페이지
 		@ResponseBody
 		@RequestMapping(value = "/event/Write")
@@ -65,9 +88,10 @@ public class EventController {
 		}
 		
 		// 이벤트 작성
-		@RequestMapping(value = "/event/Write", method = RequestMethod.POST)
+		@ResponseBody
+		@RequestMapping(value = "/event/WWrite", method = RequestMethod.POST)
 		public ModelAndView eventW(CommandMap commandMap, HttpServletRequest request) throws Exception {
-			ModelAndView mv = new ModelAndView("main");
+			ModelAndView mv = new ModelAndView("event");
 			 if (log.isDebugEnabled()) {
 				 log.debug(commandMap);
 		     }
@@ -85,14 +109,14 @@ public class EventController {
 			return mv;
 		}
 		
-		//공지사항 수정페이지 이동
+		//공지사항 수정페이지
 		@ResponseBody
 		@RequestMapping(value = "/event/Update" )
 		public ModelAndView eventUpdate(CommandMap commandMap, HttpServletResponse response, HttpServletRequest request) throws Exception {
 			HttpSession session = request.getSession();
 			String AMIN_TIM = (String)session.getValue("AMIN_TIM");
 			if(session.getAttribute("AMIN_TIM") == null || AMIN_TIM.equals("") || AMIN_TIM.equals("N")){
-				 response.sendRedirect("/fire/event"); 
+				 response.sendRedirect("/fire/main");
 			} else if(AMIN_TIM.equals("Y")) {
 				ModelAndView mv = new ModelAndView("eventUpdate");
 				Object e = request.getParameter("EVENT_INDEX");
@@ -106,9 +130,10 @@ public class EventController {
 		}
 		
 		// 공지사항 수정
-		@RequestMapping(value = "/event/UpUpdate" , method = RequestMethod.POST)
+		@ResponseBody
+		@RequestMapping(value = "/event/UUpdate" , method = RequestMethod.POST)
 		public ModelAndView eventU(CommandMap commandMap, HttpServletRequest request) throws Exception {
-			ModelAndView mv = new ModelAndView("jsonView");
+			ModelAndView mv = new ModelAndView("event");
 				if (log.isDebugEnabled()) {
 			           log.debug(commandMap);
 			       }

@@ -4,7 +4,7 @@
 
 <!-- 정주영 - event  -->
 
-	<!-- 페이징  -->
+	<!-- 진행중 이벤트 페이징  -->
 	<select id="event" parameterType="hashmap" resultType="hashmap">
 		<include refid="common.pagingPre" />
 		<![CDATA[
@@ -27,6 +27,33 @@
 			EVENT_KATE
 		FROM TB_EVENT
 			WHERE EVENT_KATE = 'N')
+		]]>
+		<include refid="common.pagingPost" />
+	</select>
+	
+	<!-- 종료된 이벤트 페이징  -->
+	<select id="eventEnd" parameterType="hashmap" resultType="hashmap">
+		<include refid="common.pagingPre" />
+		<![CDATA[
+		SELECT
+			ROW_NUMBER() OVER (ORDER BY EVENT_INDEX DESC) RNUM,
+			EVENT_INDEX,
+			EVENT_TITLE,
+			EVENT_CONTENT,
+			EVENT_THUMB,
+			EVENT_IMG,
+			EVENT_SIZE,
+			EVENT_KATE
+		FROM (SELECT ROW_NUMBER() OVER (ORDER BY EVENT_INDEX DESC) RNUM,
+			EVENT_INDEX,
+			EVENT_TITLE,
+			EVENT_CONTENT,
+			EVENT_THUMB,
+			EVENT_IMG,
+			EVENT_SIZE,
+			EVENT_KATE
+		FROM TB_EVENT
+			WHERE EVENT_KATE = 'Y')
 		]]>
 		<include refid="common.pagingPost" />
 	</select>
@@ -67,12 +94,12 @@
 		<![CDATA[
 		UPDATE TB_EVENT
 		SET
+			EVENT_KATE = #{EVENT_KATE},
 			EVENT_TITLE = #{EVENT_TITLE},
 			EVENT_CONTENT = #{EVENT_CONTENT},
 			EVENT_IMG = #{EVENT_IMG},
 			EVENT_THUMB = #{EVENT_THUMB},
-			EVENT_SIZE = #{EVENT_SIZE},
-			EVENT_KATE = #{EVENT_KATE}	
+			EVENT_SIZE = #{EVENT_SIZE}
 		WHERE
 			EVENT_INDEX = #{EVENT_INDEX}
 		]]>

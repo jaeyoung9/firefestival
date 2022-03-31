@@ -11,10 +11,16 @@ import com.my.fire.common.dao.AbstractDAO;
 @Repository("eventDAO")
 public class EventDAO extends AbstractDAO {
 
-		// 이벤트 페이지
+		// 진행중 이벤트 페이지
 		@SuppressWarnings("unchecked")
 		public List<Map<String, Object>> event(Map<String, Object> map) {
 			return (List<Map<String, Object>>) selectPagingList("event.event", map);
+		}
+		
+		// 종료된 이벤트 페이지
+		@SuppressWarnings("unchecked")
+		public List<Map<String, Object>> eventEnd(Map<String, Object> map) {
+			return (List<Map<String, Object>>) selectPagingList("event.eventEnd", map);
 		}
 
 		// 이벤트 상세 페이지
