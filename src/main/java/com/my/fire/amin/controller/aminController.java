@@ -96,13 +96,11 @@ public class aminController {
 	public ModelAndView keyWord(CommandMap commandMap, HttpServletRequest request) throws Exception {
 		ModelAndView mv = new ModelAndView("jsonView");
 		List<Map<String, Object>> list = aminService.search(commandMap.getMap());
-		
 		mv.addObject("list", list);
-		if(list.size() > 0) {
-			mv.addObject("TOTAL", list.get(0).get("TOTAL_COUNT"));
-		} else {
-			mv.addObject("TOTAL", 0);
-		}
+		/*
+		 *  if(list.size() > 0) { mv.addObject("TOTAL",
+		 * list.get(0).get("TOTAL_COUNT")); } else { mv.addObject("TOTAL", 0); }
+		 */
 		
 		System.out.println(mv);
 	
