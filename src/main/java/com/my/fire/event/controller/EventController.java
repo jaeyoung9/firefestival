@@ -57,7 +57,7 @@ public class EventController {
 			return mv;
 		}
 		
-		// 진행중 이벤트 페이징 처리
+		// 종료된 이벤트 페이징 처리
 		@RequestMapping(value ="/event/End/Page")
 		public ModelAndView eventPage1(CommandMap commandMap) throws Exception{
 			ModelAndView mv = new ModelAndView("jsonView");

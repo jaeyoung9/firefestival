@@ -79,7 +79,6 @@
 										<li><a href="<c:url value='/intro2'/>">오시는길</a></li>
 									</ul>
 								</li>
-								<li><a href="about.html">자료실</a></li>
 								<li><a href="<c:url value='/notice'/>">공지사항</a></li>
 								<li class="menu-has-children"><a href="">먹거리/푸드트럭</a>
 									<ul>
@@ -89,8 +88,14 @@
 								</li>
 								<li class="menu-has-children"><a>이벤트</a>
 									<ul>
-										<li><a href="<c:url value='/event'/>">진행</a></li>
+										<li><a href="<c:url value='/event'/>">진행중인 축제</a></li>
 										<li><a href="<c:url value='/event/End'/>">종료</a></li>
+									</ul>
+								</li>
+								<li class="menu-has-children"><a>갤러리</a>
+									<ul>
+										<li><a href="<c:url value='/data'/>">사진 갤러리</a></li>
+										<li><a href="<c:url value='/data/video'/>">영상 갤러리</a></li>
 									</ul>
 								</li>
 							</c:when>
@@ -103,7 +108,6 @@
 										<li><a href="<c:url value='/intro2'/>">오시는길</a></li>
 									</ul>
 								</li>
-								<li><a href="about.html">자료실</a></li>
 								<li><a href="<c:url value='/notice'/>">공지사항</a></li>
 								<li class="menu-has-children"><a href="">먹거리/푸드트럭</a>
 									<ul>
@@ -115,6 +119,12 @@
 									<ul>
 										<li><a href="<c:url value='/event'/>">진행</a></li>
 										<li><a href="<c:url value='/event/End'/>">종료</a></li>
+									</ul>
+								</li>
+								<li class="menu-has-children"><a>갤러리</a>
+									<ul>
+										<li><a href="<c:url value='/data'/>">사진 갤러리</a></li>
+										<li><a href="<c:url value='/data/video'/>">영상 갤러리</a></li>
 									</ul>
 								</li>
 								<li><a href="<c:url value='/review'/>">리뷰</a></li>

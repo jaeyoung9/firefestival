@@ -39,13 +39,17 @@ public class DataController {
 		@RequestMapping(value ="/data/page")
 		public ModelAndView dataPage(CommandMap commandMap) throws Exception{
 			ModelAndView mv = new ModelAndView("jsonView");
+			System.out.println(commandMap.getMap());
 			List<Map<String, Object>> list = dataService.data(commandMap.getMap());
 			mv.addObject("list", list);
 			if(list.size() > 0) {
 				mv.addObject("TOTAL", list.get(0).get("TOTAL_COUNT"));
+				
 			} else {
 				mv.addObject("TOTAL", 0);
+				
 			}
+			System.out.println(list);
 			return mv;
 		}
 		
@@ -68,22 +72,21 @@ public class DataController {
 		// 자료실 작성
 		@RequestMapping(value = "/data/WriteGo", method = RequestMethod.POST)
 		public ModelAndView dataW(CommandMap commandMap, HttpServletRequest request) throws Exception {
-			ModelAndView mv = new ModelAndView("jsonView");
+			ModelAndView mv = new ModelAndView("data");
 			 if (log.isDebugEnabled()) {
 				 log.debug(commandMap);
 		     }
-			 System.out.println(commandMap.getMap());
 			dataService.dataWrite(commandMap.getMap(), request);
 			return mv;
 		}
 		
 		// 자료실 상세페이지
-				@RequestMapping("/data/Detail")
-				public ModelAndView dataDetail(CommandMap commandMap, HttpServletRequest request) throws Exception {
-					ModelAndView mv = new ModelAndView("dataDetail");
-					List<Map<String, Object>> DDetail = dataService.dataDetail(commandMap.getMap());
-					mv.addObject("ddetail", DDetail);
-					return mv;
+		@RequestMapping("/data/Detail")
+		public ModelAndView dataDetail(CommandMap commandMap, HttpServletRequest request) throws Exception {
+			ModelAndView mv = new ModelAndView("dataDetail");
+			List<Map<String, Object>> DDetail = dataService.dataDetail(commandMap.getMap());
+			mv.addObject("ddetail", DDetail);
+			return mv;
 				}
 		// 자료실 수정페이지
 		@ResponseBody
@@ -107,7 +110,7 @@ public class DataController {
 		// 자료실 수정
 		@RequestMapping(value = "/data/UpUpdate" , method = RequestMethod.POST)
 		public ModelAndView dataU(CommandMap commandMap, HttpServletRequest request) throws Exception {
-			ModelAndView mv = new ModelAndView("jsonView");
+			ModelAndView mv = new ModelAndView("data");
 				if (log.isDebugEnabled()) {
 			           log.debug(commandMap);
 			       }
