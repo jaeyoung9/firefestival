@@ -14,4 +14,10 @@ public class aminDAO extends AbstractDAO  {
 		return (List<Map<String, Object>>) selectPagingList("amin.member", map);
 	}
 	
+	@SuppressWarnings("unchecked")
+	public List<Map<String, Object>> search(Map<String, Object> map) {
+		return (List<Map<String, Object>>) selectPagingList("amin.search", map);
+	}
+	
+	
 }

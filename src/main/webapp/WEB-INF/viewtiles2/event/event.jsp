@@ -14,17 +14,23 @@ td {
 </head>
 <body>
 	<div>
+		<input type="hidden" id="EVENT_KATE" value="${EVENT_KATE}">
 		<div class="wrap">
+			<h1 class="card-title text-center">
+				<strong>진행중 이벤트</strong>
+			</h1>
 			<table class="table table-hover">
 				<tbody>
 				<colgroup>
-					<col width="2%" />
-					<col width="10%" />
+					<col width="1%" />
+					<col width="1%" />
+					<col width="1%" />
 				</colgroup>
 				<thead>
 					<tr class="" style="text-align: center;">
 						<th scope="col">이벤트 번호</th>
-						<th scope="col">이벤트 목록</th>
+						<th scope="col">이벤트 제목</th>
+						<th scope="col">이벤트 이미지</th>
 					</tr>
 				</thead>
 				</tbody>
@@ -32,7 +38,7 @@ td {
 		</div>
 		<div class="pagination text-center" id="PAGE_NAVI"
 			style="justify-content: center;"></div>
-		<!-- 앞으로 페이징 태그가 그려질 부분 (밑에서 공통할수를 이용해 페이징 태그가 작성됨.) -->
+		<!-- 앞으로 페이징 태그가 그려질 부분 (밑에서 공통함수를 이용해 페이징 태그가 작성됨.) -->
 		<input type="hidden" class="" id="PAGE_INDEX" name="PAGE_INDEX" />
 		<!-- 현재 페이지 번호가 저장될 부분 -->
 	</div>
@@ -58,7 +64,7 @@ td {
 
 		function fn_event(pageNo) {
 			var comAjax = new ComAjax();
-			comAjax.setUrl("<c:url value='/event/page'/>");
+			comAjax.setUrl("<c:url value='/event/Page'/>");
 			comAjax.setCallback("fn_eventCallbask");
 			comAjax.addParam("PAGE_INDEX", pageNo);
 			comAjax.addParam("PAGE_ROW", 6);
@@ -66,6 +72,7 @@ td {
 		}
 
 		function fn_eventCallbask(data) {
+			
 			var total = data.TOTAL;
 			var body = $("table>tbody");
 			body.empty();
@@ -85,24 +92,23 @@ td {
 
 				var str = "";
 
-				$.each(
-								data.list,
-								function(key, value) {
+				$.each(data.list, function(key, value) {
 									str += "<tr style='text-align:center;'>"
 											+ "<a href='#this' name='title'>"
 											+ "<td>"
-											+ "<a href='#this' name='title'>"
-											+ value.EVENT_INDEX
-											+ "</a>"
+											+ "<a href='#this' name='title'>" + value.EVENT_INDEX + "</a>"
+											+ "<input type='hidden' name='title' id='EVENT_INDEX' value=" + value.EVENT_INDEX + ">"
+											+ "</td>"
+											+ "<td>"
+											+ "<a href='#this' name='title'>" + value.EVENT_TITLE + "</a>"
 											+ "<input type='hidden' name='title' id='EVENT_INDEX' value=" + value.EVENT_INDEX + ">"
 											+ "</td>"
 											+ "<td>"
 											+ "<a href='#this' name='title'>"
-											+ "<img src='<%=request.getContextPath()%>/images/UP/${EVENT_THUMB}' />"
-											+ "</a>"
 											+ "<input type='hidden' name='title' id='EVENT_INDEX' value=" + value.EVENT_INDEX + ">"
-											+ "</td>"
+											+ "<img src='<%=request.getContextPath()%>/images/UP/"+ value.EVENT_THUMB + " ' height='200' width='300'/>"
 											+ "</a>"
+											+ "</td>"
 											+ "<div class='dots'>"
 											+ "<span>"
 											+ "</span>"

@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/viewtiles2/include/include-header.jspf"%>
 <!DOCTYPE html>
 <html>
@@ -15,6 +14,9 @@
 		<input type="hidden" id="USER_ID" value="${USER_ID}">
 		<c:forEach items="${edetail}" var="edetail">
 			<div>
+				<div>
+					<h2>${edetail.EVENT_TITLE}</h2><br>
+				</div>
 				<div>
 					<img alt="${edetail.EVENT_IMG}"
 						src="<%=request.getContextPath()%>/images/UP/${edetail.EVENT_THUMB}" /><br>
@@ -39,6 +41,8 @@
 						<c:if test="${USER_ID != null}">
 						<button type="button" class="primary-btn header-btn text-capitalize mt-10" id="apply"
 						onclick="eventApply()">신청하기</button>
+						<button type="button" onclick="location.href='/fire/event' "
+								class="primary-btn header-btn text-capitalize mt-10">목록보기</button>
 						</c:if>
 					</c:otherwise>
 				</c:choose>

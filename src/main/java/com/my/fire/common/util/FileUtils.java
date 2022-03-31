@@ -459,4 +459,102 @@ public class FileUtils {
         }
         return list;
     }
+    
+  //자료실 사진 업로드_조영준
+    public static List<Map<String,Object>> dataUpload(Map<String,Object> map, HttpServletRequest request) throws Exception{
+        MultipartHttpServletRequest multipartHttpServletRequest = (MultipartHttpServletRequest)request;
+        Iterator<String> iterator = multipartHttpServletRequest.getFileNames();
+        String DATA_TITLE = request.getParameter("DATA_TITLE");
+        String DATA_CONTENT = request.getParameter("DATA_CONTENT");
+        
+        MultipartFile DATA_SIZE = null;
+        String DATA_THUMB = null;
+        String originalFileExtension = null;
+        String DATA_IMG = null;
+         
+        List<Map<String,Object>> list = new ArrayList<Map<String,Object>>();
+        Map<String, Object> listMap = null;
+         
+        File file = new File(filePath);
+        //경로가 존재하지 않을 경우 디렉토리를 만든다.
+        if(file.exists() == false){
+            file.mkdirs();
+        }
+         
+        while(iterator.hasNext()){
+        	DATA_SIZE = multipartHttpServletRequest.getFile(iterator.next());
+            if(DATA_SIZE.isEmpty() == false){
+                //업로드한 파일의 확장자를 포함한 파일명이다.
+            	DATA_THUMB = DATA_SIZE.getOriginalFilename();
+                //업로드한 파일의 마지막 .을 포함한 확장자를 substring 한 것.
+                originalFileExtension = DATA_THUMB.substring(DATA_THUMB.lastIndexOf("."));
+                //32자리의 숫자를 포함한 랜덤 문자열 + 확장자를 붙여준 파일명이다.
+                DATA_IMG = CommonUtils.getRandomString() + originalFileExtension;
+                 
+                file = new File(filePath + DATA_IMG);
+                DATA_SIZE.transferTo(file);
+                 
+                listMap = new HashMap<String,Object>();
+                //업로드할 당시의 파일이름
+                listMap.put("DATE_IMG", DATA_IMG);
+                //저장할 파일 이름
+                listMap.put("DATA_SIZE", DATA_SIZE.getSize());
+                listMap.put("DATA_THUMB", DATA_THUMB);
+                listMap.put("DATA_TITLE", DATA_TITLE);
+                listMap.put("DATA_CONTENT", DATA_CONTENT);
+                list.add(listMap);
+            }
+        }
+        return list;
+    }
+
+ // 자료실 사진 수정 업로드_조영준
+    public static List<Map<String,Object>> dataUpdate(Map<String,Object> map, HttpServletRequest request) throws Exception{
+        MultipartHttpServletRequest multipartHttpServletRequest = (MultipartHttpServletRequest)request;
+        Iterator<String> iterator = multipartHttpServletRequest.getFileNames();
+        String DATA_INDEX = request.getParameter("DATA_INDEX");     
+        String DATA_TITLE = request.getParameter("DATA_TITLE");
+        String DATA_CONTENT = request.getParameter("DATA_CONTENT");
+        
+        MultipartFile DATA_SIZE = null;
+        String DATA_THUMB = null;
+        String originalFileExtension = null;
+        String DATA_IMG = null;
+        
+        List<Map<String,Object>> list = new ArrayList<Map<String,Object>>();
+        Map<String, Object> listMap = null;
+        
+        File file = new File(filePath);
+        //경로가 존재하지 않을 경우 디렉토리를 만든다.
+        if(file.exists() == false){
+            file.mkdirs();
+        }
+         
+        while(iterator.hasNext()){
+        	DATA_SIZE = multipartHttpServletRequest.getFile(iterator.next());
+            if(DATA_SIZE.isEmpty() == false){
+                //업로드한 파일의 확장자를 포함한 파일명이다.
+            	DATA_IMG = DATA_SIZE.getOriginalFilename();
+                //업로드한 파일의 마지막 .을 포함한 확장자를 substring 한 것.
+                originalFileExtension = DATA_IMG.substring(DATA_IMG.lastIndexOf("."));
+                //32자리의 숫자를 포함한 랜덤 문자열 + 확장자를 붙여준 파일명이다.
+                DATA_THUMB = CommonUtils.getRandomString() + originalFileExtension;
+                 
+                file = new File(filePath + DATA_IMG);
+                DATA_SIZE.transferTo(file);
+                 
+                listMap = new HashMap<String,Object>();
+                //업로드할 당시의 파일이름
+                listMap.put("DATE_IMG", DATA_IMG);
+                //저장할 파일 이름
+                listMap.put("DATA_SIZE", DATA_SIZE.getSize());
+                listMap.put("DATA_THUMB", DATA_THUMB);
+                listMap.put("DATA_INDEX", DATA_INDEX);
+                listMap.put("DATA_TITLE", DATA_TITLE);
+                listMap.put("DATA_CONTENT", DATA_CONTENT);
+                list.add(listMap);
+            }
+        }
+        return list;
+ }
 }
