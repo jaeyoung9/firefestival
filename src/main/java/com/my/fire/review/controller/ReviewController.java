@@ -136,4 +136,26 @@ public class ReviewController {
 		reviewService.reviewUpdate(commandMap.getMap(), request);
 		return mv;
 	}
+	
+	//리뷰 검색
+	@RequestMapping(value="/review/keyword")
+	@ResponseBody
+	public ModelAndView keyWord(CommandMap commandMap, HttpServletRequest request) throws Exception {
+		ModelAndView mv = new ModelAndView("jsonView");
+		List<Map<String, Object>> list = reviewService.search(commandMap.getMap());
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		for(int i = 0; i< list.size(); i++) {
+			Object ob = list.get(i).get("REVIEW_DATE");
+			String date = simpleDateFormat.format(ob);
+			//System.out.println(date);
+			list.get(i).put("REVIEW_DATE",date);
+		
+		}
+		mv.addObject("list", list);
+		
+		
+		System.out.println(mv);
+	
+	return mv;
+	}
 }

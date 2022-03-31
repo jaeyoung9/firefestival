@@ -49,5 +49,9 @@ public class ReviewDAO extends AbstractDAO{
 		update("review.reviewUpdate", map);
 	}
 	
-	
+	//리뷰 검색
+	@SuppressWarnings("unchecked")
+	public List<Map<String, Object>> search(Map<String, Object> map) {
+		return (List<Map<String, Object>>) selectPagingList("review.search", map);
+	}
 }

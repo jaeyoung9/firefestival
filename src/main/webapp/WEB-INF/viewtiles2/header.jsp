@@ -45,7 +45,7 @@
 										<%-- <a><c:out value="${USER_ID} 님" /></a> --%> <img
 										src="<%=request.getContextPath() %>/images/UP/${USER_NEW_IMG}"
 										width="40" height="40" alt="" title="" /> <a
-										href="<c:url value='/mypage?USER_ID=${USER_ID }'/>">${USER_ID }님</a>
+										href="<c:url value='/mypage?USER_ID=${USER_ID }'/>">${USER_NIC }님</a>
 									</li>
 									<li><a href="<c:url value='/logout'/>">로그아웃</a></li>
 
