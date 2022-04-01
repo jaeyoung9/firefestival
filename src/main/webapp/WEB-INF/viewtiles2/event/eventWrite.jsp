@@ -103,7 +103,7 @@ fieldset[disabled] .form-control {
 <body>
 	<div class="container">
 		<div class="row">
-			<div class="col-sm-15 col-md-10 col-lg-7 mx-auto">
+			<div class="col-sm-15 col-md-10 col-lg-50 mx-auto">
 				<div class="card card-signin my-10">
 					<div class="card-body">
 						<div align="center">
@@ -116,8 +116,8 @@ fieldset[disabled] .form-control {
 										<td>
 											<div class="form-group">
 												<label class="form-label mt-4">제목</label>
-												<input type="text" class="form-control" name="EVENT_TITLE" maxlength="3000"
-													id="EVENT_TITLE" size="60" value="${edetail.EVENT_TITLE}" >
+												<input type="text" class="form-control" name="EVENT_TITLE" maxlength="1000" id="EVENT_TITLE"
+													placeholder="최대 1000자 입력 가능" value="${edetail.EVENT_TITLE}" />
 											</div>
 										</td>
 									</tr>
@@ -125,8 +125,8 @@ fieldset[disabled] .form-control {
 										<td>
 											<div class="form-group">
 												<label class="form-label mt-4">내용</label>
-												<textarea name="EVENT_CONTENT" class="form-control editor"
-													id="EVENT_CONTENT" class="editor" maxlength="3000">${edetail.EVENT_CONTENT}</textarea>
+												<textarea rows="25" cols="500" name="EVENT_CONTENT" class="form-control editor" id="EVENT_CONTENT"
+													maxlength="1333" placeholder="최대 1333자 입력 가능">${edetail.EVENT_CONTENT}</textarea>
 												<!-- <script>CKEDITOR.replace('EVENT_CONTENT');</script>-->
 											</div>
 										</td>

@@ -30,8 +30,8 @@ public class EventController {
 		// 진행중 이벤트 페이지
 		@ResponseBody
 		@RequestMapping(value = "/event")
-		public ModelAndView event(CommandMap commandMap) throws Exception {
-			ModelAndView mv = new ModelAndView("event");	
+		public ModelAndView event(CommandMap commandMap,HttpServletRequest reqeust) throws Exception {
+			ModelAndView mv = new ModelAndView("event");
 			return mv;
 		}
 	
@@ -57,7 +57,7 @@ public class EventController {
 			return mv;
 		}
 		
-		// 진행중 이벤트 페이징 처리
+		// 종료된 이벤트 페이징 처리
 		@RequestMapping(value ="/event/End/Page")
 		public ModelAndView eventPage1(CommandMap commandMap) throws Exception{
 			ModelAndView mv = new ModelAndView("jsonView");
@@ -68,6 +68,37 @@ public class EventController {
 			} else {
 				mv.addObject("TOTAL", 0);
 			}
+			return mv;
+		}
+		
+		// 이벤트 신청
+		@RequestMapping(value = "/event/Apply")
+		public ModelAndView eventApply(CommandMap commandMap, HttpServletRequest request) throws Exception {
+			ModelAndView mv = new ModelAndView("eventDetail");
+			List<Map<String, Object>> eventApply = eventService.eventApply(commandMap.getMap());		
+			mv.addObject("eventApply", eventApply);
+			return mv;
+		}
+		
+		// 이벤트 신청 내역
+		@RequestMapping(value = "/event/applyList")
+		@ResponseBody
+		public ModelAndView applyList(CommandMap commandMap, HttpServletRequest request) throws Exception {
+			ModelAndView mv = new ModelAndView("eventApplyList");
+			List<Map<String, Object>> applyList = eventService.applyList(commandMap.getMap());
+			System.out.println(applyList);
+			mv.addObject("applyList", applyList);
+			return mv;
+		}
+
+		// 이벤트 당첨 여부 수정
+		@RequestMapping(value = "/event/win", method = RequestMethod.POST)
+		@ResponseBody
+		public ModelAndView win(CommandMap commandMap, HttpServletRequest request) throws Exception {
+			ModelAndView mv = new ModelAndView("eventApplyList");
+			eventService.win(commandMap.getMap());
+			List<Map<String, Object>> applyList = eventService.applyList(commandMap.getMap());
+			mv.addObject("applyList", applyList);
 			return mv;
 		}
 
@@ -104,12 +135,15 @@ public class EventController {
 		@RequestMapping("/event/Detail")
 		public ModelAndView eventDetail(CommandMap commandMap, HttpServletRequest request) throws Exception {
 			ModelAndView mv = new ModelAndView("eventDetail");
+			commandMap.put("EVENT_INDEX", request.getParameter("EVENT_INDEX"));
 			List<Map<String, Object>> EDetail = eventService.eventDetail(commandMap.getMap());
 			mv.addObject("edetail", EDetail);
+			System.out.println(commandMap.getMap());
+	
 			return mv;
 		}
 		
-		//공지사항 수정페이지
+		// 이벤트 수정페이지
 		@ResponseBody
 		@RequestMapping(value = "/event/Update" )
 		public ModelAndView eventUpdate(CommandMap commandMap, HttpServletResponse response, HttpServletRequest request) throws Exception {
@@ -129,7 +163,7 @@ public class EventController {
 			return null;
 		}
 		
-		// 공지사항 수정
+		// 이벤트 수정
 		@ResponseBody
 		@RequestMapping(value = "/event/UUpdate" , method = RequestMethod.POST)
 		public ModelAndView eventU(CommandMap commandMap, HttpServletRequest request) throws Exception {
@@ -143,7 +177,7 @@ public class EventController {
 
 		}
 			
-		// 공지사항 삭제
+		// 이벤트 삭제
 		@ResponseBody
 		@RequestMapping(value = "/event/Delete" )
 		public ModelAndView eventDelete(CommandMap commandMap,  HttpServletResponse response, HttpServletRequest request) throws Exception {

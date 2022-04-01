@@ -7,6 +7,25 @@
 <c:forEach items="${edetail}" var="edetail">
 	<title>이벤트 - ${edetail.EVENT_TITLE}</title>
 </c:forEach>
+<script type="text/javascript">
+function eventApply() {
+		$.ajax({
+    	url : "<c:url value='/event/Apply'/>",
+  	  	type : "POST",
+  	  	dataType :"TEXT",
+  	  	data : {
+    		"EVENT_INDEX" : $("#EVENT_INDEX").val(),
+    		"EVENT_TITLE" : $("#EVENT_TITLE").val(),
+    		"USER_ID" : $("#USER_ID").val(),
+    	},
+    	// 정보 넘기기때 사용할 이름: $("jsp로받아올값").val() 관리자 USER_ID 는 fire
+    	success : function (data) {
+    		alert("신청이 완료되었습니다.");
+    		history.go(-1);
+   		}
+	})
+}
+</script>
 </head>
 <body>
 	<div style="text-align: center">
@@ -19,10 +38,12 @@
 				</div>
 				<div>
 					<img alt="${edetail.EVENT_IMG}"
-						src="<%=request.getContextPath()%>/images/UP/${edetail.EVENT_THUMB}" /><br>
+						src="<%=request.getContextPath()%>/images/UP/${edetail.EVENT_THUMB}" /><br><br><br>
 				</div>
 				<div>
-					<h3>${edetail.EVENT_CONTENT}</h3><br>
+					<h3>
+						<textarea rows="25" cols="100" readonly="readonly">${edetail.EVENT_CONTENT}</textarea><br>
+					</h3>
 				</div>
 				<c:choose>
 					<c:when test="${USER_ID == null }">
@@ -46,15 +67,14 @@
 						</c:if>
 					</c:otherwise>
 				</c:choose>
-
 				<input type="hidden" id="EVENT_INDEX" name="EVENT_INDEX" value="${edetail.EVENT_INDEX}">
+				<input type="hidden" id="EVENT_TITLE" name="EVENT_TITLE" value="${edetail.EVENT_TITLE}">
 			</div>
 		</c:forEach>
 		<%@ include file="/WEB-INF/viewtiles2/include/include-body.jspf"%>
 	</div>
 </body>
 <script type="text/javascript">
-
 	$("button[name='Update']").on("click", function(e) {
 		e.preventDefault();
 		fn_EventUpdate($(this));
@@ -84,39 +104,6 @@
 			alert("삭제되었습니다.");
 			comSubmit.submit();
 		}
-	}
-	
-	function eventApply() {
-		$.ajax({
-			url : "<c:url value='/event/Apply'/>",
-			type : "POST",
-			dataType : "TEXT",
-			data : {
-				"USER_ID" : $("#USER_ID").val(),
-				"EVENT_INDEX" : $("#EVENT_INDEX").val(),
-				"EVENT_TITLE" : $("#GOODS_TITLE").val(),
-			},
-			// 정보 넘기기때 사용할 이름: $("jsp로받아올값").val() 일단 user_id 는 fire
-			success : function(data) {
-				alert("이벤트 신청이 완료되었습니다.");
-				location.href = "/flower/order/PayPage?GOODS_INDEX="
-						+ $("#GOODS_INDEX").val() + "&USER_ID="
-						+ $("#USER_ID").val() + "&GOODS_OP2="
-						+ $("#GOODS_OP2 option:selected").val() + "&GOODS_OP3="
-						+ $("#GOODS_OP3 option:selected").val() + "&GOODS_OP4="
-						+ $("#GOODS_OP4 option:selected").val()
-						+ "&GOODS_PRICE=" + $("#GOODS_PRICE").val();
-
-			},
-			error : function(request, status, error) {
-
-				alert("code:" + request.status + "\n" + "message:"
-						+ request.responseText + "\n" + "error:" + error);
-
-			}
-		})
-		// 
-		//  location.href="<c:url value='/order/PayPage?GOODS_INDEX=${GOODS_INDEX}'/>";
 	}
 </script>
 </html>

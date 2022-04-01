@@ -49,6 +49,27 @@ public class EventServiceImpl implements EventService {
 			return eventDao.eventDetail(map);
 		}
 		
+		// 이벤트 신청
+		@Override
+		public List<Map<String, Object>> eventApply(Map<String, Object> map) {
+			// TODO Auto-generated method stub
+			return eventDao.eventApply(map);
+		}
+		
+		// 이벤트 신청 내역
+		@Override
+		public List<Map<String, Object>> applyList(Map<String, Object> map) {
+			// TODO Auto-generated method stub
+			return eventDao.applyList(map);
+		}
+		
+		// 이벤트 당첨 여부 수정
+		@Override
+		public Map<String, Object> win(Map<String, Object> map) {
+			// TODO Auto-generated method stub
+			return eventDao.win(map);
+		}
+		
 		//이벤트 작성
 		@Override
 		public void eventWrite(Map<String, Object> map, HttpServletRequest request) throws Exception {
