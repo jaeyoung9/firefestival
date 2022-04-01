@@ -25,7 +25,7 @@ footer{
 							<li><a href="/fire/intro">소개글</a></li>
 							<li><a href="/fire/data">자료실</a></li>
 							<li><a href="/fire/event">이벤트</a></li>
-							<li><a href="/fire/reviewPage">리 뷰</a></li>
+							<li><a href="/fire/review">리 뷰</a></li>
 						</ul>
 					</div>
 				</div>
