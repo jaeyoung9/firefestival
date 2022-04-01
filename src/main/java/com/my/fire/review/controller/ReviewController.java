@@ -12,8 +12,8 @@ import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.my.fire.common.CommandMap;
@@ -60,6 +60,7 @@ public class ReviewController {
 			mv.addObject("TOTAL", 0);
 		}
 		return mv;
+		
 	}
 	
 	// 리뷰 작성 페이지
@@ -92,7 +93,9 @@ public class ReviewController {
 	@RequestMapping(value = "/reviewDetail")
 	public ModelAndView reviewDetail(CommandMap commandMap, HttpServletRequest request) throws Exception {
 		ModelAndView mv = new ModelAndView("reviewDetail");
-			
+		HttpSession session = request.getSession();// 세션 값 불러오고
+		String USER_ID = (String) session.getValue("USER_ID");// 값을 String 저장하고		
+		session.setAttribute("USER_ID", USER_ID);// 세션정보를 user_id 에 담아 jsp로 리턴		
 		List<Map<String, Object>> reviewDetail = reviewService.reviewDetail(commandMap.getMap());
 		mv.addObject("reviewDetail", reviewDetail);
 			
@@ -132,5 +135,27 @@ public class ReviewController {
 //		System.out.println(commandMap.get("USER_ID"));
 		reviewService.reviewUpdate(commandMap.getMap(), request);
 		return mv;
+	}
+	
+	//리뷰 검색
+	@RequestMapping(value="/review/keyword")
+	@ResponseBody
+	public ModelAndView keyWord(CommandMap commandMap, HttpServletRequest request) throws Exception {
+		ModelAndView mv = new ModelAndView("jsonView");
+		List<Map<String, Object>> list = reviewService.search(commandMap.getMap());
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		for(int i = 0; i< list.size(); i++) {
+			Object ob = list.get(i).get("REVIEW_DATE");
+			String date = simpleDateFormat.format(ob);
+			//System.out.println(date);
+			list.get(i).put("REVIEW_DATE",date);
+		
+		}
+		mv.addObject("list", list);
+		
+		
+		System.out.println(mv);
+	
+	return mv;
 	}
 }

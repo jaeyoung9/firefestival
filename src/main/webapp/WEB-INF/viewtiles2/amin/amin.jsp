@@ -18,6 +18,7 @@
 			<td><a class="col-1" href="/fire/event/Write">이벤트 작성</a></td>
 		</tr>
 		<tr>
+
 			<td><a class="col-1" href="/fire/event/applyList">이벤트 신청 내역</a></td>
 		</tr>
 		<tr>
