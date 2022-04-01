@@ -87,8 +87,8 @@
 								</li>
 								<li class="menu-has-children"><a>이벤트</a>
 									<ul>
-										<li><a href="<c:url value='/event'/>">진행중인 축제</a></li>
-										<li><a href="<c:url value='/event/End'/>">종료</a></li>
+										<li><a href="<c:url value='/event'/>">진행중 이벤트</a></li>
+										<li><a href="<c:url value='/event/End'/>">종료된 이벤트</a></li>
 									</ul>
 								</li>
 								<li class="menu-has-children"><a>갤러리</a>
