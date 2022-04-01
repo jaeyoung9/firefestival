@@ -112,6 +112,12 @@ public class ReviewServiceImpl implements ReviewService {
 					}
 				}
 	}
+
+	@Override
+	public List<Map<String, Object>> search(Map<String, Object> map) {
+		// TODO Auto-generated method stub
+		return reviewDAO.search(map);
+	}
 	
 	
 }

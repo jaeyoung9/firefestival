@@ -19,17 +19,14 @@
 </head>
 <body>
 	<!--######## start banner Area ########-->
-	<section class="home-banner-area relative" id="home">
+		<section class="home-banner-area relative" id="home">
 		<div class="container">
-			<div class="home-banner-area row fullscreen d-flex align-items-center"
-				>
-
+			<div class="row fullscreen d-flex align-items-center">
 				<div class="banner-content col-lg-9 col-md-12">
-
 					<h1>
-						서울<br> 불꽃축제<br> <Br>
+						서울 <br> 불꽃축제 <br> 
 					</h1>
-					<a href="#" class="primary-btn header-btn text-capitalize mt-10">보러가기!</a> 
+					<a href="#" class="primary-btn header-btn text-capitalize mt-10">보러가기!</a>
 				</div>
 			</div>
 		</div>
@@ -54,10 +51,8 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-lg-4 col-md-6">
+			<div class="col-lg-4 col-md-6">
 					<div class="single-news card">
-						<!-- <img class="card-top-img" src="images/news/map2.png" 
-							alt="Card image cap"> -->
 						<div id="map" class="card-top-img" style="width: 350px; height: 270px;"></div>
 						<script>
 							var container = document.getElementById('map');
@@ -71,19 +66,18 @@
 							
 							
 						</script>
-
-						<div>
-							<div class="card-body">
-								<h4 class="card-title">
+						<div class="card-body">
+							<h4 class="card-title">
 									<a href="/fire/intro2"> 위치보기 </a>
-
-
-								</h4>
-								<p class="card-text">매년 10월초에 서울특별시 영등포구 여의도 한강시민공원 일대에서
+							</h4>
+							<p class="card-text">매년 10월초에 서울특별시 영등포구 여의도 한강시민공원 일대에서
 									개최되는 국제적인 불꽃축제.</p>
-							</div>
 						</div>
 					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 					<!-- <div class="col-lg-4 col-md-6"> 사용안함.
 					<div class="single-news card">
 						<img class="card-top-img" src="images/news/n2.jpg" alt="Card image cap">
@@ -112,9 +106,7 @@
 						</div>
 					</div>
 				</div> -->
-				</div>
-			</div>
-	</section>
+			
 	<!--######## End Latest News Area ########-->
 
 

@@ -215,23 +215,19 @@
 			</definition>
 			
 			<!-- 자료실 -->
-			<definition name="data" extends="base_layout">
-				<!-- <put-attribute name="title" value="마이페이지" /> -->
+			<definition name="data" extends="base_layout">				
 				<put-attribute name="body"
 					value="/WEB-INF/viewtiles2/data/data.jsp" />
 			</definition>
-			<definition name="dataDetail" extends="base_layout">
-				<!-- <put-attribute name="title" value="마이페이지" /> -->
+			<definition name="dataDetail" extends="base_layout">			
 				<put-attribute name="body"
 					value="/WEB-INF/viewtiles2/data/dataDetail.jsp" />
 			</definition>
-			<definition name="dataUpdate" extends="base_layout">
-				<!-- <put-attribute name="title" value="마이페이지" /> -->
+			<definition name="dataUpdate" extends="base_layout">			
 				<put-attribute name="body"
 					value="/WEB-INF/viewtiles2/data/dataUpdate.jsp" />
 			</definition>
-			<definition name="dataWrite" extends="base_layout">
-				<!-- <put-attribute name="title" value="마이페이지" /> -->
+			<definition name="dataWrite" extends="base_layout">	
 				<put-attribute name="body"
 					value="/WEB-INF/viewtiles2/data/dataWrite.jsp" />
 			</definition>

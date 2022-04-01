@@ -22,6 +22,7 @@
 				</div>
 			</div>
 
+
 			<div>
 				<div>
 					<label for="user_nic" class="form-label">별명</label> <input
@@ -53,15 +54,19 @@
 			</div>
 			<div>
 				<div>
-					<label for="address2" class="form-label">프로필사진</label>
+					<%-- <label for="address2" class="form-label">프로필사진</label>
 								 <br><input
-									type="hidden" name="PROFILE" value="${map.USER_NEW_IMG }">
-									<c:if test="${map.USER_NEW_IMG == 'TEMP' }"><img width="250" height="250" src="../img/profile/temp/profile.jpg"><br></c:if>
-									<c:if test="${map.USER_NEW_IMG != 'TEMP' }"><img width="250" height="250" src="${map.USER_NEW_IMG }"><br></c:if>
+									type="hidden" name="USER_NEW_IMG" value="${map.USER_NEW_IMG }">
+									<img width="250" height="250" src="<%=request.getContextPath() %>/images/UP/${USER_NEW_IMG}"><br>
 								<label class="btn" for ="input-file">
 								업로드
 								</label>
-								<input type="file" id="input-file" name="FILE" style="display: none;">
+								<input type="file" id="input-file" name="FILE" style="display: none;"> --%>
+								<div class="form-group">
+													<label class="form-label mt-4">파일</label> <input
+														type="file" class="form-control" id="USER_NEW_IMG"
+														name="file">
+												</div>
 				</div>
 			</div>
 			
@@ -71,7 +76,8 @@
 			
 			<div>
 				<p>
-					<button class="w-btn" type="button" onclick="update_check();">정보수정</button>
+					<button type="button" name="update"
+													class="primary-btn header-btn text-capitalize mt-10">수정</button>
 					<button class="w-btn" type="button"
 						onclick="location.href='/fire/mypage?USER_ID=${USER_ID}'">돌아가기</button>
 					<button class="w-btn" type="button" onclick="withdraw();">회원탈퇴</button>
@@ -84,6 +90,41 @@
 
 </body>
 <script type="text/javascript">
+$(document).ready(function() {
+	
+	$("button[name='update']").on('click', function() {
+
+		var form = $('#myUpdate');
+		var formData = new FormData(form[0]);
+
+		formData.append("file", $('input[name=file]')[0].files[0]);
+
+		if (confirm("수정하시겠습니까??") == true) {
+			alert("수정되었습니다.");
+		$.ajax({
+			url : '/fire/mypage/myUpdateok',
+			type : 'POST',
+			data : formData,
+			processData : false,
+			contentType : false,
+			beforeSend : function() {
+				console.log(formData + 'jQeury ajax form submit beforeSend');
+			},
+			success : function(data) {
+				location.href="<c:url value='/mypage?USER_ID=${USER_ID}'/>";
+				console.log('jQeury ajax form submit success');
+			},
+			error : function(data) {
+				console.log('jQeury ajax form submit error');
+			},
+			complete : function() {
+				console.log('jQeury ajax form submit complete');
+			}
+		});//end ajax
+		}
+	});
+});
+
 function fn_passCk() {
 	var user_pw = document.getElementById('user_pw').value;
 	var user_pw2 = document.getElementById('user_pw2').value;
