@@ -19,12 +19,12 @@
 	});
 });
 
-function fn_EventApply(obj) {
+/* function fn_EventApply(obj) {
 	var comSubmit = new ComSubmit();
 	comSubmit.setUrl("<c:url value='/event/Detail?EVENT_INDEX=${EVENT_INDEX}'/>");
 	comSubmit.addParam("EVENT_INDEX", obj.parent().find("#EVENT_INDEX").val());
 	comSubmit.submit();
-}
+} */
 </script>
 
 
@@ -49,7 +49,7 @@ function fn_EventApply(obj) {
          			<input type="hidden" name="title" id="EVENT_INDEX" value="${applyList.EVENT_INDEX}" />
          		</td>
          		<td>
-         			<h4>신청한 이벤트 제목 : <a href="#this" name="title">${applyList.EVENT_TITLE}</a></h4>
+         			<h4>신청한 이벤트 제목 : <a href="event/Detail?EVENT_INDEX=${applyList.EVENT_INDEX}">${applyList.EVENT_TITLE}</a></h4>
          			<input type="hidden" name="title" id="EVENT_INDEX" value="${applyList.EVENT_INDEX}" />
          		</td>
          		<h4>신청한 이벤트 당첨 여부 : <a>${applyList.EVENT_WIN}</h4><br>
