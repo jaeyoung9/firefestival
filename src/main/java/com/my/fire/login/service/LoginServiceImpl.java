@@ -43,4 +43,14 @@ public class LoginServiceImpl implements LoginService {
 //	public Map<String, Object> selectLoginUser(Map<String, Object> map) throws Exception{
 //		return loginDAO.selectLoginUser(map);
 //	}
+	
+	//비밀번호 변경 
+//	@Override
+//	public String pwCheck(String memberId)throws Exception{
+//		return LoginDAO.pwCheck(memberId);
+//	}
+//	@Override
+//	public void pwUpdate(String memberId, String hashedPw)throws Exception{
+//		LoginDAO.pwUpdate(memberId,hashedPw);
+//	}
 }
