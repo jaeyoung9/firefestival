@@ -16,6 +16,9 @@ td {
 	<div>
 		<input type="hidden" id="EVENT_KATE" value="${EVENT_KATE}">
 		<div class="wrap">
+			<h1 class="card-title text-center">
+				<strong>종료된 이벤트</strong>
+			</h1>
 			<table class="table table-hover">
 				<tbody>
 				<colgroup>

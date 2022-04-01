@@ -63,13 +63,18 @@
 				<put-attribute name="body"
 					value="/WEB-INF/viewtiles2/login/findIdResult.jsp" />
 			</definition>
+			
 			<definition name="findPwResult" extends="base_layout">
 		<!-- 		<put-attribute name="title" value="비밀번호찾기" /> -->
 				<put-attribute name="body"
 					value="/WEB-INF/viewtiles2/login/findPwResult.jsp" />
 			</definition>
-         
-         
+			   <!-- 비밀번호변경 -->  
+         <definition name="pwUpdate" extends="base_layout">
+				
+				<put-attribute name="body"
+					value="/WEB-INF/viewtiles2/login/pwUpdate.jsp" />
+			</definition>
 			
 			<!-- 회원가입 -->
 			<definition name="joinForm" extends="base_layout">
@@ -114,6 +119,12 @@
 				<!-- <put-attribute name="title" value="종료된 이벤트 페이지" /> -->
 				<put-attribute name="body"
 					value="/WEB-INF/viewtiles2/event/eventEnd.jsp" />
+			</definition>
+			
+			<definition name="eventApplyList" extends="base_layout">
+				<!-- <put-attribute name="title" value="이벤트 신청 내역" /> -->
+				<put-attribute name="body"
+					value="/WEB-INF/viewtiles2/event/eventApplyList.jsp" />
 			</definition>
 			
 			<definition name="eventDetail" extends="base_layout">
@@ -214,23 +225,19 @@
 			</definition>
 			
 			<!-- 자료실 -->
-			<definition name="data" extends="base_layout">
-				<!-- <put-attribute name="title" value="마이페이지" /> -->
+			<definition name="data" extends="base_layout">				
 				<put-attribute name="body"
 					value="/WEB-INF/viewtiles2/data/data.jsp" />
 			</definition>
-			<definition name="dataDetail" extends="base_layout">
-				<!-- <put-attribute name="title" value="마이페이지" /> -->
+			<definition name="dataDetail" extends="base_layout">			
 				<put-attribute name="body"
 					value="/WEB-INF/viewtiles2/data/dataDetail.jsp" />
 			</definition>
-			<definition name="dataUpdate" extends="base_layout">
-				<!-- <put-attribute name="title" value="마이페이지" /> -->
+			<definition name="dataUpdate" extends="base_layout">			
 				<put-attribute name="body"
 					value="/WEB-INF/viewtiles2/data/dataUpdate.jsp" />
 			</definition>
-			<definition name="dataWrite" extends="base_layout">
-				<!-- <put-attribute name="title" value="마이페이지" /> -->
+			<definition name="dataWrite" extends="base_layout">	
 				<put-attribute name="body"
 					value="/WEB-INF/viewtiles2/data/dataWrite.jsp" />
 			</definition>

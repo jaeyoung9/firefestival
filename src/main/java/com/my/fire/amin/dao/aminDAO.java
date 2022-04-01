@@ -19,5 +19,10 @@ public class aminDAO extends AbstractDAO  {
 		return (List<Map<String, Object>>) selectPagingList("amin.search", map);
 	}
 	
+	@SuppressWarnings("unchecked")
+	public void memberup(Map<String, Object> map) throws Exception {
+		update("amin.memberup", map);
+	}
+	
 	
 }

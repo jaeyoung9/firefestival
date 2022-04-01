@@ -7,103 +7,12 @@
 <meta charset="UTF-8">
 <title>이벤트 작성</title>
 <style type="text/css">
-/* * {
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box
-}
-
-:after,
-:before {
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box
-}
-body {
-	margin: 20px;
-}
-
-.form-group {
-	display: inline-block;
-	margin-bottom: 0;
-	vertical-align: middle;
-}
-
-.form-control {
-	display: inline-block;
-	width: 100%;
-	height: 30px;
-	font-size: 12px;
-	line-height: 1.42857;
-	color: rgb(85, 85, 85);
-	background-color: rgb(255, 255, 255);
-	background-image: none;
-	box-shadow: rgba(0, 0, 0, 0.0745098) 0 1px 1px inset;
-	padding: 6px 9px;
-	border-width: 1px;
-	border-style: solid;
-	border-color: rgb(204, 204, 204);
-	border-image: initial;
-	border-radius: 2px;
-	transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-}
-
-.form-control[readonly],
-fieldset[disabled] .form-control {
-	background-color: rgb(238, 238, 238);
-	opacity: 1;
-}
-
-.form_file .file_load {
-	display: inline-block;
-	position: relative;
-	width: 65px;
-	height: 31px;
-	cursor: pointer;
-}
-
-.form_file .file_load [type="file"] {
-	display: inline-block;
-	position: absolute;
-	width: inherit;
-	height: inherit;
-	z-index: 1;
-	opacity: 0;
-}
-
-.form_file .file_load label {
-	position: relative;
-	z-index: 5;
-	cursor: pointer;
-}
-
-.btn-default {
-	display: inline-block;
-	margin-bottom: 0;
-	font-weight: normal;
-	text-align: center;
-	vertical-align: middle;
-	touch-action: manipulation;
-	cursor: pointer;
-	background-image: none;
-	white-space: nowrap;
-	font-size: 12px;
-	user-select: none;
-	border-width: 1px;
-	border-style: solid;
-	background-color: rgb(255, 255, 255);
-	border-color: rgb(204, 204, 204);
-	border-image: initial;
-	padding: 6px 9px;
-	border-radius: 2px;
-	color: rgb(51, 51, 51);
-} */
 </style>
 </head>
 <body>
 	<div class="container">
 		<div class="row">
-			<div class="col-sm-15 col-md-10 col-lg-7 mx-auto">
+			<div class="col-sm-15 col-md-10 col-lg-50 mx-auto">
 				<div class="card card-signin my-10">
 					<div class="card-body">
 						<div align="center">
@@ -116,8 +25,8 @@ fieldset[disabled] .form-control {
 										<td>
 											<div class="form-group">
 												<label class="form-label mt-4">제목</label>
-												<input type="text" class="form-control" name="EVENT_TITLE" maxlength="3000"
-													id="EVENT_TITLE" size="60" value="${edetail.EVENT_TITLE}" >
+												<input type="text" class="form-control" name="EVENT_TITLE" maxlength="1000" id="EVENT_TITLE"
+													placeholder="최대 1000자 입력 가능" value="${edetail.EVENT_TITLE}" />
 											</div>
 										</td>
 									</tr>
@@ -125,8 +34,8 @@ fieldset[disabled] .form-control {
 										<td>
 											<div class="form-group">
 												<label class="form-label mt-4">내용</label>
-												<textarea name="EVENT_CONTENT" class="form-control editor"
-													id="EVENT_CONTENT" class="editor" maxlength="3000">${edetail.EVENT_CONTENT}</textarea>
+												<textarea rows="25" cols="500" name="EVENT_CONTENT" class="form-control editor" id="EVENT_CONTENT"
+													maxlength="1333" placeholder="최대 1333자 입력 가능">${edetail.EVENT_CONTENT}</textarea>
 												<!-- <script>CKEDITOR.replace('EVENT_CONTENT');</script>-->
 											</div>
 										</td>

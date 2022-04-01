@@ -15,7 +15,18 @@ public interface LoginService {
 	//비밀번호 찾기
 	public List<Map<String, Object>> findPw(Map<String, Object> map) throws Exception;
 
-	//public Map<String, Object> selectLoginUser(Map<String, Object> map)throws Exception;
+//	public static void pwUpdate(Map<String, Object> map) {
+//		// TODO Auto-generated method stub
+//		
+//	}
+//
+//	
+//
+//	void pwUpdate(String memberId, String hashedPw) throws Exception;
 
+	//public Map<String, Object> selectLoginUser(Map<String, Object> map)throws Exception;
+	
+//	public String pwCheck(String memberId)throws Exception;
+//	public void pwUpdate(String memberId,String hashedPw)throws Exception;
 	
 }

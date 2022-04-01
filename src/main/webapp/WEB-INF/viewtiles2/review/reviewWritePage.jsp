@@ -54,11 +54,13 @@
 					<td>
 						<button type="button" class="primary-btn header-btn text-capitalize mt-10 submit" href="<c:url value='/review'/>">등록</button>
 						<button type="reset" class="primary-btn header-btn text-capitalize mt-10">취소</button>
+						<button type="button"class="primary-btn header-btn text-capitalize mt-10" style="float:right;" onclick="location.href='/fire/review'">목 록</button>
 						
 					</td>
 				</tr>
 
 			</table>
+			
 		</form>
 		</div>
 </div>

@@ -17,7 +17,7 @@
 <link rel="stylesheet" href="<%=request.getContextPath() %>/css/animate.min.css" />
 <link rel="stylesheet" href="<%=request.getContextPath() %>/css/owl.carousel.css" />
 <link rel="stylesheet" href="<%=request.getContextPath() %>/css/main.css" />
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.11/css/lightgallery.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.11/css/lightgallery.min.css">
 
 <!-- jQuery -->
     <script src = "<%=request.getContextPath() %>/ckeditor/ckeditor.js"></script>

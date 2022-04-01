@@ -177,6 +177,25 @@ public class LoginController {
 	         mv.addObject("list", list);
 	         return mv;
 	      }
-	 
-	 
+	 //비밀번호 변경 
+//	 @RequestMapping(value = "/pwUpdate",method =RequestMethod.GET)
+//	 public ModelAndView pwUpdate(HttpSession session)throws Exception{
+//		 ModelAndView mav = new ModelAndView();
+//		 Map<String,Object>smap = (Map<String,Object>)session.getAttribute("session");
+//		 Map<String,Object>map = LoginService.pwUpdate(smap);
+//		 mav.addObject("map",map);
+//		 mav.setViewName("/pwUpdate");
+//		 return mav;
+//	 }
+//	 
+//	 @RequestMapping(value = "/pwUpdate",method = RequestMethod.POST)
+//	 public ModelAndView pwUpdate(HttpServletRequest request,CommandMap commandMap,HttpSession session)throws Exception{
+//		 ModelAndView mav = new ModelAndView();
+//		 Map<String,Object>map2 = (Map<String,Object>)session.getAttribute("session");
+//		 commandMap.put("USER_NO", map2.get("USER_NO"));
+//		 LoginService.pwUpdate(commandMap.getMap());
+//		// session.setAttribute("session",LoginService.pwUpdate(map2));
+//		mav.setViewName("redirect:/pwUpdate?USER_NO="+map2.get("USER_NO"));
+//		 return mav;
+//	 }
 }

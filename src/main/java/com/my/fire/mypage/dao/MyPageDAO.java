@@ -44,10 +44,10 @@ public class MyPageDAO extends AbstractDAO {
 		return (List<Map<String,Object>>)selectList("myPage.myreview", map);
 	}
 
-	//내 이벤트 보기
+	// 이벤트 신청 내역
 	@SuppressWarnings("unchecked")
-	public List<Map<String, Object>> myevent(Map<String, Object> map) throws Exception {
-		return (List<Map<String,Object>>)selectList("mypage.myevent", map);
+	public List<Map<String, Object>> applyList(Map<String, Object> map){
+			return (List<Map<String, Object>>) selectList("event.applyList",map);
 	}
 
 }
