@@ -38,3 +38,7 @@
 <script src="<%=request.getContextPath() %>/js/jquery.lightbox.js"></script>
 <script src="<%=request.getContextPath() %>/js/mail-script.js"></script>
 <script src="<%=request.getContextPath() %>/js/main.js"></script>
+
+<!-- fullcalendar -->
+<link rel="stylesheet" href="<%=request.getContextPath() %>/Fullcalendar/main.css" />
+<script src="<%=request.getContextPath() %>/Fullcalendar/main.js"></script>
