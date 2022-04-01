@@ -59,7 +59,7 @@
 			<div class="row align-items-center justify-content-between d-flex">
 				<div id="logo">
 					<a href="<c:url value='/main'/>"><img
-						src="<%=request.getContextPath()%>/images/logo.jpg" alt=""
+						src="<%=request.getContextPath()%>/images/logo.png" alt="logo"
 						title="" /></a>
 				</div>
 				<nav id="nav-menu-container">
