@@ -207,6 +207,12 @@
 					value="/WEB-INF/viewtiles2/mypage/checkPwForm.jsp" />
 			</definition>
 			
+			<definition name="calendar" extends="base_layout">
+				<!-- <put-attribute name="title" value="마이페이지" /> -->
+				<put-attribute name="body"
+					value="/WEB-INF/viewtiles2/calendar/calendar.jsp" />
+			</definition>
+			
 			<!-- 자료실 -->
 			<definition name="data" extends="base_layout">
 				<!-- <put-attribute name="title" value="마이페이지" /> -->
