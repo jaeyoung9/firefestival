@@ -62,7 +62,7 @@ public class EventDAO extends AbstractDAO {
 		// 이벤트 삭제
 		@SuppressWarnings("unchecked")
 		public void eventDelete(Map<String, Object> map) throws Exception {
-			delete("event.eventDelete", map);
+			update("event.eventDelete", map);
 		}
 		
 }
