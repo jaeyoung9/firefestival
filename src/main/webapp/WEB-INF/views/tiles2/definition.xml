@@ -69,14 +69,12 @@
 				<put-attribute name="body"
 					value="/WEB-INF/viewtiles2/login/findPwResult.jsp" />
 			</definition>
-			
 			   <!-- 비밀번호변경 -->  
          <definition name="pwUpdate" extends="base_layout">
 				
 				<put-attribute name="body"
 					value="/WEB-INF/viewtiles2/login/pwUpdate.jsp" />
 			</definition>
-         
 			
 			<!-- 회원가입 -->
 			<definition name="joinForm" extends="base_layout">
@@ -121,6 +119,12 @@
 				<!-- <put-attribute name="title" value="종료된 이벤트 페이지" /> -->
 				<put-attribute name="body"
 					value="/WEB-INF/viewtiles2/event/eventEnd.jsp" />
+			</definition>
+			
+			<definition name="eventApplyList" extends="base_layout">
+				<!-- <put-attribute name="title" value="이벤트 신청 내역" /> -->
+				<put-attribute name="body"
+					value="/WEB-INF/viewtiles2/event/eventApplyList.jsp" />
 			</definition>
 			
 			<definition name="eventDetail" extends="base_layout">

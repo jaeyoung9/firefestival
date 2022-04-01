@@ -19,7 +19,7 @@ public interface MyPageService {
 
 	List<Map<String, Object>> myreview(Map<String, Object> map) throws Exception;
 
-	List<Map<String, Object>> myevent(Map<String, Object> map) throws Exception;
+	// 이벤트 신청 내역
+	List<Map<String, Object>> applyList(Map<String, Object> map);
 	
-
 }
