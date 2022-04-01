@@ -123,6 +123,7 @@ public class EventController {
 		@RequestMapping(value = "/event/WWrite", method = RequestMethod.POST)
 		public ModelAndView eventW(CommandMap commandMap, HttpServletRequest request) throws Exception {
 			ModelAndView mv = new ModelAndView("event");
+			commandMap.put("EVENT_INDEX", request.getParameter("EVENT_INDEX"));
 			 if (log.isDebugEnabled()) {
 				 log.debug(commandMap);
 		     }
@@ -136,8 +137,10 @@ public class EventController {
 		public ModelAndView eventDetail(CommandMap commandMap, HttpServletRequest request) throws Exception {
 			ModelAndView mv = new ModelAndView("eventDetail");
 			commandMap.put("EVENT_INDEX", request.getParameter("EVENT_INDEX"));
+			String s = request.getParameter("EVENT_INDEX");
 			List<Map<String, Object>> EDetail = eventService.eventDetail(commandMap.getMap());
 			mv.addObject("edetail", EDetail);
+			mv.addObject("s", s);
 			System.out.println(commandMap.getMap());
 	
 			return mv;

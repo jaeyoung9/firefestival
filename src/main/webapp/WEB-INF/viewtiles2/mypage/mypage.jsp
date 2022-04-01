@@ -6,76 +6,59 @@
 <head>
 <meta charset="UTF-8">
 <title>마이페이지</title>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-	var calendarEl = document.getElementById('calendar'); // new FullCalendar.Calendar(대상 DOM객체, {속성:속성값, 속성2:속성값2..}) 
-	$(function() {
-
-		var request = $.ajax({
-			url : "/fire/event/calendar",
-			method : "GET",
-			dataType : "json"
-
-		});
-
-		request.done(function(data) {
-			console.log(data);
-
-			var calendarEl = document.getElementById('calendar');
-
-			var calendar = new FullCalendar.Calendar(calendarEl, {
-				local : 'ko',
-				initialView : 'dayGridMonth',
-
-				headerToolbar : {
-					left : 'prev,next today',
-					center : 'title',
-					right : 'dayGridMonth,timeGridWeek,timeGridDay'
-				},
-				slotMinTime : '08:00', // Day 캘린더에서 시작 시간
-				slotMaxTime : '20:00', // Day 캘린더에서 종료 시간
-				dayMaxEvents : true,
-				events : data,
-				/* eventClick : function(data) {
-					console.log('modal', data);
-					$('#fullCalModal').modal('show');
-					$('#title').html(data.event.title);
-					$('#start').html(data.event.startStr);
-					var endd = new Date(data.event.endStr);
-					endd.setDate(endd.getDate() - 1);
-					var end = endd.getFullYear()
-							+ '-'
-							+ (("00" + (endd.getMonth() + 1).toString())
-									.slice(-2))
-							+ '-'
-							+ (("00" + (endd.getDate()).toString())
-									.slice(-2));
-					$('#end').html(end);
-				}, */
-				/* eventDidMount: function(data) {
-					var tooltip = new Tolltip(data.el, {
-						title: data.event.extendedProps.description,
-						placement: 'top',
-						trigger: 'hover',
-						container: 'body'
-					});
-				} */
-			});
-
-			calendar.render();
-		});
+<script type="text/javascript">
+/* 이벤트 번호 or 이벤트 제목을 눌렀을 때 eventDetail.jsp로 가려면
+	mypage_SQL.xml에서  TB_EVENT 테이블에
+	EVENT_INDEX를 가져오는 SELECT문이 필요함 */
+	
+	$(document).ready(function() {
+	
+	$("a[name='title']").on("click", function(e) {
+		e.preventDefault();
+		fn_EventApply($(this));
 	});
-
 });
+
+/* function fn_EventApply(obj) {
+	var comSubmit = new ComSubmit();
+	comSubmit.setUrl("<c:url value='/event/Detail?EVENT_INDEX=${EVENT_INDEX}'/>");
+	comSubmit.addParam("EVENT_INDEX", obj.parent().find("#EVENT_INDEX").val());
+	comSubmit.submit();
+} */
 </script>
+
+
 
 </head>
 <body>
 <div class="mypagemain">
-	<div class="mypagetop"><h1>마이페이지</h1>
-	<a href="/fire/mypage/checkPwForm"><p>회원정보수정</p></a>
-		
+		<div class="mypagetop"><h1><strong>마이페이지</strong></h1><br>
+		<a href="/fire/mypage/checkPwForm"><h3>회원정보수정</h3></a><br>
+		<a><h3>신청한 이벤트↘</h3></a>
+
 	</div>
+	<input type="hidden" id="USER_ID" value="${USER_ID}"><%-- 아이디 히든으로 숨김 --%>
+	<div>
+	<c:forEach items="${applyList}" var="applyList">
+		<input type="hidden" name="EVENT_INDEX" id="EVENT_INDEX" value="${applyList.EVENT_INDEX}" />
+		<input type="hidden" name="EVENT_TITLE" id="EVENT_TITLE" value="${applyList.EVENT_TITLE}" />
+    	<div>
+    		<div>
+    			<td>
+         			<h4>신청한 이벤트 번호 : <a href="#this" name="title">${applyList.EVENT_INDEX}</a></h4>
+         			<input type="hidden" name="title" id="EVENT_INDEX" value="${applyList.EVENT_INDEX}" />
+         		</td>
+         		<td>
+         			<h4>신청한 이벤트 제목 : <a href="event/Detail?EVENT_INDEX=${applyList.EVENT_INDEX}">${applyList.EVENT_TITLE}</a></h4>
+         			<input type="hidden" name="title" id="EVENT_INDEX" value="${applyList.EVENT_INDEX}" />
+         		</td>
+         		<h4>신청한 이벤트 당첨 여부 : <a>${applyList.EVENT_WIN}</h4><br>
+         		<input type="hidden" name="title" id="EVENT_INDEX" value="${applyList.EVENT_INDEX}" />
+        	</div>
+    	</div>
+    </c:forEach>
+	</div>
+	<br>
 	
 	<%-- <input type="hidden" id="USER_ID" value="${USER_ID }">
 	<div class="mypagereview">
