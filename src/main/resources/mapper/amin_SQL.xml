@@ -32,49 +32,128 @@
 
 
 
- 	<insert id="memberup" parameterType="hashmap">
+ 	<update id="memberup" parameterType="hashmap">
 		<![CDATA[
-		UPDATE TB_NOTICE SET
-		USER_NUM = USER_NUM,
-        USER_ID = #{USER_ID},
-        USER_NIC = #{USER_NIC},
-        USER_PW = #{USER_PW},
-        USER_ORIGINAL = #{USER_ORIGINAL},
-        USER_NEW_IMG = #{USER_NEW_IMG},
-        USER_FILE_SIZE = #{USER_FILE_SIZE},
-        USER_BLIND = #{USER_BLIND},
-        USER_EVENTAPPLY = #{USER_EVENTAPPLY},
-        AMIN_TIM = #{AMIN_TIM},
-        DEL_GB = #{DEL_GB}
-		WHERE
-        USER_NUM = #{USER_NUM}
-		]]>
-	</insert>
+		UPDATE TB_MEMBER
 
-	
-	
-	
-	<!--
-	<insert id="noticeUp" parameterType="hashmap">
-		<![CDATA[
-		UPDATE TB_NOTICE SET 
-		NOTICE_TITLE = #{NOTICE_TITLE}, 
-		NOTICE_CONTENT = #{NOTICE_CONTENT}, 
-		NOTICE_ORIGINAL = #{NOTICE_ORIGINAL}, 
-		NOTICE_NEW_IMG = #{NOTICE_NEW_IMG}, 
-		NOTICE_FILE_SIZE = #{NOTICE_FILE_SIZE}
+		<set>
+			<if test="USER_BLIND == 'N'">
+				USER_BLIND = 'Y',
+			</if>
+			<if test="USER_BLIND == 'Y'">
+				USER_BLIND = 'N',
+			</if>
+		</set>
+		
 		WHERE
-		NOTICE_INDEX = #{NOTICE_INDEX}
+        	USER_NUM = #{USER_NUM}
 		]]>
-	</insert>
-	 -->
-	<!--
-	<insert id="noticeDe" parameterType="hashmap">
-		<![CDATA[
-		UPDATE TB_NOTICE SET 
-		NOTICE_KATE = 'Y'
-		WHERE NOTICE_INDEX = #{NOTICE_INDEX}
-		]]>
-	</insert>
-	-->
+	</update>
+<!-- 1번 쿼리 if 
+<set>
+			<if test="USER_BLIND == 'N' || 'Y'">
+			USER_BLIND = #{USER_BLIND}
+			</if>
+			<if test="USER_EVENTAPPLY == 'N' || 'Y'">
+			USER_EVENTAPPLY = #{USER_EVENTAPPLY}
+			</if>
+			<if test="AMIN_TIM == 'N' || 'Y'">
+			AMIN_TIM = #{AMIN_TIM}
+			</if>
+			<if test="DEL_GB == 'N' || 'Y'">
+			DEL_GB = #{DEL_GB}
+			</if>
+		</set>
+		
+		
+		<set>
+			<if test="USER_BLIND == 'N'">
+				USER_BLIND = 'Y',
+			</if>
+			<if test="USER_BLIND == 'Y'">
+				USER_BLIND = 'N',
+			</if>
+			
+			<if test="USER_EVENTAPPLY == 'N'">
+				USER_EVENTAPPLY = 'Y',
+			</if>
+			<if test="USER_EVENTAPPLY == 'Y'">
+				USER_EVENTAPPLY = 'N',
+			</if>
+			
+			<if test="AMIN_TIM == 'N'">
+				AMIN_TIM = 'Y',
+			</if>
+			<if test="AMIN_TIM == 'Y'">
+				AMIN_TIM = 'N',
+			</if>
+			
+			<if test="DEL_GB == 'N'">
+				DEL_GB = 'Y',
+			</if>
+			<if test="DEL_GB == 'Y'">
+				DEL_GB = 'N',
+			</if>
+		</set>
+ -->
+ <!-- 2번 쿼리 choose
+ 
+ <choose>
+				<when test="USER_BLIND == 'N'">
+				USER_BLIND = 'Y'
+				</when>
+				<when test="USER_BLIND == 'Y'">
+				USER_BLIND = 'N'
+				</when>
+				<when test="USER_EVENTAPPLY == 'N'">
+				USER_EVENTAPPLY = 'Y'
+				</when>
+				<when test="USER_EVENTAPPLY == 'Y'">
+				USER_EVENTAPPLY = 'N'
+				</when>
+				<when test="AMIN_TIM == 'N'">
+				AMIN_TIM = 'Y'
+				</when>
+				<when test="AMIN_TIM == 'Y'">
+				AMIN_TIM = 'N'
+				</when>
+				<when test="DEL_GB == 'N'">
+				DEL_GB = 'Y'
+				</when>
+				<when test="DEL_GB == 'Y'">
+				DEL_GB = 'N'
+				</when>
+			</choose>
+			
+			
+				<choose>
+				<when test="USER_BLIND == 'N'">USER_BLIND = 'Y',</when>
+				<when test="USER_BLIND == 'Y'">USER_BLIND = 'N',</when>
+				<when test="USER_EVENTAPPLY == 'N'">USER_EVENTAPPLY = 'Y',</when>
+				<when test="USER_EVENTAPPLY == 'Y'">USER_EVENTAPPLY = 'N',</when>
+				<when test="AMIN_TIM == 'N'">AMIN_TIM = 'Y',</when>
+				<when test="AMIN_TIM == 'Y'">AMIN_TIM = 'N',</when>
+				<when test="DEL_GB == 'N'">DEL_GB = 'Y',</when>
+				<when test="DEL_GB == 'Y'">DEL_GB = 'N',</when>
+			</choose>
+			
+				<choose>
+				<when test="USER_BLIND == 'N'">USER_BLIND = 'Y'</when>
+				<otherwise>USER_BLIND = 'N'</otherwise>
+				 
+				<when test="USER_EVENTAPPLY == 'N'">USER_EVENTAPPLY = 'Y'</when>
+				<otherwise>USER_EVENTAPPLY = 'N'</otherwise>
+				 
+				<when test="AMIN_TIM == 'N'">AMIN_TIM = 'Y'</when>
+				<otherwise>AMIN_TIM = 'N'</otherwise>
+				 
+				<when test="DEL_GB == 'N'">DEL_GB = 'Y'</when>
+				<otherwise>DEL_GB = 'N'</otherwise>
+			</choose>
+			
+ 
+  -->
+	
+	
+	
 </mapper>
