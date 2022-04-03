@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" " http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="event">
+
+<!-- 이 솔 - food  -->
+
+	<!-- 페이징  -->
+	<select id="food" parameterType="hashmap" resultType="hashmap">
+		<include refid="common.pagingPre" />
+		<![CDATA[
+		SELECT
+			ROW_NUMBER() OVER (ORDER BY FOOD_INDEX DESC) RNUM,
+			FOOD_INDEX,
+			FOOD_CONTENT,
+			FOOD_THUMB,
+			FOOD_IMG,
+			FOOD_SIZE,
+			FOOD_KATE
+		FROM (SELECT ROW_NUMBER() OVER (ORDER BY EVENT_INDEX DESC) RNUM,
+			FOOD_INDEX,
+			FOOD_CONTENT,
+			FOOD_THUMB,
+			FOOD_IMG,
+			FOOD_SIZE,
+			FOOD_KATE
+		FROM TB_FOOD
+			WHERE FOOD_KATE = 'N')
+		]]>
+		<include refid="common.pagingPost" />
+	</select>
+	
+	<!-- food 상세 페이지 -->
+	<select id="foodDetail" parameterType="hashmap" resultType="hashmap">
+		<![CDATA[
+		SELECT *
+		FROM TB_FOOD
+		WHERE FOOD_INDEX = #{FOOD_INDEX}
+		]]>
+	</select>
+
+	<!-- food 작성 -->
+	<insert id="foodWrite" parameterType="hashmap">
+		<![CDATA[
+		INSERT INTO TB_FOOD(
+			FOOD_INDEX,
+			FOOD_CONTENT,
+			FOOD_THUMB,
+			FOOD_IMG,
+			FOOD_SIZE,
+			FOOD_KATE
+		)
+		VALUES(
+			TB_FOOD_SEQ.NEXTVAL,
+			#{FOOD_CONTENT},
+			#{FOOD_THUMB},
+			#{FOOD_IMG},
+			#{FOOD_SIZE},
+			#{FOOD_KATE}
+		)		
+		]]>
+	</insert>
+	
+	<!-- food 수정 -->
+	<update id="foodUpdate" parameterType="hashmap">
+		<![CDATA[
+		UPDATE TB_FOOD
+		SET
+			FOOD_CONTENT = #{FOOD_CONTENT},
+			FOOD_IMG = #{FOOD_IMG},
+			EVENT_THUMB = #{EVENT_THUMB},
+			FOOD_SIZE = #{FOOD_SIZE},
+			FOOD_KATE = #{FOOD_KATE}	
+		WHERE
+			FOOD_INDEX = #{FOOD_INDEX}
+		]]>
+	</update>
+	
+	<!-- food 삭제 -->
+	<delete id="foodDelete" parameterType="hashmap">
+		<![CDATA[
+		DELETE
+		FROM TB_FOOD
+		WHERE
+		FOOD_INDEX = #{FOOD_INDEX}
+		]]>
+	</delete>
+
+</mapper>
