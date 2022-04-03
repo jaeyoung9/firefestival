@@ -36,21 +36,21 @@
 		<![CDATA[
 		UPDATE TB_MEMBER
 
-		<set>
+		<trim prefix="SET" suffixOverrides=",">
 			<if test="USER_BLIND == 'N'">
 				USER_BLIND = 'Y',
 			</if>
 			<if test="USER_BLIND == 'Y'">
 				USER_BLIND = 'N',
 			</if>
-		</set>
-		
+		</trim>	
 		WHERE
         	USER_NUM = #{USER_NUM}
 		]]>
 	</update>
 <!-- 1번 쿼리 if 
 <set>
+
 			<if test="USER_BLIND == 'N' || 'Y'">
 			USER_BLIND = #{USER_BLIND}
 			</if>
@@ -97,7 +97,7 @@
 		</set>
  -->
  <!-- 2번 쿼리 choose
- 
+ <trim prefix="SET" suffixOverrides=",">
  <choose>
 				<when test="USER_BLIND == 'N'">
 				USER_BLIND = 'Y'

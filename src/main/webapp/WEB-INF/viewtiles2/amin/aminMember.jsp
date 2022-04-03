@@ -172,7 +172,7 @@
 	 	function USER_BLIND(obj) {
 			var comSubmit = new ComSubmit();
 			comSubmit.setUrl("<c:url value='/member/up'/>");
-			comSubmit.addParam("USER_BLIND", obj.parent().find("#USER_BLIND").val());
+			//comSubmit.addParam("USER_BLIND", obj.parent().find("#USER_BLIND").val());
 			comSubmit.addParam("USER_NUM", obj.parent().find("#USER_NUM").val());
 			comSubmit.submit(); 
 		} 
