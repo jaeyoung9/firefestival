@@ -5,12 +5,15 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
-//이 솔 - FOOD
+// 이 솔 - FOOD
 public interface FoodService {
 
-	// FOOD 페이지
+	// 먹거리 페이지
 	List<Map<String, Object>> food(Map<String, Object> map);
 
+	// 푸드트럭 페이지
+	List<Map<String, Object>> truck(Map<String, Object> map);
+	
 	// FOOD 상세 페이지
 	List<Map<String, Object>> foodDetail(Map<String, Object> map);
 	

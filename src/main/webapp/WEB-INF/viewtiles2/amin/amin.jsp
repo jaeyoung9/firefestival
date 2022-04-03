@@ -12,19 +12,22 @@
 			<td><a class="col-1" href="/fire/member">회원 관리</a></td>
 		</tr>
 		<tr>
+			<td><a class="col-1" href="/fire/intro/WritePage">소개글 작성</a></td>
+		</tr>
+		<tr>
+			<td><a class="col-1" href="/fire/intro/UploadPage">소개글 수정</a></td>
+		</tr>
+		<tr>
 			<td><a class="col-1" href="/fire/notice/Go">공지사항 작성</a></td>
+		</tr>
+		<tr>
+			<td><a class="col-1" href="/fire/food/Write">먹거리/푸드트럭 작성</a></td>
 		</tr>
 		<tr>
 			<td><a class="col-1" href="/fire/event/Write">이벤트 작성</a></td>
 		</tr>
 		<tr>
 			<td><a class="col-1" href="/fire/event/applyList">이벤트 신청 내역</a></td>
-		</tr>
-		<tr>
-			<td><a class="col-1" href="/fire/intro/WritePage">소개글 작성</a></td>
-		</tr>
-		<tr>
-			<td><a class="col-1" href="/fire/intro/UploadPage">소개글 수정</a></td>
 		</tr>
 		<tr>
 			<td><a class="col-1" href="/fire/data/Write">자료실 작성</a></td>

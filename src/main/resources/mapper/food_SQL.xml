@@ -4,7 +4,7 @@
 
 <!-- 이 솔 - food  -->
 
-	<!-- 페이징  -->
+	<!-- 먹거리 페이징  -->
 	<select id="food" parameterType="hashmap" resultType="hashmap">
 		<include refid="common.pagingPre" />
 		<![CDATA[
@@ -24,7 +24,32 @@
 			FOOD_SIZE,
 			FOOD_KATE
 		FROM TB_FOOD
-			WHERE FOOD_KATE = 'N')
+			WHERE FOOD_KATE = 'F')
+		]]>
+		<include refid="common.pagingPost" />
+	</select>
+	
+	<!-- 푸드트럭 페이징  -->
+	<select id="truck" parameterType="hashmap" resultType="hashmap">
+		<include refid="common.pagingPre" />
+		<![CDATA[
+		SELECT
+			ROW_NUMBER() OVER (ORDER BY FOOD_INDEX DESC) RNUM,
+			FOOD_INDEX,
+			FOOD_CONTENT,
+			FOOD_THUMB,
+			FOOD_IMG,
+			FOOD_SIZE,
+			FOOD_KATE
+		FROM (SELECT ROW_NUMBER() OVER (ORDER BY EVENT_INDEX DESC) RNUM,
+			FOOD_INDEX,
+			FOOD_CONTENT,
+			FOOD_THUMB,
+			FOOD_IMG,
+			FOOD_SIZE,
+			FOOD_KATE
+		FROM TB_FOOD
+			WHERE FOOD_KATE = 'T')
 		]]>
 		<include refid="common.pagingPost" />
 	</select>
