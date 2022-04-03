@@ -67,7 +67,6 @@
 						title="" /></a>
 				</div>
 				<nav id="nav-menu-container">
-					<ul class="nav-menu">
 						<c:choose>
 						
 							<c:when test="${USER_ID == null }">

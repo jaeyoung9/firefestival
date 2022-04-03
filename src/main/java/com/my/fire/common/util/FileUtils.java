@@ -512,6 +512,8 @@ public class FileUtils {
         return list;
     }
     
+
+
  //자료실 파일 업로드 조영준
     public static List<Map<String,Object>> dataUpload(Map<String,Object> map, HttpServletRequest request) throws Exception{
         MultipartHttpServletRequest multipartHttpServletRequest = (MultipartHttpServletRequest)request;
@@ -523,6 +525,7 @@ public class FileUtils {
         String DATA_IMG = null;
         String originalFileExtension = null;
         String DATA_THUMB = null;
+
          
         List<Map<String,Object>> list = new ArrayList<Map<String,Object>>();
         Map<String, Object> listMap = null;
@@ -534,6 +537,7 @@ public class FileUtils {
         }
          
         while(iterator.hasNext()){
+
         	DATA_SIZE = multipartHttpServletRequest.getFile(iterator.next());
             if(DATA_SIZE.isEmpty() == false){
                 //업로드한 파일의 확장자를 포함한 파일명이다.
@@ -545,10 +549,12 @@ public class FileUtils {
                  
                 file = new File(filePath + DATA_THUMB);
                 DATA_SIZE.transferTo(file);
+
                  
                 listMap = new HashMap<String,Object>();
                 // listMap.put("BOARD_IDX", boardIdx);
                 //업로드할 당시의 파일이름
+
                 listMap.put("DATA_IMG", DATA_IMG);
                 //저장할 파일 이름
                 listMap.put("DATA_THUMB", DATA_THUMB);
@@ -556,11 +562,13 @@ public class FileUtils {
                 listMap.put("DATA_TITLE", DATA_TITLE);
                 listMap.put("DATA_CONTENT", DATA_CONTENT);
 
+
                 list.add(listMap);
             }
         }
         return list;
     }
+
 
     //자료실 수정 파일 업로드_조영준
     public static List<Map<String,Object>> dataUpdate(Map<String,Object> map, HttpServletRequest request) throws Exception{
@@ -575,6 +583,7 @@ public class FileUtils {
         String DATA_IMG = null;
         String originalFileExtension = null;
         String DATA_THUMB = null;
+
          
         List<Map<String,Object>> list = new ArrayList<Map<String,Object>>();
         Map<String, Object> listMap = null;
@@ -586,6 +595,7 @@ public class FileUtils {
         }
          
         while(iterator.hasNext()){
+
         	DATA_SIZE = multipartHttpServletRequest.getFile(iterator.next());
             if(DATA_SIZE.isEmpty() == false){
                 //업로드한 파일의 확장자를 포함한 파일명이다.
@@ -597,10 +607,12 @@ public class FileUtils {
                  
                 file = new File(filePath + DATA_THUMB);
                 DATA_SIZE.transferTo(file);
+
                  
                 listMap = new HashMap<String,Object>();
 
                 //업로드할 당시의 파일이름
+
                 listMap.put("DATA_IMG", DATA_IMG);
                 //저장할 파일 이름
                 listMap.put("DATA_THUMB", DATA_THUMB);
@@ -609,6 +621,7 @@ public class FileUtils {
                 listMap.put("DATA_TITLE", DATA_TITLE);
                 listMap.put("DATA_CONTENT", DATA_CONTENT);
                 listMap.put("DATA_INDEX", DATA_INDEX);
+
        
                 list.add(listMap);
             }
