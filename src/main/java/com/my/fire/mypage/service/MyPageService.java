@@ -3,11 +3,15 @@ package com.my.fire.mypage.service;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.web.multipart.MultipartHttpServletRequest;
+
 public interface MyPageService {
 
 	Map<String, Object> myPage(Map<String, Object> map) throws Exception;
 
-	void myUpdate(Map<String, Object> map) throws Exception;
+	void myUpdate(Map<String, Object> map, MultipartHttpServletRequest request) throws Exception;
 
 	void withdraw(Map<String, Object> map) throws Exception;
 
@@ -15,7 +19,7 @@ public interface MyPageService {
 
 	List<Map<String, Object>> myreview(Map<String, Object> map) throws Exception;
 
-	List<Map<String, Object>> myevent(Map<String, Object> map) throws Exception;
+	// 이벤트 신청 내역
+	List<Map<String, Object>> applyList(Map<String, Object> map);
 	
-
 }

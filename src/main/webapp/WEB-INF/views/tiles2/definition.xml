@@ -19,17 +19,31 @@
 					value="/WEB-INF/viewtiles2/main.jsp" />
 			</definition>
 			
+			<!--  관리자  -->
+			<definition name="amin" extends="base_layout">
+				<!-- <put-attribute name="title" value="관리자메인" /> -->
+				<put-attribute name="body"
+					value="/WEB-INF/viewtiles2/amin/amin.jsp" />
+			</definition>
+			
+			<definition name="member" extends="base_layout">
+				<!-- <put-attribute name="title" value="관리자 멤버관리" /> -->
+				<put-attribute name="body"
+					value="/WEB-INF/viewtiles2/amin/aminMember.jsp" />
+			</definition>
+			
 			<!-- 로그인 -->
-         <definition name="loginForm" extends="base_layout">
-            <!-- <put-attribute name="title" value="로그인페이지" /> -->
-            <put-attribute name="body"
-               value="/WEB-INF/viewtiles2/login/loginForm.jsp" />
-         </definition>
-         <definition name="login" extends="base_layout">
-            <!-- <put-attribute name="title" value="로그인" /> -->
-            <put-attribute name="body"
-               value="/WEB-INF/viewtiles2/login/login.jsp" />
-         </definition>
+         	<definition name="loginForm" extends="base_layout">
+            	<!-- <put-attribute name="title" value="로그인페이지" /> -->
+            	<put-attribute name="body"
+               	value="/WEB-INF/viewtiles2/login/loginForm.jsp" />
+         	</definition>
+         	
+         	<definition name="login" extends="base_layout">
+            	<!-- <put-attribute name="title" value="로그인" /> -->
+            	<put-attribute name="body"
+              	 value="/WEB-INF/viewtiles2/login/login.jsp" />
+         	</definition>
          
          <!-- 아이디 찾기 -->
          <definition name="findId" extends="base_layout">
@@ -45,19 +59,23 @@
                value="/WEB-INF/viewtiles2/login/findPw.jsp" />
          </definition>
          
-         
          <definition name="findIdResult" extends="base_layout">
-				<!-- <put-attribute name="title" value="아이디찾기" /> -->
-				<put-attribute name="body"
-					value="/WEB-INF/viewtiles2/login/findIdResult.jsp" />
+			<!-- <put-attribute name="title" value="아이디찾기" /> -->
+			<put-attribute name="body"
+				value="/WEB-INF/viewtiles2/login/findIdResult.jsp" />
 			</definition>
+			
 			<definition name="findPwResult" extends="base_layout">
-		<!-- 		<put-attribute name="title" value="비밀번호찾기" /> -->
+		<!-- 	<put-attribute name="title" value="비밀번호찾기" /> -->
 				<put-attribute name="body"
 					value="/WEB-INF/viewtiles2/login/findPwResult.jsp" />
 			</definition>
-         
-         
+			
+			   <!-- 비밀번호변경 -->  
+         	<definition name="pwUpdate" extends="base_layout">
+				<put-attribute name="body"
+					value="/WEB-INF/viewtiles2/login/pwUpdate.jsp" />
+			</definition>
 			
 			<!-- 회원가입 -->
 			<definition name="joinForm" extends="base_layout">
@@ -93,9 +111,21 @@
 			
 			<!-- 이벤트 -->
 			<definition name="event" extends="base_layout">
-				<!-- <put-attribute name="title" value="이벤트 페이지" /> -->
+				<!-- <put-attribute name="title" value="진행중 이벤트 페이지" /> -->
 				<put-attribute name="body"
 					value="/WEB-INF/viewtiles2/event/event.jsp" />
+			</definition>
+			
+			<definition name="eventEnd" extends="base_layout">
+				<!-- <put-attribute name="title" value="종료된 이벤트 페이지" /> -->
+				<put-attribute name="body"
+					value="/WEB-INF/viewtiles2/event/eventEnd.jsp" />
+			</definition>
+			
+			<definition name="eventApplyList" extends="base_layout">
+				<!-- <put-attribute name="title" value="이벤트 신청 내역" /> -->
+				<put-attribute name="body"
+					value="/WEB-INF/viewtiles2/event/eventApplyList.jsp" />
 			</definition>
 			
 			<definition name="eventDetail" extends="base_layout">
@@ -123,17 +153,29 @@
 					value="/WEB-INF/viewtiles2/intro/intro.jsp" />
 			</definition>
 			
+			<definition name="intro2" extends="base_layout">
+				<!-- <put-attribute name="title" value="인트로페이지" /> -->
+				<put-attribute name="body"
+					value="/WEB-INF/viewtiles2/intro/intro2.jsp" />
+			</definition>
+			
 			<definition name="introWritePage" extends="base_layout">
 				<!-- <put-attribute name="title" value="인트로작성" /> -->
 				<put-attribute name="body"
 					value="/WEB-INF/viewtiles2/intro/introWritePage.jsp" />
 			</definition>
 			
+			<definition name="introUploadPage" extends="base_layout">
+				<!-- <put-attribute name="title" value="인트로작성" /> -->
+				<put-attribute name="body"
+					value="/WEB-INF/viewtiles2/intro/introUploadPage.jsp" />
+			</definition>
+			
 			<!-- 리뷰 -->
-			<definition name="reviewPage" extends="base_layout">
+			<definition name="review" extends="base_layout">
 				<!-- <put-attribute name="title" value="리뷰페이지" /> -->
 				<put-attribute name="body"
-					value="/WEB-INF/viewtiles2/review/reviewPage.jsp" />
+					value="/WEB-INF/viewtiles2/review/review.jsp" />
 			</definition>
 			
 			<definition name="reviewDetail" extends="base_layout">
@@ -177,6 +219,33 @@
 				<!-- <put-attribute name="title" value="마이페이지" /> -->
 				<put-attribute name="body"
 					value="/WEB-INF/viewtiles2/mypage/checkPwForm.jsp" />
+			</definition>
+			
+			<definition name="calendar" extends="base_layout">
+				<!-- <put-attribute name="title" value="마이페이지" /> -->
+				<put-attribute name="body"
+					value="/WEB-INF/viewtiles2/calendar/calendar.jsp" />
+			</definition>
+			
+			<!-- 자료실 -->
+			<definition name="data" extends="base_layout">				
+				<put-attribute name="body"
+					value="/WEB-INF/viewtiles2/data/data.jsp" />
+			</definition>
+			
+			<definition name="dataDetail" extends="base_layout">			
+				<put-attribute name="body"
+					value="/WEB-INF/viewtiles2/data/dataDetail.jsp" />
+			</definition>
+			
+			<definition name="dataUpdate" extends="base_layout">			
+				<put-attribute name="body"
+					value="/WEB-INF/viewtiles2/data/dataUpdate.jsp" />
+			</definition>
+			
+			<definition name="dataWrite" extends="base_layout">	
+				<put-attribute name="body"
+					value="/WEB-INF/viewtiles2/data/dataWrite.jsp" />
 			</definition>
 			
 </tiles-definitions>

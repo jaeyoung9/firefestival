@@ -194,6 +194,7 @@ public class FileUtils {
     public static List<Map<String,Object>> eventUpdate(Map<String,Object> map, HttpServletRequest request) throws Exception{
         MultipartHttpServletRequest multipartHttpServletRequest = (MultipartHttpServletRequest)request;
         Iterator<String> iterator = multipartHttpServletRequest.getFileNames();
+         String event_kate = request.getParameter("EVENT_KATE");
          String event_title = request.getParameter("EVENT_TITLE");
          String event_content = request.getParameter("EVENT_CONTENT");
          String event_index = request.getParameter("EVENT_INDEX");     
@@ -232,6 +233,7 @@ public class FileUtils {
                 //저장할 파일 이름
                 listMap.put("EVENT_THUMB", EVENT_THUMB);
                 listMap.put("EVENT_SIZE", EVENT_SIZE.getSize());
+                listMap.put("EVENT_KATE", event_kate);
                 listMap.put("EVENT_TITLE", event_title);
                 listMap.put("EVENT_CONTENT", event_content);
                 listMap.put("EVENT_INDEX", event_index);
@@ -297,13 +299,12 @@ public class FileUtils {
 
 
   //리뷰 사진 업로드_김형태
-    public static List<Map<String,Object>> revieUpdate(Map<String,Object> map, HttpServletRequest request) throws Exception{
+    public static List<Map<String,Object>> reviewUpload(Map<String,Object> map, HttpServletRequest request) throws Exception{
         MultipartHttpServletRequest multipartHttpServletRequest = (MultipartHttpServletRequest)request;
         Iterator<String> iterator = multipartHttpServletRequest.getFileNames();
         String USER_ID = request.getParameter("USER_ID");
         String REVIEW_TITLE = request.getParameter("REVIEW_TITLE");
         String REVIEW_CONTENT = request.getParameter("REVIEW_CONTENT");
-        String DEL_GB = request.getParameter("DEL_GB");
         
         MultipartFile REVIEW_FILE_SIZE = null;
         String REVIEW_ORIGINAL = null;
@@ -341,8 +342,116 @@ public class FileUtils {
                 listMap.put("USER_ID", USER_ID);
                 listMap.put("REVIEW_TITLE", REVIEW_TITLE);
                 listMap.put("REVIEW_CONTENT", REVIEW_CONTENT);
-                listMap.put("DEL_GB", DEL_GB);
          
+                list.add(listMap);
+            }
+        }
+        return list;
+    }
+    
+    //프로필 사진 업로드 수정_안찬수
+    public static List<Map<String,Object>> myUpdate(Map<String,Object> map, HttpServletRequest request) throws Exception{
+        MultipartHttpServletRequest multipartHttpServletRequest = (MultipartHttpServletRequest)request;
+        Iterator<String> iterator = multipartHttpServletRequest.getFileNames();
+         String USER_NIC = request.getParameter("USER_NIC");
+         String USER_PW = request.getParameter("USER_PW");
+         String USER_ID = request.getParameter("USER_ID");
+              
+        MultipartFile USER_FILE_SIZE = null;
+        String USER_ORIGINAL = null;
+        String originalFileExtension = null;
+        String USER_NEW_IMG = null;
+         
+        List<Map<String,Object>> list = new ArrayList<Map<String,Object>>();
+        Map<String, Object> listMap = null;
+         
+        File file = new File(filePath);
+        //경로가 존재하지 않을 경우 디렉토리를 만든다.
+        if(file.exists() == false){
+            file.mkdirs();
+        }
+         
+        while(iterator.hasNext()){
+        	USER_FILE_SIZE = multipartHttpServletRequest.getFile(iterator.next());
+            if(USER_FILE_SIZE.isEmpty() == false){
+                //업로드한 파일의 확장자를 포함한 파일명이다.
+            	USER_ORIGINAL = USER_FILE_SIZE.getOriginalFilename();
+                //업로드한 파일의 마지막 .을 포함한 확장자를 substring 한 것.
+                originalFileExtension = USER_ORIGINAL.substring(USER_ORIGINAL.lastIndexOf("."));
+                //32자리의 숫자를 포함한 랜덤 문자열 + 확장자를 붙여준 파일명이다.
+                USER_NEW_IMG = CommonUtils.getRandomString() + originalFileExtension;
+                 
+                file = new File(filePath + USER_NEW_IMG);
+                USER_FILE_SIZE.transferTo(file);
+                 
+                listMap = new HashMap<String,Object>();
+                //업로드할 당시의 파일이름
+                listMap.put("USER_ORIGINAL", USER_ORIGINAL);
+                //저장할 파일 이름
+                listMap.put("USER_NEW_IMG", USER_NEW_IMG);
+                listMap.put("USER_FILE_SIZE", USER_FILE_SIZE.getSize());
+                listMap.put("USER_NIC", USER_NIC);
+                listMap.put("USER_PW", USER_PW);
+                listMap.put("USER_ID", USER_ID);
+
+                
+                list.add(listMap);
+            }
+        }
+        return list;
+    }
+    
+    //리뷰 사진 업로드 수정_김형태
+    public static List<Map<String,Object>> reviewUpdate(Map<String,Object> map, HttpServletRequest request) throws Exception{
+        MultipartHttpServletRequest multipartHttpServletRequest = (MultipartHttpServletRequest)request;
+        Iterator<String> iterator = multipartHttpServletRequest.getFileNames();
+         String REVIEW_TITLE = request.getParameter("REVIEW_TITLE");
+         String REVIEW_CONTENT = request.getParameter("REVIEW_CONTENT");
+         String REVIEW_INDEX = request.getParameter("REVIEW_INDEX");
+         String USER_ID = request.getParameter("USER_ID");
+         
+        MultipartFile REVIEW_FILE_SIZE = null;
+        String REVIEW_ORIGINAL = null;
+        String originalFileExtension = null;
+        String REVIEW_NEW_IMG = null;
+         
+        List<Map<String,Object>> list = new ArrayList<Map<String,Object>>();
+        Map<String, Object> listMap = null;
+         
+
+         
+        File file = new File(filePath);
+        //경로가 존재하지 않을 경우 디렉토리를 만든다.
+        if(file.exists() == false){
+            file.mkdirs();
+        }
+         
+        while(iterator.hasNext()){
+        	REVIEW_FILE_SIZE = multipartHttpServletRequest.getFile(iterator.next());
+            if(REVIEW_FILE_SIZE.isEmpty() == false){
+                //업로드한 파일의 확장자를 포함한 파일명이다.
+            	REVIEW_ORIGINAL = REVIEW_FILE_SIZE.getOriginalFilename();
+                //업로드한 파일의 마지막 .을 포함한 확장자를 substring 한 것.
+                originalFileExtension = REVIEW_ORIGINAL.substring(REVIEW_ORIGINAL.lastIndexOf("."));
+                //32자리의 숫자를 포함한 랜덤 문자열 + 확장자를 붙여준 파일명이다.
+                REVIEW_NEW_IMG = CommonUtils.getRandomString() + originalFileExtension;
+                 
+                file = new File(filePath + REVIEW_NEW_IMG);
+                REVIEW_FILE_SIZE.transferTo(file);
+                 
+                listMap = new HashMap<String,Object>();
+
+                //업로드할 당시의 파일이름
+                listMap.put("REVIEW_ORIGINAL", REVIEW_ORIGINAL);
+                //저장할 파일 이름
+                listMap.put("REVIEW_NEW_IMG", REVIEW_NEW_IMG);
+                listMap.put("REVIEW_FILE_SIZE", REVIEW_FILE_SIZE.getSize());
+                listMap.put("REVIEW_TITLE", REVIEW_TITLE);
+                listMap.put("REVIEW_CONTENT", REVIEW_CONTENT);
+                listMap.put("REVIEW_INDEX", REVIEW_INDEX);
+                listMap.put("USER_ID", USER_ID);
+       
+                
                 list.add(listMap);
             }
         }
@@ -403,17 +512,20 @@ public class FileUtils {
         return list;
     }
     
-    
-    //FOOD 파일 업로드_이 솔
-    public static List<Map<String,Object>> foodUpload(Map<String,Object> map, HttpServletRequest request) throws Exception{
+
+
+ //자료실 파일 업로드 조영준
+    public static List<Map<String,Object>> dataUpload(Map<String,Object> map, HttpServletRequest request) throws Exception{
         MultipartHttpServletRequest multipartHttpServletRequest = (MultipartHttpServletRequest)request;
         Iterator<String> iterator = multipartHttpServletRequest.getFileNames();
-         String food_content = request.getParameter("FOOD_CONTENT");
+         String DATA_TITLE = request.getParameter("DATA_TITLE");
+         String DATA_CONTENT = request.getParameter("DATA_CONTENT");
          
-        MultipartFile FOOD_SIZE = null;
-        String FOOD_IMG = null;
+        MultipartFile DATA_SIZE = null;
+        String DATA_IMG = null;
         String originalFileExtension = null;
-        String FOOD_THUMB = null;
+        String DATA_THUMB = null;
+
          
         List<Map<String,Object>> list = new ArrayList<Map<String,Object>>();
         Map<String, Object> listMap = null;
@@ -425,44 +537,53 @@ public class FileUtils {
         }
          
         while(iterator.hasNext()){
-        	FOOD_SIZE = multipartHttpServletRequest.getFile(iterator.next());
-            if(FOOD_SIZE.isEmpty() == false){
+
+        	DATA_SIZE = multipartHttpServletRequest.getFile(iterator.next());
+            if(DATA_SIZE.isEmpty() == false){
                 //업로드한 파일의 확장자를 포함한 파일명이다.
-            	FOOD_IMG = FOOD_SIZE.getOriginalFilename();
+            	DATA_IMG = DATA_SIZE.getOriginalFilename();
                 //업로드한 파일의 마지막 .을 포함한 확장자를 substring 한 것.
-                originalFileExtension = FOOD_IMG.substring(FOOD_IMG.lastIndexOf("."));
+                originalFileExtension = DATA_IMG.substring(DATA_IMG.lastIndexOf("."));
                 //32자리의 숫자를 포함한 랜덤 문자열 + 확장자를 붙여준 파일명이다.
-                FOOD_THUMB = CommonUtils.getRandomString() + originalFileExtension;
+                DATA_THUMB = CommonUtils.getRandomString() + originalFileExtension;
                  
-                file = new File(filePath + FOOD_THUMB);
-                FOOD_SIZE.transferTo(file);
+                file = new File(filePath + DATA_THUMB);
+                DATA_SIZE.transferTo(file);
+
                  
                 listMap = new HashMap<String,Object>();
                 // listMap.put("BOARD_IDX", boardIdx);
                 //업로드할 당시의 파일이름
-                listMap.put("FOOD_IMG", FOOD_IMG);
+
+                listMap.put("DATA_IMG", DATA_IMG);
                 //저장할 파일 이름
-                listMap.put("FOOD_THUMB", FOOD_THUMB);
-                listMap.put("FOOD_SIZE", FOOD_SIZE.getSize());
-                listMap.put("FOOD_CONTENT", food_content);
+                listMap.put("DATA_THUMB", DATA_THUMB);
+                listMap.put("DATA_SIZE", DATA_SIZE.getSize());
+                listMap.put("DATA_TITLE", DATA_TITLE);
+                listMap.put("DATA_CONTENT", DATA_CONTENT);
+
 
                 list.add(listMap);
             }
         }
         return list;
     }
-    
-    //FOOD 수정 파일 업로드_이 솔
-    public static List<Map<String,Object>> foodUpdate(Map<String,Object> map, HttpServletRequest request) throws Exception{
+
+
+    //자료실 수정 파일 업로드_조영준
+    public static List<Map<String,Object>> dataUpdate(Map<String,Object> map, HttpServletRequest request) throws Exception{
         MultipartHttpServletRequest multipartHttpServletRequest = (MultipartHttpServletRequest)request;
         Iterator<String> iterator = multipartHttpServletRequest.getFileNames();
-         String food_content = request.getParameter("FOOD_CONTENT");
-         String food_index = request.getParameter("FOOD_INDEX");     
+         String DATA_KATE = request.getParameter("DATA_KATE");
+         String DATA_TITLE = request.getParameter("DATA_TITLE");
+         String DATA_CONTENT = request.getParameter("DATA_CONTENT");
+         String DATA_INDEX = request.getParameter("DATA_INDEX");     
          
-        MultipartFile FOOD_SIZE = null;
-        String FOOD_IMG = null;
+        MultipartFile DATA_SIZE = null;
+        String DATA_IMG = null;
         String originalFileExtension = null;
-        String FOOD_THUMB = null;
+        String DATA_THUMB = null;
+
          
         List<Map<String,Object>> list = new ArrayList<Map<String,Object>>();
         Map<String, Object> listMap = null;
@@ -474,27 +595,33 @@ public class FileUtils {
         }
          
         while(iterator.hasNext()){
-        	FOOD_SIZE = multipartHttpServletRequest.getFile(iterator.next());
-            if(FOOD_SIZE.isEmpty() == false){
+
+        	DATA_SIZE = multipartHttpServletRequest.getFile(iterator.next());
+            if(DATA_SIZE.isEmpty() == false){
                 //업로드한 파일의 확장자를 포함한 파일명이다.
-            	FOOD_IMG = FOOD_SIZE.getOriginalFilename();
+            	DATA_IMG = DATA_SIZE.getOriginalFilename();
                 //업로드한 파일의 마지막 .을 포함한 확장자를 substring 한 것.
-                originalFileExtension = FOOD_IMG.substring(FOOD_IMG.lastIndexOf("."));
+                originalFileExtension = DATA_IMG.substring(DATA_IMG.lastIndexOf("."));
                 //32자리의 숫자를 포함한 랜덤 문자열 + 확장자를 붙여준 파일명이다.
-                FOOD_THUMB = CommonUtils.getRandomString() + originalFileExtension;
+                DATA_THUMB = CommonUtils.getRandomString() + originalFileExtension;
                  
-                file = new File(filePath + FOOD_THUMB);
-                FOOD_SIZE.transferTo(file);
+                file = new File(filePath + DATA_THUMB);
+                DATA_SIZE.transferTo(file);
+
                  
                 listMap = new HashMap<String,Object>();
 
                 //업로드할 당시의 파일이름
-                listMap.put("FOOD_IMG", FOOD_IMG);
+
+                listMap.put("DATA_IMG", DATA_IMG);
                 //저장할 파일 이름
-                listMap.put("FOOD_THUMB", FOOD_THUMB);
-                listMap.put("FOOD_SIZE", FOOD_SIZE.getSize());
-                listMap.put("FOOD_CONTENT", food_content);
-                listMap.put("FOOD_INDEX", food_index);
+                listMap.put("DATA_THUMB", DATA_THUMB);
+                listMap.put("DATA_SIZE", DATA_SIZE.getSize());
+                listMap.put("DATA_KATE", DATA_KATE);
+                listMap.put("DATA_TITLE", DATA_TITLE);
+                listMap.put("DATA_CONTENT", DATA_CONTENT);
+                listMap.put("DATA_INDEX", DATA_INDEX);
+
        
                 list.add(listMap);
             }

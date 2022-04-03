@@ -12,8 +12,8 @@ public class ReviewDAO extends AbstractDAO{
 
 	// 리뷰 페이지
 	@SuppressWarnings("unchecked")
-	public List<Map<String, Object>> reviewPage(Map<String, Object> map) {
-		return (List<Map<String, Object>>) selectPagingList("review.reviewPage", map);
+	public List<Map<String, Object>> review(Map<String, Object> map) {
+		return (List<Map<String, Object>>) selectPagingList("review.review", map);
 	}
 	
 	// 리뷰 작성
@@ -41,7 +41,7 @@ public class ReviewDAO extends AbstractDAO{
 	//리뷰 정보 가져오기
 	@SuppressWarnings("unchecked")
 	public Map<String, Object> reviewImpo(Map<String, Object> map) throws Exception{
-		return (Map<String, Object>)selectOne("review.review",map);
+		return (Map<String, Object>)selectOne("review.reviewImpo",map);
 	}
 	
 	//리뷰 수정
@@ -49,5 +49,9 @@ public class ReviewDAO extends AbstractDAO{
 		update("review.reviewUpdate", map);
 	}
 	
-	
+	//리뷰 검색
+	@SuppressWarnings("unchecked")
+	public List<Map<String, Object>> search(Map<String, Object> map) {
+		return (List<Map<String, Object>>) selectPagingList("review.search", map);
+	}
 }

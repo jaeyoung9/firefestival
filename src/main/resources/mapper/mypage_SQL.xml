@@ -68,21 +68,5 @@ AND
 TB_REVIEW.DEL_GB = 'N'
 ]]>
 </select>
-<!-- 마이페이지 당점이벤트 -->
-<select id="myevent" parameterType="hashmap" resultType="hashmap">
-<![CDATA[
-SELECT
-EVENT_TITLE
-FROM
-TB_EVENT
-INNER JOIN
-TB_MEMBER
-ON
-TB_EVENT.USER_ID = TB_MEMBER.USER_ID
-WHERE
-TB_EVENT.USER_ID = #{USER_ID}
-AND
-TN_REVENT.KATE = 'Y'
-]]>
-</select>
+
 </mapper>

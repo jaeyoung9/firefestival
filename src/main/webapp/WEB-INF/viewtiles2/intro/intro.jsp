@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<%@ include file="/WEB-INF/viewtiles2/include/include-header.jspf"%>
 
 <!DOCTYPE html>
 <html lang="UTF-8" class="no-js">
@@ -20,7 +20,7 @@
 <!-- meta character set -->
 <meta charset="UTF-8">
 <!-- Site Title -->
-<title>Portfolio Details</title>
+<title>소개글</title>
 
 <link
 	href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700"
@@ -40,45 +40,45 @@
 
 <body>
 
-	<%-- <c:forEach items="${intro}" var="intro">
+
+	<c:forEach items="${intro}" var="intro">
 		<input type="hidden" id="MAIN_TITLE" value="${intro.MAIN_TITLE}">
 		<input type="hidden" id="MAIN_IMG" value="${intro.MAIN_IMG}">
 		<input type="hidden" id="MAIN_KATE" value="${intro.MAIN_KATE}">
 		<input type="hidden" id="MAIN_CONTENT" value="${intro.MAIN_CONTENT}">
-	</c:forEach> --%>
 
 
-	<!--######## start banner Area ########-->
-	<section class="banner-area relative" id="home">
-		<div class="container">
-			<div class="row d-flex align-items-center justify-content-center">
-				<div class="about-content col-lg-12">
-					<h1 class="text-white text-uppercase">Portfolio Details</h1>
-					<p class="text-white link-nav">
-						<a href="index.html">Home </a> <span class="lnr lnr-arrow-right"></span>
-						<a href="portfolio-details.html"> Portfolio Details</a>
-					</p>
+		<!--######## start banner Area ########-->
+		<section class="banner-area relative" id="home">
+			<div class="container">
+				<div class="row d-flex align-items-center justify-content-center">
+					<div class="about-content col-lg-12">
+						<h1 class="text-black text-uppercase">소개글1</h1>
+						<p class="text-black link-nav"></p>
+					</div>
 				</div>
 			</div>
-		</div>
-	</section>
-	<!--######## End banner Area ########-->
+		</section>
+		<!--######## End banner Area ########-->
 
-	<!--######## Portfolio Details Area ########-->
-	<section class="portfolio_details_area section-gap">
-		<div class="container">
-			<div class="portfolio_details_inner">
-				<div class="row">
-					<div class="col-md-6">
-						<div class="left_img">
-							<img class="img-fluid" src="img/project-details-1.jpg" alt="">
+		<!--######## Portfolio Details Area ########-->
+		<section class="portfolio_details_area section-gap">
+			<div class="container">
+				<div class="portfolio_details_inner">
+					<div class="row">
+						<div class="col-md-6">
+							<div class="left_img">
+								<img class="img-fluid"
+									src="<%=request.getContextPath()%>/images/UP/${intro.MAIN_IMG}"
+									alt="">
+
+							</div>
 						</div>
-					</div>
-					<div class="offset-md-1 col-md-5">
-						<div class="portfolio_right_text mt-30">
-							<h4>타이틀자리</h4>
-							<p>내용자리내용자리내용자리내용자리내용자리내용자리내용자리내용자리내용자리내용자리내용자리내용자리내용자리내용자리내용자리내용자리</p>
-							<ul class="list">
+						<div class="offset-md-1 col-md-5">
+							<div class="portfolio_right_text mt-30">
+								<h4>${intro.MAIN_TITLE}</h4>
+								<p>${intro.MAIN_CONTENT}</p>
+								<!-- <ul class="list">
 								<li><span>Rating</span>: <i class="fa fa-star"></i><i
 									class="fa fa-star"></i><i class="fa fa-star"></i><i
 									class="fa fa-star"></i><i class="fa fa-star"></i></li>
@@ -92,52 +92,39 @@
 								<li><a href="#"><i class="fa fa-behance"></i></a></li>
 								<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
 								<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-							</ul>
+							</ul> -->
+							</div>
 						</div>
 					</div>
+
 				</div>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
-					do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-					enim ad minim veniam, quis nostrud exercitation ullamco laboris
-					nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-					reprehenderit.</p>
-				<p>Voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-					Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
-					officia deserunt mollit anim id est laborum. Sed ut perspiciatis
-					unde omnis iste natus error sit voluptatem accusantium doloremque
-					laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore
-					veritatis et quasi architecto beatae vitae dicta sunt explicabo.
-					Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit
-					aut fugit, sed quia consequuntur magni dolores eos qui ratione
-					voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem
-					ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia
-					non numquam eius modi tempora incidunt ut labore et dolore magnam
-					aliquam quaerat voluptatem.</p>
 			</div>
-		</div>
-	</section>
-	<!--######## End Portfolio Details Area ########-->
 
 
-	<script src="js/vendor/jquery.min.js"></script>
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-		integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-		crossorigin="anonymous"></script>
-	<script src="js/vendor/bootstrap.min.js"></script>
-	<script type="text/javascript"
-		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
-	<script src="js/easing.min.js"></script>
-	<script src="js/hoverIntent.js"></script>
-	<script src="js/superfish.min.js"></script>
-	<script src="js/jquery.ajaxchimp.min.js"></script>
-	<script src="js/jquery.magnific-popup.min.js"></script>
-	<script src="js/owl.carousel.min.js"></script>
-	<script src="js/isotope.pkgd.min.js"></script>
-	<script src="js/owl.carousel.min.js"></script>
-	<script src="js/jquery.nice-select.min.js"></script>
-	<script src="js/mail-script.js"></script>
-	<script src="js/main.js"></script>
+		</section>
+
+		<!--######## End Portfolio Details Area ########-->
+
+
+		<script src="js/vendor/jquery.min.js"></script>
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+			integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+			crossorigin="anonymous"></script>
+		<script src="js/vendor/bootstrap.min.js"></script>
+		<script type="text/javascript"
+			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
+		<script src="js/easing.min.js"></script>
+		<script src="js/hoverIntent.js"></script>
+		<script src="js/superfish.min.js"></script>
+		<script src="js/jquery.ajaxchimp.min.js"></script>
+		<script src="js/jquery.magnific-popup.min.js"></script>
+		<script src="js/owl.carousel.min.js"></script>
+		<script src="js/isotope.pkgd.min.js"></script>
+		<script src="js/owl.carousel.min.js"></script>
+		<script src="js/jquery.nice-select.min.js"></script>
+		<script src="js/mail-script.js"></script>
+		<script src="js/main.js"></script>
+	</c:forEach>
 </body>
-
 </html>

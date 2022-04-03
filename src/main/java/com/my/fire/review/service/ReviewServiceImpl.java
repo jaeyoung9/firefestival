@@ -28,19 +28,19 @@ public class ReviewServiceImpl implements ReviewService {
 
 	//리뷰 페이지
 	@Override
-	public List<Map<String, Object>> reviewPage(Map<String, Object> map){
+	public List<Map<String, Object>> review(Map<String, Object> map){
 		// TODO Auto-generated method stub
-		return reviewDAO.reviewPage(map);
+		return reviewDAO.review(map);
 	}
 	
 	//리뷰 작성
 	@Override
 	public void reviewUserWrite(Map<String, Object> map, HttpServletRequest request) throws Exception {
 		// TODO Auto-generated method stub
-		List<Map<String, Object>> list = fileUtils.revieUpdate(map, request);
+		List<Map<String, Object>> list = fileUtils.reviewUpload(map, request);
 		for(int i = 0; i < list.size(); i++) {
-			Map<String, Object> vo = list.get(i);
-		reviewDAO.reviewUserWrite(vo);
+			Map<String, Object> reviewWrite = list.get(i);
+		reviewDAO.reviewUserWrite(reviewWrite);
 	}
 		// log
 		MultipartHttpServletRequest multipartHttpServletRequest = (MultipartHttpServletRequest) request;
@@ -88,9 +88,35 @@ public class ReviewServiceImpl implements ReviewService {
 	
 	//리뷰 수정
 	@Override
-	public void reviewUpdate(Map<String, Object> map) throws Exception {
+	public void reviewUpdate(Map<String, Object> map, HttpServletRequest request) throws Exception {
 		// TODO Auto-generated method stub
-		reviewDAO.reviewUpdate(map);
+		List<Map<String, Object>> list = fileUtils.reviewUpdate(map, request);
+		for(int i = 0; i < list.size(); i++) {
+			Map<String, Object> reviewUp = list.get(i);
+
+			reviewDAO.reviewUpdate(reviewUp);
+		}
+		
+		// log
+				MultipartHttpServletRequest multipartHttpServletRequest = (MultipartHttpServletRequest) request;
+				Iterator<String> iterator = multipartHttpServletRequest.getFileNames();
+				MultipartFile multipartFile = null;
+				while (iterator.hasNext()) {
+					multipartFile = multipartHttpServletRequest.getFile(iterator.next());
+					if (multipartFile.isEmpty() == false) {
+						log.debug("---------- file start ----------");
+						log.debug("name : " + multipartFile.getName());
+						log.debug("filename : " + multipartFile.getOriginalFilename());
+						log.debug("size : " + multipartFile.getSize());
+						log.debug("---------- file end ----------\n");
+					}
+				}
+	}
+
+	@Override
+	public List<Map<String, Object>> search(Map<String, Object> map) {
+		// TODO Auto-generated method stub
+		return reviewDAO.search(map);
 	}
 	
 	

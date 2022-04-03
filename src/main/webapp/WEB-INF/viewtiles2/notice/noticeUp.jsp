@@ -9,11 +9,18 @@
 <title>공지사항 수정</title>
 </head>
 <body>
-<div style="justify-content: center">
+<div class="container py-3" style="justify-content: center">
 <form id="noticeUp" action="/notice/Up" method="POST" enctype="multipart/form-data">
  <c:forEach items="${NDetail}" var="ndetail">
  <input type="hidden" name="NOTICE_INDEX" id="NOTICE_INDEX" value="${ndetail.NOTICE_INDEX}">
 <table>
+		<tr>
+			<td>
+				<div class="form-group">
+				<h2>공지사항 수정</h2>
+				</div>
+			</td>
+		</tr>
 		<tr>
 			<td>
 				<div class="form-group">
@@ -26,7 +33,7 @@
 			<td>
 				<div class="form-group">
                 	<label class="form-label mt-4">내용</label>
-                	<textarea name="NOTICE_CONTENT"  class="form-control" id="NOTICE_CONTENT" class="editor" maxlength="3000">${ndetail.NOTICE_CONTENT}</textarea>
+                	<textarea name="NOTICE_CONTENT"  class="form-control" id="NOTICE_CONTENT" rows="20" cols="150" class="editor" maxlength="3000">${ndetail.NOTICE_CONTENT}</textarea>
             	</div>
             </td>
 		</tr>
@@ -41,7 +48,7 @@
 		</tr>
 <tr>
 <td>
-<button type="button" class="primary-btn header-btn text-capitalize mt-10" >등록</button>
+<button type="button" class="primary-btn header-btn text-capitalize mt-10 submit" >등록</button>
 </td>
 </tr>
 

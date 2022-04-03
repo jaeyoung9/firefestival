@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="calendar">
+<select id="selectCalendar" parameterType="hashmap" resultType="hashmap">
+<![CDATA[
+SELECT
+         EVENT_INDEX,
+         EVENT_TITLE,
+         EVENT_CONTENT,
+         EVENT_THUMB,
+         EVENT_IMG,
+         EVENT_SIZE,
+         EVENT_KATE,
+         TO_CHAR(EVENT_START,'yyyy-MM-dd') "EVENT_START",
+         TO_CHAR(EVENT_END,'yyyy-MM-dd') "EVENT_END"
+      FROM TB_EVENT
+         WHERE EVENT_KATE = 'N'
+
+]]>
+
+</select>
+
+	
+	
+
+</mapper>

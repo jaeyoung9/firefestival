@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.my.fire.login.dao.LoginDAO;
 
-//로그인 ServiceImpl_김형태
+//로그인 ServiceImpl_한창식
 @Service("loginService")
 public class LoginServiceImpl implements LoginService {
 
@@ -42,5 +42,15 @@ public class LoginServiceImpl implements LoginService {
 //	@Override
 //	public Map<String, Object> selectLoginUser(Map<String, Object> map) throws Exception{
 //		return loginDAO.selectLoginUser(map);
+//	}
+	
+	//비밀번호 변경 
+//	@Override
+//	public String pwCheck(String memberId)throws Exception{
+//		return LoginDAO.pwCheck(memberId);
+//	}
+//	@Override
+//	public void pwUpdate(String memberId, String hashedPw)throws Exception{
+//		LoginDAO.pwUpdate(memberId,hashedPw);
 //	}
 }

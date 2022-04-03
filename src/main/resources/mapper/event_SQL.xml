@@ -4,7 +4,7 @@
 
 <!-- 정주영 - event  -->
 
-	<!-- 페이징  -->
+	<!-- 진행중 이벤트 페이징  -->
 	<select id="event" parameterType="hashmap" resultType="hashmap">
 		<include refid="common.pagingPre" />
 		<![CDATA[
@@ -26,10 +26,79 @@
 			EVENT_SIZE,
 			EVENT_KATE
 		FROM TB_EVENT
-			WHERE EVENT_KATE = 'N')
+			WHERE EVENT_KATE = 'N' AND DEL_GB = 'N')
 		]]>
 		<include refid="common.pagingPost" />
 	</select>
+	
+	<!-- 종료된 이벤트 페이징  -->
+	<select id="eventEnd" parameterType="hashmap" resultType="hashmap">
+		<include refid="common.pagingPre" />
+		<![CDATA[
+		SELECT
+			ROW_NUMBER() OVER (ORDER BY EVENT_INDEX DESC) RNUM,
+			EVENT_INDEX,
+			EVENT_TITLE,
+			EVENT_CONTENT,
+			EVENT_THUMB,
+			EVENT_IMG,
+			EVENT_SIZE,
+			EVENT_KATE
+		FROM (SELECT ROW_NUMBER() OVER (ORDER BY EVENT_INDEX DESC) RNUM,
+			EVENT_INDEX,
+			EVENT_TITLE,
+			EVENT_CONTENT,
+			EVENT_THUMB,
+			EVENT_IMG,
+			EVENT_SIZE,
+			EVENT_KATE
+		FROM TB_EVENT
+			WHERE EVENT_KATE = 'Y' AND DEL_GB = 'N')
+		]]>
+		<include refid="common.pagingPost" />
+	</select>
+
+	<!-- 이벤트 신청 -->
+	<insert id="eventApply" parameterType="hashmap">
+		<![CDATA[
+			INSERT INTO TB_EVENT_APPLY ( 
+				EVENT_APPLY_NUM,
+				EVENT_INDEX,
+				EVENT_TITLE,
+				USER_ID
+			) VALUES ( 
+				TB_EVENT_APPLY_SEQ.NEXTVAL,
+				#{EVENT_INDEX},
+				#{EVENT_TITLE},
+				#{USER_ID}
+			)
+		]]>
+	</insert>
+	
+	<!-- 이벤트 신청 내역-->
+	<select id="applyList" parameterType="hashmap" resultType="hashmap">
+		<![CDATA[
+			SELECT * FROM  ( select rownum as RNUM,  s.* 
+				FROM(SELECT
+					A.EVENT_APPLY_NUM,
+					A.EVENT_INDEX,
+					M.USER_ID,
+					E.EVENT_TITLE,
+					A.EVENT_WIN
+					FROM TB_EVENT_APPLY A, TB_MEMBER M, TB_EVENT E
+					WHERE M.USER_ID = A.USER_ID AND E.EVENT_TITLE = A.EVENT_TITLE
+				)s) WHERE RNUM >= '0' AND RNUM <= '10'
+		]]>
+	</select>
+
+	<!-- 이벤트 당첨 여부 수정 -->
+	<update id="win" parameterType="hashmap">
+		<![CDATA[
+			UPDATE TB_EVENT_APPLY
+			SET EVENT_WIN = #{EVENT_WIN}
+			WHERE EVENT_APPLY_NUM = #{EVENT_APPLY_NUM}
+		]]>
+	</update>
 	
 	<!-- 이벤트 상세페이지 -->
 	<select id="eventDetail" parameterType="hashmap" resultType="hashmap">
@@ -67,27 +136,25 @@
 		<![CDATA[
 		UPDATE TB_EVENT
 		SET
+			EVENT_KATE = #{EVENT_KATE},
 			EVENT_TITLE = #{EVENT_TITLE},
 			EVENT_CONTENT = #{EVENT_CONTENT},
 			EVENT_IMG = #{EVENT_IMG},
 			EVENT_THUMB = #{EVENT_THUMB},
-			EVENT_SIZE = #{EVENT_SIZE},
-			EVENT_KATE = #{EVENT_KATE}	
+			EVENT_SIZE = #{EVENT_SIZE}
 		WHERE
 			EVENT_INDEX = #{EVENT_INDEX}
 		]]>
 	</update>
 	
 		<!-- 이벤트 삭제 -->
-	<delete id="eventDelete" parameterType="hashmap">
+	<update id="eventDelete" parameterType="hashmap">
 		<![CDATA[
-		DELETE
-		FROM TB_EVENT
-		WHERE
-		EVENT_INDEX = #{EVENT_INDEX}
+		UPDATE TB_EVENT
+		SET DEL_GB = 'Y'
+		WHERE EVENT_INDEX = #{EVENT_INDEX}
 		]]>
-	</delete>
+	</update>
 <!-- where AMIN_TIM = #{AMIN_TIM} -->
-
 
 </mapper>

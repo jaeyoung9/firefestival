@@ -3,6 +3,8 @@ package com.my.fire.mypage.dao;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.stereotype.Repository;
 
 import com.my.fire.common.dao.AbstractDAO;
@@ -20,7 +22,7 @@ public class MyPageDAO extends AbstractDAO {
 	}
 
 	//회원정보 수정
-	public void myUpdate(Map<String, Object> map) throws Exception {
+	public void myUpdate(Map<String, Object> map ) throws Exception {
 		update("myPage.myUpdate", map);
 		
 	}
@@ -39,14 +41,13 @@ public class MyPageDAO extends AbstractDAO {
 	// 내리뷰 보기
 	@SuppressWarnings("unchecked")
 	public List<Map<String, Object>> myreview(Map<String, Object> map) throws Exception {
-		System.out.println("DAO");
 		return (List<Map<String,Object>>)selectList("myPage.myreview", map);
 	}
 
-	//내 이벤트 보기
+	// 이벤트 신청 내역
 	@SuppressWarnings("unchecked")
-	public List<Map<String, Object>> myevent(Map<String, Object> map) throws Exception {
-		return (List<Map<String,Object>>)selectList("mypage.myevent", map);
+	public List<Map<String, Object>> applyList(Map<String, Object> map){
+			return (List<Map<String, Object>>) selectList("event.applyList",map);
 	}
 
 }

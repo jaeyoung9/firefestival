@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
+//import org.json.simple.JSONObject;
+//import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -21,7 +23,14 @@ import com.my.fire.login.service.LoginService;
 //로그인 Controller_한창식
 @Controller
 public class LoginController {
-
+//private NaverLoginVO naverLoginVo;
+//private String apiResult = null;
+//private String authKey = null;
+//
+//@Autowired
+//private void sentnaverLoginVo(NaverLoginVO naverVO) {
+//	this.naverLoginVo = naverLoginVO;
+//}
 
 	Logger log = Logger.getLogger(this.getClass());
 
@@ -56,41 +65,74 @@ public class LoginController {
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	   public ModelAndView login(CommandMap commandMap, HttpServletRequest request,HttpServletResponse response) throws Exception {
 	      ModelAndView mav = new ModelAndView("main");
-	    //  Map<String,Object>result = loginService.selectLoginUser(commandMap.getMap());
 	      HttpSession session = request.getSession();
-	   // session.setAttribute("USER_ID", id); 
-	      // HttpSession session, @RequestParam String id,
 	      String message="";
 	      String url="";
 	     Map<String,Object> result = loginService.loginMemberCk(commandMap.getMap());
-
 	     
 	     
-	      if(result == null || result.get("DEL_GB").equals("Y")) { // 아이디가 있는지 or 삭제된 아이디인지 확인
-	         message="해당 아이디가 존재하지 않습니다.";
+	      if(result == null || result.get("DEL_GB").equals("Y")) {
+	    	  // 아이디가 있는지 or 삭제된 아이디인지 확인
+	    	  
+	    	  response.setCharacterEncoding("UTF-8");
+			  response.setContentType("text/html; charset=utf-8");
+	    	  PrintWriter out = response.getWriter();
+	    	  out.println("<script>alert('로그인실패 Try Again'); location.href='"+request.getContextPath()+"/main';</script>"); 
+	    	  out.flush();
+	    	
+	    
 	      } else { 
 	    	  if(result.get("USER_PW").equals(commandMap.get("USER_PW"))) { // 비밀번호가 같다면
 	    		  session.setAttribute("USER_ID", commandMap.get("USER_ID"));
+	    		  session.setAttribute("USER_NEW_IMG", result.get("USER_NEW_IMG"));
 	    		  session.setAttribute("USER_NIC", result.get("USER_NIC"));
 	    		  session.setAttribute("AMIN_TIM", result.get("AMIN_TIM"));
 	    		  
 	    	  } else {//비밀번호가 일치하지 않을 때
-	    		  message="비밀번호가 맞지 않습니다.";
+	    		  response.setCharacterEncoding("UTF-8");
+				  response.setContentType("text/html; charset=utf-8");
+		    	  PrintWriter out = response.getWriter();
+		    	  out.println("<script>alert('비밀번호가 일치하지않습니다. Cheking your Password'); location.href='"+request.getContextPath()+"/loginForm';</script>"); 
+		    	  out.flush();
+		    	
 	    	  }
 	      }
 	      mav.addObject("message", message);
-	      session.setAttribute("session",mav);
+	      
+	    session.setAttribute("session",mav);
 	      
 	     
 	      response.setCharacterEncoding("UTF-8");
 		  response.setContentType("text/html; charset=utf-8");
 	      
 	      PrintWriter out = response.getWriter();
-		  out.println("<script>alert('로그인되었습니다.'); location.href='"+request.getContextPath()+"/main';</script>");
+		  out.println("<script>alert('로그인 성공!'); location.href='"+request.getContextPath()+"/main';</script>");
 		 
 		  out.flush();
 		  return mav;
 	}
+	//@네이버로그인
+	
+//	@RequestMapping(value="/login/naverLogin",method = {RequestMethod.POST,RequestMethod.GET})
+//	public ModelAndView naverLogin(CommandMap commandMap,HttpServletRequest request,@RequestParam String code,@ReqeuestParam String state,HttpSession session)throws Exception{
+//		ModelAndView mav = new ModelAndView("/main");
+//		OAuth2AccessToken oauthToken;
+//		oauthToken = naverLoginVO.getAccessToken(session,code,state);
+//		apiResult = naverLoginVO.getUserProfile(oauthToken);
+//		
+//		JSONParser parser = new JSONParser();
+//		JSONObject jsonObjAll = (JSONObject)parser.parse(apiResult);
+//		String result = jsonObjAll.get("response").toString();
+//		
+//		JSONObject jsonObj = (JSONObject) parser.parse(result);
+//		
+//		String user_nic = jsonObj.get("nicname").toString();
+//		String user_id = jsonObj.get("id").toString();
+//		
+//		Map<String,Object>map = new HashMap<String,Object>();
+//		map.put("ID",user_id);
+//		map.put("NIC",)
+//	}
 	//로그아웃
 	@RequestMapping(value="/logout", method = RequestMethod.GET)
 	   public void logout(HttpServletRequest request,HttpServletResponse response,CommandMap commandMap) throws Exception {
@@ -102,7 +144,7 @@ public class LoginController {
 	      response.setCharacterEncoding("UTF-8");
 		  response.setContentType("text/html; charset=utf-8");
 		  PrintWriter out = response.getWriter();
-		  out.println("<script>alert('로그아웃완료!'); location.href='"+request.getContextPath()+"/main';</script>");
+		  out.println("<script>alert('로그아웃 완료! Logout'); location.href='"+request.getContextPath()+"/main';</script>");
 		 
 		  out.flush();
 	   }
@@ -135,5 +177,25 @@ public class LoginController {
 	         mv.addObject("list", list);
 	         return mv;
 	      }
-	 
+	 //비밀번호 변경 
+//	 @RequestMapping(value = "/pwUpdate",method =RequestMethod.GET)
+//	 public ModelAndView pwUpdate(HttpSession session)throws Exception{
+//		 ModelAndView mav = new ModelAndView();
+//		 Map<String,Object>smap = (Map<String,Object>)session.getAttribute("session");
+//		 Map<String,Object>map = LoginService.pwUpdate(smap);
+//		 mav.addObject("map",map);
+//		 mav.setViewName("/pwUpdate");
+//		 return mav;
+//	 }
+//	 
+//	 @RequestMapping(value = "/pwUpdate",method = RequestMethod.POST)
+//	 public ModelAndView pwUpdate(HttpServletRequest request,CommandMap commandMap,HttpSession session)throws Exception{
+//		 ModelAndView mav = new ModelAndView();
+//		 Map<String,Object>map2 = (Map<String,Object>)session.getAttribute("session");
+//		 commandMap.put("USER_NO", map2.get("USER_NO"));
+//		 LoginService.pwUpdate(commandMap.getMap());
+//		// session.setAttribute("session",LoginService.pwUpdate(map2));
+//		mav.setViewName("redirect:/pwUpdate?USER_NO="+map2.get("USER_NO"));
+//		 return mav;
+//	 }
 }

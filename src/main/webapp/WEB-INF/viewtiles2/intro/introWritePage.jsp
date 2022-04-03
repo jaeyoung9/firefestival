@@ -43,8 +43,8 @@
 				},
 				success : function(data) {
 					console.log('jQeury ajax form submit success');
-					alert("업로드완료");
-					location.href = "/fire/introWritePage"
+					alert("등록완료");
+					location.href = "/fire/intro/WritePage"
 				},
 				error : function(data) {
 					console.log('jQeury ajax form submit error');
@@ -104,6 +104,7 @@
 							<input type="text" maxlength="300" id="MAIN_TITLE"
 								name="MAIN_TITLE" class="" required>
 							<p>
+							<h4>내용</h4>
 								<textarea name="MAIN_CONTENT" id="MAIN_CONTENT" cols="50"
 									maxlength="3000" rows="25" class="" required></textarea>
 
@@ -112,8 +113,8 @@
 							<ul class="list">
 								<li><span>파일</span><input type="file" id="MAIN_IMG"
 									name="file"></li>
-									<li><span>카테고리</span>
-								<input type="text" id="MAIN_KATE" name="MAIN_KATE" required maxlength="1">
+									<li><span>카테고리 번호</span>
+								<input type="text" id="MAIN_KATE" name="MAIN_KATE" required maxlength="1"><br>1소개 2오시는길
 									
 					<!-- 				 <select id="MAIN_KATE">
 						<option value="">구독</option>

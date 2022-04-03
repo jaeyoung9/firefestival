@@ -28,11 +28,18 @@ public class EventServiceImpl implements EventService {
 	@Resource
 	private FileUtils fileUtils;
 	
-		//이벤트 페이지
+		//진행중 이벤트 페이지
 		@Override
 		public List<Map<String, Object>> event(Map<String, Object> map){
 			// TODO Auto-generated method stub
 			return eventDao.event(map);
+		}
+		
+		//종료된 이벤트 페이지
+		@Override
+		public List<Map<String, Object>> eventEnd(Map<String, Object> map){
+			// TODO Auto-generated method stub
+			return eventDao.eventEnd(map);
 		}
 		
 		//이벤트 상세페이지
@@ -40,6 +47,27 @@ public class EventServiceImpl implements EventService {
 		public List<Map<String, Object>> eventDetail(Map<String, Object> map) {
 			// TODO Auto-generated method stub
 			return eventDao.eventDetail(map);
+		}
+		
+		// 이벤트 신청
+		@Override
+		public List<Map<String, Object>> eventApply(Map<String, Object> map) {
+			// TODO Auto-generated method stub
+			return eventDao.eventApply(map);
+		}
+		
+		// 이벤트 신청 내역
+		@Override
+		public List<Map<String, Object>> applyList(Map<String, Object> map) {
+			// TODO Auto-generated method stub
+			return eventDao.applyList(map);
+		}
+		
+		// 이벤트 당첨 여부 수정
+		@Override
+		public Map<String, Object> win(Map<String, Object> map) {
+			// TODO Auto-generated method stub
+			return eventDao.win(map);
 		}
 		
 		//이벤트 작성
@@ -94,7 +122,6 @@ public class EventServiceImpl implements EventService {
 				}
 			}
 		}
-
 
 		// 이벤트 삭제
 		@Override

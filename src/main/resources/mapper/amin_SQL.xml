@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" " http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="amin">
+
+<!-- 민재영 - amin  -->
+
+	<!-- 페이징  -->
+	<select id="member" parameterType="hashmap" resultType="hashmap">
+		<include refid="common.pagingPre" />
+		<![CDATA[
+	SELECT
+			ROW_NUMBER() OVER (ORDER BY USER_NUM DESC) RNUM,
+			USER_NUM, USER_ID, USER_NIC, USER_PW, USER_BLIND, USER_EVENTAPPLY, AMIN_TIM, DEL_GB
+		FROM (SELECT ROW_NUMBER() OVER (ORDER BY USER_NUM DESC) RNUM,
+			USER_NUM, USER_ID, USER_NIC, USER_PW, USER_ORIGINAL, USER_NEW_IMG, USER_FILE_SIZE, USER_BLIND, USER_EVENTAPPLY, AMIN_TIM, DEL_GB
+            		FROM TB_MEMBER)
+		]]>
+		<include refid="common.pagingPost" />
+	</select>
+	
+	<!-- keyword -->
+	<select id="search" parameterType="hashmap" resultType="hashmap">
+		<![CDATA[
+		SELECT
+			ROW_NUMBER() OVER (ORDER BY USER_NUM DESC) RNUM,
+			USER_NUM, USER_ID, USER_NIC, USER_PW, USER_BLIND, USER_EVENTAPPLY, AMIN_TIM, DEL_GB
+		FROM (SELECT ROW_NUMBER() OVER (ORDER BY USER_NUM DESC) RNUM,
+			USER_NUM, USER_ID, USER_NIC, USER_PW, USER_ORIGINAL, USER_NEW_IMG, USER_FILE_SIZE, USER_BLIND, USER_EVENTAPPLY, AMIN_TIM, DEL_GB
+		FROM TB_MEMBER) where USER_ID LIKE '%${keyword}%'
+		]]>
+	</select>
+
+
+
+ 	<update id="memberup" parameterType="hashmap">
+		<![CDATA[
+		UPDATE TB_MEMBER
+
+		<trim prefix="SET" suffixOverrides=",">
+			<if test="USER_BLIND == 'N'">
+				USER_BLIND = 'Y',
+			</if>
+			<if test="USER_BLIND == 'Y'">
+				USER_BLIND = 'N',
+			</if>
+		</trim>	
+		WHERE
+        	USER_NUM = #{USER_NUM}
+		]]>
+	</update>
+<!-- 1번 쿼리 if 
+<set>
+
+			<if test="USER_BLIND == 'N' || 'Y'">
+			USER_BLIND = #{USER_BLIND}
+			</if>
+			<if test="USER_EVENTAPPLY == 'N' || 'Y'">
+			USER_EVENTAPPLY = #{USER_EVENTAPPLY}
+			</if>
+			<if test="AMIN_TIM == 'N' || 'Y'">
+			AMIN_TIM = #{AMIN_TIM}
+			</if>
+			<if test="DEL_GB == 'N' || 'Y'">
+			DEL_GB = #{DEL_GB}
+			</if>
+		</set>
+		
+		
+		<set>
+			<if test="USER_BLIND == 'N'">
+				USER_BLIND = 'Y',
+			</if>
+			<if test="USER_BLIND == 'Y'">
+				USER_BLIND = 'N',
+			</if>
+			
+			<if test="USER_EVENTAPPLY == 'N'">
+				USER_EVENTAPPLY = 'Y',
+			</if>
+			<if test="USER_EVENTAPPLY == 'Y'">
+				USER_EVENTAPPLY = 'N',
+			</if>
+			
+			<if test="AMIN_TIM == 'N'">
+				AMIN_TIM = 'Y',
+			</if>
+			<if test="AMIN_TIM == 'Y'">
+				AMIN_TIM = 'N',
+			</if>
+			
+			<if test="DEL_GB == 'N'">
+				DEL_GB = 'Y',
+			</if>
+			<if test="DEL_GB == 'Y'">
+				DEL_GB = 'N',
+			</if>
+		</set>
+ -->
+ <!-- 2번 쿼리 choose
+ <trim prefix="SET" suffixOverrides=",">
+ <choose>
+				<when test="USER_BLIND == 'N'">
+				USER_BLIND = 'Y'
+				</when>
+				<when test="USER_BLIND == 'Y'">
+				USER_BLIND = 'N'
+				</when>
+				<when test="USER_EVENTAPPLY == 'N'">
+				USER_EVENTAPPLY = 'Y'
+				</when>
+				<when test="USER_EVENTAPPLY == 'Y'">
+				USER_EVENTAPPLY = 'N'
+				</when>
+				<when test="AMIN_TIM == 'N'">
+				AMIN_TIM = 'Y'
+				</when>
+				<when test="AMIN_TIM == 'Y'">
+				AMIN_TIM = 'N'
+				</when>
+				<when test="DEL_GB == 'N'">
+				DEL_GB = 'Y'
+				</when>
+				<when test="DEL_GB == 'Y'">
+				DEL_GB = 'N'
+				</when>
+			</choose>
+			
+			
+				<choose>
+				<when test="USER_BLIND == 'N'">USER_BLIND = 'Y',</when>
+				<when test="USER_BLIND == 'Y'">USER_BLIND = 'N',</when>
+				<when test="USER_EVENTAPPLY == 'N'">USER_EVENTAPPLY = 'Y',</when>
+				<when test="USER_EVENTAPPLY == 'Y'">USER_EVENTAPPLY = 'N',</when>
+				<when test="AMIN_TIM == 'N'">AMIN_TIM = 'Y',</when>
+				<when test="AMIN_TIM == 'Y'">AMIN_TIM = 'N',</when>
+				<when test="DEL_GB == 'N'">DEL_GB = 'Y',</when>
+				<when test="DEL_GB == 'Y'">DEL_GB = 'N',</when>
+			</choose>
+			
+				<choose>
+				<when test="USER_BLIND == 'N'">USER_BLIND = 'Y'</when>
+				<otherwise>USER_BLIND = 'N'</otherwise>
+				 
+				<when test="USER_EVENTAPPLY == 'N'">USER_EVENTAPPLY = 'Y'</when>
+				<otherwise>USER_EVENTAPPLY = 'N'</otherwise>
+				 
+				<when test="AMIN_TIM == 'N'">AMIN_TIM = 'Y'</when>
+				<otherwise>AMIN_TIM = 'N'</otherwise>
+				 
+				<when test="DEL_GB == 'N'">DEL_GB = 'Y'</when>
+				<otherwise>DEL_GB = 'N'</otherwise>
+			</choose>
+			
+ 
+  -->
+	
+	
+	
+</mapper>
