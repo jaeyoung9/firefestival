@@ -27,13 +27,20 @@ public class FoodServiceImpl implements FoodService {
 	@Resource
 	private FileUtils fileUtils;
 		
-	//FOOD 페이지
+	//먹거리 페이지
 	@Override
 	public List<Map<String, Object>> food(Map<String, Object> map){
 		// TODO Auto-generated method stub
 		return foodDao.food(map);
 	}
-			
+
+	//푸드트럭 페이지
+	@Override
+	public List<Map<String, Object>> truck(Map<String, Object> map){
+		// TODO Auto-generated method stub
+		return foodDao.food(map);
+	}
+	
 	//FOOD 상세 페이지
 	@Override
 	public List<Map<String, Object>> foodDetail(Map<String, Object> map) {

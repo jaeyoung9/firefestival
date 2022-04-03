@@ -628,4 +628,103 @@ public class FileUtils {
         }
         return list;
     }
+    
+    
+    //FOOD 파일 업로드_이 솔
+    public static List<Map<String,Object>> foodUpload(Map<String,Object> map, HttpServletRequest request) throws Exception{
+        MultipartHttpServletRequest multipartHttpServletRequest = (MultipartHttpServletRequest)request;
+        Iterator<String> iterator = multipartHttpServletRequest.getFileNames();
+         String food_content = request.getParameter("FOOD_CONTENT");
+         
+        MultipartFile FOOD_SIZE = null;
+        String FOOD_IMG = null;
+        String originalFileExtension = null;
+        String FOOD_THUMB = null;
+         
+        List<Map<String,Object>> list = new ArrayList<Map<String,Object>>();
+        Map<String, Object> listMap = null;
+         
+        File file = new File(filePath);
+        //경로가 존재하지 않을 경우 디렉토리를 만든다.
+        if(file.exists() == false){
+            file.mkdirs();
+        }
+         
+        while(iterator.hasNext()){
+        	FOOD_SIZE = multipartHttpServletRequest.getFile(iterator.next());
+            if(FOOD_SIZE.isEmpty() == false){
+                //업로드한 파일의 확장자를 포함한 파일명이다.
+            	FOOD_IMG = FOOD_SIZE.getOriginalFilename();
+                //업로드한 파일의 마지막 .을 포함한 확장자를 substring 한 것.
+                originalFileExtension = FOOD_IMG.substring(FOOD_IMG.lastIndexOf("."));
+                //32자리의 숫자를 포함한 랜덤 문자열 + 확장자를 붙여준 파일명이다.
+                FOOD_THUMB = CommonUtils.getRandomString() + originalFileExtension;
+                 
+                file = new File(filePath + FOOD_THUMB);
+                FOOD_SIZE.transferTo(file);
+                 
+                listMap = new HashMap<String,Object>();
+                // listMap.put("BOARD_IDX", boardIdx);
+                //업로드할 당시의 파일이름
+                listMap.put("FOOD_IMG", FOOD_IMG);
+                //저장할 파일 이름
+                listMap.put("FOOD_THUMB", FOOD_THUMB);
+                listMap.put("FOOD_SIZE", FOOD_SIZE.getSize());
+                listMap.put("FOOD_CONTENT", food_content);
+
+                list.add(listMap);
+            }
+        }
+        return list;
+    }
+    
+    //FOOD 수정 파일 업로드_이 솔
+    public static List<Map<String,Object>> foodUpdate(Map<String,Object> map, HttpServletRequest request) throws Exception{
+        MultipartHttpServletRequest multipartHttpServletRequest = (MultipartHttpServletRequest)request;
+        Iterator<String> iterator = multipartHttpServletRequest.getFileNames();
+         String food_content = request.getParameter("FOOD_CONTENT");
+         String food_index = request.getParameter("FOOD_INDEX");     
+         
+        MultipartFile FOOD_SIZE = null;
+        String FOOD_IMG = null;
+        String originalFileExtension = null;
+        String FOOD_THUMB = null;
+         
+        List<Map<String,Object>> list = new ArrayList<Map<String,Object>>();
+        Map<String, Object> listMap = null;
+        
+        File file = new File(filePath);
+        //경로가 존재하지 않을 경우 디렉토리를 만든다.
+        if(file.exists() == false){
+            file.mkdirs();
+        }
+         
+        while(iterator.hasNext()){
+        	FOOD_SIZE = multipartHttpServletRequest.getFile(iterator.next());
+            if(FOOD_SIZE.isEmpty() == false){
+                //업로드한 파일의 확장자를 포함한 파일명이다.
+            	FOOD_IMG = FOOD_SIZE.getOriginalFilename();
+                //업로드한 파일의 마지막 .을 포함한 확장자를 substring 한 것.
+                originalFileExtension = FOOD_IMG.substring(FOOD_IMG.lastIndexOf("."));
+                //32자리의 숫자를 포함한 랜덤 문자열 + 확장자를 붙여준 파일명이다.
+                FOOD_THUMB = CommonUtils.getRandomString() + originalFileExtension;
+                 
+                file = new File(filePath + FOOD_THUMB);
+                FOOD_SIZE.transferTo(file);
+                 
+                listMap = new HashMap<String,Object>();
+
+                //업로드할 당시의 파일이름
+                listMap.put("FOOD_IMG", FOOD_IMG);
+                //저장할 파일 이름
+                listMap.put("FOOD_THUMB", FOOD_THUMB);
+                listMap.put("FOOD_SIZE", FOOD_SIZE.getSize());
+                listMap.put("FOOD_CONTENT", food_content);
+                listMap.put("FOOD_INDEX", food_index);
+       
+                list.add(listMap);
+            }
+        }
+        return list;
+    }
 }

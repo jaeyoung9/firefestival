@@ -7,14 +7,20 @@ import org.springframework.stereotype.Repository;
 
 import com.my.fire.common.dao.AbstractDAO;
 
-//이 솔 - FOOD
+// 이 솔 - FOOD
 @Repository("foodDAO")
 public class FoodDAO extends AbstractDAO {
 
-	// FOOD 페이지
+	// 먹거리 페이지
 	@SuppressWarnings("unchecked")
 	public List<Map<String, Object>> food(Map<String, Object> map) {
 	return (List<Map<String, Object>>) selectPagingList("food.food", map);
+	}
+	
+	// 푸드트럭 페이지
+	@SuppressWarnings("unchecked")
+	public List<Map<String, Object>> truck(Map<String, Object> map) {
+	return (List<Map<String, Object>>) selectPagingList("food.truck", map);
 	}
 
 	// FOOD 상세 페이지

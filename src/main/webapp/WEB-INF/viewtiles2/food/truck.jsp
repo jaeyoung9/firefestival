@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>먹거리</title>
+<title>푸드트럭</title>
 <style>
 td {
         text-align: center;
@@ -17,7 +17,7 @@ td {
 		<input type="hidden" id="FOOD_KATE" value="${FOOD_KATE}">
 		<div class="wrap">
 			<h1 class="card-title text-center">
-				<strong>먹거리</strong>
+				<strong>푸드트럭</strong>
 			</h1>
 			<table class="table table-hover">
 				<tbody>
@@ -28,9 +28,9 @@ td {
 				</colgroup>
 				<thead>
 					<tr class="" style="text-align: center;">
-						<th scope="col">먹거리 번호</th>
-						<th scope="col">먹거리 제목</th>
-						<th scope="col">먹거리 이미지</th>
+						<th scope="col">푸드트럭 번호</th>
+						<th scope="col">푸드트럭 제목</th>
+						<th scope="col">푸드트럭 이미지</th>
 					</tr>
 				</thead>
 				</tbody>
@@ -57,14 +57,14 @@ td {
 
 		function fn_FoodDetail(obj) {
 			var comSubmit = new ComSubmit();
-			comSubmit.setUrl("<c:url value='/food/Detail'/>");
+			comSubmit.setUrl("<c:url value='/truck/Detail'/>");
 			comSubmit.addParam("FOOD_INDEX", obj.parent().find("#FOOD_INDEX").val());
 			comSubmit.submit();
 		}
 
 		function fn_food(pageNo) {
 			var comAjax = new ComAjax();
-			comAjax.setUrl("<c:url value='/food/Page'/>");
+			comAjax.setUrl("<c:url value='/truck/Page'/>");
 			comAjax.setCallback("fn_foodCallbask");
 			comAjax.addParam("PAGE_INDEX", pageNo);
 			comAjax.addParam("PAGE_ROW", 6);
