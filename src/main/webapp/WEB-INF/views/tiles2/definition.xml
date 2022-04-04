@@ -247,5 +247,32 @@
 				<put-attribute name="body"
 					value="/WEB-INF/viewtiles2/data/dataWrite.jsp" />
 			</definition>
+
+			<!-- FOOD -->
+            <definition name="food" extends="base_layout">
+                <!-- <put-attribute name="title" value="먹거리 페이지" /> -->
+                <put-attribute name="body"
+                    value="/WEB-INF/viewtiles2/food/food.jsp" />
+            </definition>
+            <definition name="truck" extends="base_layout">
+                <!-- <put-attribute name="title" value="푸드트럭 페이지" /> -->
+                <put-attribute name="body"
+                    value="/WEB-INF/viewtiles2/food/truck.jsp" />
+            </definition>
+            <definition name="foodDetail" extends="base_layout">
+                <!-- <put-attribute name="title" value="FOOD 상세페이지" /> -->
+                <put-attribute name="body"
+                    value="/WEB-INF/viewtiles2/food/foodDetail.jsp" />
+            </definition>
+            <definition name="foodWrite" extends="base_layout">
+                <!-- <put-attribute name="title" value="FOOD 작성" /> -->
+                <put-attribute name="body"
+                    value="/WEB-INF/viewtiles2/food/foodWrite.jsp" />
+            </definition>
+            <definition name="foodUpdate" extends="base_layout">
+                <!-- <put-attribute name="title" value="FOOD 수정" /> -->
+                <put-attribute name="body"
+                    value="/WEB-INF/viewtiles2/food/foodUpdate.jsp" />
+            </definition>
 			
 </tiles-definitions>
