@@ -30,7 +30,7 @@ public class FoodController {
 	@ResponseBody
 	@RequestMapping(value = "/food")
 	public ModelAndView food(CommandMap commandMap) throws Exception {
-		ModelAndView mv = new ModelAndView("food/food");	
+		ModelAndView mv = new ModelAndView("food");	
 		return mv;
 	}
 	
@@ -38,7 +38,7 @@ public class FoodController {
 	@ResponseBody
 	@RequestMapping(value = "/truck")
 	public ModelAndView truck(CommandMap commandMap) throws Exception {
-		ModelAndView mv = new ModelAndView("food/truck");	
+		ModelAndView mv = new ModelAndView("truck");	
 		return mv;
 	}
 	
