@@ -67,6 +67,7 @@
 						title="" /></a>
 				</div>
 				<nav id="nav-menu-container">
+					<ul class="nav-menu">
 						<c:choose>
 						
 							<c:when test="${USER_ID == null }">
@@ -80,8 +81,8 @@
 								<li><a href="<c:url value='/notice'/>">공지사항</a></li>
 								<li class="menu-has-children"><a href="">먹거리/푸드트럭</a>
 									<ul>
-										<li><a href="blog-home.html">먹거리</a></li>
-										<li><a href="blog-single.html">푸드트럭</a></li>
+										<li><a href="<c:url value='/food'/>">먹거리</a></li>
+										<li><a href="<c:url value='/truck'/>">푸드트럭</a></li>
 									</ul>
 								</li>
 								<li class="menu-has-children"><a>이벤트</a>
