@@ -38,12 +38,19 @@ public class FoodServiceImpl implements FoodService {
 	@Override
 	public List<Map<String, Object>> truck(Map<String, Object> map){
 		// TODO Auto-generated method stub
-		return foodDao.food(map);
+		return foodDao.truck(map);
 	}
 	
-	//FOOD 상세 페이지
+	//먹거리 상세 페이지
 	@Override
 	public List<Map<String, Object>> foodDetail(Map<String, Object> map) {
+		// TODO Auto-generated method stub
+		return foodDao.foodDetail(map);
+	}
+	
+	//푸드트럭 상세 페이지
+	@Override
+	public List<Map<String, Object>> truckDetail(Map<String, Object> map) {
 		// TODO Auto-generated method stub
 		return foodDao.foodDetail(map);
 	}

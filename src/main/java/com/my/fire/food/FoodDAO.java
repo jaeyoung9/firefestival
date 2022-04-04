@@ -23,9 +23,15 @@ public class FoodDAO extends AbstractDAO {
 	return (List<Map<String, Object>>) selectPagingList("food.truck", map);
 	}
 
-	// FOOD 상세 페이지
+	// 먹거리 상세 페이지
 	@SuppressWarnings("unchecked")
 	public List<Map<String, Object>> foodDetail(Map<String, Object> map) {
+		return (List<Map<String, Object>>) selectList("food.foodDetail", map);
+	}
+	
+	// 푸드트럭 상세 페이지
+	@SuppressWarnings("unchecked")
+	public List<Map<String, Object>> truckDetail(Map<String, Object> map) {
 		return (List<Map<String, Object>>) selectList("food.foodDetail", map);
 	}
 

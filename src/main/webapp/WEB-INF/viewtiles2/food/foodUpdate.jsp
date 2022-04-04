@@ -38,7 +38,7 @@
 												<div class="form-group">
 													<label class="form-label mt-4">내용</label>
 													<textarea rows="25" cols="100" name="FOOD_CONTENT" class="form-control" id="FOOD_CONTENT"
-														maxlength="1333" placeholder="최대 1333자 입력 가능">${fdetail.FOOD_CONTENT}</textarea>
+														maxlength="1500" placeholder="최대 1,500자까지 입력 가능">${fdetail.FOOD_CONTENT}</textarea>
 												</div>
 											</td>
 										</tr>
@@ -89,7 +89,7 @@
 				} else if (FOOD_THUMB == null ||FOOD_THUMB == '') {
 					alert("파일을 첨부하세요.");
 					return 0;
-				} else if (confirm("수정하시겠습니까??") == true) {
+				} else if (confirm("수정하시겠습니까?") == true) {
 					alert("수정되었습니다.");
 				$.ajax({
 					url : '/fire/food/UUpdate',
@@ -101,7 +101,7 @@
 						console.log(formData + 'jQeury ajax form submit beforeSend');
 					},
 					success : function(data) {
-						location.href="<c:url value='/food'/>";
+						location.href="<c:url value='/main'/>";
 						console.log('jQeury ajax form submit success');
 					},
 					error : function(data) {

@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <c:forEach items="${fdetail}" var="fdetail">
-	<title>FOOD - ${fdetail.FOOD_CONTENT}</title>
+	<title>TRUCK - ${fdetail.FOOD_CONTENT}</title>
 </c:forEach>
 </head>
 <body>
@@ -30,7 +30,7 @@
 							<button id="Delete" name="Delete"
 								class="primary-btn header-btn text-capitalize mt-10">삭 제</button>
 							<button type="button"
-								class="primary-btn header-btn text-capitalize mt-10" onclick="location.href='/fire/food'">목 록</button>
+								class="primary-btn header-btn text-capitalize mt-10" onclick="location.href='/fire/truck'">목 록</button>
 						</c:if>
 					</c:when>
 					<c:otherwise>
