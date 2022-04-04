@@ -635,6 +635,7 @@ public class FileUtils {
         MultipartHttpServletRequest multipartHttpServletRequest = (MultipartHttpServletRequest)request;
         Iterator<String> iterator = multipartHttpServletRequest.getFileNames();
          String food_content = request.getParameter("FOOD_CONTENT");
+         String food_kate = request.getParameter("FOOD_KATE");
          
         MultipartFile FOOD_SIZE = null;
         String FOOD_IMG = null;
@@ -671,6 +672,7 @@ public class FileUtils {
                 listMap.put("FOOD_THUMB", FOOD_THUMB);
                 listMap.put("FOOD_SIZE", FOOD_SIZE.getSize());
                 listMap.put("FOOD_CONTENT", food_content);
+                listMap.put("FOOD_KATE", food_kate);
 
                 list.add(listMap);
             }
@@ -683,7 +685,8 @@ public class FileUtils {
         MultipartHttpServletRequest multipartHttpServletRequest = (MultipartHttpServletRequest)request;
         Iterator<String> iterator = multipartHttpServletRequest.getFileNames();
          String food_content = request.getParameter("FOOD_CONTENT");
-         String food_index = request.getParameter("FOOD_INDEX");     
+         String food_index = request.getParameter("FOOD_INDEX");   
+         String food_kate = request.getParameter("FOOD_KATE");
          
         MultipartFile FOOD_SIZE = null;
         String FOOD_IMG = null;
@@ -721,6 +724,7 @@ public class FileUtils {
                 listMap.put("FOOD_SIZE", FOOD_SIZE.getSize());
                 listMap.put("FOOD_CONTENT", food_content);
                 listMap.put("FOOD_INDEX", food_index);
+                listMap.put("FOOD_KATE", food_kate);
        
                 list.add(listMap);
             }

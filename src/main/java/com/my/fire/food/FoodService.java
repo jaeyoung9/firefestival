@@ -14,8 +14,11 @@ public interface FoodService {
 	// 푸드트럭 페이지
 	List<Map<String, Object>> truck(Map<String, Object> map);
 	
-	// FOOD 상세 페이지
+	// 먹거리 상세 페이지
 	List<Map<String, Object>> foodDetail(Map<String, Object> map);
+	
+	// 푸드트럭 상세 페이지
+	List<Map<String, Object>> truckDetail(Map<String, Object> map);
 	
 	// FOOD 작성
 	void foodWrite(Map<String, Object> map, HttpServletRequest request) throws Exception;

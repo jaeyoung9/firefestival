@@ -260,9 +260,14 @@
                     value="/WEB-INF/viewtiles2/food/truck.jsp" />
             </definition>
             <definition name="foodDetail" extends="base_layout">
-                <!-- <put-attribute name="title" value="FOOD 상세페이지" /> -->
+                <!-- <put-attribute name="title" value="먹거리 상세 페이지" /> -->
                 <put-attribute name="body"
                     value="/WEB-INF/viewtiles2/food/foodDetail.jsp" />
+            </definition>
+            <definition name="truckDetail" extends="base_layout">
+                <!-- <put-attribute name="title" value="푸드트럭 상세 페이지" /> -->
+                <put-attribute name="body"
+                    value="/WEB-INF/viewtiles2/food/truckDetail.jsp" />
             </definition>
             <definition name="foodWrite" extends="base_layout">
                 <!-- <put-attribute name="title" value="FOOD 작성" /> -->

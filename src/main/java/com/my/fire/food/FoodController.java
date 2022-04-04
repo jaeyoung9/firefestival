@@ -25,20 +25,12 @@ public class FoodController {
 		
 	@Resource(name ="foodService")
 	FoodService foodService;
-		
+	
 	// 먹거리 페이지
 	@ResponseBody
 	@RequestMapping(value = "/food")
 	public ModelAndView food(CommandMap commandMap) throws Exception {
 		ModelAndView mv = new ModelAndView("food");	
-		return mv;
-	}
-	
-	// 푸드트럭 페이지
-	@ResponseBody
-	@RequestMapping(value = "/truck")
-	public ModelAndView truck(CommandMap commandMap) throws Exception {
-		ModelAndView mv = new ModelAndView("truck");	
 		return mv;
 	}
 	
@@ -53,6 +45,14 @@ public class FoodController {
 		} else {
 			mv.addObject("TOTAL", 0);
 		}
+		return mv;
+	}
+		
+	// 푸드트럭 페이지
+	@ResponseBody
+	@RequestMapping(value = "/truck")
+	public ModelAndView truck(CommandMap commandMap) throws Exception {
+		ModelAndView mv = new ModelAndView("truck");	
 		return mv;
 	}
 	
@@ -70,7 +70,7 @@ public class FoodController {
 		return mv;
 	}
 			
-	// FOOD 작성페이지
+	// FOOD 작성 페이지
 	@ResponseBody
 	@RequestMapping(value = "/food/Write")
 	public ModelAndView foodWrite(CommandMap commandMap, HttpServletResponse response, HttpServletRequest request) throws Exception {
@@ -91,7 +91,6 @@ public class FoodController {
 	@RequestMapping(value = "/food/WWrite", method = RequestMethod.POST)
 	public ModelAndView foodW(CommandMap commandMap, HttpServletRequest request) throws Exception {
 		ModelAndView mv = new ModelAndView("food");
-		commandMap.put("FOOD_INDEX", request.getParameter("FOOD_INDEX"));
 		 if (log.isDebugEnabled()) {
 			 log.debug(commandMap);
 	     }
@@ -100,7 +99,7 @@ public class FoodController {
 		return mv;
 	}
 			
-	// FOOD 상세페이지
+	// 먹거리 상세 페이지
 	@RequestMapping("/food/Detail")
 	public ModelAndView foodDetail(CommandMap commandMap, HttpServletRequest request) throws Exception {
 		ModelAndView mv = new ModelAndView("foodDetail");
@@ -113,8 +112,22 @@ public class FoodController {
 
 		return mv;
 	}
+	
+	// 푸드트럭 상세 페이지
+	@RequestMapping("/truck/Detail")
+	public ModelAndView truckDetail(CommandMap commandMap, HttpServletRequest request) throws Exception {
+		ModelAndView mv = new ModelAndView("truckDetail");
+		commandMap.put("FOOD_INDEX", request.getParameter("FOOD_INDEX"));
+		String s = request.getParameter("FOOD_INDEX");
+		List<Map<String, Object>> FDetail = foodService.truckDetail(commandMap.getMap());
+		mv.addObject("fdetail", FDetail);
+		mv.addObject("s", s);
+		System.out.println(commandMap.getMap());
+
+		return mv;
+	}
 			
-	// FOOD 수정페이지
+	// FOOD 수정 페이지
 	@ResponseBody
 	@RequestMapping(value = "/food/Update" )
 	public ModelAndView foodUpdate(CommandMap commandMap, HttpServletResponse response, HttpServletRequest request) throws Exception {
