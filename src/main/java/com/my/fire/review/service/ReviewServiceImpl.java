@@ -15,6 +15,7 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 import com.my.fire.common.util.FileUtils;
 import com.my.fire.review.dao.ReviewDAO;
 
+//리뷰 ServiceImpl_김형태
 @Service("reviewService")
 public class ReviewServiceImpl implements ReviewService {
 

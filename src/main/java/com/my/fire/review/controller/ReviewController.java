@@ -20,10 +20,9 @@ import com.my.fire.common.CommandMap;
 import com.my.fire.mypage.service.MyPageService;
 import com.my.fire.review.service.ReviewService;
 
+//리뷰 Controller_김형태
 @Controller
 public class ReviewController {
-
-	Logger log = Logger.getLogger(this.getClass());
 	
 	@Resource(name="reviewService")
 	ReviewService reviewService;
@@ -82,9 +81,6 @@ public class ReviewController {
 	@RequestMapping(value = "/reviewWrite/Page", method = RequestMethod.POST)
 	public ModelAndView reviewUserWriteGo(CommandMap commandMap, HttpServletRequest request) throws Exception {
 		ModelAndView mv = new ModelAndView("jsonView");
-			if (log.isDebugEnabled()) {
-				log.debug(commandMap);
-			}
 		reviewService.reviewUserWrite(commandMap.getMap(), request);
 		return mv;
 	}

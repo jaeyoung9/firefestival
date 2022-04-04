@@ -29,7 +29,7 @@
             <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
     
-    <!-- DispatcherServlet을 정의 (interceptor를 같은 위치에 등록 [flower-servlet.xml]) -->
+    <!-- DispatcherServlet을 정의 (interceptor를 같은 위치에 등록 [fire-servlet.xml]) -->
     <servlet>
             <servlet-name>fire</servlet-name>
             <servlet-class>

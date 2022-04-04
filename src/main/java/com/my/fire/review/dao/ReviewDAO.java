@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import com.my.fire.common.dao.AbstractDAO;
 
+//리뷰 DAO_김형태
 @Repository("reviewDAO")
 public class ReviewDAO extends AbstractDAO{
 
