@@ -35,7 +35,6 @@
  	<update id="memberup" parameterType="hashmap">
 		<![CDATA[
 		UPDATE TB_MEMBER
-
 		<trim prefix="SET" suffixOverrides=",">
 			<if test="USER_BLIND == 'N'">
 				USER_BLIND = 'Y',
