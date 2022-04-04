@@ -7,10 +7,7 @@
 <meta charset="UTF-8">
 <title>마이페이지</title>
 <script type="text/javascript">
-/* 이벤트 번호 or 이벤트 제목을 눌렀을 때 eventDetail.jsp로 가려면
-	mypage_SQL.xml에서  TB_EVENT 테이블에
-	EVENT_INDEX를 가져오는 SELECT문이 필요함 */
-	
+/*	
 	$(document).ready(function() {
 	
 	$("a[name='title']").on("click", function(e) {
@@ -19,7 +16,7 @@
 	});
 });
 
-/* function fn_EventApply(obj) {
+ function fn_EventApply(obj) {
 	var comSubmit = new ComSubmit();
 	comSubmit.setUrl("<c:url value='/event/Detail?EVENT_INDEX=${EVENT_INDEX}'/>");
 	comSubmit.addParam("EVENT_INDEX", obj.parent().find("#EVENT_INDEX").val());
@@ -34,9 +31,12 @@
 <div class="mypagemain">
 		<div class="mypagetop"><h1><strong>마이페이지</strong></h1><br>
 		<a href="/fire/mypage/checkPwForm"><h3>회원정보수정</h3></a><br>
-		<a><h3>신청한 이벤트↘</h3></a>
-
-	</div>
+		<a><h3 class="card-title text-left">이벤트 신청 내역</h3></a>
+		<div class="row" align="left">
+			<div class="col-sm-15 col-md-10 col-lg-20" align="left" style="padding:10px; margin:5px;">
+				<div class="card card-signin my-10" align="left">
+					<div class="card-body" align="left" style="padding:5px; margin:5px;">
+						<div align="left">
 	<input type="hidden" id="USER_ID" value="${USER_ID}"><%-- 아이디 히든으로 숨김 --%>
 	<div>
 	<c:forEach items="${applyList}" var="applyList">
@@ -44,19 +44,22 @@
 		<input type="hidden" name="EVENT_TITLE" id="EVENT_TITLE" value="${applyList.EVENT_TITLE}" />
     	<div>
     		<div>
-    			<td>
-         			<h4>신청한 이벤트 번호 : <a href="#this" name="title">${applyList.EVENT_INDEX}</a></h4>
-         			<input type="hidden" name="title" id="EVENT_INDEX" value="${applyList.EVENT_INDEX}" />
-         		</td>
          		<td>
          			<h4>신청한 이벤트 제목 : <a href="event/Detail?EVENT_INDEX=${applyList.EVENT_INDEX}">${applyList.EVENT_TITLE}</a></h4>
          			<input type="hidden" name="title" id="EVENT_INDEX" value="${applyList.EVENT_INDEX}" />
          		</td>
          		<h4>신청한 이벤트 당첨 여부 : <a>${applyList.EVENT_WIN}</h4><br>
          		<input type="hidden" name="title" id="EVENT_INDEX" value="${applyList.EVENT_INDEX}" />
+         		</div>         		
+        	</div>
+        	</c:forEach>
+        	</div>
+        	</div>
+        	</div>
+        	</div>
+        	</div>
         	</div>
     	</div>
-    </c:forEach>
 	</div>
 	<br>
 	
