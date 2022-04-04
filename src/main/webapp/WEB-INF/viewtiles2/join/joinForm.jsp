@@ -181,14 +181,10 @@ function joinform_check() {
 $(document).ready(function() {
 
 	$('.submit').on('click', function() {
-
 		var form = $('#joinForm');
-
 		var formData = new FormData(form[0]);
-
 		formData.append("file", $('input[name=file]')[0].files[0]);
-
-		$.ajax({
+	$.ajax({
 			url : '/fire/joinOk',
 			type : 'POST',
 			data : formData,

@@ -23,7 +23,7 @@ public class JoinController {
 	private JoinService joinService;
 	
 	//회원가입
-	@ResponseBody //json 방식이란 object방식으로 값이 넘어가게하는거
+	@ResponseBody //json 방식이랑 object방식으로 값이 넘어가게하는거
 	@RequestMapping(value = "/joinForm")
 	public ModelAndView joinForm(CommandMap commandMap) throws Exception {
 		ModelAndView mv = new ModelAndView("joinForm");
@@ -52,9 +52,6 @@ public class JoinController {
 	@ResponseBody
 	public ModelAndView joinOk(CommandMap commandMap, MultipartHttpServletRequest multirequest) throws Exception {
 		ModelAndView mv = new ModelAndView("loginForm");
-		if (log.isDebugEnabled()) {
-            log.debug(commandMap);
-        }
 		joinService.joinOk(commandMap.getMap(), multirequest);
 		return mv;
 	}

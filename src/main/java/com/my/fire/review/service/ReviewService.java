@@ -5,6 +5,7 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
+//리뷰 Service_김형태
 public interface ReviewService {
 
 	//리뷰 페이지
