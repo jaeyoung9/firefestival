@@ -130,7 +130,19 @@ public class aminController {
 			return mva;
 		} else if(AMIN_TIM.equals("Y")){
 			session.setAttribute("AMIN_TIM", AMIN_TIM);
-			ModelAndView mv = new ModelAndView("jsonView");
+			ModelAndView mv = new ModelAndView("member");
+			
+			
+			 if (commandMap.get("USER_BLIND") != null && commandMap.get("USER_EVENTAPPLY") == null && commandMap.get("AMIN_TIM") == null && commandMap.get("DEL_GB") == null) {
+					commandMap.put("USER_BLIND", ((String)commandMap.get("USER_BLIND")).charAt(0));
+				} else if (commandMap.get("USER_BLIND") == null && commandMap.get("USER_EVENTAPPLY") != null && commandMap.get("AMIN_TIM") == null && commandMap.get("DEL_GB") == null) {
+					commandMap.put("USER_EVENTAPPLY", ((String)commandMap.get("USER_EVENTAPPLY")).charAt(0));
+				} else if (commandMap.get("USER_BLIND") == null && commandMap.get("USER_EVENTAPPLY") == null && commandMap.get("AMIN_TIM") != null && commandMap.get("DEL_GB") == null) {
+					commandMap.put("AMIN_TIM", ((String)commandMap.get("AMIN_TIM")).charAt(0));
+				} else if (commandMap.get("USER_BLIND") == null && commandMap.get("USER_EVENTAPPLY") == null && commandMap.get("AMIN_TIM") == null && commandMap.get("DEL_GB") != null) {
+					commandMap.put("DEL_GB", ((String)commandMap.get("DEL_GB")).charAt(0));
+				}
+				
 			aminService.memberup(commandMap.getMap());
 			return mv;
 		}else {

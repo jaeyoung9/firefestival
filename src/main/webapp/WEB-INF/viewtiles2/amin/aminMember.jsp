@@ -134,8 +134,12 @@
                         + "</span>"
                         + "<span>"
                         + "</span>"
-                       + "</div>" 
-                       + "<input type='hidden' name='title' id='USER_NUM' value=" + value.USER_NUM + ">"
+                        + "</div>" 
+                        + "<input type='hidden' name='title' id='USER_NUM' value=" + value.USER_NUM + ">"
+                        + "<input type='hidden' name='title' id='DEL_GB' value=" + value.DEL_GB + ">"
+                        + "<input type='hidden' name='title' id='AMIN_TIM' value=" + value.AMIN_TIM + ">"
+                        + "<input type='hidden' name='title' id='USER_EVENTAPPLY' value=" + value.USER_EVENTAPPLY + ">"
+                        + "<input type='hidden' name='title' id='USER_BLIND' value=" + value.USER_BLIND + ">"
                         + "</tr>"
                         + "<hr>";
 				});
@@ -172,7 +176,7 @@
 	 	function USER_BLIND(obj) {
 			var comSubmit = new ComSubmit();
 			comSubmit.setUrl("<c:url value='/member/up'/>");
-			//comSubmit.addParam("USER_BLIND", obj.parent().find("#USER_BLIND").val());
+			comSubmit.addParam("USER_BLIND", obj.parent().find("#USER_BLIND").val());
 			comSubmit.addParam("USER_NUM", obj.parent().find("#USER_NUM").val());
 			comSubmit.submit(); 
 		} 
@@ -242,52 +246,58 @@
 									str +=
 										 "<tr style='text-align:center;'>"
 										+ "<a href='#this' name='title'>"
-										+ "<td>"
-					                    + "<a href='#this' name='title'>" + value.USER_NUM + "</a>"
-					                   /*  + "<input type='hidden' name='title' id='USER_NUM' value=" + value.USER_NUM + ">" */
-					                    + "</td>"
-					                    + "<td>"
-					                    + "<a href='#this' name='title'>" + value.USER_ID + "</a>"
-					                   /*  + "<input type='hidden' name='title' id='USER_NUM' value=" + value.USER_NUM + ">" */
-					                    + "</td>"
-					                    + "<td>"
-					                    + "<a href='#this' name='title'>" + value.USER_PW + "</a>"
-					                   /*  + "<input type='hidden' name='title' id='USER_NUM' value=" + value.USER_NUM + ">" */
-					                    + "</td>"
-					                    + "<td>"
-					                    + "<a href='#this' name='title'>" + value.USER_NIC + "</a>"
-					                   /*   + "<input type='hidden' name='title' id='USER_NUM' value=" + value.USER_NUM + ">"*/
-					                    + "</td>"
-					                    + "<td>"
-					                    + "<a href='#this' name='USER_BLIND'>" + value.USER_BLIND + "</a>"
-					                    + "<input type='hidden' name='title' id='USER_NUM' value=" + value.USER_NUM + ">"
-					                    + "</td>"
-					                    + "<td>"
-					                    + "<a href='#this' name='USER_EVENTAPPLY'>" + value.USER_EVENTAPPLY + "</a>"
-					                    + "<input type='hidden' name='title' id='USER_NUM' value=" + value.USER_NUM + ">"
-					                    + "</td>"
-					                    + "<td>"
-					                    + "<a href='#this' name='AMIN_TIM'>" + value.AMIN_TIM + "</a>"
-					                    + "<input type='hidden' name='title' id='USER_NUM' value=" + value.USER_NUM + ">"
-					                    + "</td>"
-					                    + "<td>"
-					                    + "<a href='#this' name='DEL_GB'>" + value.DEL_GB + "</a>"
-					                    + "<input type='hidden' name='title' id='USER_NUM' value=" + value.USER_NUM + ">"
-					                    + "</td>"
-                                        + "</a>"
-                                        + "<div class='dots'>"
-                                        + "<span>"
-                                        + "</span>"
-                                        + "<span>"
-                                        + "</span>"
-                                        + "<span>"
-                                        + "</span>"
-                                       + "</div>" 
-                                       + "<input type='hidden' name='title' id='USER_NUM' value=" + value.USER_NUM + ">"
-                                        + "</tr>"
-                                    
-                                        + "<hr>";
-
+				                        + "<td>"
+				                        + "<a href='#this' name='title'>" + value.USER_NUM + "</a>"
+				                        /* + "<input type='hidden' name='title' id='USER_NUM' value=" + value.USER_NUM + ">" */
+				                        + "</td>"
+				                        + "<td>"
+				                        + "<a href='#this' name='title'>" + value.USER_ID + "</a>"
+				                       /*  + "<input type='hidden' name='title' id='USER_NUM' value=" + value.USER_NUM + ">" */
+				                        + "</td>"
+				                        + "<td>"
+				                        + "<a href='#this' name='title'>" + value.USER_PW + "</a>"
+				                        /* + "<input type='hidden' name='title' id='USER_NUM' value=" + value.USER_NUM + ">" */
+				                        + "</td>"
+				                        + "<td>"
+				                        + "<a href='#this' name='title'>" + value.USER_NIC + "</a>"
+				                       /*  + "<input type='hidden' name='title' id='USER_NUM' value=" + value.USER_NUM + ">" */
+				                        + "</td>"
+				                        + "<td>"
+				                        + "<a href='#this' name='USER_BLIND'>" + value.USER_BLIND + "</a>"
+				                        + "<input type='hidden' name='title' id='USER_NUM' value=" + value.USER_NUM + ">"
+				                        + "<input type='hidden' name='title' id='USER_BLIND' value=" + value.USER_BLIND + ">"
+				                        + "</td>"
+				                        + "<td>"
+				                        + "<a href='#this' name='USER_EVENTAPPLY'>" + value.USER_EVENTAPPLY + "</a>"
+				                        + "<input type='hidden' name='title' id='USER_NUM' value=" + value.USER_NUM + ">"
+				                        + "<input type='hidden' name='title' id='USER_EVENTAPPLY' value=" + value.USER_EVENTAPPLY + ">"
+				                        + "</td>"
+				                        + "<td>"
+				                        + "<a href='#this' name='AMIN_TIM'>" + value.AMIN_TIM + "</a>"
+				                        + "<input type='hidden' name='title' id='USER_NUM' value=" + value.USER_NUM + ">"
+				                        + "<input type='hidden' name='title' id='AMIN_TIM' value=" + value.AMIN_TIM + ">"
+				                        + "</td>"
+				                        + "<td>"
+				                        + "<a href='#this' name='DEL_GB'>" + value.DEL_GB + "</a>"
+				                        + "<input type='hidden' name='title' id='USER_NUM' value=" + value.USER_NUM + ">"
+				                        + "<input type='hidden' name='title' id='DEL_GB' value=" + value.DEL_GB + ">"
+				                        + "</td>"
+				                        + "</a>"
+				                        + "<div class='dots'>"
+				                        + "<span>"
+				                        + "</span>"
+				                        + "<span>"
+				                        + "</span>"
+				                        + "<span>"
+				                        + "</span>"
+				                        + "</div>" 
+				                        + "<input type='hidden' name='title' id='USER_NUM' value=" + value.USER_NUM + ">"
+				                        + "<input type='hidden' name='title' id='DEL_GB' value=" + value.DEL_GB + ">"
+				                        + "<input type='hidden' name='title' id='AMIN_TIM' value=" + value.AMIN_TIM + ">"
+				                        + "<input type='hidden' name='title' id='USER_EVENTAPPLY' value=" + value.USER_EVENTAPPLY + ">"
+				                        + "<input type='hidden' name='title' id='USER_BLIND' value=" + value.USER_BLIND + ">"
+				                        + "</tr>"
+				                        + "<hr>";
 								});
 				body.append(str);
 				

@@ -33,21 +33,49 @@
 
 
  	<update id="memberup" parameterType="hashmap">
-		<![CDATA[
-		UPDATE TB_MEMBER
-		<trim prefix="SET" suffixOverrides=",">
-			<if test="USER_BLIND == 'N'">
+		UPDATE TB_MEMBER  
+			<trim prefix="SET" suffixOverrides=",">
+			
+			<choose>
+				<when test="USER_BLIND == 'N'">
+				USER_BLIND = 'Y'
+				</when>
+				<when test="USER_BLIND == 'Y'">
+				USER_BLIND = 'N'
+				</when>
+				<when test="USER_EVENTAPPLY == 'N'">
+				USER_EVENTAPPLY = 'Y'
+				</when>
+				<when test="USER_EVENTAPPLY == 'Y'">
+				USER_EVENTAPPLY = 'N'
+				</when>
+				<when test="AMIN_TIM == 'N'">
+				AMIN_TIM = 'Y'
+				</when>
+				<when test="AMIN_TIM == 'Y'">
+				AMIN_TIM = 'N'
+				</when>
+				<when test="DEL_GB == 'N'">
+				DEL_GB = 'Y'
+				</when>
+				<when test="DEL_GB == 'Y'">
+				DEL_GB = 'N'
+				</when>
+			</choose>
+			</trim>
+		WHERE
+        	USER_NUM = #{USER_NUM}
+	</update>
+<!-- 1번 쿼리 if 
+<trim prefix="SET" suffixOverrides=",">
+			<if test="USER_BLIND == ${USER_BLIND}">
 				USER_BLIND = 'Y',
 			</if>
-			<if test="USER_BLIND == 'Y'">
+			<if test="USER_BLIND == ${USER_BLIND}">
 				USER_BLIND = 'N',
 			</if>
 		</trim>	
-		WHERE
-        	USER_NUM = #{USER_NUM}
-		]]>
-	</update>
-<!-- 1번 쿼리 if 
+
 <set>
 
 			<if test="USER_BLIND == 'N' || 'Y'">
