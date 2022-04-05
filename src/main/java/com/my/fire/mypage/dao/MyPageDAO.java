@@ -46,8 +46,8 @@ public class MyPageDAO extends AbstractDAO {
 
 	// 이벤트 신청 내역
 	@SuppressWarnings("unchecked")
-	public List<Map<String, Object>> applyList(Map<String, Object> map){
-			return (List<Map<String, Object>>) selectList("event.applyList",map);
+	public List<Map<String, Object>> userApplyList(Map<String, Object> map){
+			return (List<Map<String, Object>>) selectList("event.userApplyList",map);
 	}
 
 }

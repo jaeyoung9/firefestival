@@ -80,16 +80,40 @@ public class EventController {
 			return mv;
 		}
 		
+		
 		// 이벤트 신청 내역
-		@RequestMapping(value = "/event/applyList")
+		@RequestMapping(value = "/event/applyList")		  
 		@ResponseBody
 		public ModelAndView applyList(CommandMap commandMap, HttpServletRequest request) throws Exception {
 			ModelAndView mv = new ModelAndView("eventApplyList");
 			List<Map<String, Object>> applyList = eventService.applyList(commandMap.getMap());
-			System.out.println(applyList);
-			mv.addObject("applyList", applyList);
+			mv.addObject("applyList", applyList); 
+			return mv;
+		}		 
+		
+		 /*
+		// 이벤트 신청 내역 페이징
+		@ResponseBody
+		@RequestMapping(value = "/event/applyList")
+		public ModelAndView applyList(CommandMap commandMap) throws Exception {
+			ModelAndView mv = new ModelAndView("eventApplyList");	
 			return mv;
 		}
+		
+		// 이벤트 신청 내역 페이징 처리
+		@RequestMapping(value ="/event/applyList/Page")
+		public ModelAndView applyPage(CommandMap commandMap) throws Exception{
+			ModelAndView mv = new ModelAndView("jsonView");
+			List<Map<String, Object>> list = eventService.applyList(commandMap.getMap());
+			mv.addObject("list", list);
+			if(list.size() > 0) {
+				mv.addObject("TOTAL", list.get(0).get("TOTAL_COUNT"));
+			} else {
+				mv.addObject("TOTAL", 0);
+			}
+			return mv;
+		}
+		*/
 
 		// 이벤트 당첨 여부 수정
 		@RequestMapping(value = "/event/win", method = RequestMethod.POST)

@@ -37,8 +37,8 @@ public class MyPageController {
 //		List<Map<String, Object>> list1 = mypageService.myevent(commandMap.getMap());
 		
 		// 이벤트 신청 내역
-		List<Map<String, Object>> applyList = mypageService.applyList(commandMap.getMap());
-		mv.addObject("applyList",  applyList);
+		List<Map<String, Object>> userApplyList = mypageService.userApplyList(commandMap.getMap());
+		mv.addObject("userApplyList",  userApplyList);
 			
 		mv.addObject("list", list);
 //		mv.addObject("list1", list1);

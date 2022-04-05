@@ -82,12 +82,26 @@
 				FROM(SELECT
 					A.EVENT_APPLY_NUM,
 					A.EVENT_INDEX,
-					M.USER_ID,
+					A.USER_ID,
 					E.EVENT_TITLE,
 					A.EVENT_WIN
 					FROM TB_EVENT_APPLY A, TB_MEMBER M, TB_EVENT E
 					WHERE M.USER_ID = A.USER_ID AND E.EVENT_TITLE = A.EVENT_TITLE
 				)s) WHERE RNUM >= '0' AND RNUM <= '10'
+		]]>
+	</select>
+	
+	<!-- (USER) 이벤트 신청 내역 -->
+	<select id="userApplyList" parameterType="hashmap" resultType="hashmap">
+		<![CDATA[
+			SELECT
+				A.EVENT_APPLY_NUM,
+				A.EVENT_INDEX,
+				A.USER_ID,
+				A.EVENT_TITLE,
+				A.EVENT_WIN
+			FROM TB_EVENT_APPLY A, TB_EVENT E
+			WHERE USER_ID = #{USER_ID} AND E.EVENT_INDEX = A.EVENT_INDEX
 		]]>
 	</select>
 
