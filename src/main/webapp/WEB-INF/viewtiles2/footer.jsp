@@ -57,16 +57,16 @@ footer{
 				</div>
 				<div class="col-lg-3  col-md-12">
 					<div class="single-footer-widget mail-chimp">
-						<h6 class="mb-20">여긴 무슨자리</h6>
+						<h6 class="mb-20">팀 면상들</h6>
 						<ul class="instafeed d-flex flex-wrap">
-							<li><img src="<%=request.getContextPath() %>/images/i1.jpg" alt=""></li>
-							<li><img src="<%=request.getContextPath() %>/images/i2.jpg" alt=""></li>
-							<li><img src="<%=request.getContextPath() %>/images/i3.jpg" alt=""></li>
-							<li><img src="<%=request.getContextPath() %>/images/i4.jpg" alt=""></li>
-							<li><img src="<%=request.getContextPath() %>/images/i5.jpg" alt=""></li>
-							<li><img src="<%=request.getContextPath() %>/images/i6.jpg" alt=""></li>
-							<li><img src="<%=request.getContextPath() %>/images/i7.jpg" alt=""></li>
-							<li><img src="<%=request.getContextPath() %>/images/i8.jpg" alt=""></li>
+							<li><img src="<%=request.getContextPath() %>/images/jj.jpg" alt=""></li>
+							<li><img src="<%=request.getContextPath() %>/images/kht.jpg" alt=""></li>
+							<li><img src="<%=request.getContextPath() %>/images/cs.jpg" alt=""></li>
+							<li><img src="<%=request.getContextPath() %>/images/gn.jpg" alt=""></li>
+							<li><img src="<%=request.getContextPath() %>/images/ss.jpg" alt=""></li>
+							<li><img src="<%=request.getContextPath() %>/images/sb.jpg" alt=""></li>
+							<li><img src="<%=request.getContextPath() %>/images/acs.jpg" alt=""></li>
+							<li><img src="<%=request.getContextPath() %>/images/yj.jpg" alt=""></li>
 						</ul>
 					</div>
 				</div>
