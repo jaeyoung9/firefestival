@@ -70,9 +70,9 @@ public class MyPageServiceImpl implements MyPageService{
 
 	// 이벤트 신청 내역
 	@Override
-	public List<Map<String, Object>> applyList(Map<String, Object> map) {
+	public List<Map<String, Object>> userApplyList(Map<String, Object> map) {
 		// TODO Auto-generated method stub
-		return mypageDAO.applyList(map);
+		return mypageDAO.userApplyList(map);
 	}
 		
 }

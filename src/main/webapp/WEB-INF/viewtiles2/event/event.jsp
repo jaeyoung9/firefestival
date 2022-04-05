@@ -65,13 +65,13 @@ td {
 		function fn_event(pageNo) {
 			var comAjax = new ComAjax();
 			comAjax.setUrl("<c:url value='/event/Page'/>");
-			comAjax.setCallback("fn_eventCallbask");
+			comAjax.setCallback("fn_eventCallback");
 			comAjax.addParam("PAGE_INDEX", pageNo);
 			comAjax.addParam("PAGE_ROW", 6);
 			comAjax.ajax();
 		}
 
-		function fn_eventCallbask(data) {
+		function fn_eventCallback(data) {
 			
 			var total = data.TOTAL;
 			var body = $("table>tbody");
@@ -94,7 +94,6 @@ td {
 
 				$.each(data.list, function(key, value) {
 									str += "<tr style='text-align:center;'>"
-											+ "<a href='#this' name='title'>"
 											+ "<td>"
 											+ "<a href='#this' name='title'>" + value.EVENT_INDEX + "</a>"
 											+ "<input type='hidden' name='title' id='EVENT_INDEX' value=" + value.EVENT_INDEX + ">"
