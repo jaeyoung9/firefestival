@@ -52,18 +52,18 @@ function eventApply() {
 								class="primary-btn header-btn text-capitalize mt-10">수정</button>
 							<button id="Delete" name="Delete"
 								class="primary-btn header-btn text-capitalize mt-10">삭제</button>
-							<button type="button" onclick="location.href='/fire/event' "
+							<button type="button" onclick="history.go(-1)"
 								class="primary-btn header-btn text-capitalize mt-10">목록보기</button>
 					</c:when>
 					<c:when test="${USER_ID == null or edetail.EVENT_KATE eq 'Y'}">
-						<button type="button" onclick="location.href='/fire/event' "
+						<button type="button" onclick="history.go(-1)"
 								class="primary-btn header-btn text-capitalize mt-10">목록보기</button>
 					</c:when>
 					<c:otherwise>
 						<c:if test="${USER_ID != null and edetail.EVENT_KATE eq 'N'}">
 						<button type="button" class="primary-btn header-btn text-capitalize mt-10" id="apply"
 							onclick="eventApply()">신청하기</button>
-						<button type="button" onclick="location.href='/fire/event' "
+						<button type="button" onclick="history.go(-1)"
 							class="primary-btn header-btn text-capitalize mt-10">목록보기</button>
 						</c:if>
 					</c:otherwise>
