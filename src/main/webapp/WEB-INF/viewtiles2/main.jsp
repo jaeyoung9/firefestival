@@ -228,7 +228,7 @@
 	</section>
 	######## End Recent Completed Project Area ######## -->
 
-	<!--######## Start testimonial Area ########-->
+	<!-- ######## Start testimonial Area ########
 	<section class="testimonial-area section-gap">
 		<div class="container">
 			<div class="row">
@@ -285,7 +285,7 @@
 			</div>
 		</div>
 	</section>
-	<!--######## End testimonial Area ########-->
+	######## End testimonial Area ########-->
 
 	<!-- 	######## Start Latest Blog Area ########
 	<section class="latest-blog-area section-gap">
