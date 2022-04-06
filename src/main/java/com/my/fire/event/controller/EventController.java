@@ -116,7 +116,7 @@ public class EventController {
 		*/
 
 		// 이벤트 당첨 여부 수정
-		@RequestMapping(value = "/event/win", method = RequestMethod.POST)
+		@RequestMapping(value = "/event/Win", method = RequestMethod.POST)
 		@ResponseBody
 		public ModelAndView win(CommandMap commandMap, HttpServletRequest request) throws Exception {
 			ModelAndView mv = new ModelAndView("eventApplyList");

@@ -25,7 +25,7 @@
 										<h3>이벤트 신청 ID : ${applyList.USER_ID}<br></h3>
 										<h3>신청한 이벤트 번호 : ${applyList.EVENT_INDEX}<br></h3>
 										<h3>신청한 이벤트 제목 : ${applyList.EVENT_TITLE}<br></h3>
-										<form id="win" method="POST" action="<c:url value='/event/win'/>">
+										<form id="win" method="POST" action="<c:url value='/event/Win'/>">
 											<input type="text" maxlength="3" id="EVENT_WIN"
 												name="EVENT_WIN" value="${applyList.EVENT_WIN}"
 												placeholder="당첨됨" />
