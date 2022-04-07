@@ -19,12 +19,12 @@
 </head>
 <body>
 	<!--######## start banner Area ########-->
-		<section class="home-banner-area relative" id="home">
+	<section class="home-banner-area relative" id="home">
 		<div class="container">
 			<div class="row fullscreen d-flex align-items-center">
 				<div class="banner-content col-lg-9 col-md-12">
 					<h1>
-						서울 <br> 불꽃축제 <br> 
+						서울 <br> 불꽃축제 <br>
 					</h1>
 					<a href="#" class="primary-btn header-btn text-capitalize mt-10">보러가기!</a>
 				</div>
@@ -46,39 +46,39 @@
 							주관한다.<br> <br>서울특별시 영등포구 여의도 한강시민공원 일대에서 개최되는 국제적인
 							불꽃축제.
 						</p>
-						<a href="<c:url value='/intro'/>" class="primary-btn header-btn text-capitalize mt-10">자세히 보기</a>
+						<a href="<c:url value='/intro'/>"
+							class="primary-btn header-btn text-capitalize mt-10">자세히 보기</a>
 					</div>
 				</div>
 			</div>
 			<div class="row">
-			<div class="col-lg-4 col-md-6">
+				<div class="col-lg-4 col-md-6">
 					<div class="single-news card">
-						<div id="map" class="card-top-img" style="width: 350px; height: 270px;"></div>
+						<div id="map" class="card-top-img"
+							style="width: 350px; height: 270px;"></div>
 						<script>
 							var container = document.getElementById('map');
 							var options = {
-								center : new kakao.maps.LatLng(37.526173331250654,
-										126.93525620814331),
+								center : new kakao.maps.LatLng(
+										37.526173331250654, 126.93525620814331),
 								level : 3
 							};
 
 							var map = new kakao.maps.Map(container, options);
-							
-							
 						</script>
 						<div class="card-body">
 							<h4 class="card-title">
-									<a href="/fire/intro2"> 위치보기 </a>
+								<a href="/fire/intro2"> 위치보기 </a>
 							</h4>
-							<p class="card-text">매년 10월초에 서울특별시 영등포구 여의도 한강시민공원 일대에서
-									개최되는 국제적인 불꽃축제.</p>
+							<p class="card-text">매년 10월초에 서울특별시 영등포구 여의도 한강시민공원 일대에서 개최되는
+								국제적인 불꽃축제.</p>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
-					<!-- <div class="col-lg-4 col-md-6"> 사용안함.
+	<!-- <div class="col-lg-4 col-md-6"> 사용안함.
 					<div class="single-news card">
 						<img class="card-top-img" src="images/news/n2.jpg" alt="Card image cap">
 						<div class="card-body">
@@ -92,7 +92,7 @@
 						</div>
 					</div>
 				</div> -->
-					<!-- <div class="col-lg-4 col-md-6">
+	<!-- <div class="col-lg-4 col-md-6">
 					<div class="single-news card">
 						<img class="card-top-img" src="images/news/n3.jpg" alt="Card image cap">
 						<div class="card-body">
@@ -106,7 +106,7 @@
 						</div>
 					</div>
 				</div> -->
-			
+
 	<!--######## End Latest News Area ########-->
 
 
@@ -228,57 +228,58 @@
 	</section>
 	######## End Recent Completed Project Area ######## -->
 
-	
+
 	<section class="testimonial-area section-gap">
 		<div class="container">
 			<div class="row">
 				<div class="active-testimonial-carusel">
+
+					<div class="single-testimonial item d-flex flex-row">
+						<div class="thumb">
+							<img class="img-fluid" src="images/elements/java.png" alt="">
+						</div>
+						<div class="desc">
+							<p>정주영, 민재영<br>김성법, 조영준<br>김형태, 안찬수<br>한창식, 이　솔<br><span></span><br><span></span><br></p>
+							<h4 mt-30>예비 개발자들</h4>
+							<p class="mb-0">In Seoul Firefestival</p>
+						</div>
+					</div>
+
+
 					<div class="single-testimonial item d-flex flex-row">
 						<div class="thumb">
 							<img class="img-fluid" src="images/elements/skill.png" alt="">
 						</div>
 						<div class="desc">
-							<p>FrameWork/PlatForm: Mybatis, Spring, Tiles<br>
-							   DBMS: Oracle 11g<br>
-							   OS: Window 10<br>
-							   Server: Tomcat 9.0<br>
-							   개발언어: Java, Jsp, HTML5, CSS, Jquery, JavaScript, Ajax<br>
-							   개발 Tool: Eclipse</p>
+							<p>
+								FrameWork/PlatForm: Mybatis, Spring, Tiles<br> DBMS: Oracle
+								11g<br> OS: Window 10<br> Server: Tomcat 9.0<br>
+								개발언어: Java, Jsp, HTML5, CSS, Jquery, JavaScript, Ajax<br>
+								개발 Tool: Eclipse
+							</p>
 							<h4 mt-30>개발환경</h4>
 							<p class="mb-0">In Seoul Firefestival</p>
 						</div>
 					</div>
+
 					<div class="single-testimonial item d-flex flex-row">
 						<div class="thumb">
 							<img class="img-fluid" src="images/elements/plan.jpg" alt="">
 						</div>
 						<div class="desc">
-							<p>유스케이스 다이어그램.​<br>
-							   요구 사항 명세서.<br>​
-							   스토리보드.​<br>
-							   DB설계.<br>
-							   ERDiagram.<br>
-							   프로젝트 흐름도.</p>
+							<p>
+								유스케이스 다이어그램.​<br> 요구 사항 명세서.<br>​ 스토리보드.​<br>
+								DB설계.<br> ERDiagram.<br> 프로젝트 흐름도.
+							</p>
 							<h4 mt-30>Plan</h4>
 							<p class="mb-0">In Seoul Firefestival</p>
 						</div>
-						</div>
-						</div>
 					</div>
-						</section>
-					<!-- ######## Start testimonial Area ########
-					<div class="single-testimonial item d-flex flex-row">
-						<div class="thumb">
-							<img class="img-fluid" src="images/elements/user1.png" alt="">
-						</div>
-						<div class="desc">
-							<p>Accessories Here you can find the best computer accessory
-								for your laptop, monitor, printer, scanner, speaker, projector,
-								hardware.</p>
-							<h4 mt-30>Mark Alviro Wiens</h4>
-							<p class="mb-0">CEO at Google</p>
-						</div>
-					</div>
+
+				</div>
+			</div>
+	</section>
+	<!-- ######## Start testimonial Area ########
 					<div class="single-testimonial item d-flex flex-row">
 						<div class="thumb">
 							<img class="img-fluid" src="images/elements/user2.png" alt="">
