@@ -65,7 +65,7 @@ footer{
 							<li><img src="<%=request.getContextPath() %>/images/gn.jpg" alt=""></li>
 							<li><img src="<%=request.getContextPath() %>/images/ss.jpg" alt=""></li>
 							<li><img src="<%=request.getContextPath() %>/images/sb.jpg" alt=""></li>
-							<li><img src="<%=request.getContextPath() %>/images/acs.jpg" alt=""></li>
+							<li><img src="<%=request.getContextPath() %>/images/acs.png" alt=""></li>
 							<li><img src="<%=request.getContextPath() %>/images/yj.jpg" alt=""></li>
 						</ul>
 					</div>

@@ -18,12 +18,12 @@ import com.my.fire.join.dao.JoinDAO;
 @Service("joinService")
 public class JoinServiceImpl implements JoinService {
 	
-	private static final Logger log = Logger.getLogger(JoinServiceImpl.class);
+	Logger log = Logger.getLogger(this.getClass());
 
 	@Resource(name="joinDAO")
 	private JoinDAO joinDAO;
 	
-	@Resource
+	@Resource(name="fileUtils")
 	private FileUtils fileUtils;
 	
 	//id 중복 체크
