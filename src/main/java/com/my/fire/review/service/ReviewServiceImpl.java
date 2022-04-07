@@ -19,12 +19,12 @@ import com.my.fire.review.dao.ReviewDAO;
 @Service("reviewService")
 public class ReviewServiceImpl implements ReviewService {
 
-	private static final Logger log = Logger.getLogger(ReviewServiceImpl.class);
+	Logger log = Logger.getLogger(this.getClass());
 	
 	@Resource(name="reviewDAO")
 	private ReviewDAO reviewDAO;
 	
-	@Resource
+	@Resource(name="fileUtils")
 	private FileUtils fileUtils;
 
 	//리뷰 페이지

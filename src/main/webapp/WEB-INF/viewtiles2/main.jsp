@@ -235,26 +235,32 @@
 				<div class="active-testimonial-carusel">
 					<div class="single-testimonial item d-flex flex-row">
 						<div class="thumb">
-							<img class="img-fluid" src="images/elements/user1.png" alt="">
+							<img class="img-fluid" src="images/elements/skill.png" alt="">
 						</div>
 						<div class="desc">
-							<p>Accessories Here you can find the best computer accessory
-								for your laptop, monitor, printer, scanner, speaker, projector,
-								hardware.</p>
-							<h4 mt-30>Mark Alviro Wiens</h4>
-							<p class="mb-0">CEO at Google</p>
+							<p>FrameWork/PlatForm: Mybatis, Spring, Tiles<br>
+							   DBMS: Oracle 11g<br>
+							   OS: Window 10<br>
+							   Server: Tomcat 9.0<br>
+							   개발언어: Java, Jsp, HTML5, CSS, Jquery, JavaScript, Ajax<br>
+							   개발 Tool: Eclipse</p>
+							<h4 mt-30>개발환경</h4>
+							<p class="mb-0">In Seoul Firefestival</p>
 						</div>
 					</div>
 					<div class="single-testimonial item d-flex flex-row">
 						<div class="thumb">
-							<img class="img-fluid" src="images/elements/user2.png" alt="">
+							<img class="img-fluid" src="images/elements/plan.jpg" alt="">
 						</div>
 						<div class="desc">
-							<p>Accessories Here you can find the best computer accessory
-								for your laptop, monitor, printer, scanner, speaker, projector,
-								hardware.</p>
-							<h4 mt-30>Lina Harrington</h4>
-							<p class="mb-0">CEO at Google</p>
+							<p>유스케이스 다이어그램.​<br>
+							   요구 사항 명세서.<br>​
+							   스토리보드.​<br>
+							   DB설계.<br>
+							   ERDiagram.<br>
+							   프로젝트 흐름도.</p>
+							<h4 mt-30>Plan</h4>
+							<p class="mb-0">In Seoul Firefestival</p>
 						</div>
 					</div>
 					<div class="single-testimonial item d-flex flex-row">

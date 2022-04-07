@@ -24,6 +24,8 @@ import com.my.fire.review.service.ReviewService;
 @Controller
 public class ReviewController {
 	
+	Logger log = Logger.getLogger(this.getClass());
+	
 	@Resource(name="reviewService")
 	ReviewService reviewService;
 	
