@@ -228,7 +228,7 @@
 	</section>
 	######## End Recent Completed Project Area ######## -->
 
-	<!-- ######## Start testimonial Area ########
+	
 	<section class="testimonial-area section-gap">
 		<div class="container">
 			<div class="row">
@@ -262,7 +262,11 @@
 							<h4 mt-30>Plan</h4>
 							<p class="mb-0">In Seoul Firefestival</p>
 						</div>
+						</div>
+						</div>
 					</div>
+						</section>
+					<!-- ######## Start testimonial Area ########
 					<div class="single-testimonial item d-flex flex-row">
 						<div class="thumb">
 							<img class="img-fluid" src="images/elements/user1.png" alt="">
@@ -290,7 +294,7 @@
 				</div>
 			</div>
 		</div>
-	</section>
+
 	######## End testimonial Area ########-->
 
 	<!-- 	######## Start Latest Blog Area ########
