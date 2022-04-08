@@ -98,17 +98,14 @@ Java class 에 Controller 부분에 javascript로 유효성 검사 구현
  + 이미지 파일 업로드 기능제공
 
 
+기획 & 설계
+-----
+![요구사항 정의서 스샷](https://user-images.githubusercontent.com/94342934/162368763-c955ea63-9c58-4b48-9445-a549297f12b9.png)
+
+
 Erd
 -----
 ![ERD](https://user-images.githubusercontent.com/83907504/161880808-4510201d-2f63-4c47-b751-50177bbb5e8a.jpg)
-
-
-기획 & 설계
------
-
-
-다이어그램
------
 
 
 DB 설계(테이블, 제약조건)
