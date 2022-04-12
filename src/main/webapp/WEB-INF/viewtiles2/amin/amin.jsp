@@ -30,7 +30,7 @@
 			<td><a class="col-1" href="/fire/event/applyList">이벤트 신청 내역</a></td>
 		</tr>
 		<tr>
-			<td><a class="col-1" href="/fire/data/Write">자료실 작성</a></td>
+			<td><a class="col-1" href="/fire/data/Write">갤러리 작성</a></td>
 		</tr>
 	</table>
 </body>
