@@ -15,42 +15,29 @@ import com.my.fire.login.dao.LoginDAO;
 public class LoginServiceImpl implements LoginService {
 
 	Logger log = Logger.getLogger(this.getClass());
-	
-	@Resource(name="loginDAO")
+
+	@Resource(name = "loginDAO")
 	private LoginDAO loginDAO;
 
-	//로그인 체크
+	// 로그인 체크
 	@Override
 	public Map<String, Object> loginMemberCk(Map<String, Object> map) throws Exception {
 		// TODO Auto-generated method stub
 		return loginDAO.loginMemberCk(map);
 	}
 
-	//아이디 찾기
+	// 아이디 찾기
 	@Override
 	public List<Map<String, Object>> findId(Map<String, Object> map) throws Exception {
 		// TODO Auto-generated method stub
 		return loginDAO.findId(map);
 	}
 
-	//비밀번호 찾기
+	// 비밀번호 찾기
 	@Override
 	public List<Map<String, Object>> findPw(Map<String, Object> map) throws Exception {
 		// TODO Auto-generated method stub
 		return loginDAO.findPw(map);
 	}
-//	@Override
-//	public Map<String, Object> selectLoginUser(Map<String, Object> map) throws Exception{
-//		return loginDAO.selectLoginUser(map);
-//	}
-	
-	//비밀번호 변경 
-//	@Override
-//	public String pwCheck(String memberId)throws Exception{
-//		return LoginDAO.pwCheck(memberId);
-//	}
-//	@Override
-//	public void pwUpdate(String memberId, String hashedPw)throws Exception{
-//		LoginDAO.pwUpdate(memberId,hashedPw);
-//	}
+
 }
