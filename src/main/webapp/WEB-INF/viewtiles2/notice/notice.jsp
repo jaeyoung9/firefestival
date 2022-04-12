@@ -110,7 +110,6 @@
                                         + "</td>"
                                         + "<td>"
                                         + "<a href='#this' name='title'>" + value.NOTICE_DATE + "</a>"
-                                        
                                         + "<input type='hidden' name='title' id='NOTICE_INDEX' value=" + value.NOTICE_INDEX + ">"
                                         + "</td>"
                                         + "</a>"
@@ -124,9 +123,7 @@
                                        + "</div>" 
                                        + "<input type='hidden' name='title' id='NOTICE_INDEX' value=" + value.NOTICE_INDEX + ">"
                                         + "</tr>"
-                                    
                                         + "<hr>";
-
 								});
 				body.append(str);
 
