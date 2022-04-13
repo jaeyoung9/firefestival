@@ -27,23 +27,23 @@
 		<form id="joinForm" method="POST" action="<c:url value='/joinOk'/>" enctype="multipart/form-data">
 			<div class ="form-group" style="margin-bottom: -12px">
 				<label class="form-label mt-4">아이디</label>
-				<input type="text" class="form-control" id="user_id" name="USER_ID" onkeyup="fn_joinIdCk()" maxlength="20" placeholder="아이디 입력해"><br><span id="idckok" class="paw"></span><br>
+				<input type="text" class="form-control" id="user_id" name="USER_ID" onkeyup="fn_joinIdCk()" maxlength="20" placeholder="아이디 입력하세요"><br><span id="idckok" class="paw"></span><br>
 				
 			</div>
 			
 			<div class="form-group" style="margin-bottom: -12px">
 				<label class="form-label mt-4">닉네임</label>
-				<input type="text" class="form-control" id="user_nic" name="USER_NIC" onkeyup="fn_joinNicCk()" maxlength="30" placeholder="닉네임 입력해"><br><span id="nicckok" class="paw"></span><br>				
+				<input type="text" class="form-control" id="user_nic" name="USER_NIC" onkeyup="fn_joinNicCk()" maxlength="30" placeholder="닉네임 입력하세요"><br><span id="nicckok" class="paw"></span><br>				
 			</div>
 			
 			<div class="form-group" style="margin-bottom: -12px">
 				<label class="form-label mt-4">비밀번호</label>
-				<input type="password" class="form-control is-valid" id="user_pw" name="USER_PW" maxlength="16" onkeyup="fn_passCk()" placeholder="비밀번호 입력해"><br><br>
+				<input type="password" class="form-control is-valid" id="user_pw" name="USER_PW" maxlength="16" onkeyup="fn_passCk()" placeholder="비밀번호 입력하세요"><br><br>
 			</div>
 			
 			<div class="form-group" style="margin-bottom: -12px">
 				<label class="form-label mt-4">비밀번호 확인</label>
-				<input type="password" class="form-control is-valid" id="user_pw2" name="USER_PW2" maxlength="16" onkeyup="fn_passCk()" placeholder="비밀번호 확인해"><br><span id="same" class="paw"></span><br>
+				<input type="password" class="form-control is-valid" id="user_pw2" name="USER_PW2" maxlength="16" onkeyup="fn_passCk()" placeholder="비밀번호 확인하세요"><br><span id="same" class="paw"></span><br>
 			</div>
 			
 			<div class="form-group">
