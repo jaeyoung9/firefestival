@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>관리자</title>
+<title>관리자 페이지</title>
 </head>
 <body>
 	<table class="table" style="text-align: center;">

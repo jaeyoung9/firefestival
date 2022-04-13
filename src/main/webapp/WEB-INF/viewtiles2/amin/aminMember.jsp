@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>관리자 - 회원관리</title>
+<title>회원관리</title>
 </head>
 <body>
 	
