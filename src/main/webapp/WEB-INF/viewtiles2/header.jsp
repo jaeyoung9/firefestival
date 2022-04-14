@@ -16,7 +16,7 @@
 				<div class="row">
 					<div class="col-lg-6 col-sm-6 col-4 no-padding">
 						<div class="header-top-left">
-							<a href=""> <i class="fa fa-phone"></i> 문채원-전화번호
+							<a href=""> <i class="fa fa-phone"></i> 축제 안내 - 전화번호
 							</a>
 						</div>
 					</div>

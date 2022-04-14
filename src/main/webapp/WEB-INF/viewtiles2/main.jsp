@@ -1,18 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/viewtiles2/include/include-header.jspf"%>
-
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>메인</title>
-<script>
-	
-</script>
-
-<style>
-</style>
 <!-- 카카오 -->
 <script type="text/javascript"
 	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b4fbc66e697d63a13daa41d2abceea27"></script>
@@ -79,7 +72,6 @@
 		</div>
 	</section>
 	
-
 	<section class="testimonial-area section-gap">
 		<div class="container">
 			<div class="row">
@@ -96,23 +88,23 @@
 						</div>
 					</div>
 
-
 					<div class="single-testimonial item d-flex flex-row">
 						<div class="thumb">
 							<img class="img-fluid" src="images/elements/skill.png" alt="">
 						</div>
 						<div class="desc">
 							<p>
-								FrameWork/PlatForm: Mybatis, Spring, Tiles<br> DBMS: Oracle
-								11g<br> OS: Window 10<br> Server: Tomcat 9.0<br>
-								개발언어: Java, Jsp, HTML5, CSS, Jquery, JavaScript, Ajax<br>
-								개발 Tool: Eclipse
+								FrameWork / PlatForm: MyBatis, Spring, Tiles<br> DBMS : Oracle XE
+								11g<br> OS : Window 10<br> Server : Tomcat 9.0<br>
+								개발 언어 : Java, JSP, HTML5, CSS, jQery, JavaScript, Ajax<br>
+								개발 툴 : Spring Tool Suite 4
 							</p>
-							<h4 mt-30>개발환경</h4>
+							<h4 mt-30>개발 환경</h4>
 							<p class="mb-0">In Seoul Firefestival</p>
 						</div>
 					</div>
 
+					<!-- 아래 3번째 div태그 내용은 메인 화면에 안보이는데 이유는 모르겠음 -->
 					<div class="single-testimonial item d-flex flex-row">
 						<div class="thumb">
 							<img class="img-fluid" src="images/elements/plan.jpg" alt="">
@@ -126,12 +118,10 @@
 							<p class="mb-0">In Seoul Firefestival</p>
 						</div>
 					</div>
-
+					
 				</div>
 			</div>
+		</div>
 	</section>
-	
-
-
 </body>
 </html>
