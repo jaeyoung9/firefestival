@@ -10,7 +10,7 @@ Idea
 
 개발환경
 -----
-+ 프레임 워크 : Spring 5.0.4 Mybatis
++ 프레임 워크 : Spring 5.0 Mybatis
 + 개발 언어 : java 11, javaScript, JSP, CSS
 + DB : Oracle XE 11g
 + WAS : Tomcat 9.0
