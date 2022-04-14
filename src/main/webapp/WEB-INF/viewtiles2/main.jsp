@@ -96,7 +96,7 @@
 							<p>
 								FrameWork / PlatForm: MyBatis, Spring, Tiles<br> DBMS : Oracle XE
 								11g<br> OS : Window 10<br> Server : Tomcat 9.0<br>
-								개발 언어 : Java, JSP, HTML5, CSS, jQery, JavaScript, Ajax<br>
+								개발 언어 : Java, JSP, HTML5, CSS, jQuery, JavaScript, Ajax<br>
 								개발 툴 : Spring Tool Suite 4
 							</p>
 							<h4 mt-30>개발 환경</h4>
