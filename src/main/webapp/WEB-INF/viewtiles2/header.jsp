@@ -94,7 +94,7 @@
 								<li class="menu-has-children"><a>갤러리</a>
 									<ul>
 										<li><a href="<c:url value='/data'/>">사진 갤러리</a></li>
-										<li><a href="<c:url value='/data/video'/>">영상 갤러리</a></li>
+						<%-- 				<li><a href="<c:url value='/data/video'/>">영상 갤러리</a></li> --%>
 									</ul>
 								</li>
 							</c:when>
