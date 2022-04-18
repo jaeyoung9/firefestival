@@ -142,19 +142,15 @@
 						+ "<a href='#this' name='title'>"
                         + "<td>"
                         + "<a href='#this' name='title'>" + value.USER_NUM + "</a>"
-                        /* + "<input type='hidden' name='title' id='USER_NUM' value=" + value.USER_NUM + ">" */
                         + "</td>"
                         + "<td>"
                         + "<a href='#this' name='title'>" + value.USER_ID + "</a>"
-                       /*  + "<input type='hidden' name='title' id='USER_NUM' value=" + value.USER_NUM + ">" */
                         + "</td>"
                         + "<td>"
                         + "<a href='#this' name='title'>" + value.USER_PW + "</a>"
-                        /* + "<input type='hidden' name='title' id='USER_NUM' value=" + value.USER_NUM + ">" */
                         + "</td>"
                         + "<td>"
                         + "<a href='#this' name='title'>" + value.USER_NIC + "</a>"
-                       /*  + "<input type='hidden' name='title' id='USER_NUM' value=" + value.USER_NUM + ">" */
                         + "</td>"
                         + "<td>"
                         + "<a href='#this' name='USER_BLIND'>" + value.USER_BLIND + "</a>"
@@ -315,19 +311,15 @@
 										+ "<a href='#this' name='title'>"
 				                        + "<td>"
 				                        + "<a href='#this' name='title'>" + value.USER_NUM + "</a>"
-				                        /* + "<input type='hidden' name='title' id='USER_NUM' value=" + value.USER_NUM + ">" */
 				                        + "</td>"
 				                        + "<td>"
 				                        + "<a href='#this' name='title'>" + value.USER_ID + "</a>"
-				                       /*  + "<input type='hidden' name='title' id='USER_NUM' value=" + value.USER_NUM + ">" */
 				                        + "</td>"
 				                        + "<td>"
 				                        + "<a href='#this' name='title'>" + value.USER_PW + "</a>"
-				                        /* + "<input type='hidden' name='title' id='USER_NUM' value=" + value.USER_NUM + ">" */
 				                        + "</td>"
 				                        + "<td>"
 				                        + "<a href='#this' name='title'>" + value.USER_NIC + "</a>"
-				                       /*  + "<input type='hidden' name='title' id='USER_NUM' value=" + value.USER_NUM + ">" */
 				                        + "</td>"
 				                        + "<td>"
 				                        + "<a href='#this' name='USER_BLIND'>" + value.USER_BLIND + "</a>"
