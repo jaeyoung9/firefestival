@@ -69,7 +69,7 @@ public class aminController {
 	public ModelAndView memberpage(CommandMap commandMap, HttpServletRequest request) throws Exception {
 		HttpSession session = request.getSession();
 		String AMIN_TIM = (String)session.getValue("AMIN_TIM");
-		//System.out.println(AMIN_TIM);
+	
 		if(AMIN_TIM == null || AMIN_TIM.equals("") || AMIN_TIM.equals("N")) {
 			ModelAndView mva = new ModelAndView("main");
 			return mva;
@@ -79,7 +79,7 @@ public class aminController {
 			ModelAndView mv = new ModelAndView("jsonView");
 			session.setAttribute("AMIN_TIM", AMIN_TIM);
 			List<Map<String, Object>> list = aminService.member(commandMap.getMap());
-			//System.out.println(list);
+		
 			
 			mv.addObject("list", list);
 			if(list.size() > 0) {
